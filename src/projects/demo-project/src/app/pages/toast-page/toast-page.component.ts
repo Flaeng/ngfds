@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FdsToastService } from 'projects/fds-components/src/lib/toast/toast.service';
+import { FdsToastService } from 'projects/dkfds-angular-components/src/lib/toast/toast.service';
 
 @Component({
   selector: 'app-toast-page',

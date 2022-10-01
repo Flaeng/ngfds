@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from 'projects/fds-components/src/lib/modal/public-api';
+import { ModalService } from 'projects/dkfds-angular-components/src/lib/modal/public-api';
 
 @Component({
   selector: 'app-modal-page',

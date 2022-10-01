@@ -1,5 +1,5 @@
 /*
- * Public API Surface of fds-components
+ * Public API Surface of dkfds-angular-components
  */
 
 export * from './card-content/card-content.component';

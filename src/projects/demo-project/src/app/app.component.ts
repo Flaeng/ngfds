@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ISideNavigationItem, SideNavigationItem } from 'projects/fds-components/src/lib/side-navigation/public-api';
+import { SideNavigationItem } from 'projects/dkfds-angular-components/src/lib/side-navigation/public-api';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +19,7 @@ export class AppComponent {
     return item.children.some((x) => x.isActive) ? true : 'page';
   }
 
-  introductionMenu: ISideNavigationItem[] = [
+  introductionMenu: SideNavigationItem[] = [
     new SideNavigationItem({ url: '', title: 'Mission' }),
     new SideNavigationItem({ url: 'versioning', title: 'Versioning' }),
     
@@ -37,7 +37,7 @@ export class AppComponent {
     new SideNavigationItem({ url: 'issues', title: 'Having issues?' }),
   ];
 
-  dkfdsComponents: ISideNavigationItem[] = [
+  dkfdsComponents: SideNavigationItem[] = [
     new AppSideNavigationItem({ url: 'accordions', title: 'Accordions', state: 'work in progress' }),
     new AppSideNavigationItem({ url: 'badges', title: 'Badges', state: 'done' }),
     new AppSideNavigationItem({ url: 'beskeder-alerts', title: 'Beskeder (Alerts)', state: 'done' }),
@@ -95,7 +95,7 @@ export class AppComponent {
     new AppSideNavigationItem({ url: '#', title: 'Vedhæft fil (Upload)' }),
   ];
 
-  dkfdsExtra: ISideNavigationItem[] = [
+  dkfdsExtra: SideNavigationItem[] = [
     new AppSideNavigationItem({ url: '', title: '' }),
   ];
 

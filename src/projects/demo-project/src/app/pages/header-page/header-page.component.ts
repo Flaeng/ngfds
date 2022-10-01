@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationItem } from 'projects/fds-components/src/lib/header/navigation/navigation.component';
+import { NavigationItem } from 'projects/dkfds-angular-components/src/lib/header/navigation/navigation.component';
 
 @Component({
   selector: 'app-header-page',

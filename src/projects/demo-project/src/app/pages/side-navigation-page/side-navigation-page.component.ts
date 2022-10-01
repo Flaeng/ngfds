@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { SideNavigationItem } from 'projects/fds-components/src/lib/side-navigation/public-api';
+import { Component } from '@angular/core';
+import { SideNavigationItem } from 'projects/dkfds-angular-components/src/lib/side-navigation/public-api';
 
 @Component({
   selector: 'app-side-navigation-page',

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { ItemSelectedEvent } from 'projects/fds-components/src/lib/helpers/navigation-item-helper';
-import { IStepIndicatorItem, StepIndicatorItem } from 'projects/fds-components/src/lib/step-indicator/public-api';
+import { StepIndicatorItem } from 'projects/dkfds-angular-components/src/lib/step-indicator/public-api';
 
 @Component({
   selector: 'app-step-indicator-page',
@@ -9,12 +8,12 @@ import { IStepIndicatorItem, StepIndicatorItem } from 'projects/fds-components/s
 })
 export class StepIndicatorPageComponent {
   Math = Math;
-  stepIndicatorItems: IStepIndicatorItem[] = [
-    new StepIndicatorItem({ title: 'Step 1', url: '' }),
-    new StepIndicatorItem({ title: 'Step 2', url: '' }),
-    new StepIndicatorItem({ title: 'Step 3', url: '' }),
-    new StepIndicatorItem({ title: 'Step 4', url: '' }),
-    new StepIndicatorItem({ title: 'Step 5', url: '' }),
+  stepIndicatorItems: StepIndicatorItem[] = [
+    new StepIndicatorItem({ title: 'Step 1' }),
+    new StepIndicatorItem({ title: 'Step 2' }),
+    new StepIndicatorItem({ title: 'Step 3' }),
+    new StepIndicatorItem({ title: 'Step 4' }),
+    new StepIndicatorItem({ title: 'Step 5' }),
   ];  
   alert(message: string): void {
     window.alert(message);
