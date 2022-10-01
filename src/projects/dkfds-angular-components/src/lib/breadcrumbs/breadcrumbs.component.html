@@ -1,0 +1,24 @@
+<nav class="breadcrumbs container" aria-label="Brødkrumme">
+    <ol class="breadcrumbs__list">
+        <li 
+            *ngFor="let item of items; let i = index"
+            class="breadcrumbs__list-item" 
+            [attr.aria-current]="getAriaCurrent(item)"
+        >
+        <ng-container
+            *ngTemplateOutlet="item.isActive 
+                ? (activeItemTemplate || defaultSelectedItemTemplate) 
+                : (itemTemplate || defaultItemTemplate); 
+                context: { item: item, index: i }"
+        ></ng-container>
+        </li>
+    </ol>
+</nav>
+<ng-template #defaultSelectedItemTemplate let-item="item">
+    {{ item.header }}
+</ng-template>
+<ng-template #defaultItemTemplate let-item="item">
+    <a class="breadcrumbs__link" [href]="item.url">
+        {{ item.header }}
+    </a>
+</ng-template>

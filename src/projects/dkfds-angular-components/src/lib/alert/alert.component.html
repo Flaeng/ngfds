@@ -1,0 +1,22 @@
+<div 
+    class="alert alert-{{ type }}"
+    [ngClass]="{'alert--show-icon': showIcon == true, 'has-close': canClose == true}"
+    #alertContainer
+    [attr.role]="hasRoleAlert() ? 'alert' : null"
+    [attr.aria-atomic]="hasRoleAlert() ? true : null"
+>
+    <div class="alert-body">
+        <p class="alert-heading" *ngIf="header">{{ header }}</p>
+        <ng-content></ng-content>
+        <button 
+            *ngIf="canClose == true"
+            (click)="onClose($event)"
+            type="button"
+            class="alert-close"
+        ><svg 
+            class="icon-svg" 
+            aria-hidden="true" 
+            focusable="false"
+        ><use xlink:href="#close"></use></svg>Luk</button>
+    </div>
+</div>

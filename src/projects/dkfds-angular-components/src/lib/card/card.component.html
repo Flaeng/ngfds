@@ -1,0 +1,8 @@
+
+<div class="card">
+    <div class="card-header" *ngIf="header || subheader">
+        <h2 class="header-title">{{ header }}</h2>
+        <p class="sub-header">{{ subheader }}</p>
+    </div>
+    <ng-content></ng-content>
+</div>

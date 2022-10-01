@@ -1,0 +1,63 @@
+<div class="overlay"></div>
+<nav class="nav">
+    <button 
+        class="function-link button-menu-close js-menu-close"
+        title="Luk mobil menu"
+        ><svg 
+            class="icon-svg" 
+            aria-hidden="true"
+            ><use xlink:href="#close"></use>
+        </svg>
+        Luk
+    </button>
+    <!-- 3: Main navigation-->
+    <div class="navbar navbar-primary">
+        <!--3A: Main navigation-->
+        <div class="navbar-inner container">
+            <ul class="nav-primary">
+                <li *ngFor="let item of items" [ngClass]="{'current':item === selectedItem || item.isActive}">
+                    <ng-container 
+                        *ngTemplateOutlet="(item.children == null ? itemTemplate : itemWithChildrenTemplate); context: { item: item }"
+                    ></ng-container>
+
+                    <ng-template #itemTemplate let-item="item">
+                        <a [href]="item.url" (click)="navigateTo($event, item.url)" class="nav-link">
+                            <span>{{ item.title }}</span>
+                        </a>
+                    </ng-template>
+
+                    <ng-template #itemWithChildrenTemplate let-item="item">
+                        <fds-overflow-menu 
+                            [items]="item.children" 
+                            [placeholder]="item.title"
+                            [hide-icon]="true"
+                        ></fds-overflow-menu>
+                    </ng-template>
+                    
+                </li>
+            </ul>
+            <ul class="unstyled-list nav-actions" *ngIf="overflow">
+                <li>
+                    <fds-overflow-menu
+                        [placeholder]="overflowText"
+                        icon="arrow-drop-down"
+                        [items]="overflow"
+                    ></fds-overflow-menu>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 3: Main navigation end-->
+
+    <ng-container
+        *ngTemplateOutlet="portalTemplate"
+    ></ng-container>
+
+    <ng-container
+        *ngTemplateOutlet="solutionTemplate"
+    ></ng-container>
+
+    <!-- 5: Contextual actions-->
+    <ng-content></ng-content>
+    <!-- 5: Contextual actions end-->
+</nav>

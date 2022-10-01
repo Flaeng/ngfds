@@ -1,0 +1,64 @@
+<div
+  class="overflow-menu overflow-menu--open-right"
+  [ngClass]="{
+    'overflow-menu--lg-no-responsive': showExpandView == 'on-mobile'
+  }"
+>
+  <button
+    *ngIf="showExpandView == 'on-mobile' || showExpandView == 'allways'"
+    class="button-overflow-menu js-dropdown"
+    [attr.data-js-target]="'step-indicator-' + id"
+    aria-haspopup="true"
+    aria-expanded="false"
+    #mobileDropdownTrigger
+  >
+    <ng-container
+      *ngTemplateOutlet="
+        expandTemplate || defaultExpandTemplate;
+        context: { current: 1, max: 3 }
+      "
+    ></ng-container>
+  </button>
+  <div class="overflow-menu-inner" id="step-indicator-{{id}}" aria-hidden="true">
+    <nav>
+      <ul class="sidenav-list" role="menu">
+        <li
+          role="none"
+          *ngFor="let item of items; let i = index"
+          [ngClass]="{ 'active current': item == selectedItem }"
+        >
+          <a
+            href="#"
+            (click)="onItemClicked($event, item)"
+            role="menuitem"
+            [attr.aria-current]="getAriaCurrent(item)"
+          >
+            <ng-container
+              *ngTemplateOutlet="
+                itemTemplate || defaultItemTemplate;
+                context: { item: item, step: i + 1, index: i }
+              "
+            ></ng-container>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<ng-template #defaultExpandTemplate let-current="current" let-max="max">
+  Trin {{ current }} af {{ max }}
+  <svg class="icon-svg" aria-hidden="true" focusable="false">
+    <use xlink:href="#arrow-drop-down"></use>
+  </svg>
+</ng-template>
+
+<ng-template #defaultItemTemplate let-item="item" let-step="step">
+  <span class="sidenav-number">{{ step }}.</span
+  ><span class="sidenav-title">{{ item.title }}</span>
+  <span class="sidenav-icon" *ngIf="item.icon">
+    <svg class="icon-svg" aria-hidden="true" focusable="false" tabindex="-1">
+      <use [attr.xlink:href]="'#' + item.icon"></use>
+    </svg>
+  </span>
+</ng-template>

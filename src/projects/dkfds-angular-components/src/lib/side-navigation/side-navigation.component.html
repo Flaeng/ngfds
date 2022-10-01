@@ -1,0 +1,82 @@
+<nav>
+  <ng-container
+    *ngTemplateOutlet="
+      sideNav;
+      context: { cssClass: 'sidenav-list', array: items, level: 1 }
+    "
+  ></ng-container>
+</nav>
+
+<ng-template #sideNav let-cssClass="cssClass" let-array="array" let-level="level" let-parent="parent">
+  <ul [class]="cssClass" role="menu" *ngIf="(!parent || parent.isActive) || alwaysShowChildren">
+    <ng-container *ngFor="let item of array; let i = index">
+      <ng-container
+        *ngTemplateOutlet="sideNavItem; 
+          context: { item: item, index: i, level: level, parent: parent }"
+      ></ng-container>
+    </ng-container>
+  </ul>
+</ng-template>
+
+<ng-template #sideNavItem let-item="item" let-index="index" let-level="level" let-parent="parent">
+  <!-- has-anchor-links -->
+  <li role="none" [ngClass]="{ 'current': item.isActive }">
+    <ng-container 
+      *ngTemplateOutlet="itemTemplate || defaultItemTemplate; 
+      context: { item: item, index: index, level: level, parent: parent }"
+    ></ng-container>
+    <ng-container *ngIf="item.children">
+      <ng-container
+        *ngTemplateOutlet="
+          sideNav;
+          context: { cssClass: 'sidenav-sub_list', array: item.children, parent: item, level: level + 1 }
+        "
+      ></ng-container>
+    </ng-container>
+  </li>
+</ng-template>
+
+<ng-template #defaultItemTemplate let-item="item" let-parent="parent">
+  <a
+    *ngIf="!parent || parent.isActive"
+    [routerLink]="item.url"
+    role="menuitem"
+    [attr.aria-current]="getAriaCurrent(item)"
+  >
+    {{ item.title }}
+    <span class="sidenav-information" *ngIf="item.subtitle">{{ item.subtitle }}</span>
+  </a>
+</ng-template>
+
+
+<!-- 
+<nav>
+  <ul class="sidenav-list" role="menu">
+    <li role="none">
+      <a href="#" role="menuitem"> Hovedside </a>
+    </li>
+    <li class="current" role="none">
+      <a href="#" role="menuitem" aria-current="true"> Hovedside </a>
+      <ul class="sidenav-sub_list" role="menu">
+        <li role="none">
+          <a href="#" role="menuitem"> Underside </a>
+        </li>
+        <li class="active" role="none">
+          <a href="#" role="menuitem" aria-current="page"> Underside </a>
+        </li>
+        <li role="none">
+          <a href="#" role="menuitem"> Underside </a>
+        </li>
+        <li role="none">
+          <a href="#" role="menuitem"> Underside </a>
+        </li>
+        <li role="none">
+          <a href="#" role="menuitem"> Underside </a>
+        </li>
+      </ul>
+    </li>
+    <li role="none">
+      <a href="#" role="menuitem"> Hovedside </a>
+    </li>
+  </ul>
+</nav> -->

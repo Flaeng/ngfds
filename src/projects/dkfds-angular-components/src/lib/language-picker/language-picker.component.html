@@ -1,0 +1,39 @@
+<div class="language-switcher">
+  <div class="container">
+    <ul aria-label="Vælg sprog fra listen ">
+        <ng-container *ngFor="let item of items">
+            <ng-container
+                *ngTemplateOutlet="item.isActive 
+                    ? defaultSelectedItemTemplate 
+                    : defaultItemTemplate;
+                context: { item: item }"
+            ></ng-container>
+        </ng-container>
+    </ul>
+  </div>
+</div>
+<ng-template #defaultSelectedItemTemplate let-item="item">
+  <li>
+    <a 
+        [attr.href]="'?lang=' + item.iso639dash1code"
+        [attr.lang]="item.iso639dash1code"
+    >
+      <svg class="icon-svg" focusable="false" aria-hidden="true">
+        <use xlink:href="#done"></use>
+      </svg>
+      {{ item.nativeLanguageName }}
+    </a>
+  </li>
+</ng-template>
+<ng-template #defaultItemTemplate let-item="item">
+  <li>
+    <a
+      [attr.href]="'?lang=' + item.iso639dash1code"
+      [attr.lang]="item.iso639dash1code"
+      [fds-tooltip]="item.currentLanguageName"
+      (click)="onClick($event, item)"
+    >
+      {{ item.nativeLanguageName }}
+    </a>
+  </li>
+</ng-template>

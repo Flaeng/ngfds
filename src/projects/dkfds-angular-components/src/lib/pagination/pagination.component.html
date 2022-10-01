@@ -1,0 +1,83 @@
+<nav 
+    class="pagination" 
+    aria-label="Pagineringseksempel med 12 sider">
+    <a 
+        *ngIf="isFirstPage == false"
+        href="#"
+        (click)="onClick($event, { number: 1, isCurrent: false })"
+        class="button button-arrow button-first"
+    >
+        <svg class="icon-svg" aria-hidden="true"><use xlink:href="#first-page"></use></svg>
+        <span class="sr-only">Første side</span>
+    </a>
+    <a 
+        *ngIf="isFirstPage == false"
+        href="#"
+        (click)="onClick($event, { number: currentPage - 1, isCurrent: false })"
+        class="button button-arrow button-previous"
+        aria-label="Forrige side"
+    >
+        <svg class="icon-svg" aria-hidden="true"><use xlink:href="#chevron-left"></use></svg>
+        <span class="pagination-nav-link">Forrige</span>
+    </a>
+    <span class="pagination-mobile">Side {{ currentPage }} af {{ pageCount }}</span>
+    <ul class="pagination__items">
+        <ng-container *ngFor="let opt of options">
+            <ng-container *ngTemplateOutlet="
+                opt.number == null ? defaultSpacerTemplate 
+                    : opt.isCurrent == true ? defaultSelectedItemTemplate
+                    : defaultItemTemplate;
+                context: { item: opt }
+                "
+            ></ng-container>
+        </ng-container>
+    </ul>
+    <a 
+        *ngIf="isLastPage == false"
+        href="#"
+        (click)="onClick($event, { number: currentPage + 1, isCurrent: false })"
+        class="button button-arrow button-next"
+        aria-label="Næste side"
+    >
+        <span class="pagination-nav-link">Næste</span>
+        <svg class="icon-svg" aria-hidden="true"><use xlink:href="#chevron-right"></use></svg>
+    </a>
+    <a 
+        *ngIf="isLastPage == false"
+        href="#"
+        (click)="onClick($event, { number: pageCount, isCurrent: false })"
+        class="button button-arrow button-last"
+    >
+        <svg class="icon-svg" aria-hidden="true"><use xlink:href="#last-page"></use></svg>
+        <span class="sr-only">Sidste side</span>
+    </a>
+</nav>
+
+<ng-template #defaultSpacerTemplate>
+    <li class="pagination-item pagination-overflow" role="presentation">
+        <span>...</span>
+    </li>
+</ng-template>
+
+<ng-template #defaultSelectedItemTemplate let-item="item">
+    <li class="pagination-item pagination-number">
+        <a 
+            href="#" 
+            class="button current-page"
+            aria-current="page"
+            [attr.aria-label]="'Side ' + item.number"
+            (click)="onClick($event, item)"
+        >{{ item.number }}</a>
+    </li>
+</ng-template>
+
+<ng-template #defaultItemTemplate let-item="item">
+    <li class="pagination-item pagination-number">
+        <a 
+            href="#" 
+            class="button button-secondary"
+            [attr.aria-label]="'Side ' + item.number"
+            (click)="onClick($event, item)"
+        >{{ item.number }}</a>
+    </li>
+</ng-template>

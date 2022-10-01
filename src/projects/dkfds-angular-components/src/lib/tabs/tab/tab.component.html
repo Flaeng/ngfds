@@ -1,0 +1,6 @@
+<ng-template #template>
+  <button [fds-tab-selector]="id">{{ header }}</button>
+  <section [fds-tab-content]="id">
+    <ng-content></ng-content>
+  </section>
+</ng-template>

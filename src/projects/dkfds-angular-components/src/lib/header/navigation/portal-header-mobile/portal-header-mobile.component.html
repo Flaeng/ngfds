@@ -1,0 +1,12 @@
+<div class="portal-info-mobile">
+    <ng-content></ng-content>
+    <p class="user bold" *ngIf="username">{{ username }}</p>
+    <a 
+        *ngIf="username"
+        href="#"
+        class="button button-secondary button-signout alert-leave"
+        (click)="triggerLogout($event)"
+    >
+        {{ buttonText }}
+    </a>
+</div>

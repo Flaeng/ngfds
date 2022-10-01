@@ -1,0 +1,8 @@
+<div
+  [attr.id]="parentId"
+  class="accordion-content"
+  style="{{ noPadding ? 'padding-top:0;padding-bottom:0' : '' }}"
+  >
+  <!-- [ngClass]="{'accordion-content': noPadding}" -->
+  <ng-content></ng-content>
+</div>

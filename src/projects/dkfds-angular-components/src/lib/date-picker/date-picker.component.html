@@ -1,0 +1,9 @@
+<div class="date-picker" #datePickerWrapper>
+  <input
+    #datePickerInput
+    class="form-input"
+    [value]="stringValue"
+    (change)="onInputChange($event)"
+    type="text"
+  />
+</div>

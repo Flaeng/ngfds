@@ -1,0 +1,6 @@
+<ng-container *ngIf="link else noUrlProvided">
+    <a [routerLink]="link" class="back-link">Tilbage</a>
+</ng-container>
+<ng-template #noUrlProvided>
+  <a href="javascript:history.back()" class="back-link">Tilbage</a>
+</ng-template>

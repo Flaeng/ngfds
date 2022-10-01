@@ -1,0 +1,24 @@
+<ng-template #template>
+  <div class="row row-bordered no-gutters">
+    <ng-container *ngIf="header || content; else noContentOrHeader">
+      <div class="col-12 col-md-4 weight-semibold">
+        {{ header }}
+      </div>
+      <div class="col-12 col-md-{{ canEdit ? '6' : '8' }}">
+        {{ content }}
+      </div>
+      <div class="col-12 col-md-2 align-text-md-right" *ngIf="canEdit">
+        <a href="#" (click)="editClicked($event)">
+          Redigér
+          <span class="sr-only">
+            {{ header }}
+          </span>
+        </a>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #noContentOrHeader>
+  <ng-content></ng-content>
+</ng-template>

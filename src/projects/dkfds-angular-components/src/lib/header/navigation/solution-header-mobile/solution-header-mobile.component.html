@@ -1,0 +1,15 @@
+<div class="solution-info-mobile">
+    <p class="h5 authority-name">{{ authorityName }}</p>
+    <p>
+        <span *ngIf="authorityPhoneNo">Support: {{authorityPhoneNo}}</span>
+        <span *ngIf="authorityPhoneNo && authorityContactUrl"> · </span>
+        <a 
+            *ngIf="authorityContactUrl"
+            [href]="authorityContactUrl"
+            class="icon-link function-link alert-leave"
+        >
+            Kontakt
+            <svg class="icon-svg" aria-hidden="true" focusable="false"><use xlink:href="#open-in-new"></use></svg>
+        </a>
+    </p>
+</div>

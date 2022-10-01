@@ -1,0 +1,38 @@
+<div
+  *ngIf="hideCookieBox == false"
+  class="cookie-container"
+  role="complementary"
+  aria-labelledby="cookie-message-heading"
+  aria-describedby="cookie-message-text"
+>
+  <div class="cookie-message">
+    <div class="cookie-text">
+      <div class="h3 mt-0 mb-3" id="cookie-message-heading">
+        {{ header }}
+      </div>
+      <p class="mt-0" id="cookie-message-text">
+        <ng-content></ng-content>
+      </p>
+    </div>
+    <div class="cookie-actions">
+      <ul class="inline-list">
+        <li>
+          <button
+            (click)="positiveButtonClicked($event)"
+            class="button button-secondary"
+          >
+            {{ positiveText }}
+          </button>
+        </li>
+        <li>
+          <button
+            (click)="negativeButtonClicked($event)"
+            class="ml-md-4 button button-tertiary"
+          >
+            {{ negativeText }}
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

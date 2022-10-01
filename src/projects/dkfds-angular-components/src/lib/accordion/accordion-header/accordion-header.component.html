@@ -1,0 +1,15 @@
+<h2>
+  <button
+    class="accordion-button"
+    aria-expanded="false"
+    [attr.aria-controls]="parentId"
+  >
+    <ng-content></ng-content>
+    <span class="accordion-icon" *ngIf="icon || iconText">
+      <span class="icon_text" *ngIf="iconText">{{ iconText }}</span>
+      <svg class="icon-svg" aria-hidden="true">
+        <use [attr.xlink:href]="'#' + icon"></use>
+      </svg>
+    </span>
+  </button>
+</h2>
