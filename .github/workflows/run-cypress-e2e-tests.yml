@@ -11,14 +11,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  install:
+  run-e2e-tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: npm install
-      
-  e2e-test:
-    runs-on: ubuntu-latest
-    steps:
       - run: npm run cy:chrome
-      
