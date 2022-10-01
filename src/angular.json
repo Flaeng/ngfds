@@ -80,6 +80,128 @@
           }
         }
       }
+    },
+    "demo-project": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/demo-project",
+      "sourceRoot": "projects/demo-project/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/demo-project",
+            "index": "projects/demo-project/src/index.html",
+            "main": "projects/demo-project/src/main.ts",
+            "polyfills": "projects/demo-project/src/polyfills.ts",
+            "tsConfig": "projects/demo-project/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/demo-project/src/favicon.ico",
+              "projects/demo-project/src/assets"
+            ],
+            "styles": [
+              "projects/demo-project/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/demo-project/src/environments/environment.ts",
+                  "with": "projects/demo-project/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "demo-project:build:production"
+            },
+            "development": {
+              "browserTarget": "demo-project:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "demo-project:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/demo-project/src/test.ts",
+            "polyfills": "projects/demo-project/src/polyfills.ts",
+            "tsConfig": "projects/demo-project/tsconfig.spec.json",
+            "karmaConfig": "projects/demo-project/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/demo-project/src/favicon.ico",
+              "projects/demo-project/src/assets"
+            ],
+            "styles": [
+              "projects/demo-project/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   }
 }
