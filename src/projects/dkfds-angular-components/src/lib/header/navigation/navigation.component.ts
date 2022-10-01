@@ -17,16 +17,16 @@ export class NavigationComponent implements AfterViewInit {
   public overflow: INavigationItem[] | null = null;
   
   @Input('overflow-text')
-  public overflowText: string = 'Mere';
+  public overflowText = 'Mere';
 
   @Input('selected-item')
   public selectedItem: INavigationItem | null = null;
   
   @Input("solution-template")
-  public solutionTemplate: TemplateRef<any> | null = null;
+  public solutionTemplate: TemplateRef<unknown> | null = null;
   
   @Input("portal-template")
-  public portalTemplate: TemplateRef<any> | null = null;
+  public portalTemplate: TemplateRef<unknown> | null = null;
   
   constructor(
     private router: Router
@@ -50,9 +50,9 @@ export interface INavigationItem {
   children: INavigationItem[] | null;
 }
 export class NavigationItem {
-  public title: string = '';
+  public title = '';
   public url: string | null = null;
-  public isActive: boolean = false;
+  public isActive = false;
   public children: NavigationItem[] | null = null;
 
   constructor(values: Partial<NavigationItem>) {

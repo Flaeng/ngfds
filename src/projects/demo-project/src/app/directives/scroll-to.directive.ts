@@ -4,7 +4,7 @@ import { Directive, HostListener, Input } from '@angular/core';
   selector: '[scroll-to]',
 })
 export class ScrollToDirective {
-  @Input('scroll-to') scrollTo: string = '';
+  @Input('scroll-to') scrollTo = '';
 
   @HostListener('click')
   clicked(): void {

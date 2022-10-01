@@ -12,7 +12,7 @@ export class ContextMenuComponent {
   public buttons: IContextMenuButton[] | null = null;
 
   @Input()
-  public listItemTemplate: TemplateRef<any> | null = null;
+  public listItemTemplate: TemplateRef<unknown> | null = null;
 
   @Output('button-click')
   public buttonClicked: EventEmitter<ItemSelectedEvent<IContextMenuButton>> = new EventEmitter();

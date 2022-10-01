@@ -23,7 +23,7 @@ export class PortalHeaderComponent {
   public username: string | null = null;
   
   @Input("button-text")
-  public buttonText: string = 'Log af';
+  public buttonText = 'Log af';
   
   @Output()
   public logout: EventEmitter<Event> = new EventEmitter();

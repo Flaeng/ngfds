@@ -7,7 +7,7 @@ import { TabsComponent } from '../tabs.component';
 })
 export class TabContentComponent implements OnInit {
   @Input('fds-tab-content')
-  fdsTabContent: string = '';
+  fdsTabContent = '';
 
   elem: HTMLElement;
 

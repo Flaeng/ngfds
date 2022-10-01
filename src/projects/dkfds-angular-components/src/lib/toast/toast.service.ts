@@ -99,7 +99,7 @@ export interface IToast {
   timeout: number | null;
 }
 export class Toast implements IToast {
-  public title: string = '';
+  public title = '';
   public description: string | null = null;
   public type: 'success' | 'warning' | 'error' | 'info' = 'info';
   public timeout: number | null = null;

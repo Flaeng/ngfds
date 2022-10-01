@@ -1,4 +1,3 @@
-import { ModalService } from '../../src/lib/modal/modal.service';
+// import { ModalService } from '../../src/lib/modal/modal.service';
 
-describe('ModalService', () => {
-});
+// describe('ModalService', () => {});

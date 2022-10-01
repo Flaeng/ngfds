@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Optional, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Optional, ViewEncapsulation } from '@angular/core';
 import { AccordionComponent } from '../accordion.component';
 
 @Component({
@@ -7,7 +7,7 @@ import { AccordionComponent } from '../accordion.component';
   styleUrls: ['./accordion-header.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AccordionHeaderComponent implements OnInit {
+export class AccordionHeaderComponent {
 
   @Input()
   public icon: string | null = null;
@@ -22,8 +22,5 @@ export class AccordionHeaderComponent implements OnInit {
   ) {
     this.parentId = parent.id;
    }
-
-  ngOnInit(): void {
-  }
 
 }

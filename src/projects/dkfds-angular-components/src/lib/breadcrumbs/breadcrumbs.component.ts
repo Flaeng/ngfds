@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemSelectedEvent, NavigationItemHelper } from '../helpers/navigation-item-helper';
 
@@ -7,16 +7,16 @@ import { ItemSelectedEvent, NavigationItemHelper } from '../helpers/navigation-i
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.css']
 })
-export class BreadcrumbsComponent implements OnInit {
+export class BreadcrumbsComponent {
 
   @Input()
   public items: IBreadcrumbItem[] = [];
 
   @Input('active-item-template')
-  public activeItemTemplate: TemplateRef<any> | null = null;
+  public activeItemTemplate: TemplateRef<unknown> | null = null;
 
   @Input('item-template')
-  public itemTemplate: TemplateRef<any> | null = null;
+  public itemTemplate: TemplateRef<unknown> | null = null;
 
   @Output("item-clicked")
   public itemClicked: EventEmitter<ItemSelectedEvent<IBreadcrumbItem>> = new EventEmitter();
@@ -29,9 +29,6 @@ export class BreadcrumbsComponent implements OnInit {
     this.helper = new NavigationItemHelper<IBreadcrumbItem>(router, this.itemClicked)
    }
 
-  ngOnInit(): void {
-  }
-
   getAriaCurrent(item: IBreadcrumbItem): string | null {
     return item.isActive == true ? 'page' : null;
   }
@@ -43,7 +40,7 @@ export interface IBreadcrumbItem {
   isActive: boolean;
 }
 export class BreadcrumbItem implements IBreadcrumbItem {
-  public header: string = '';
+  public header = '';
   public url: string | null = null;
-  public isActive: boolean = false;
+  public isActive = false;
 }

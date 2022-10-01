@@ -30,7 +30,7 @@ import { DateHelper } from '../helpers/date-helper';
 export class DateInputComponent
   implements AfterViewInit, ControlValueAccessor, Validator
 {
-  _dayOfMonth: string = '';
+  _dayOfMonth = '';
   get dayOfMonth(): string {
     return this._dayOfMonth;
   }
@@ -40,7 +40,7 @@ export class DateInputComponent
     this.onTouched?.call(this);
   }
 
-  _month: string = '';
+  _month = '';
   get month(): string {
     return this._month;
   }
@@ -50,7 +50,7 @@ export class DateInputComponent
     this.onTouched?.call(this);
   }
 
-  _year: string = '';
+  _year = '';
   get year(): string {
     return this._year;
   }
@@ -74,26 +74,32 @@ export class DateInputComponent
     return DateHelper.parseDate(this._dayOfMonth, this._month, this._year);
   }
   
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onChange: ((date: Date | null) => {}) | null = null;
+  // eslint-disable-next-line @typescript-eslint/ban-types
   onTouched: (() => {}) | null = null;
   onValidatorChange: (() => void) | null = null;
 
   @Input()
-  public disabled: boolean = false;
+  public disabled = false;
 
   // https://blog.angular-university.io/angular-custom-form-controls/
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(obj: any): void {
     this.value = obj;
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
     return null;
   }

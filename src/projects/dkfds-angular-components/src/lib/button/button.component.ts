@@ -16,7 +16,7 @@ import {
 export class ButtonComponent implements OnInit, OnChanges {
   @Input() public visual: 'primary' | 'secondary' | 'tertiary' = 'primary';
 
-  @Input() public disabled: boolean = false;
+  @Input() public disabled = false;
 
   @Input() public type: 'button' | 'submit' | 'reset' = 'button';
 
@@ -31,6 +31,7 @@ export class ButtonComponent implements OnInit, OnChanges {
     this.cssClass[`button-${this.visual}`] = true;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges): void {
     this.setClass();
   }

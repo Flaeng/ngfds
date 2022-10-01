@@ -13,12 +13,12 @@ import {
 })
 export class TabComponent implements OnInit {
   @Input()
-  public header: string = '';
+  public header = '';
 
   @ViewChild('template', { static: true })
-  private template!: TemplateRef<any>;
+  private template!: TemplateRef<unknown>;
 
-  static idGenerator: number = 1;
+  static idGenerator = 1;
 
   id: string = 'tabcomponent' + (TabComponent.idGenerator++).toString();
 

@@ -10,7 +10,7 @@ import { BasePageComponent } from '../BasePageComponent';
 export class DateInputPageComponent extends BasePageComponent {
   date1: Date | null = null;
   date2presetToToday: Date | null = new Date();
-  date3isDisabled: boolean = true;
+  date3isDisabled = true;
   date3: Date | null = new Date(2022, 9, 26);
 
   dateInputFormControl: FormControl = new FormControl<Date | null>(null, Validators.required);

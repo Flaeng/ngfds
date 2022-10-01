@@ -7,13 +7,14 @@ import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@
 })
 export class LinkComponent implements OnChanges {
 
-  @Input() href: string = '';
+  @Input() href = '';
   @Input() target: undefined | null | '_blank';
 
-  _href: string = '';
-  _target: string = '';
-  _showExternalLinkIcon: boolean = false;
+  _href = '';
+  _target = '';
+  _showExternalLinkIcon = false;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges): void {
     this._href = this.href;
     if (this.href.startsWith('http')) {

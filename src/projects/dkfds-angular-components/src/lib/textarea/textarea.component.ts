@@ -7,12 +7,12 @@ import { Component, ElementRef, Input, OnInit } from '@angular/core';
 })
 export class TextareaComponent implements OnInit {
   @Input('auto-expand')
-  public autoExpand: boolean = false;
+  public autoExpand = false;
 
   @Input('rows')
-  public rows: string = '5';
+  public rows = '5';
 
-  static idGenerator: number = 1;
+  static idGenerator = 1;
 
   id: string = (TextareaComponent.idGenerator++).toString();
 
@@ -20,7 +20,8 @@ export class TextareaComponent implements OnInit {
 
   ngOnInit(): void {
     const elem: Element = this.element.nativeElement;
-    const area = elem.querySelector('textarea')!;
+    const area = elem.querySelector('textarea');
+    if (area == null) return;
 
     const offset = area.offsetHeight - area.clientHeight;
     area?.addEventListener('input', () => {
@@ -30,5 +31,4 @@ export class TextareaComponent implements OnInit {
       }
     });
   }
-  
 }

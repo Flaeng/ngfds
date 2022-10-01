@@ -36,8 +36,9 @@ import { DateHelper } from '../helpers/date-helper';
 export class DatePickerComponent
   implements AfterViewInit, ControlValueAccessor, Validator
 {
-  stringValue: string = '';
+  stringValue = '';
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   context: any;
 
   @ViewChild('datePickerInput')
@@ -63,11 +64,13 @@ export class DatePickerComponent
 
   onInputChange(ev: Event): void {
     const value = (ev.target as HTMLInputElement).value;
-    let date: Date | null = null;
+    let date: Date | null;
     try {
       const split = value.split('-');
       date = DateHelper.parseDate(split[2], split[1], split[0]);
-    } catch (e) {}
+    } catch {
+      date = null;
+    }
 
     this.value = date;
     this.onChange?.call(this, this.value);
@@ -114,18 +117,22 @@ export class DatePickerComponent
   }
   
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(obj: any): void {
     this.value = obj;
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
     return null;
   }

@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: E2E tests
+name: Build
 
 on:
   push:
@@ -21,6 +21,9 @@ jobs:
 
       - name: npm install in src
         run: npm install
+        working-directory: ./src
+
+      - run: npm run lint
         working-directory: ./src
 
       - run: npm run cy:chrome

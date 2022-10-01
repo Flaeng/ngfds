@@ -19,7 +19,7 @@ export class TabsComponent implements AfterViewInit {
   private tabnav!: ElementRef;
 
   @Input('selected-index')
-  public selectedIndex: number = 0;
+  public selectedIndex = 0;
 
   ngAfterViewInit(): void {
     this.setSelectedTab();

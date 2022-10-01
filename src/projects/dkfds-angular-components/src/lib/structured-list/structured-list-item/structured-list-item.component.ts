@@ -22,13 +22,13 @@ export class StructuredListItemComponent implements OnInit {
   public content: string | null = null;
 
   @Input()
-  public canEdit: boolean = false;
+  public canEdit = false;
 
   @Output()
   public edit: EventEmitter<Event> = new EventEmitter();
 
   @ViewChild('template', { static: true })
-  private template!: TemplateRef<any>;
+  private template!: TemplateRef<unknown>;
 
   constructor(private viewContainerRef: ViewContainerRef) {}
 

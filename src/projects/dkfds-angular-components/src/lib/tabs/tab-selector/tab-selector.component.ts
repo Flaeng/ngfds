@@ -7,7 +7,7 @@ import { TabsComponent } from '../tabs.component';
 })
 export class TabSelectorComponent implements OnInit {
   @Input('fds-tab-selector')
-  fdsTabSelector: string = '';
+  fdsTabSelector = '';
 
   elem: HTMLElement;
 

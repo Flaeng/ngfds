@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Input() header: string = '';
+  @Input() header = '';
   @Input('sub-header') subHeader: 'Component' | 'Directive' | 'Service' | null = null;
   @Input('doc-url') docUrl: string | null = null;
 

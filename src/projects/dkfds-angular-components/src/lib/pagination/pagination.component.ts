@@ -7,22 +7,23 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 export class PaginationComponent implements OnInit, OnChanges {
 
   @Input("current-page")
-  public currentPage: number = 1;
+  public currentPage = 1;
   
   @Input("page-count")
-  public pageCount: number = 1;
+  public pageCount = 1;
 
   @Output()
   public change: EventEmitter<PageChangeEvent> = new EventEmitter();
 
   options: IPaginationOption[] = [];
-  isFirstPage: boolean = false;
-  isLastPage: boolean = false;
+  isFirstPage = false;
+  isLastPage = false;
 
   ngOnInit(): void {
     this.setOptions();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges): void {
     this.setOptions();
   }

@@ -23,22 +23,22 @@ export class OverflowMenuComponent implements AfterViewInit {
   public items: IOverflowNavigationItem[] = [];
 
   @Input()
-  public placeholder: string = '';
+  public placeholder = '';
 
   @Input('selected-item')
   public selectedItem: IOverflowNavigationItem | null = null;
 
   @Input('hide-icon')
-  public hideIcon: boolean = false;
+  public hideIcon = false;
 
   @Input()
-  public icon: string = 'more-vert';
+  public icon = 'more-vert';
 
   @Output('item-clicked')
   public itemClicked: EventEmitter<ItemSelectedEvent<IOverflowNavigationItem>> =
     new EventEmitter();
 
-  static idGenerator: number = 1;
+  static idGenerator = 1;
 
   id: string = (OverflowMenuComponent.idGenerator++).toString();
   helper: NavigationItemHelper<IOverflowNavigationItem>;
@@ -68,7 +68,7 @@ export interface IOverflowNavigationItem {
   url: string | null;
 }
 export class OverflowNavigationItem implements IOverflowNavigationItem {
-  public title: string = '';
+  public title = '';
   public url: string | null = null;
 
   constructor(values: Partial<OverflowNavigationItem>) {

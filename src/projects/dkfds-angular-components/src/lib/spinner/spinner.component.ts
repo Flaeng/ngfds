@@ -14,9 +14,14 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class SpinnerComponent implements OnInit, OnChanges, OnDestroy {
-  @Input("is-spinning") public isSpinning: boolean = true;
-  @Input() public type: 'normal' | 'long-running' = 'normal';
-  @Input() public settings: SpinnerTextSetting[] | null = null;
+  @Input('is-spinning')
+  public isSpinning = true;
+
+  @Input()
+  public type: 'normal' | 'long-running' = 'normal';
+
+  @Input()
+  public settings: SpinnerTextSetting[] | null = null;
 
   readonly normalSettings: SpinnerTextSetting[] = [
     { duration: 0, text: 'Arbejder' },
@@ -37,19 +42,23 @@ export class SpinnerComponent implements OnInit, OnChanges, OnDestroy {
 
   intervalIdentifier: NodeJS.Timer | null = null;
 
-  spinnerDuration: number = 0;
-  statusText: string = '';
+  spinnerDuration = 0;
+  statusText = '';
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges): void {
     if (this.isSpinning) this.startSpinner();
     else this.stopSpinner();
   }
+
   ngOnInit(): void {
     if (this.isSpinning) this.startSpinner();
   }
+
   ngOnDestroy(): void {
     this.stopSpinner();
   }
+
   public startSpinner() {
     this.spinnerDuration = 0;
     const tick = () => {
@@ -69,6 +78,7 @@ export class SpinnerComponent implements OnInit, OnChanges, OnDestroy {
     tick();
     this.intervalIdentifier = setInterval(tick, 1000);
   }
+
   public stopSpinner() {
     if (this.intervalIdentifier) clearInterval(this.intervalIdentifier);
   }
@@ -78,9 +88,9 @@ export class SpinnerTextSetting {
   /**
    * the duration in ms after which the text-property should be shown in the spinner
    */
-  public duration: number = 0;
+  public duration = 0;
   /**
    * the text to show after the duration has elapsed
    */
-  public text: string = '';
+  public text = '';
 }

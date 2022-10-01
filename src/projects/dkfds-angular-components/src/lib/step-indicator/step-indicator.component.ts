@@ -23,10 +23,10 @@ import DKFDS from 'dkfds';
 })
 export class StepIndicatorComponent implements OnChanges, AfterViewInit {
   @Input('expand-template')
-  public expandTemplate: TemplateRef<any> | null = null;
+  public expandTemplate: TemplateRef<unknown> | null = null;
 
   @Input('item-template')
-  public itemTemplate: TemplateRef<any> | null = null;
+  public itemTemplate: TemplateRef<unknown> | null = null;
 
   @Input()
   public items: IStepIndicatorItem[] = [];
@@ -50,7 +50,7 @@ export class StepIndicatorComponent implements OnChanges, AfterViewInit {
 
   @ViewChild('mobileDropdownTrigger') dropdownTrigger!: ElementRef;
 
-  static idGenerator: number = 1;
+  static idGenerator = 1;
   id: string = (StepIndicatorComponent.idGenerator++).toString();
   helper: NavigationItemHelper<IStepIndicatorItem>;
 
@@ -63,6 +63,7 @@ export class StepIndicatorComponent implements OnChanges, AfterViewInit {
     dropdown.init();
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges): void {
     if (this.items && !this.selectedItem) this.selectedItem = this.items[0];
   }
@@ -81,7 +82,7 @@ export interface IStepIndicatorItem {
   icon: string | null;
 }
 export class StepIndicatorItem implements IStepIndicatorItem {
-  public title: string = '';
+  public title = '';
   /**
    * Don't set this if you want to handle the step indicator clicked event
    * It can be found on the StepIndicatorComponent
