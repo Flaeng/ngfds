@@ -21,18 +21,18 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class SideNavigationComponent implements OnInit, OnDestroy {
-  
   @Input()
   public items: ISideNavigationItem[] = [];
-  
+
   @Input('item-template')
   public itemTemplate: TemplateRef<any> | null = null;
 
-  @Input("always-show-children")
+  @Input('always-show-children')
   public alwaysShowChildren: boolean = false;
 
   @Output('item-clicked')
-  public itemClicked: EventEmitter<ItemSelectedEvent<ISideNavigationItem>> = new EventEmitter();
+  public itemClicked: EventEmitter<ItemSelectedEvent<ISideNavigationItem>> =
+    new EventEmitter();
 
   subOnRoutingEvent: Subscription | null = null;
   helper: NavigationItemHelper<ISideNavigationItem>;
@@ -45,8 +45,9 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subOnRoutingEvent = this.router.events
-      .subscribe((ev) => this.onRoutingEvent(ev));
+    this.subOnRoutingEvent = this.router.events.subscribe((ev) =>
+      this.onRoutingEvent(ev)
+    );
   }
 
   ngOnDestroy(): void {
@@ -63,10 +64,10 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
 
   setIsActive(items: ISideNavigationItem[], url: string): void {
     for (const item of items) {
+      const preparedUrl = this.prepareUrl(item.url);
       item.isActive =
-        (item.url.length == 0 && url.length == 0)
-        ||
-        (item.url.length != 0 && url.startsWith(this.prepareUrl(item.url)));
+        (item.url.length == 0 && url.length == 0) ||
+        (item.url.length != 0 && url.startsWith(preparedUrl));
       if (item.children) this.setIsActive(item.children, url);
     }
   }

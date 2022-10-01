@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-breadcrumbs-page',
   templateUrl: './breadcrumbs-page.component.g.html',
-  styleUrls: ['./breadcrumbs-page.component.scss']
+  styleUrls: ['./breadcrumbs-page.component.scss'],
 })
-export class BreadcrumbsPageComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class BreadcrumbsPageComponent {}

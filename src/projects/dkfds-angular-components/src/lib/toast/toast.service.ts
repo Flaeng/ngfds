@@ -32,39 +32,10 @@ export class FdsToastService {
   }
 
   public show(toast: IToast): Subject<any> {
-    if (this.toastContainer == null) return new Subject<any>();
-
-    const elem = document.createElement('div');
-    elem.classList.add('toast');
-    elem.classList.add(`toast-${toast.type}`);
-    elem.setAttribute('role', 'status');
-
-    const icon = document.createElement('div');
-    icon.classList.add('toast-icon');
-    elem.appendChild(icon);
-
-    const message = document.createElement('div');
-    message.classList.add('toast-message');
-    elem.appendChild(message);
-
-    const header = document.createElement('p');
-    header.classList.add('bold');
-    header.textContent = toast.title;
-    message.appendChild(header);
-
     const obs = new Subject<any>();
+    if (this.toastContainer == null) return obs;
 
-    const btn = document.createElement('button');
-    btn.classList.add('toast-close');
-    btn.textContent = 'Luk';
-    message.appendChild(btn);
-    btn.addEventListener('click', () => obs.next({}));
-
-    if (toast.description) {
-      const desc = document.createElement('p');
-      desc.textContent = toast.description;
-      message.appendChild(desc);
-    }
+    const elem = this.createToastElement(toast, obs);
 
     if (this.options?.newToastPosition == 'top') {
       this.toastContainer.prepend(elem);
@@ -83,6 +54,39 @@ export class FdsToastService {
     }
 
     return obs;
+  }
+
+  private createToastElement(toast: IToast, obs: Subject<any>): HTMLDivElement {
+    const elem = document.createElement('div');
+    elem.classList.add('toast');
+    elem.classList.add(`toast-${toast.type}`);
+    elem.setAttribute('role', 'status');
+
+    const icon = document.createElement('div');
+    icon.classList.add('toast-icon');
+    elem.appendChild(icon);
+
+    const message = document.createElement('div');
+    message.classList.add('toast-message');
+    elem.appendChild(message);
+
+    const header = document.createElement('p');
+    header.classList.add('bold');
+    header.textContent = toast.title;
+    message.appendChild(header);
+
+    const btn = document.createElement('button');
+    btn.classList.add('toast-close');
+    btn.textContent = 'Luk';
+    message.appendChild(btn);
+    btn.addEventListener('click', () => obs.next({}));
+
+    if (toast.description) {
+      const desc = document.createElement('p');
+      desc.textContent = toast.description;
+      message.appendChild(desc);
+    }
+    return elem;
   }
 }
 export interface IToastOptions {
