@@ -1,0 +1,38 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "dkfds-angular-components": {
+      "projectType": "library",
+      "root": "projects/dkfds-angular-components",
+      "sourceRoot": "projects/dkfds-angular-components/src",
+      "prefix": "fds",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/dkfds-angular-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/dkfds-angular-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/dkfds-angular-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dkfds-angular-components/src/test.ts",
+            "tsConfig": "projects/dkfds-angular-components/tsconfig.spec.json",
+            "karmaConfig": "projects/dkfds-angular-components/karma.conf.js"
+          }
+        }
+      }
+    }
+  }
+}
