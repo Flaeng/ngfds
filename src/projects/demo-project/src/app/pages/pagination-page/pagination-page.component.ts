@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
+import { BasePageComponent } from '../BasePageComponent';
 
 @Component({
   selector: 'app-pagination-page',
   templateUrl: './pagination-page.component.g.html',
   styleUrls: ['./pagination-page.component.scss'],
 })
-export class PaginationPageComponent {
-  alert(message: string): void {
-    window.alert(message);
-  }
-}
+export class PaginationPageComponent extends BasePageComponent {}

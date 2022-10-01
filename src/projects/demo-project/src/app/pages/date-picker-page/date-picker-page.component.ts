@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { BasePageComponent } from '../BasePageComponent';
 
 @Component({
   selector: 'app-date-picker-page',
   templateUrl: './date-picker-page.component.g.html',
   styleUrls: ['./date-picker-page.component.scss'],
 })
-export class DatePickerPageComponent {
+export class DatePickerPageComponent extends BasePageComponent {
   date1: Date | null = null;
   date2presetToToday: Date | null = new Date();
   date3isDisabled: boolean = true;
@@ -15,7 +16,7 @@ export class DatePickerPageComponent {
   dateInputFormControl: FormControl = new FormControl<Date | null>(null, Validators.required);
   submitFormControl(): void {
     const rawValue = this.dateInputFormControl.getRawValue();
-    window.alert('form data: ' + JSON.stringify(rawValue));
+    alert('form data: ' + JSON.stringify(rawValue));
   }
 
   dateInputFormGroup: FormGroup = new FormGroup({
@@ -23,6 +24,6 @@ export class DatePickerPageComponent {
   });
   submitFormGroup(): void {
     const rawValue = this.dateInputFormGroup.getRawValue();
-    window.alert('form data: ' + JSON.stringify(rawValue));
+    alert('form data: ' + JSON.stringify(rawValue));
   }
 }

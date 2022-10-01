@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { SideNavigationItem } from 'projects/dkfds-angular-components/src/lib/side-navigation/public-api';
+import { BasePageComponent } from '../BasePageComponent';
 
 @Component({
   selector: 'app-side-navigation-page',
   templateUrl: './side-navigation-page.component.g.html',
-  styleUrls: ['./side-navigation-page.component.scss']
+  styleUrls: ['./side-navigation-page.component.scss'],
 })
-export class SideNavigationPageComponent {
-
+export class SideNavigationPageComponent extends BasePageComponent {
   page1children: SideNavigationItem[] = [
     new SideNavigationItem({ url: '#', title: 'Page 1.0' }),
     new SideNavigationItem({ url: '#', title: 'Page 1.1' }),
@@ -23,13 +23,21 @@ export class SideNavigationPageComponent {
   ];
 
   sideNavigationItems: SideNavigationItem[] = [
-    new SideNavigationItem({ url: '#', title: 'Page 1', children: this.page1children }),
+    new SideNavigationItem({
+      url: '#',
+      title: 'Page 1',
+      children: this.page1children,
+    }),
     new SideNavigationItem({ url: '#', title: 'Page 2' }),
     new SideNavigationItem({ url: '#', title: 'Page 3' }),
-    new SideNavigationItem({ url: '#', title: 'Page 4', children: this.page4children, isActive: true }),
+    new SideNavigationItem({
+      url: '#',
+      title: 'Page 4',
+      children: this.page4children,
+      isActive: true,
+    }),
     new SideNavigationItem({ url: '#', title: 'Page 5' }),
     new SideNavigationItem({ url: '#', title: 'Page 6' }),
-    new SideNavigationItem({ url: '#', title: 'Page 7' }), 
+    new SideNavigationItem({ url: '#', title: 'Page 7' }),
   ];
-
 }

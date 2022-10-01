@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
+import { BasePageComponent } from '../BasePageComponent';
 
 @Component({
   selector: 'app-footer-page',
   templateUrl: './footer-page.component.g.html',
   styleUrls: ['./footer-page.component.scss']
 })
-export class FooterPageComponent {
+export class FooterPageComponent extends BasePageComponent {
   @Input("authority-name")
   public authorityName: string | null = null;
 

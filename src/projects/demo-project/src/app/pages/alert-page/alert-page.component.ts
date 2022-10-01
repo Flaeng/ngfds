@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
+import { BasePageComponent } from '../BasePageComponent';
 
 @Component({
   selector: 'app-alert-page',
   templateUrl: './alert-page.component.g.html',
   styleUrls: ['./alert-page.component.scss'],
 })
-export class AlertPageComponent {
-  alert(message: string): void {
-    window.alert(message);
-  }
-}
+export class AlertPageComponent extends BasePageComponent {}
