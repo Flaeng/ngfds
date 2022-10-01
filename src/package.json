@@ -9,7 +9,11 @@
     "test": "ng test",
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "cy:chrome": "npx cypress run --component -b chrome -C projects/dkfds-angular-components/cypress.config.ts -s projects/dkfds-angular-components/cypress/e2e/**/*.cy.ts",
+    "cy:edge": "npx cypress run --component -b edge -C projects/dkfds-angular-components/cypress.config.ts -s projects/dkfds-angular-components/cypress/e2e/**/*.cy.ts",
+    "cy:firefox": "npx cypress run --component -b firefox -C projects/dkfds-angular-components/cypress.config.ts -s projects/dkfds-angular-components/cypress/e2e/**/*.cy.ts",
+    "cy:webkit": "npx cypress run --component -b webkit -C projects/dkfds-angular-components/cypress.config.ts -s projects/dkfds-angular-components/cypress/e2e/**/*.cy.ts"
   },
   "private": true,
   "dependencies": {
