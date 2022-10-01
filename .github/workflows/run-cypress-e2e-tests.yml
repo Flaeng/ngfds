@@ -15,6 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm install
+      
+      - name: npm install in root
+        run: npm install
+      
+      - name: npm install in src
+        run: npm install
+        working-directory: ./src
+
       - run: npm run cy:chrome
         working-directory: ./src
