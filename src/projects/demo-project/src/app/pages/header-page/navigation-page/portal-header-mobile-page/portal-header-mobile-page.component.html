@@ -1,0 +1,36 @@
+<app-header
+  header="Portal Header Mobile"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/headers/"
+>
+  This component is used to render the portal header on mobile
+</app-header>
+
+<app-demo-view>
+    <fds-header>
+      <fds-portal-header></fds-portal-header>
+      <fds-navigation
+        [items]="[
+          {
+            title: 'Første menupunkt',
+            url: '#',
+            isActive: false,
+            children: null
+          },
+          {
+            title: 'Anden menupunkt',
+            url: '#',
+            isActive: true,
+            children: null
+          }
+        ]"
+      >
+        <fds-portal-header-mobile
+          username="Jens Hansen"
+          (logout)="alert('Logging out...')"
+        ></fds-portal-header-mobile>
+      </fds-navigation>
+    </fds-header>
+  </app-demo-view>
+  
+<app-doc-view> </app-doc-view>

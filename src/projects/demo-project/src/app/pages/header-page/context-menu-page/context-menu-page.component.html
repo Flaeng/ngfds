@@ -1,0 +1,77 @@
+<app-header header="Context Menu" sub-header="Component"> </app-header>
+
+<app-demo-view>
+  <fds-header>
+    <fds-navigation>
+      <fds-context-menu>
+        <p _ngcontent-ycb-c45="" class="nav-secondary-heading">Vælg bruger:</p>
+        <ul class="unstyled-list nav-actions">
+          <li>
+            <fds-overflow-menu
+              [items]="[
+                { title: 'Jens Hansen', url: null },
+                { title: 'Hans Jensen', url: null },
+                { title: 'Julie Hansen', url: null },
+                { title: 'Hilda Jensen', url: null }
+              ]"
+              placeholder="Jens Hansen"
+              (item-clicked)="
+                alert('You clicked: ' + $event.selectedItem.title)
+              "
+            ></fds-overflow-menu>
+          </li>
+        </ul>
+      </fds-context-menu>
+    </fds-navigation>
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    <fds-navigation>
+      <fds-context-menu
+        [buttons]="[
+          { text: 'Knap 1', url: null },
+          { text: 'Knap 2', url: null },
+          { text: 'Knap 3', url: null }
+        ]"
+        (button-click)="alert('You pressed: ' + $event.selectedItem.text)"
+      ></fds-context-menu>
+    </fds-navigation>
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    <fds-navigation>
+      <fds-context-menu
+        [buttons]="[
+          { text: 'Knap 1', url: null },
+          { text: 'Knap 2', url: null },
+          { text: 'Knap 3', url: null }
+        ]"
+        (button-click)="alert('You pressed: ' + $event.selectedItem.text)"
+      >
+        <p _ngcontent-ycb-c45="" class="nav-secondary-heading">Vælg bruger:</p>
+        <ul class="unstyled-list nav-actions">
+          <li>
+            <fds-overflow-menu
+              [items]="[
+                { title: 'Jens Hansen', url: null },
+                { title: 'Hans Jensen', url: null },
+                { title: 'Julie Hansen', url: null },
+                { title: 'Hilda Jensen', url: null }
+              ]"
+              placeholder="Jens Hansen"
+              (item-clicked)="
+                alert('You clicked: ' + $event.selectedItem.title)
+              "
+            ></fds-overflow-menu>
+          </li>
+        </ul>
+      </fds-context-menu>
+    </fds-navigation>
+  </fds-header>
+</app-demo-view>
+
+<app-doc-view></app-doc-view>

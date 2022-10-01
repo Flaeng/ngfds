@@ -1,0 +1,67 @@
+<app-header
+  header="Solution Header"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/headers/"
+>
+</app-header>
+
+<p>
+    <b>header</b> is the name of the solution
+</p>
+<p>
+    <b>authority-name</b> is the name of the authority
+</p>
+<p>
+    <b>authority-phone</b> should be the phonenumber for support
+</p>
+<p>
+    <b>authority-contact</b> should be a url with contact infomation
+</p>
+
+<app-demo-view>
+  <fds-header>
+    <fds-solution-header header="Løsningstitel #1"></fds-solution-header>
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    <fds-solution-header
+      header="Løsningstitel #1"
+      authority-name="Myndighedsnavn"
+    ></fds-solution-header>
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    <fds-solution-header
+      header="Løsningstitel #1"
+      authority-name="Myndighedsnavn"
+      authority-contact="#"
+    ></fds-solution-header>
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    <fds-solution-header
+      header="Løsningstitel #1"
+      authority-name="Myndighedsnavn"
+      authority-phone="12 34 56 78"
+    ></fds-solution-header>
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    <fds-solution-header
+      header="Løsningstitel #1"
+      authority-name="Myndighedsnavn"
+      authority-phone="12 34 56 78"
+      authority-contact="#"
+    ></fds-solution-header>
+  </fds-header>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

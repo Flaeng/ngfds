@@ -1,0 +1,105 @@
+<app-header header="Introduction">
+  A short description on how to setup and use this library.
+</app-header>
+
+<section>
+  <h2>Setup</h2>
+  <p>
+    Prerequisites: You have node, npm and angular-cli installed on your computer
+    and know how to start a new angular project.
+  </p>
+  <ol>
+    <li>
+      Install fds in your project by running the following command in the root
+      of the project:
+      <code>npm install dkfds</code>
+    </li>
+    <li>
+      Setup your styles.scss-file to look something like this:
+      <code>
+        @import '~dkfds/dist/css/dkfds.css';<br />
+        <br />
+        $theme-colors: (<br />
+        &nbsp;&nbsp;"primary": (<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;100: #44831E,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;200: #3C5C22,<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;300: #233614<br />
+        &nbsp;&nbsp;),<br />
+        &nbsp;&nbsp;"background": (<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;100: #f1f1f1<br />
+        &nbsp;&nbsp;)<br />
+        );<br />
+        <br />
+        $theme-color-primary: 'primary-100';<br />
+        $theme-color-primary-dark: 'primary-200';<br />
+        $theme-color-primary-darker: 'primary-300';<br />
+        $header-portal-background-color: 'background-100';<br />
+        $header-portal-logo-height: 4.8rem;<br />
+        $header-portal-compact-logo-width: 10rem;<br />
+        <br />
+        $font-path: '~dkfds/src/fonts/IBMPlexSans/';<br />
+        $image-path: '~dkfds/src/img';<br />
+        $site-image-path: '~dkfds/src/img';<br />
+        $icons-folder-path: '~dkfds/src/img/svg-icons';<br />
+        <br />
+        @import '~dkfds/src/stylesheets/dkfds';
+      </code>
+    </li>
+    <li>
+      Install this libary by running the following command
+      <code>npm install @flaeng/fds-angular</code>
+    </li>
+    <li>
+      Start using the fds-components, directives and services as you like. All
+      components are prefixed with
+      <pre>&lt;fds-(...)</pre>
+      <pre>i.e. &lt;fds-card&gt;&lt;/fds-card&gt;</pre>
+      and all directives are prefixed with
+      <pre>&lt;div fds-(...)</pre>
+      <pre>
+i.e. &lt;div fds-tooltip=&quot;This is a tooltip&quot;&gt;&lt;/div&gt;</pre
+      >
+      and all services are called
+      <pre>Fds(...)</pre>
+      <pre>i.e. FdsToaster</pre>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Versioning</h2>
+  <h3>When installing</h3>
+  <p>
+    How to decide what version of this library to install?<br />
+    First: Check what major-version of Angular you are using in your project.<br />
+    Second: Check what major-version of FDS you are using in your project.<br />
+    Now select the version from this formula:
+    [AngularMajorVersion].[FdsMajorVersion].X.X where X and X are as large as
+    possible.<br />
+    i.e. if you use Angular 11 and FDS version 8 select 11.8.1 over 13.8.0 and
+    11.8.0
+  </p>
+  <p>
+    When installing this library use the ~(tilde)-character to tell npm to
+    always use this major and minor version (the versions that match your
+    Angular and FDS versions).<br />
+    I.e.
+  </p>
+  <pre>npm install @flaeng/fds-angular@~13.8.1</pre>
+  <p>or for Angular 11</p>
+  <pre>npm install @flaeng/fds-angular@~11.8.1</pre>
+  <h3>When upgrading Angular</h3>
+  <p>
+    When upgrading Angular remmeber to update this library as well, as the same package does
+    not support multiple major-versions of Angular.
+  </p>
+
+</section>
+
+<section>
+  <h2>Having issues?</h2>
+  <p>
+    If you're having any issues fell free to browse this projects repository on
+    Github and see how we've set it up.
+  </p>
+</section>

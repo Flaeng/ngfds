@@ -1,0 +1,17 @@
+<app-header header="Function Links" sub-header="Component"> </app-header>
+
+<app-demo-view>
+  <fds-header>
+    <fds-navigation>
+        <fds-function-links
+            [items]="[
+                { text: 'Print', icon: 'print', url: null },
+                { text: 'Gem Kladde', icon: 'save', url: null },
+            ]"
+            (item-click)="alert('You pressed: ' + $event.selectedItem.text)"
+        ></fds-function-links>
+    </fds-navigation>
+  </fds-header>
+</app-demo-view>
+
+<app-doc-view></app-doc-view>

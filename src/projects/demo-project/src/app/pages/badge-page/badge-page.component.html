@@ -1,0 +1,74 @@
+<app-header
+  header="Badges"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/badges/"
+>
+</app-header>
+
+<app-demo-view>
+  <div class="mb-3">
+    <fds-badge size="large">Stort badge</fds-badge>
+  </div>
+
+  <div class="mb-3">
+    <fds-badge>Normal badge</fds-badge>
+  </div>
+
+  <div class="mb-3">
+    <fds-badge size="small">Lille badge</fds-badge>
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <div class="mb-3">
+    <fds-badge size="large" type="success">Stort badge</fds-badge>
+  </div>
+
+  <div class="mb-3">
+    <fds-badge size="small" type="success">Lille badge</fds-badge>
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <div class="mb-3">
+    <fds-badge size="large" type="info">Stort badge</fds-badge>
+  </div>
+
+  <div class="mb-3">
+    <fds-badge size="small" type="info">Lille badge</fds-badge>
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <div class="mb-3">
+    <fds-badge size="large" type="warning">Stort badge</fds-badge>
+  </div>
+
+  <div class="mb-3">
+    <fds-badge size="small" type="warning">Lille badge</fds-badge>
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <div class="mb-3">
+    <fds-badge size="large" type="error">Stort badge</fds-badge>
+  </div>
+
+  <div class="mb-3">
+    <fds-badge size="small" type="error">Lille badge</fds-badge>
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <div class="mb-3">
+    <fds-badge 
+      size="large"
+      type="info"
+      style="cursor:pointer"
+      fds-tooltip="Why don't you click on me?" 
+      (click)="alert('Hey, stop! It tickles...')" 
+    >Clickable badge with tooltip</fds-badge>
+  </div>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

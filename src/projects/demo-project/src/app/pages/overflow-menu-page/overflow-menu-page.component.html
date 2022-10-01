@@ -1,0 +1,56 @@
+<app-header 
+    header="Overflow Menu" 
+    sub-header="Component"
+    doc-url="https://designsystem.dk/komponenter/overflowmenu/"
+></app-header>
+
+<app-demo-view>
+    <fds-overflow-menu
+        [items]="[
+            { title: 'Valgmulighed #1', url: null },
+            { title: 'Valgmulighed #2', url: null },
+            { title: 'Valgmulighed #3', url: null },
+        ]"
+        (item-clicked)="alert('You press: ' + $event.selectedItem.title)"
+    ></fds-overflow-menu>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-overflow-menu
+        placeholder="Vælg her"
+        [items]="[
+            { title: 'Valgmulighed #1', url: null },
+            { title: 'Valgmulighed #2', url: null },
+            { title: 'Valgmulighed #3', url: null },
+        ]"
+        (item-clicked)="alert('You press: ' + $event.selectedItem.title)"
+    ></fds-overflow-menu>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-overflow-menu
+        placeholder="Vælg her"
+        [items]="[
+            { title: 'Valgmulighed #1', url: null },
+            { title: 'Valgmulighed #2', url: null },
+            { title: 'Valgmulighed #3', url: null },
+        ]"
+        [hide-icon]="true"
+        (item-clicked)="alert('You press: ' + $event.selectedItem.title)"
+    ></fds-overflow-menu>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-overflow-menu
+        placeholder="Vælg her"
+        [items]="[
+            { title: 'Valgmulighed #1', url: null },
+            { title: 'Valgmulighed #2', url: null },
+            { title: 'Valgmulighed #3', url: null },
+        ]"
+        icon="arrow-downward"
+        (item-clicked)="alert('You press: ' + $event.selectedItem.title)"
+    ></fds-overflow-menu>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

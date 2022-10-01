@@ -1,0 +1,24 @@
+<app-header
+  header="Cookiemeddelelse"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/cookiemeddelelse/"
+></app-header>
+
+<section>
+  <h2>Default</h2>
+  <app-demo-view>
+    <fds-cookie-message
+      header="Fortæl os om du accepterer cookies"
+      positive-text="Ja tak"
+      negative-text="Nej tak"
+      (positive-click)="alert('Cookies was accepted')"
+      (negative-click)="alert('Cookies was not accepted')"
+    >
+      Vi indsamler statistik ved hjælp af cookies. Alle indsamlede data
+      anonymiseres.
+      <a href="#">Læs mere om vores brug af cookies.</a>
+    </fds-cookie-message>
+  </app-demo-view>
+</section>
+
+<app-doc-view></app-doc-view>

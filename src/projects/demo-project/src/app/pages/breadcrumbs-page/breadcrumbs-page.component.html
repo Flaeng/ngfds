@@ -1,0 +1,33 @@
+<app-header 
+    header="Brødkrumme" 
+    sub-header="Component"
+    doc-url="https://designsystem.dk/komponenter/broedkrumme/"
+></app-header>
+
+<app-demo-view>
+    <fds-breadcrumbs [items]="[
+        { header: 'Forside', url: '#', isActive: false },
+        { header: 'Komponenter', url: '#', isActive: false },
+        { header: 'Brødkrumme', url: '#', isActive: true },
+    ]"></fds-breadcrumbs>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-breadcrumbs [active-item-template]="activeItemTemplate" [item-template]="itemTemplate" [items]="[
+        { header: 'Forside', url: '#', isActive: false },
+        { header: 'Komponenter', url: '#', isActive: false },
+        { header: 'Brødkrumme', url: '#', isActive: true },
+    ]"></fds-breadcrumbs>
+    <ng-template #activeItemTemplate let-item="item" let-index="index">
+        <b>
+            {{ item.header }} - {{ index % 2 == 1 ? 'even' : 'odd' }}
+        </b>
+    </ng-template>
+    <ng-template #itemTemplate let-item="item" let-index="index">
+        <i [routerLink]="item.url" class="p-1 fs-1">
+            {{ item.header }} - {{ index % 2 == 1 ? 'even' : 'odd' }}
+        </i>
+    </ng-template>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

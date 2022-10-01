@@ -1,0 +1,310 @@
+<app-header
+  header="Header"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/headers/">
+</app-header>
+
+<app-demo-view>
+  <fds-header>
+    
+    <fds-skip-link>Gå til sidens indhold</fds-skip-link>
+    
+    <fds-portal-header
+      logo="/assets/borger-logo.svg"
+      portal-name="Portal"
+    ></fds-portal-header>
+    
+    <fds-solution-header
+      header="Løsningstitel #1"
+    ></fds-solution-header>
+  
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    
+    <fds-skip-link>Gå til sidens indhold</fds-skip-link>
+    
+    <fds-portal-header
+      logo="/assets/borger-logo.svg"
+      portal-name="Portal"
+      username="Jens Hansen"
+      (logout)="alert('Logging out...')"
+    ></fds-portal-header>
+    
+    <fds-solution-header
+      header="Løsningstitel #1"
+    ></fds-solution-header>
+  
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    
+    <fds-skip-link>Gå til sidens indhold</fds-skip-link>
+    
+    <fds-portal-header
+      logo="/assets/borger-logo.svg"
+      portal-name="Portal"
+    ></fds-portal-header>
+    
+    <fds-solution-header
+      header="Løsningstitel #1"
+      authority-name="Myndighedsnavn"
+      authority-phone="12 34 56 78"
+      authority-contact="#"
+    ></fds-solution-header>
+  
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    
+    <fds-skip-link>Gå til sidens indhold</fds-skip-link>
+    
+    <fds-portal-header
+      logo="/assets/borger-logo.svg"
+      portal-name="Portal"
+      username="Jens Hansen"
+      (logout)="alert('Logging out...')"
+    ></fds-portal-header>
+    
+    <fds-solution-header
+      header="Løsningstitel #1"
+      authority-name="Myndighedsnavn"
+      authority-phone="12 34 56 78"
+      authority-contact="#"
+    ></fds-solution-header>
+
+    <fds-navigation
+      [items]="[
+        { title: 'Title 1', url: '#', isActive: false, children: null },
+        { title: 'Title 2', url: '#', isActive: false, children: null },
+        { title: 'Title 3', url: null, isActive: false, children: [
+          { title: 'Title 3.1', url: '#', isActive: false, children: null },
+          { title: 'Title 3.2', url: '#', isActive: false, children: null },
+          { title: 'Title 3.3', url: '#', isActive: false, children: null },
+        ] },
+      ]"
+    ></fds-navigation>
+
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    
+    <fds-skip-link>Gå til sidens indhold</fds-skip-link>
+    
+    <fds-portal-header
+      logo="/assets/borger-logo.svg"
+      portal-name="Portal"
+      username="Jens Hansen"
+      (logout)="alert('Logging out...')"
+    ></fds-portal-header>
+    
+    <fds-solution-header
+      header="Løsningstitel #1"
+      authority-name="Myndighedsnavn"
+      authority-phone="12 34 56 78"
+      authority-contact="#"
+    ></fds-solution-header>
+
+    <fds-navigation
+      [items]="[
+        { title: 'Title 1', url: '#', isActive: false, children: null },
+        { title: 'Title 2', url: '#', isActive: false, children: null },
+        { title: 'Title 3', url: null, isActive: false, children: [
+          { title: 'Title 3.1', url: '#', isActive: false, children: null },
+          { title: 'Title 3.2', url: '#', isActive: false, children: null },
+          { title: 'Title 3.3', url: '#', isActive: false, children: null },
+        ] },
+      ]"
+    >
+      <fds-context-menu heading="Skift bruger:">
+        <ul class="unstyled-list nav-actions">
+          <li>
+            <fds-overflow-menu
+              [items]="[
+                { title: 'Jens Hansen', url: null },
+                { title: 'Hans Jensen', url: null },
+                { title: 'Julie Hansen', url: null },
+                { title: 'Hilda Jensen', url: null },
+              ]"
+              placeholder="Jens Hansen"
+              (item-clicked)="alert('You clicked: ' + $event.selectedItem.title)"
+            ></fds-overflow-menu>
+          </li>
+        </ul>
+      </fds-context-menu>
+    </fds-navigation>
+
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    
+    <fds-skip-link>Gå til sidens indhold</fds-skip-link>
+    
+    <fds-portal-header
+      logo="/assets/borger-logo.svg"
+      portal-name="Portal"
+      username="Jens Hansen"
+      (logout)="alert('Logging out...')"
+    ></fds-portal-header>
+    
+    <fds-solution-header
+      header="Løsningstitel #1"
+      authority-name="Myndighedsnavn"
+      authority-phone="12 34 56 78"
+      authority-contact="#"
+    ></fds-solution-header>
+
+    <fds-navigation
+      [items]="[
+        { title: 'Title 1', url: '#', isActive: false, children: null },
+        { title: 'Title 2', url: '#', isActive: false, children: null },
+        { title: 'Title 3', url: null, isActive: false, children: [
+          { title: 'Title 3.1', url: '#', isActive: false, children: null },
+          { title: 'Title 3.2', url: '#', isActive: false, children: null },
+          { title: 'Title 3.3', url: '#', isActive: false, children: null },
+        ] },
+      ]"
+    >
+      <fds-context-menu
+        [buttons]="[
+          { text: 'Selvbetjening', url: '#' },
+          { text: 'Få hjælp', url: '#' },
+        ]"
+      ></fds-context-menu>
+    </fds-navigation>
+
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    
+    <fds-skip-link>Gå til sidens indhold</fds-skip-link>
+    
+    <fds-portal-header
+      logo="/assets/borger-logo.svg"
+      portal-name="Portal"
+      username="Jens Hansen"
+      (logout)="alert('Logging out...')"
+    ></fds-portal-header>
+    
+    <fds-solution-header
+      header="Løsningstitel #1"
+      authority-name="Myndighedsnavn"
+      authority-phone="12 34 56 78"
+      authority-contact="#"
+    ></fds-solution-header>
+
+    <fds-navigation
+      [items]="[
+        { title: 'Title 1', url: '#', isActive: false, children: null },
+        { title: 'Title 2', url: '#', isActive: false, children: null },
+        { title: 'Title 3', url: null, isActive: false, children: [
+          { title: 'Title 3.1', url: '#', isActive: false, children: null },
+          { title: 'Title 3.2', url: '#', isActive: false, children: null },
+          { title: 'Title 3.3', url: '#', isActive: false, children: null },
+        ] },
+      ]"
+    >
+      <fds-context-menu
+        [buttons]="[
+          { text: 'Selvbetjening', url: '#' },
+          { text: 'Få hjælp', url: '#' },
+        ]"
+        heading="Skift bruger:"
+      >
+        <ul class="unstyled-list nav-actions">
+          <li>
+            <fds-overflow-menu
+              [items]="[
+                { title: 'Jens Hansen', url: null },
+                { title: 'Hans Jensen', url: null },
+                { title: 'Julie Hansen', url: null },
+                { title: 'Hilda Jensen', url: null },
+              ]"
+              placeholder="Jens Hansen"
+              (item-clicked)="alert('You clicked: ' + $event.selectedItem.title)"
+            ></fds-overflow-menu>
+          </li>
+        </ul>
+      </fds-context-menu>
+    </fds-navigation>
+
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-header>
+    
+    <fds-skip-link>Gå til sidens indhold</fds-skip-link>
+    
+    <fds-portal-header
+      logo="/assets/borger-logo.svg"
+      portal-name="Portal"
+      username="Jens Hansen"
+      (logout)="alert('Logging out...')"
+    ></fds-portal-header>
+    
+    <fds-solution-header
+      header="Løsningstitel #1"
+      authority-name="Myndighedsnavn"
+      authority-phone="12 34 56 78"
+      authority-contact="#"
+    ></fds-solution-header>
+
+    <fds-navigation
+      [items]="[
+        { title: 'Title 1', url: '#', isActive: false, children: null },
+        { title: 'Title 2', url: '#', isActive: false, children: null },
+        { title: 'Title 3', url: null, isActive: false, children: [
+          { title: 'Title 3.1', url: '#', isActive: false, children: null },
+          { title: 'Title 3.2', url: '#', isActive: false, children: null },
+          { title: 'Title 3.3', url: '#', isActive: false, children: null },
+        ] },
+      ]"
+    >
+      <fds-context-menu
+        [buttons]="[
+          { text: 'Selvbetjening', url: '#' },
+          { text: 'Få hjælp', url: '#' },
+        ]"
+        heading="Skift bruger:"
+      >
+        <ul class="unstyled-list nav-actions">
+          <li>
+            <fds-overflow-menu
+              [items]="[
+                { title: 'Jens Hansen', url: null },
+                { title: 'Hans Jensen', url: null },
+                { title: 'Julie Hansen', url: null },
+                { title: 'Hilda Jensen', url: null },
+              ]"
+              placeholder="Jens Hansen"
+              (item-clicked)="alert('You clicked: ' + $event.selectedItem.title)"
+            ></fds-overflow-menu>
+          </li>
+        </ul>
+      </fds-context-menu>
+    </fds-navigation>
+
+    <fds-function-links
+      [items]="[
+        { text: 'Gem kladde', icon: 'save', url: null },
+        { text: 'Print', icon: 'print', url: null },
+      ]"
+    ></fds-function-links>
+
+  </fds-header>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

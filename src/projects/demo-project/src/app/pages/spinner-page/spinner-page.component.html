@@ -1,0 +1,35 @@
+<app-header 
+  header="Spinner" 
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/spinner/"
+></app-header>
+
+<app-demo-view>
+  <fds-spinner></fds-spinner>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-spinner type="long-running"></fds-spinner>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-spinner [is-spinning]="false"></fds-spinner>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-spinner [settings]="[ 
+    { duration: 0, text: 'Arbejder.' }, 
+    { duration: 2000, text: 'Arbejder..' }, 
+    { duration: 4000, text: 'Arbejder...' }, 
+    { duration: 6000, text: 'Arbejder..' }, 
+    { duration: 8000, text: 'Arbejder.' }, 
+    { duration: 10000, text: 'Arbejder..' }, 
+    { duration: 12000, text: 'Arbejder...' }, 
+    { duration: 14000, text: 'Arbejder..' } , 
+    { duration: 16000, text: 'Arbejder.' } , 
+    { duration: 18000, text: 'Arbejder..' } , 
+    { duration: 20000, text: 'Arbejder...' } 
+  ]"></fds-spinner>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

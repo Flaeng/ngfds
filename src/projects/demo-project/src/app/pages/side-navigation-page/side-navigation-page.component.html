@@ -1,0 +1,41 @@
+<app-header 
+  header="Sidenavigation" 
+  sub-header="Component" 
+  doc-url="https://designsystem.dk/komponenter/sidenav/"
+></app-header>
+
+<app-demo-view>
+  <fds-side-navigation [items]="[
+    { url: '#', title: 'Page 1', subtitle: null, isActive: false, children: null },
+    { url: '#', title: 'Page 2', subtitle: null, isActive: false, children: null },
+    { url: '#', title: 'Page 3', subtitle: null, isActive: true, children: null },
+    { url: '#', title: 'Page 4', subtitle: null, isActive: false, children: null },
+  ]"></fds-side-navigation>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-side-navigation [items]="[
+    { url: '#', title: 'Page 1', subtitle: 'Welcome', isActive: false, children: null },
+    { url: '#', title: 'Page 2', subtitle: 'To', isActive: true, children: null },
+    { url: '#', title: 'Page 3', subtitle: 'Design', isActive: false, children: null },
+    { url: '#', title: 'Page 4', subtitle: 'System', isActive: false, children: null },
+  ]"></fds-side-navigation>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-side-navigation [items]="sideNavigationItems"></fds-side-navigation>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-side-navigation
+    [items]="sideNavigationItems"
+    [item-template]="templateItem"
+  ></fds-side-navigation>
+  <ng-template #templateItem let-item="item" let-level="level" let-index="index">
+    <a [routerLink]="item.url" class="p-1 fs-1">
+      {{ level }} - {{ item.title }} - {{ index % 2 == 1 ? 'even' : 'odd' }}
+    </a>
+  </ng-template>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

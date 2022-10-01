@@ -1,0 +1,14 @@
+<app-header
+  header="ModalService"
+  sub-header="Service"
+  doc-url="https://designsystem.dk/komponenter/modal/"
+></app-header>
+
+<app-demo-view>
+  <fds-button (click)="modalService.openTemplate(modalTemplate)"> Åben modal #1 </fds-button>
+  <ng-template #modalTemplate>
+    <h4>Hej</h4>
+  </ng-template>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

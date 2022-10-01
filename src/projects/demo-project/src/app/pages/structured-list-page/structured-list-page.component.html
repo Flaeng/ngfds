@@ -1,0 +1,55 @@
+<app-header
+  header="Structured List"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/strukturerede-lister/"
+></app-header>
+
+<app-demo-view>
+  <fds-structured-list>
+    <fds-structured-list-item
+      header="Navn"
+      content="Kirsten Mønster Jensen"
+    ></fds-structured-list-item>
+    <fds-structured-list-item
+      header="Sagsnummer"
+      content="123.456"
+    ></fds-structured-list-item>
+    <fds-structured-list-item
+      header="Dato"
+      content="04/05/2011"
+    ></fds-structured-list-item>
+    <fds-structured-list-item
+      header="Beskrivelse"
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ></fds-structured-list-item>
+  </fds-structured-list>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-structured-list>
+    <fds-structured-list-item
+      header="Navn"
+      content="Kirsten Mønster Jensen"
+      [canEdit]="true"
+      (edit)="alert('You clicked edit on Navn')"
+    ></fds-structured-list-item>
+    <fds-structured-list-item
+      header="Sagsnummer"
+      content="123.456"
+    ></fds-structured-list-item>
+    <fds-structured-list-item
+      header="Dato"
+      content="04/05/2011"
+    ></fds-structured-list-item>
+    <fds-structured-list-item
+      header="Beskrivelse"
+      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      [canEdit]="true"
+      (edit)="alert('You clicked edit on Beskrivelse')"
+    ></fds-structured-list-item>
+  </fds-structured-list>
+</app-demo-view>
+
+<app-doc-view></app-doc-view>

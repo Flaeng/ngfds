@@ -1,0 +1,85 @@
+<app-header
+  header="Accordions"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/accordions/"
+></app-header>
+
+<section>
+  <h2>Single accordion</h2>
+  <app-demo-view>
+    <fds-accordion header="Hvor skal jeg sende mine ting?">
+      <fds-accordion-content>
+        Ingen steder. Vi kommer selv og henter det.
+      </fds-accordion-content>
+    </fds-accordion>
+  </app-demo-view>
+</section>
+
+<section>
+  <h2>Two accordions independent</h2>
+  <p>Can be open and closed independently</p>
+  <app-demo-view>
+    <fds-accordion header="Hvor skal jeg sende mine ting?">
+      <fds-accordion-content>
+        Ingen steder. Vi kommer selv og henter det.
+      </fds-accordion-content>
+    </fds-accordion>
+    <fds-accordion header="Hvornår skal jeg møde op?">
+      <fds-accordion-content>
+        Vi kommer og henter dig.
+      </fds-accordion-content>
+    </fds-accordion>
+  </app-demo-view>
+</section>
+
+<!-- <section>
+  <h2>Two accordions dependent</h2>
+  <p>Only 1 accordion can be open at the time</p>
+  <app-demo-view>
+    <fds-accordion-list>
+      <fds-accordion header="Q: Hvor skal jeg sende mine ting?">
+        <fds-accordion-content>
+          Ingen steder. Vi kommer selv og henter det.
+        </fds-accordion-content>
+      </fds-accordion>
+      <fds-accordion header="Q: Hvor skal jeg sende mine ting?">
+        <fds-accordion-content>
+          Ingen steder. Vi kommer selv og henter det.
+        </fds-accordion-content>
+      </fds-accordion>
+    </fds-accordion-list>
+  </app-demo-view>
+</section> -->
+
+<section>
+  <h2>Custom accordion</h2>
+  <p>
+    Going wild with customization
+  </p>
+  <app-demo-view>
+    <fds-accordion>
+      <fds-accordion-header>
+        <div class="row">
+            <div class="f-1">
+                <b>Hvor skal jeg sende mine ting?</b>
+            </div>
+            <div class="px-5">
+                Hey hey hey
+            </div>
+        </div>
+      </fds-accordion-header>
+      <fds-accordion-content [no-padding]="true">
+        <div class="row">
+            <div class="col-md-6 pt-4 pb-4" style="background-color: lightgreen">
+              Ingen steder. Vi kommer selv og henter det.
+            </div>
+            <div class="col-md-6 pt-4 pb-4" style="background-color: lightcoral">
+              Ingen steder. Vi kommer selv og henter det.
+            </div>
+        </div>
+      </fds-accordion-content>
+    </fds-accordion>
+  </app-demo-view>
+</section>
+
+<app-doc-view></app-doc-view>

@@ -1,0 +1,14 @@
+<div class="subheading">{{ subHeader }}</div>
+<h1>{{ header }}</h1>
+
+<div *ngIf="docUrl">
+  Dokumentation:
+  <a *ngIf="docUrl" [href]="docUrl" target="_blank">
+    {{ docUrl }}
+    <svg class="icon-svg" aria-hidden="true"><use xlink:href="#open-in-new"></use></svg>
+  </a>
+</div>
+
+<p class="font-lead">
+  <ng-content></ng-content>
+</p>

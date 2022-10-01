@@ -1,0 +1,75 @@
+<app-header 
+    header="Pagination" 
+    sub-header="Component"
+    doc-url="https://designsystem.dk/komponenter/paginering/"
+></app-header>
+
+<app-demo-view>
+    <fds-pagination [current-page]="1" [page-count]="2"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination 
+        [current-page]="4" 
+        [page-count]="4" 
+        (change)="alert('You selected: ' + $event.pageNumber)"
+    ></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="2" [page-count]="4"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="4" [page-count]="4"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="1" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="2" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="3" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="4" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="5" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="6" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="10" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="16" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="17" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="18" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="19" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-pagination [current-page]="20" [page-count]="20"></fds-pagination>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

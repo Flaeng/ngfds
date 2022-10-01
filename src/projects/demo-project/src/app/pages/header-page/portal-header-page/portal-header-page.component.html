@@ -1,0 +1,56 @@
+<app-header
+  header="Portal Header"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/headers/"
+>
+</app-header>
+
+<p><b>logo</b> is the logo to be shown</p>
+<p>
+  <b>portal-name</b> is used for aria/screen-readers and should always be filled
+  in. It should be a text version of the portals name shown in the logo.
+</p>
+<p>
+    <b>username</b> is the name of the user signed in. This also shows the 
+    logout-button.
+</p>
+<p>
+    <b>button-text</b> is for localizing the text of the logout-button
+</p>
+<p>
+    <b>logout</b> is the event triggered when clicking the logout-button
+</p>
+
+<app-demo-view>
+  <fds-header>
+    <fds-portal-header
+      logo="/assets/borger-logo.svg"
+      portal-name="borger.dk"
+    ></fds-portal-header>
+  </fds-header>
+</app-demo-view>
+
+<app-demo-view>
+    <fds-header>
+      <fds-portal-header
+        logo="/assets/borger-logo.svg"
+        portal-name="Portal"
+        username="Jens Hansen"
+        (logout)="alert('Logging out...')"
+      ></fds-portal-header>
+    </fds-header>
+  </app-demo-view>
+
+  <app-demo-view>
+    <fds-header>
+      <fds-portal-header
+        logo="/assets/borger-logo.svg"
+        portal-name="Portal"
+        username="John Doe"
+        button-text="Logout"
+        (logout)="alert('Logging out...')"
+      ></fds-portal-header>
+    </fds-header>
+  </app-demo-view>
+    
+<app-doc-view> </app-doc-view>

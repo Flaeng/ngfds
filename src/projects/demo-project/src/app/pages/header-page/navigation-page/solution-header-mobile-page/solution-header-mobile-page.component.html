@@ -1,0 +1,38 @@
+<app-header
+  header="Solution Header Mobile"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/headers/"
+>
+  This component is used to render the solution header on mobile
+</app-header>
+
+<app-demo-view>
+  <fds-header>
+    <fds-portal-header></fds-portal-header>
+    <fds-solution-header></fds-solution-header>
+    <fds-navigation
+      [items]="[
+        {
+          title: 'Første menupunkt',
+          url: '#',
+          isActive: false,
+          children: null
+        },
+        {
+          title: 'Anden menupunkt',
+          url: '#',
+          isActive: true,
+          children: null
+        }
+      ]"
+    >
+      <fds-solution-header-mobile
+        authority-name="Myndighedsnavn"
+        authority-phone="12 34 56 78"
+        authority-contact="https://www.designsystem.dk"
+      ></fds-solution-header-mobile>
+    </fds-navigation>
+  </fds-header>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

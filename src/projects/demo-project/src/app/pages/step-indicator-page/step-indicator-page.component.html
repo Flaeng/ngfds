@@ -1,0 +1,76 @@
+<app-header
+  header="Trinindikator"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/trinindikatorer/"
+></app-header>
+
+<app-demo-view>
+  <fds-step-indicator
+    [items]="[
+      { title: 'Step 1', url: null, icon: null },
+      { title: 'Step 2', url: null, icon: null },
+      { title: 'Step 3', url: null, icon: null },
+      { title: 'Step 4', url: null, icon: null },
+      { title: 'Step 5', url: null, icon: null }
+    ]"
+    [selected-index]="2"
+    (item-clicked)="alert($event.selectedItem.title)"
+  ></fds-step-indicator>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-step-indicator
+    [items]="stepIndicatorItems"
+    [selected-item]="stepIndicatorItems[1]"
+    show-expand-view="allways"
+    (item-clicked)="alert($event.selectedItem.title)"
+  ></fds-step-indicator>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-step-indicator
+    [items]="stepIndicatorItems"
+    [selected-item]="stepIndicatorItems[1]"
+    [item-template]="templateItem"
+    (item-clicked)="alert($event.selectedItem.title)"
+  ></fds-step-indicator>
+  <ng-template
+    #templateItem
+    let-item="item"
+    let-level="level"
+    let-index="index"
+  >
+    <a [routerLink]="item.url" class="p-1 fs-1">
+      {{ level }} - {{ item.title }} - {{ index % 2 == 1 ? "even" : "odd" }}
+    </a>
+  </ng-template>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-step-indicator
+    [items]="stepIndicatorItems"
+    [selected-item]="stepIndicatorItems[1]"
+    [item-template]="templateItem"
+    [expand-template]="expandTemplate"
+    show-expand-view="allways"
+    (item-clicked)="alert($event.selectedItem.title)"
+  ></fds-step-indicator>
+  <ng-template
+    #templateItem
+    let-item="item"
+    let-level="level"
+    let-index="index"
+  >
+    <a [routerLink]="item.url" class="p-1 fs-1">
+      {{ level }} - {{ item.title }} - {{ index % 2 == 1 ? "even" : "odd" }}
+    </a>
+  </ng-template>
+  <ng-template #expandTemplate let-current="current" let-max="max">
+    {{ Math.round((current / max) * 100) }}% of the way there
+    <svg class="icon-svg" aria-hidden="true" focusable="false">
+      <use xlink:href="#arrow-drop-down"></use>
+    </svg>
+  </ng-template>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

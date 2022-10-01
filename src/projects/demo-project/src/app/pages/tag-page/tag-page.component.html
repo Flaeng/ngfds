@@ -1,0 +1,31 @@
+<app-header
+  header="Tags"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/tags/"
+></app-header>
+
+<section>
+  <h2>Default</h2>
+  <app-demo-view>
+    <fds-tag (click)="alert('Underholdende')">
+        Underholdende
+    </fds-tag>
+    <fds-tag (click)="alert('Børnevenlig')">
+        Børnevenlig
+    </fds-tag>
+  </app-demo-view>
+</section>
+
+<section>
+  <h2>Default /w icon</h2>
+  <app-demo-view>
+    <fds-tag (click)="alert('Børnevenlig')" icon="face">
+        Børnevenlig
+    </fds-tag>
+    <fds-tag (click)="alert('Familievenlig')" icon="groups">
+        Familievenlig
+    </fds-tag>
+  </app-demo-view>
+</section>
+
+<app-doc-view></app-doc-view>

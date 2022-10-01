@@ -1,0 +1,50 @@
+<app-header
+  header="Sprogvælger"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/sprogvaegler/"
+>
+  Used within <a [routerLink]="'/footers'">fds-footer</a> like this:
+  <code>
+    &lt;fds-footer&gt;<br />
+    &nbsp;&nbsp;&lt;fds-language-picker&gt;&lt;/fds-language-picker&gt;<br />
+    &lt;/fds-footer&gt;
+  </code>
+</app-header>
+
+<app-demo-view>
+  <fds-footer>
+    <fds-language-picker
+      [items]="[
+        {
+          nativeLanguageName: 'Dansk',
+          currentLanguageName: 'Dansk',
+          iso639dash1code: 'da',
+          isActive: true
+        },
+        {
+          nativeLanguageName: 'English',
+          currentLanguageName: 'Engelsk',
+          iso639dash1code: 'en-gb',
+          isActive: false
+        },
+        {
+          nativeLanguageName: 'Deutsch',
+          currentLanguageName: 'Tysk',
+          iso639dash1code: 'de',
+          isActive: false
+        },
+        {
+          nativeLanguageName: 'Polski',
+          currentLanguageName: 'Polsk',
+          iso639dash1code: 'pl',
+          isActive: false
+        }
+      ]"
+      (change)="
+        alert('You selected: ' + $event.selectedItem.nativeLanguageName)
+      "
+    ></fds-language-picker>
+  </fds-footer>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

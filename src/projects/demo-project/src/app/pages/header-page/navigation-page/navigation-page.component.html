@@ -1,0 +1,176 @@
+<app-header
+  header="Navigation"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/headers/"
+>
+</app-header>
+
+<p><b>items</b> is the navigation items to be displayed</p>
+<p><b>overflow-text</b> is the text shown on the overflow-button</p>
+<p><b>overflow</b> is the options in the overflow-menu</p>
+
+<app-demo-view>
+    <fds-header>
+      <fds-navigation
+        [items]="[
+          {
+            title: 'Første menupunkt',
+            url: '#',
+            isActive: false,
+            children: null
+          },
+          {
+            title: 'Anden menupunkt',
+            url: '#',
+            isActive: true,
+            children: null
+          },
+          {
+            title: 'Tredje menupunkt',
+            url: '#',
+            isActive: false,
+            children: null
+          },
+          {
+            title: 'Fjerde menupunkt',
+            url: '#',
+            isActive: false,
+            children: null
+          }
+        ]"
+      ></fds-navigation>
+    </fds-header>
+  </app-demo-view>
+  
+<app-demo-view>
+    <fds-header>
+      <fds-navigation
+        [items]="[
+          {
+            title: 'Første menupunkt',
+            url: '#',
+            isActive: false,
+            children: null
+          },
+          {
+            title: 'Anden menupunkt',
+            url: '#',
+            isActive: true,
+            children: null
+          },
+          {
+            title: 'Tredje menupunkt',
+            url: null,
+            isActive: false,
+            children: [
+              {
+                title: 'Title 3.1',
+                url: '#',
+                isActive: false,
+                children: null
+              },
+              {
+                title: 'Title 3.2',
+                url: '#',
+                isActive: false,
+                children: null
+              },
+              {
+                title: 'Title 3.3',
+                url: '#',
+                isActive: false,
+                children: null
+              }
+            ]
+          },
+          {
+            title: 'Fjerde menupunkt',
+            url: '#',
+            isActive: false,
+            children: null
+          }
+        ]"
+      ></fds-navigation>
+    </fds-header>
+  </app-demo-view>
+  
+<app-demo-view>
+  <fds-header>
+    <fds-navigation
+      [items]="[
+        {
+          title: 'Første menupunkt',
+          url: '#',
+          isActive: false,
+          children: null
+        },
+        {
+          title: 'Anden menupunkt',
+          url: '#',
+          isActive: true,
+          children: null
+        },
+        {
+          title: 'Tredje menupunkt',
+          url: null,
+          isActive: false,
+          children: [
+            {
+              title: 'Title 3.1',
+              url: '#',
+              isActive: false,
+              children: null
+            },
+            {
+              title: 'Title 3.2',
+              url: '#',
+              isActive: false,
+              children: null
+            },
+            {
+              title: 'Title 3.3',
+              url: '#',
+              isActive: false,
+              children: null
+            }
+          ]
+        },
+        {
+          title: 'Fjerde menupunkt',
+          url: '#',
+          isActive: false,
+          children: null
+        }
+      ]"
+      overflow-text="Flere muligheder"
+      [overflow]="[
+        {
+          title: 'Femte menupunkt',
+          url: '#',
+          isActive: false,
+          children: null
+        },
+        {
+          title: 'Sjette menupunkt',
+          url: '#',
+          isActive: false,
+          children: null
+        },
+        {
+          title: 'Syvende menupunkt',
+          url: '#',
+          isActive: true,
+          children: null
+        },
+        {
+          title: 'Ottende menupunkt',
+          url: null,
+          isActive: false,
+          children: null
+        }
+      ]"
+    ></fds-navigation>
+  </fds-header>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

@@ -1,0 +1,115 @@
+<app-header
+  header="Toast"
+  sub-header="Service"
+  doc-url="https://designsystem.dk/design/notifikation/"
+>
+  Add a provider to your application like this:
+  <code>
+    &#123; provide: FDS_TOAST_OPTIONS, useValue: &#123; newToastPosition:
+    'bottom' &#125; as IToastOptions &#125;,
+  </code>
+</app-header>
+
+<section>
+  <h2>Default Success</h2>
+  <app-demo-view>
+    <fds-button
+      (click)="
+        toastService.show({
+          title: 'Test',
+          description: null,
+          timeout: null,
+          type: 'success'
+        })
+      "
+      >Show Success
+    </fds-button>
+  </app-demo-view>
+</section>
+
+<section>
+  <h2>Default Warning</h2>
+  <app-demo-view>
+    <fds-button
+      (click)="
+        toastService.show({
+          title: 'Test',
+          description: null,
+          timeout: null,
+          type: 'warning'
+        })
+      "
+      >Show Warning
+    </fds-button>
+  </app-demo-view>
+</section>
+
+<section>
+  <h2>Default Error</h2>
+  <app-demo-view>
+    <fds-button
+      (click)="
+        toastService.show({
+          title: 'Test',
+          description: null,
+          timeout: null,
+          type: 'error'
+        })
+      "
+      >Show Error
+    </fds-button>
+  </app-demo-view>
+</section>
+
+<section>
+  <h2>Default Info</h2>
+  <app-demo-view>
+    <fds-button
+      (click)="
+        toastService.show({
+          title: 'Test',
+          description: null,
+          timeout: null,
+          type: 'info'
+        })
+      "
+      >Show Info
+    </fds-button>
+  </app-demo-view>
+</section>
+
+<section>
+  <h2>With Description</h2>
+  <app-demo-view>
+    <fds-button
+      (click)="
+        toastService.show({
+          title: 'Test',
+          description: 'Lorem ipsum',
+          timeout: null,
+          type: 'info'
+        })
+      "
+      >Show Info
+    </fds-button>
+  </app-demo-view>
+</section>
+
+<section>
+  <h2>With Timeout</h2>
+  <app-demo-view>
+    <fds-button
+      (click)="
+        toastService.show({
+          title: 'Test timeout',
+          description: null,
+          timeout: 2000,
+          type: 'info'
+        })
+      "
+      >Show and hide after 2 sec
+    </fds-button>
+  </app-demo-view>
+</section>
+
+<app-doc-view></app-doc-view>
