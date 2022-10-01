@@ -15,10 +15,10 @@ export class CookieMessageComponent {
   public negativeText: string = 'Nej tak til cookies';
 
   @Output('positive-click')
-  public positiveClick: EventEmitter<any> = new EventEmitter();
+  public positiveClick: EventEmitter<Event> = new EventEmitter();
 
   @Output('negative-click')
-  public negativeClick: EventEmitter<any> = new EventEmitter();
+  public negativeClick: EventEmitter<Event> = new EventEmitter();
 
   hideCookieBox: boolean = false;
 

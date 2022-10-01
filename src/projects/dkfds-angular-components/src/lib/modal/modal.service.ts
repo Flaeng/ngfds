@@ -1,6 +1,5 @@
 import { ComponentFactoryResolver, ComponentRef, Injectable, TemplateRef, Type, ViewContainerRef } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { HeaderComponent } from '../header/header.component';
 
 @Injectable({
   providedIn: 'root'

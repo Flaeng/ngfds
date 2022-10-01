@@ -57,8 +57,9 @@ export class DatePickerComponent
     return this._value;
   }
 
-  onChange: ((date: Date | null) => {}) | null = null;
-  onTouched: (() => {}) | null = null;
+  onChange: ((date: Date | null) => void) | null = null;
+  onTouched: (() => void) | null = null;
+  onValidatorChange: (() => void) | null = null;
 
   onInputChange(ev: Event): void {
     const value = (ev.target as HTMLInputElement).value;
@@ -88,6 +89,7 @@ export class DatePickerComponent
     return input != null && button != null ? { input, button } : null;
   }
 
+  _initialDisabled = false;
   @Input()
   public get disabled(): boolean {
     const ctrls = this.getDatePickerElements();
@@ -97,8 +99,6 @@ export class DatePickerComponent
       ctrls.button.hasAttribute('disabled')
     );
   }
-
-  _initialDisabled = false;
   public set disabled(value: boolean) {
     this._initialDisabled = value;
     const ctrls = this.getDatePickerElements();
@@ -112,6 +112,7 @@ export class DatePickerComponent
       ctrls.button.removeAttribute('disabled');
     }
   }
+  
 
   writeValue(obj: any): void {
     this.value = obj;
@@ -128,7 +129,9 @@ export class DatePickerComponent
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
     return null;
   }
-  registerOnValidatorChange?(fn: () => void): void {}
+  registerOnValidatorChange?(fn: () => void): void {
+    this.onValidatorChange = fn;
+  }
   ngAfterViewInit(): void {
     DKFDS.datePicker.init(this.datePickerWrapper);
     this.value = this._value;

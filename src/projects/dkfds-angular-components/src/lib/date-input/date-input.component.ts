@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
@@ -73,9 +73,10 @@ export class DateInputComponent
   get value(): Date | null {
     return DateHelper.parseDate(this._dayOfMonth, this._month, this._year);
   }
-
+  
   onChange: ((date: Date | null) => {}) | null = null;
   onTouched: (() => {}) | null = null;
+  onValidatorChange: (() => void) | null = null;
 
   @Input()
   public disabled: boolean = false;
@@ -96,7 +97,9 @@ export class DateInputComponent
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
     return null;
   }
-  registerOnValidatorChange?(fn: () => void): void {}
+  registerOnValidatorChange?(fn: () => void): void {
+    this.onValidatorChange = fn;
+  }
   ngAfterViewInit(): void {
     DKFDS.init();
   }

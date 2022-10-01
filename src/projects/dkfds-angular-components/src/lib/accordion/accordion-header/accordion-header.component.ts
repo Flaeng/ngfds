@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit, Optional, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, Optional, ViewEncapsulation } from '@angular/core';
 import { AccordionComponent } from '../accordion.component';
 
 @Component({

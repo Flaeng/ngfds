@@ -1,5 +1,5 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 //@ts-ignore
 import DKFDS from 'dkfds';
 
@@ -31,8 +31,8 @@ export class FdsToastService {
     body.appendChild(this.toastContainer);
   }
 
-  public show(toast: IToast): Subject<any> {
-    const obs = new Subject<any>();
+  public show(toast: IToast): Subject<undefined> {
+    const obs = new Subject<undefined>();
     if (this.toastContainer == null) return obs;
 
     const elem = this.createToastElement(toast, obs);
@@ -43,20 +43,20 @@ export class FdsToastService {
       this.toastContainer.append(elem);
     }
 
-    let fdsToast = new DKFDS.Toast(elem);
+    const fdsToast = new DKFDS.Toast(elem);
     fdsToast.show();
 
     if (toast.timeout != null) {
       setTimeout(function () {
         fdsToast.hide();
-        obs.next({});
+        obs.next(undefined);
       }, toast.timeout);
     }
 
     return obs;
   }
 
-  private createToastElement(toast: IToast, obs: Subject<any>): HTMLDivElement {
+  private createToastElement(toast: IToast, obs: Subject<undefined>): HTMLDivElement {
     const elem = document.createElement('div');
     elem.classList.add('toast');
     elem.classList.add(`toast-${toast.type}`);
@@ -79,7 +79,7 @@ export class FdsToastService {
     btn.classList.add('toast-close');
     btn.textContent = 'Luk';
     message.appendChild(btn);
-    btn.addEventListener('click', () => obs.next({}));
+    btn.addEventListener('click', () => obs.next(undefined));
 
     if (toast.description) {
       const desc = document.createElement('p');

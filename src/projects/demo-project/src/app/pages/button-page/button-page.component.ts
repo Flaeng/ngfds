@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-button-page',
@@ -6,5 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./button-page.component.scss'],
 })
 export class ButtonPageComponent {
-  doStuff(): void {}
+  alert(message: string): void {
+    window.alert(message);
+  }
 }

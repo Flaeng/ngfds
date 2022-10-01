@@ -25,7 +25,7 @@ export class StructuredListItemComponent implements OnInit {
   public canEdit: boolean = false;
 
   @Output()
-  public edit: EventEmitter<any> = new EventEmitter();
+  public edit: EventEmitter<Event> = new EventEmitter();
 
   @ViewChild('template', { static: true })
   private template!: TemplateRef<any>;

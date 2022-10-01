@@ -32,7 +32,7 @@ export class AlertComponent implements AfterViewInit {
 
   @ViewChild('alertContainer') el!: ElementRef;
 
-  private alert: any;
+  private alert: DKFDS.Alert;
 
   ngAfterViewInit(): void {
     this.alert = new DKFDS.Alert(this.el.nativeElement);

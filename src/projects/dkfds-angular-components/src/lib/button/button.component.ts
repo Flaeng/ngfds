@@ -1,24 +1,29 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { SelectControlValueAccessor } from '@angular/forms';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'fds-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent implements OnInit, OnChanges {
-  
   @Input() public visual: 'primary' | 'secondary' | 'tertiary' = 'primary';
-  
+
   @Input() public disabled: boolean = false;
 
   @Input() public type: 'button' | 'submit' | 'reset' = 'button';
 
   cssClass: Record<string, boolean> = {};
-  
+
   ngOnInit(): void {
-    this.setClass();  
+    this.setClass();
   }
 
   setClass(): void {
@@ -29,5 +34,4 @@ export class ButtonComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.setClass();
   }
-
 }

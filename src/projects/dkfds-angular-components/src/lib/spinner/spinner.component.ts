@@ -35,7 +35,7 @@ export class SpinnerComponent implements OnInit, OnChanges, OnDestroy {
     { duration: 6 * 60000, text: 'Vi er stadig i gang, undskyld ventetiden' },
   ];
 
-  intervalIdentifier: any | null = null;
+  intervalIdentifier: NodeJS.Timer | null = null;
 
   spinnerDuration: number = 0;
   statusText: string = '';
