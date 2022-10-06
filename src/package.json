@@ -1,20 +1,21 @@
 {
-  "name": "dkfds-angular-components",
+  "name": "ngfds",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-library": "ng build --project=ngfds --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "eslint . --ext .ts",
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cy:chrome": "npx cypress run --component -b chrome -C projects/dkfds-angular-components/cypress.config.ts -s projects/dkfds-angular-components/cypress/e2e/**/*.cy.ts",
-    "cy:edge": "npx cypress run --component -b edge -C projects/dkfds-angular-components/cypress.config.ts -s projects/dkfds-angular-components/cypress/e2e/**/*.cy.ts",
-    "cy:firefox": "npx cypress run --component -b firefox -C projects/dkfds-angular-components/cypress.config.ts -s projects/dkfds-angular-components/cypress/e2e/**/*.cy.ts",
-    "cy:webkit": "npx cypress run --component -b webkit -C projects/dkfds-angular-components/cypress.config.ts -s projects/dkfds-angular-components/cypress/e2e/**/*.cy.ts"
+    "cy:chrome": "npx cypress run --component -b chrome -C projects/ngfds/cypress.config.ts -s projects/ngfds/cypress/e2e/**/*.cy.ts",
+    "cy:edge": "npx cypress run --component -b edge -C projects/ngfds/cypress.config.ts -s projects/ngfds/cypress/e2e/**/*.cy.ts",
+    "cy:firefox": "npx cypress run --component -b firefox -C projects/ngfds/cypress.config.ts -s projects/ngfds/cypress/e2e/**/*.cy.ts",
+    "cy:webkit": "npx cypress run --component -b webkit -C projects/ngfds/cypress.config.ts -s projects/ngfds/cypress/e2e/**/*.cy.ts"
   },
   "private": true,
   "dependencies": {

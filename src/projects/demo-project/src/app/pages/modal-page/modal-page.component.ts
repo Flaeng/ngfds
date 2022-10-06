@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalService } from 'projects/dkfds-angular-components/src/lib/modal/public-api';
+import { ModalService } from 'projects/ngfds/src/lib/modal/public-api';
 import { BasePageComponent } from '../BasePageComponent';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationItem } from 'projects/dkfds-angular-components/src/lib/header/navigation/navigation.component';
+import { NavigationItem } from 'projects/ngfds/src/lib/header/navigation/navigation.component';
 import { BasePageComponent } from '../BasePageComponent';
 
 @Component({

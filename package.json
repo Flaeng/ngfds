@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "setup": "node scripts/install.js",
+    "setup-demo-v11": "node scripts/setup-demo.js --version=11",
+    "build-library-v11": "node scripts/build-library.js --version=11"
+  },
   "devDependencies": {
     "@angular/cli": "^14.2.4"
   }

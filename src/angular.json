@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dkfds-angular-components": {
+    "ngfds": {
       "projectType": "library",
-      "root": "projects/dkfds-angular-components",
-      "sourceRoot": "projects/dkfds-angular-components/src",
+      "root": "projects/ngfds",
+      "sourceRoot": "projects/ngfds/src",
       "prefix": "fds",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/dkfds-angular-components/ng-package.json"
+            "project": "projects/ngfds/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/dkfds-angular-components/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngfds/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/dkfds-angular-components/tsconfig.lib.json"
+              "tsConfig": "projects/ngfds/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,20 +27,20 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/dkfds-angular-components/src/test.ts",
-            "tsConfig": "projects/dkfds-angular-components/tsconfig.spec.json",
-            "karmaConfig": "projects/dkfds-angular-components/karma.conf.js"
+            "main": "projects/ngfds/src/test.ts",
+            "tsConfig": "projects/ngfds/tsconfig.spec.json",
+            "karmaConfig": "projects/ngfds/karma.conf.js"
           }
         },
         "cypress-run": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "dkfds-angular-components:serve",
-            "configFile": "projects/dkfds-angular-components/cypress.config.js"
+            "devServerTarget": "ngfds:serve",
+            "configFile": "projects/ngfds/cypress.config.js"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "dkfds-angular-components:serve:production"
+              "devServerTarget": "ngfds:serve:production"
             }
           }
         },
@@ -49,33 +49,33 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/dkfds-angular-components/cypress.config.js"
+            "configFile": "projects/ngfds/cypress.config.js"
           }
         },
         "ct": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "dkfds-angular-components:serve",
+            "devServerTarget": "ngfds:serve",
             "watch": true,
             "headless": false,
             "testingType": "component"
           },
           "configurations": {
             "development": {
-              "devServerTarget": "dkfds-angular-components:serve:development"
+              "devServerTarget": "ngfds:serve:development"
             }
           }
         },
         "e2e": {
           "builder": "@cypress/schematic:cypress",
           "options": {
-            "devServerTarget": "dkfds-angular-components:serve",
+            "devServerTarget": "ngfds:serve",
             "watch": true,
             "headless": false
           },
           "configurations": {
             "production": {
-              "devServerTarget": "dkfds-angular-components:serve:production"
+              "devServerTarget": "ngfds:serve:production"
             }
           }
         }

@@ -1,0 +1,22 @@
+<ul class="accordion">
+  <li>
+    <h2 *ngIf="header != null">
+      <button
+        class="accordion-button"
+        aria-expanded="false"
+        [attr.aria-controls]="id"
+      >
+        {{ header }}
+        <span class="accordion-icon" *ngIf="headerIcon || headerIconText">
+          <span class="icon_text" *ngIf="headerIconText">
+            {{ headerIconText }}
+          </span>
+          <svg class="icon-svg" aria-hidden="true">
+            <use [attr.xlink:href]="'#' + headerIcon"></use>
+          </svg>
+        </span>
+      </button>
+    </h2>
+    <ng-content></ng-content>
+  </li>
+</ul>

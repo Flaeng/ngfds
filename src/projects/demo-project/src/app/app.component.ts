@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SideNavigationItem } from 'projects/dkfds-angular-components/src/lib/side-navigation/public-api';
+import { SideNavigationItem } from 'projects/ngfds/src/lib/side-navigation/public-api';
 
 @Component({
   selector: 'app-root',

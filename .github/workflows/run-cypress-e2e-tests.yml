@@ -28,3 +28,6 @@ jobs:
 
       - run: npm run cy:chrome
         working-directory: ./src
+
+      - run: npm run build-library
+        working-directory: ./src

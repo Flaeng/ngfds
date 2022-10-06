@@ -5,8 +5,8 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "paths": {
-      "dkfds-angular-components": [
-        "dist/dkfds-angular-components"
+      "ngfds": [
+        "dist/ngfds"
       ]
     },
     "forceConsistentCasingInFileNames": true,
