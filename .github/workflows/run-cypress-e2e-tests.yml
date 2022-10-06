@@ -16,12 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: npm install in root
-        run: npm install
-
-      - name: npm install in src
-        run: npm install
-        working-directory: ./src
+      - name: Install
+        run: node scripts/install.js
 
       - run: npm run lint
         working-directory: ./src
