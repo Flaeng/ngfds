@@ -18,10 +18,15 @@ function makeDir(path, deleteIfExists) {
 function getArgument(prefix) {
   const args = process.argv;
   prefix = `--${prefix}`;
+  let returnNext = false;
   for (let index = 0; index < args.length; index++) {
     const argument = args[index];
     if (argument.startsWith(`${prefix}=`)) {
       return argument.substring(prefix.length + 1);
+    } else if (argument == `${prefix}`) {
+      returnNext = true;
+    } else if (returnNext) {
+      return argument;
     }
   }
 }
@@ -30,7 +35,7 @@ function getIntArgument(prefix) {
   const argString = getArgument(prefix);
 
   if (!argString) {
-    console.error("No version was provided (using --v=[number])");
+    console.error(`No version was provided (using --${prefix}=[number])`);
     return { success: false };
   }
   const argInt = parseInt(argString);
@@ -48,7 +53,7 @@ async function executeAsync(cmd, path) {
   const child = spawn(cmd, _options);
   return new Promise((res, rej) => {
     child.on("exit", function (err) {
-      if (err) rej();
+      if (err) rej(err);
       else res();
     });
   });
@@ -56,10 +61,10 @@ async function executeAsync(cmd, path) {
 
 function copyFolder(source, destination, isRecursiveCall) {
   const files = fs.readdirSync(source);
-  if (isRecursiveCall != true)
-    console.log('Copying files...');
+  if (isRecursiveCall != true) console.log("Copying files...");
   files.forEach((file) => {
     const sourcePath = `${source}/${file}`;
+    makeDir(destination, false);
     const destinationPath = `${destination}/${file}`;
     if (fs.lstatSync(sourcePath).isDirectory()) {
       makeDir(destinationPath);

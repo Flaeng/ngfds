@@ -6,9 +6,10 @@ const {
 } = require("./helpers");
 const fs = require("fs");
 
-const dependencies = ["dkfds"];
-const cypressPath = "src/projects/ngfds/cypress";
-const sourcePath = "src/projects/ngfds/src";
+const dependencies = ["dkfds", "cypress --save-dev"];
+const solutionPath = "src";
+const projectPath = "src/projects/ngfds";
+const typingsPath = "src/typings";
 
 const nameArg = getIntArgument("version");
 if (nameArg.success == false) {
@@ -34,24 +35,46 @@ const version = `v${name}-lts`;
   const solutionFolder = `${rootFolder}/src`;
 
   // Create component library
-  await executeAsync(`ng g library ngfds`, solutionFolder);
+  await executeAsync(`ng generate library ngfds`, solutionFolder);
 
   // Install dependencies
   for (let index = 0; index < dependencies.length; index++) {
     const dep = dependencies[index];
     await executeAsync(`npm install ${dep}`, solutionFolder);
   }
-
-  // Copy source code & Cypress tests
-  const projectFolder = `${solutionFolder}/projects/ngfds/src`;
-  copyFolder(sourcePath, projectFolder);
-
-  const cypressFolder = `${solutionFolder}/projects/ngfds/cypress`;
-  copyFolder(cypressPath, cypressFolder);
-
-  // Run Cypress tests
-  await executeAsync(
-    `npx cypress run --component -b chrome -C projects/ngfds/cypress.config.ts -s projects/ngfds/cypress/e2e/**/*.cy.ts`,
-    solutionFolder
+  makeDir(`${solutionFolder}/cypress`, false);
+  copyFolder(
+    `${solutionPath}/cypress/support`,
+    `${solutionFolder}/cypress/support`
   );
+
+  // Copy source code & setup project
+  const projectFolder = `${solutionFolder}/projects/ngfds`;
+  copyFolder(`${projectPath}/src`, `${projectFolder}/src`);
+  await executeAsync(`npm install dkfds`, projectFolder);
+  fs.copyFileSync(
+    `${projectPath}/cypress.config.ts`,
+    `${projectFolder}/cypress.config.ts`
+  );
+
+  copyFolder(`${projectPath}/cypress`, `${projectFolder}/cypress`);
+
+  // Copy typings files
+  copyFolder(typingsPath, `${solutionFolder}/typings`);
+  await executeAsync(`node ../../../scripts/custom-types.js`, solutionFolder);
+
+    // Run preprocessor
+  await executeAsync(
+    `node scripts/ts-preprocessor.js --path temp/library-v${name}/src/projects/ngfds/src/lib --ng-version=${name}`,
+    ``
+  );
+
+  // TODO: Create demo-project and copy source code
+  // TODO: Add cypress to demo-project
+  // TODO: Run cypress
+
+  // await executeAsync(
+  //   `ng build --project=ngfds --configuration=production`,
+  //   solutionFolder
+  // );
 })();

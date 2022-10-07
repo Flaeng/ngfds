@@ -114,7 +114,6 @@ export class DatePickerComponent
       ctrls.button.removeAttribute('disabled');
     }
   }
-  
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(obj: any): void {
@@ -131,8 +130,13 @@ export class DatePickerComponent
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+  // #IF angular <= 13
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
+  // validate(control: AbstractControl): ValidationErrors | null {
+  // #ELSE
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
+    // #ENDIF
     return null;
   }
   registerOnValidatorChange?(fn: () => void): void {
