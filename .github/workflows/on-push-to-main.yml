@@ -22,13 +22,13 @@ jobs:
     needs: setup
     steps:
       - run: npm run lint
-        working-directory: ./src
+        working-directory: ../src
 
       - run: npm run cy:chrome
-        working-directory: ./src
+        working-directory: ../src
 
       - run: npm run build-library
-        working-directory: ./src
+        working-directory: ../src
 
   build-ng-v13:
     name: Build targeting Angular 13
@@ -36,3 +36,4 @@ jobs:
     needs: setup
     steps:
       - run: npm run build-library-v13
+        working-directory: ../
