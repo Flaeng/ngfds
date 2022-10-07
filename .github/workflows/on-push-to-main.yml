@@ -18,7 +18,7 @@ jobs:
 
   build-dev:
     name: Lint, Test & Build
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     needs: setup
     steps:
       - run: npm run lint
@@ -32,6 +32,7 @@ jobs:
 
   build-ng-v13:
     name: Build targeting Angular 13
-    # runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
+    needs: setup
     steps:
       - run: npm run build-library-v13
