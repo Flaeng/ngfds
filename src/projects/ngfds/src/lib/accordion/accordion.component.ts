@@ -6,6 +6,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import * as DKFDS from 'dkfds';
+import { DkfdsHelper } from '../helpers/dkfds-helper';
 
 @Component({
   selector: 'fds-accordion',
@@ -28,12 +29,12 @@ export class AccordionComponent implements AfterViewInit {
   static idGenerator = 1;
 
   id: string = 'accordion' + (AccordionComponent.idGenerator++).toString();
-  accordion: DKFDS.Accordion | null = null;
+  
+  public accordion: DKFDS.Accordion | null = null;
 
-  constructor(private _elementRef: ElementRef) {}
+  constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    this.accordion = new DKFDS.Accordion(this._elementRef.nativeElement);
-    this.accordion.init();
+    this.accordion = DkfdsHelper.createAndInit(DKFDS.Accordion, this.el);
   }
 }

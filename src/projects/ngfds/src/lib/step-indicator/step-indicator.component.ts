@@ -14,6 +14,7 @@ import {
 import { Router } from '@angular/router';
 import { ItemSelectedEvent, NavigationItemHelper } from '../helpers/navigation-item-helper';
 import * as DKFDS from 'dkfds';
+import { DkfdsHelper } from '../helpers/dkfds-helper';
 
 @Component({
   selector: 'fds-step-indicator',
@@ -49,6 +50,8 @@ export class StepIndicatorComponent implements OnChanges, AfterViewInit {
 
   @ViewChild('mobileDropdownTrigger') dropdownTrigger!: ElementRef;
 
+  public dropdownControl: DKFDS.Dropdown | null = null;
+
   static idGenerator = 1;
   id: string = (StepIndicatorComponent.idGenerator++).toString();
   helper: NavigationItemHelper<IStepIndicatorItem>;
@@ -58,8 +61,7 @@ export class StepIndicatorComponent implements OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const dropdown = new DKFDS.Dropdown(this.dropdownTrigger.nativeElement);
-    dropdown.init();
+    this.dropdownControl = DkfdsHelper.createAndInit(DKFDS.Dropdown, this.dropdownTrigger);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

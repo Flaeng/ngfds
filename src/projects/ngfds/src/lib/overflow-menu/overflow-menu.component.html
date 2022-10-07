@@ -4,6 +4,7 @@
         [attr.data-js-target]="'navigationoverflow' + id"
         aria-haspopup="true" 
         aria-expanded="false"
+        #dropdownTrigger
     >
         <span>{{ selectedItem != null ? selectedItem.title : placeholder }}</span>
         <svg *ngIf="hideIcon == false" class="icon-svg" aria-hidden="true" focusable="false"><use [attr.xlink:href]="'#' + icon"></use></svg>

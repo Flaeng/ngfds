@@ -5,6 +5,7 @@ import {
   EventEmitter,
   Input,
   Output,
+  ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
 import {
@@ -12,6 +13,7 @@ import {
   NavigationItemHelper,
 } from '../helpers/navigation-item-helper';
 import * as DKFDS from 'dkfds';
+import { DkfdsHelper } from '../helpers/dkfds-helper';
 
 @Component({
   selector: 'fds-overflow-menu',
@@ -36,6 +38,11 @@ export class OverflowMenuComponent implements AfterViewInit {
   @Output('item-clicked')
   public itemClicked: EventEmitter<ItemSelectedEvent<IOverflowNavigationItem>> =
     new EventEmitter();
+  
+  @ViewChild('dropdownTrigger')
+  dropdownTrigger!: ElementRef<HTMLButtonElement>;
+
+  dropdownControl: DKFDS.Dropdown | null = null;
 
   static idGenerator = 1;
 
@@ -53,12 +60,7 @@ export class OverflowMenuComponent implements AfterViewInit {
     this.helper.handleClick(ev, item);
   }
   ngAfterViewInit(): void {
-    const elem: Element = this.element.nativeElement;
-    const trigger = elem.querySelector<HTMLButtonElement>('.js-dropdown');
-    if (trigger) {
-      const dropdown = new DKFDS.Dropdown(trigger);
-      dropdown.init();
-    }
+    this.dropdownControl = DkfdsHelper.createAndInit(DKFDS.Dropdown, this.dropdownTrigger);
   }
 }
 

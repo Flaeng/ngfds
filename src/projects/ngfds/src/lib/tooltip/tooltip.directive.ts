@@ -1,5 +1,6 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 import * as DKFDS from 'dkfds';
+import { DkfdsHelper } from '../helpers/dkfds-helper';
 
 @Directive({
   selector: '[fds-tooltip]',
@@ -10,6 +11,8 @@ export class TooltipDirective implements OnInit {
   
   @Input('fds-tooltip-position')
   public tooltipPosition: 'top' | 'bottom' = 'top';
+
+  public underlayingControl: DKFDS.Tooltip | null = null;
 
   constructor(private elem: ElementRef) {}
 
@@ -22,7 +25,6 @@ export class TooltipDirective implements OnInit {
     const text = this.tooltip.replace(/g\n/, '<br />');
     this.elem.nativeElement.setAttribute('data-tooltip', text);
     this.elem.nativeElement.setAttribute('data-tooltip-position', this.tooltipPosition);
-    const tooltip = new DKFDS.Tooltip(this.elem.nativeElement);
-    tooltip.init();
+    this.underlayingControl = DkfdsHelper.createAndInit(DKFDS.Tooltip, this.elem);
   }
 }

@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, Input, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import * as DKFDS from 'dkfds';
+import { DkfdsHelper } from '../../helpers/dkfds-helper';
 
 @Component({
   selector: 'fds-navigation',
@@ -8,7 +9,7 @@ import * as DKFDS from 'dkfds';
   styleUrls: ['./navigation.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class NavigationComponent implements AfterViewInit {
+export class NavigationComponent implements AfterViewInit, OnDestroy {
   @Input()
   public items: INavigationItem[] | null = null;
   
@@ -27,13 +28,19 @@ export class NavigationComponent implements AfterViewInit {
   @Input("portal-template")
   public portalTemplate: TemplateRef<unknown> | null = null;
   
+  public navigation: DKFDS.Navigation | null = null;
+
   constructor(
     private router: Router
   ) {}
 
   ngAfterViewInit(): void {
-    const navi = new DKFDS.Navigation();
-    navi.init();
+    this.navigation = new DKFDS.Navigation();
+    this.navigation.init();
+  }
+  
+  ngOnDestroy(): void {
+    this.navigation?.teardown();
   }
 
   navigateTo(ev: Event, url: string): void {

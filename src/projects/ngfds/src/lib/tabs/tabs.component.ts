@@ -6,6 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import * as DKFDS from 'dkfds';
+import { DkfdsHelper } from '../helpers/dkfds-helper';
 import { TabContentComponent } from './tab-content/tab-content.component';
 import { TabSelectorComponent } from './tab-selector/tab-selector.component';
 
@@ -20,10 +21,11 @@ export class TabsComponent implements AfterViewInit {
   @Input('selected-index')
   public selectedIndex = 0;
 
+  underlayingControl: DKFDS.Tabnav | null = null;
+
   ngAfterViewInit(): void {
     this.setSelectedTab();
-    const tabnav = new DKFDS.Tabnav(this.tabnav.nativeElement);
-    tabnav.init();
+    this.underlayingControl = DkfdsHelper.createAndInit(DKFDS.Tabnav, this.tabnav);
   }
 
   setSelectedTab() {

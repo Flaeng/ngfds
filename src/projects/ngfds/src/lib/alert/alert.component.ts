@@ -8,6 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import * as DKFDS from 'dkfds';
+import { DkfdsHelper } from '../helpers/dkfds-helper';
 
 @Component({
   selector: 'fds-alert',
@@ -31,11 +32,10 @@ export class AlertComponent implements AfterViewInit {
 
   @ViewChild('alertContainer') el!: ElementRef;
 
-  private alert: DKFDS.Alert | null = null;
+  public alert: DKFDS.Alert | null = null;
 
   ngAfterViewInit(): void {
-    this.alert = new DKFDS.Alert(this.el.nativeElement);
-    this.alert.init();
+    this.alert = DkfdsHelper.createAndInit(DKFDS.Alert, this.el);
   }
 
   hasRoleAlert(): boolean {
