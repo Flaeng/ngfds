@@ -1,4 +1,4 @@
-name: Lint, Test & Build
+name: On push to mains
 
 on:
   push:
@@ -9,13 +9,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  run-e2e-tests:
+  setup:
+    name: Setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - run: npm run setup
 
+  build-dev:
+    name: Lint, Test & Build
+    # runs-on: ubuntu-latest
+    needs: setup
+    steps:
       - run: npm run lint
         working-directory: ./src
 
@@ -24,3 +29,9 @@ jobs:
 
       - run: npm run build-library
         working-directory: ./src
+
+  build-ng-v13:
+    name: Build targeting Angular 13
+    # runs-on: ubuntu-latest
+    steps:
+      - run: npm run build-library-v13
