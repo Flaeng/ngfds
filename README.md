@@ -22,11 +22,11 @@
 
 # Codeclimate
 
-https://codeclimate.com/github/Flaeng/ngfds
-
 ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/Flaeng/ngfds?style=for-the-badge)
 ![Code Climate issues](https://img.shields.io/codeclimate/issues/Flaeng/ngfds?label=Maintainability%20Issues&style=for-the-badge)
 ![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/Flaeng/ngfds?style=for-the-badge)
+
+https://codeclimate.com/github/Flaeng/ngfds
 
 # Codefactor
 
