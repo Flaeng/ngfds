@@ -27,7 +27,6 @@ jobs:
 
       - name: Package screenshots
         if: ${{ failure() }}
-        # if: failure() && steps.cypress.outcome == 'failure'
         uses: actions/upload-artifact@v3
         with:
           name: package

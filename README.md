@@ -13,5 +13,17 @@ https://codeclimate.com/github/Flaeng/ngfds
 
 https://www.codefactor.io/repository/github/flaeng/ngfds
 
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v14?label=Build%20targeting%20Angular%20v14&style=for-the-badge)
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v13?label=Build%20targeting%20Angular%20v13&style=for-the-badge)
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v12?label=Build%20targeting%20Angular%20v12&style=for-the-badge)
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v11?label=Build%20targeting%20Angular%20v11&style=for-the-badge)
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v10?label=Build%20targeting%20Angular%20v10&style=for-the-badge)
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v9?label=Build%20targeting%20Angular%20v9&style=for-the-badge)
+
 # ngfds
 An Angular Component Library implemeting DKFDS - Fælles Design System
