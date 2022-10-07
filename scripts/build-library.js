@@ -3,6 +3,7 @@ const {
   executeAsync,
   makeDir,
   copyFolder,
+  getArgument,
 } = require("./helpers");
 const fs = require("fs");
 
@@ -11,16 +12,12 @@ const solutionPath = "src";
 const projectPath = "src/projects/ngfds";
 const typingsPath = "src/typings";
 
-const nameArg = getIntArgument("version");
-if (nameArg.success == false) {
-  return 1;
-}
-const name = nameArg.value;
-const version = `v${name}-lts`;
+const version = getArgument("version");
+const name = version;
 
 (async function () {
   // Make workspace
-  const rootFolder = `temp/library-v${name}`;
+  const rootFolder = `temp/library-${name}`;
   makeDir(rootFolder, true);
   await executeAsync(`npm init -y`, rootFolder);
 
@@ -59,6 +56,14 @@ const version = `v${name}-lts`;
   fs.copyFileSync(
     `${projectPath}/package.json`,
     `${projectFolder}/package.json`
+  );
+  fs.copyFileSync(
+    `${projectPath}/tsconfig.lib.json`,
+    `${projectFolder}/tsconfig.lib.json`
+  );
+  fs.copyFileSync(
+    `${projectPath}/tsconfig.lib.prod.json`,
+    `${projectFolder}/tsconfig.lib.prod.json`
   );
 
   copyFolder(`${projectPath}/cypress`, `${projectFolder}/cypress`);

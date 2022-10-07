@@ -2,12 +2,12 @@
   "scripts": {
     "setup": "node scripts/install.js",
     "setup-demo-v11": "node scripts/setup-demo.js --version=11",
-    "build-library-v14": "node scripts/build-library.js --version=14",
-    "build-library-v13": "node scripts/build-library.js --version=13",
-    "build-library-v12": "node scripts/build-library.js --version=12",
-    "build-library-v11": "node scripts/build-library.js --version=11",
-    "build-library-v10": "node scripts/build-library.js --version=10",
-    "build-library-v9": "node scripts/build-library.js --version=9"
+    "build-library-latest": "node scripts/build-library.js --version=latest",
+    "build-library-v13": "node scripts/build-library.js --version=v13-lts",
+    "build-library-v12": "node scripts/build-library.js --version=v12-lts",
+    "build-library-v11": "node scripts/build-library.js --version=v11-lts",
+    "build-library-v10": "node scripts/build-library.js --version=v10-lts",
+    "build-library-v9": "node scripts/build-library.js --version=v9-lts"
   },
   "devDependencies": {
     "@angular/cli": "^14.2.4",

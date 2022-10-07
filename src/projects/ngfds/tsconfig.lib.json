@@ -6,9 +6,10 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
-    "types": [],
+    "types": ["node"],
   },
   "exclude": [
+    "cypress/**/*",
     "src/test.ts",
     "**/*.spec.ts"
   ]

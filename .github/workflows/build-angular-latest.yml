@@ -10,15 +10,15 @@ on:
 
 jobs:
   build:
-    name: Build targeting Angular v14
+    name: Build targeting latest Angular version
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - run: npm run setup
-      - run: npm run build-library-v14
+      - run: npm run build-library-latest
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: package
-          path: temp/library-v14/src/dist
+          path: temp/library-latest/src/dist
