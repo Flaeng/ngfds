@@ -73,8 +73,8 @@ const version = `v${name}-lts`;
   // TODO: Add cypress to demo-project
   // TODO: Run cypress
 
-  // await executeAsync(
-  //   `ng build --project=ngfds --configuration=production`,
-  //   solutionFolder
-  // );
+  await executeAsync(
+    `ng build --project=ngfds --configuration=production`,
+    solutionFolder
+  );
 })();
