@@ -3,9 +3,13 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^14.2.0",
-    "@angular/core": "^14.2.0"
+    "@angular/core": "^14.2.0",
+    "dkfds": "^8.1.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "dkfds": "^8.1.0"
   }
 }

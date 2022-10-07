@@ -51,10 +51,14 @@ const version = `v${name}-lts`;
   // Copy source code & setup project
   const projectFolder = `${solutionFolder}/projects/ngfds`;
   copyFolder(`${projectPath}/src`, `${projectFolder}/src`);
-  await executeAsync(`npm install dkfds`, projectFolder);
+
   fs.copyFileSync(
     `${projectPath}/cypress.config.ts`,
     `${projectFolder}/cypress.config.ts`
+  );
+  fs.copyFileSync(
+    `${projectPath}/package.json`,
+    `${projectFolder}/package.json`
   );
 
   copyFolder(`${projectPath}/cypress`, `${projectFolder}/cypress`);
