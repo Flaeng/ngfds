@@ -14,6 +14,8 @@ const typingsPath = "src/typings";
 
 const version = getArgument("version");
 const name = version;
+const versionNo = parseInt(version.replace(/[A-Za-z\-]+/g, ''));
+const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
 
 (async function () {
   // Make workspace
@@ -74,7 +76,7 @@ const name = version;
 
     // Run preprocessor
   await executeAsync(
-    `node scripts/ts-preprocessor.js --path temp/library-v${name}/src/projects/ngfds/src/lib --ng-version=${name}`,
+    `node scripts/ts-preprocessor.js --path ${projectFolder}/src/lib --ng-version=${versionNumber}`,
     ``
   );
 
