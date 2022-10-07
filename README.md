@@ -1,6 +1,6 @@
 # Builds
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20source%20code?style=for-the-badge&label=Development%20source%20code%20builds)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20source%20code?style=for-the-badge&label=Development%20source%20code%20builds%20and%20E2E%20testing)
 
 | Angular version | Install command          | Build status |
 | --------------- | ------------------------ | ------------ |
