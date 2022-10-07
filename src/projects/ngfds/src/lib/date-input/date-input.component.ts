@@ -98,8 +98,13 @@ export class DateInputComponent
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+  // #IF angular >= 14
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
+    // #ELSE
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
+    // validate(control: AbstractControl): ValidationErrors | null {
+    // #ENDIF
     return null;
   }
   registerOnValidatorChange?(fn: () => void): void {

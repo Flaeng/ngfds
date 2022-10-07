@@ -130,12 +130,12 @@ export class DatePickerComponent
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-  // #IF angular <= 13
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
-  // validate(control: AbstractControl): ValidationErrors | null {
-  // #ELSE
+  // #IF angular >= 14
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
+    // #ELSE
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
+    // validate(control: AbstractControl): ValidationErrors | null {
     // #ENDIF
     return null;
   }
