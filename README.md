@@ -4,12 +4,12 @@
 
 | Angular version | Build status |
 | --------------- | ------------ |
-|      Latest     | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v14?label=%20&style=for-the-badge) |
-| v13-lts | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v13?label=%20&style=for-the-badge) |
-| v12-lts | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v12?label=%20&style=for-the-badge) |
-| v11-lts | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v11?label=%20&style=for-the-badge) |
-| v10-lts | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v10?label=%20&style=for-the-badge) |
-| v9-lts | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v9?label=%20&style=for-the-badge) |
+| Latest          | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v14?label=%20&style=for-the-badge) |
+| v13-lts         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v13?label=%20&style=for-the-badge) |
+| v12-lts         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v12?label=%20&style=for-the-badge) |
+| v11-lts         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v11?label=%20&style=for-the-badge) |
+| v10-lts         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v10?label=%20&style=for-the-badge) |
+| v9-lts         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v9?label=%20&style=for-the-badge) |
 
 # Github
 
