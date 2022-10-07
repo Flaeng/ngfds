@@ -14,13 +14,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: npm run setup
+      - name: setup
+        run: npm run setup
 
-      - run: npm run lint
+      - name: lint
+        run: npm run lint
         working-directory: ./src
 
-      - run: npm run cy:chrome
+      - name: cypress
+        run: npm run cy:chrome
         working-directory: ./src
+
+      - name: Package screenshots
+        if: failure() && steps.cypress.outcome == 'failure'
+        uses: actions/upload-artifact@v3
+        with:
+          name: package
+          path: src/cypress/screenshots
 
       - run: npm run build-library
         working-directory: ./src
