@@ -8,6 +8,7 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
+import { ClickHelper } from '../../helpers/click-helper';
 
 @Component({
   selector: 'fds-structured-list-item',
@@ -37,8 +38,6 @@ export class StructuredListItemComponent implements OnInit {
   }
 
   editClicked(ev: Event): void {
-    ev.preventDefault();
-    ev.stopPropagation();
-    this.edit.emit(ev);
+    ClickHelper.preventDefaultAndEmit(ev, this.edit);
   }
 }

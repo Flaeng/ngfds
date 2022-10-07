@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ClickHelper } from '../../../helpers/click-helper';
 
 @Component({
   selector: 'fds-portal-header-mobile',
@@ -16,8 +17,6 @@ export class PortalHeaderMobileComponent {
   public logout: EventEmitter<Event> = new EventEmitter();
 
   triggerLogout(ev: Event): void {
-    ev.preventDefault();
-    ev.stopPropagation();
-    this.logout.emit(ev);
+    ClickHelper.preventDefaultAndEmit(ev, this.logout);
   }
 }
