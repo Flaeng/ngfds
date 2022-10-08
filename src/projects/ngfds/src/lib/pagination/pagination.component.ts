@@ -40,14 +40,14 @@ export class PaginationComponent implements OnInit, OnChanges {
   }
 
   setOptions(): void {
-    this.isFirstPage = this.currentPage == 1;
-    this.isLastPage = this.currentPage == this.pageCount;
+    this.isFirstPage = this.currentPage === 1;
+    this.isLastPage = this.currentPage === this.pageCount;
     this.options = this.getPageOptions();
   }
 
   private getPageOptions(): IPaginationOption[] {
     const pageNumber = (num: number | null) => {
-      return { number: num, isCurrent: this.currentPage == num };
+      return { number: num, isCurrent: this.currentPage === num };
     };
 
     if (this.pageCount <= 7) {
@@ -126,8 +126,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     this.currentPage = option.number;
     this.setOptions();
 
-    const event = Object.assign({}, ev) as PageChangeEvent;
-    event.pageNumber = option.number;
+    const event = { ...ev, pageNumber: option.number } as PageChangeEvent;
     this.change.emit(event);
   }
 }

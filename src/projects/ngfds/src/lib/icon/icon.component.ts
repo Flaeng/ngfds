@@ -1,7 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: "fds-icon",
+  selector: 'fds-icon',
   templateUrl: './icon.component.html',
 })
 export class IconComponent {

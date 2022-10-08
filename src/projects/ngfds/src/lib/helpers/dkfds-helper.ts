@@ -1,4 +1,4 @@
-import { ElementRef } from "@angular/core";
+import { ElementRef } from '@angular/core';
 import { DKFDSElementDependentInitiable } from 'dkfds';
 
 export class DkfdsHelper {

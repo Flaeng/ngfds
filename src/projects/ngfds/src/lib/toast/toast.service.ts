@@ -34,7 +34,8 @@ export class FdsToastService {
 
   public show(toast: IToastOptions): Toast {
     const obs = new Subject<undefined>();
-    if (this.toastContainer === null) throw 'Failed to create toast - Missing Toast container';
+    if (this.toastContainer === null)
+      throw new Error('Failed to create toast - Missing Toast container');
 
     const elem = this.createToastElement(toast, obs);
 

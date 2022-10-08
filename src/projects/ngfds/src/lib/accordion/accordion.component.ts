@@ -16,8 +16,8 @@ import { DkfdsHelper } from '../helpers/dkfds-helper';
 export class AccordionComponent implements AfterViewInit {
   @Input()
   public header: string | null = null;
-  
-  @Input("icon")
+
+  @Input('icon')
   public headerIcon: string | null = null;
 
   @Input('icon-text')
@@ -29,7 +29,7 @@ export class AccordionComponent implements AfterViewInit {
   static idGenerator = 1;
 
   id: string = 'accordion' + (AccordionComponent.idGenerator++).toString();
-  
+
   public accordion: DKFDS.Accordion | null = null;
 
   constructor(private el: ElementRef) {}

@@ -15,16 +15,16 @@ import {
 export class PortalHeaderComponent {
   @Input()
   public logo: string | null = null;
-  
-  @Input("portal-name")
+
+  @Input('portal-name')
   public portalName: string | null = null;
-  
+
   @Input()
   public username: string | null = null;
-  
-  @Input("button-text")
+
+  @Input('button-text')
   public buttonText: string = 'Log af';
-  
+
   @Output()
   public logout: EventEmitter<Event> = new EventEmitter();
 

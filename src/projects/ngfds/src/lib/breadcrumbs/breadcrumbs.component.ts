@@ -18,7 +18,7 @@ export class BreadcrumbsComponent {
   @Input('item-template')
   public itemTemplate: TemplateRef<unknown> | null = null;
 
-  @Output("item-clicked")
+  @Output('item-clicked')
   public itemClicked: EventEmitter<ItemSelectedEvent<IBreadcrumbItem>> = new EventEmitter();
 
   helper: NavigationItemHelper<IBreadcrumbItem>;
@@ -26,11 +26,11 @@ export class BreadcrumbsComponent {
   constructor(
     router: Router
   ) {
-    this.helper = new NavigationItemHelper<IBreadcrumbItem>(router, this.itemClicked)
+    this.helper = new NavigationItemHelper<IBreadcrumbItem>(router, this.itemClicked);
    }
 
   getAriaCurrent(item: IBreadcrumbItem): string | null {
-    return item.isActive == true ? 'page' : null;
+    return item.isActive === true ? 'page' : null;
   }
 
 }

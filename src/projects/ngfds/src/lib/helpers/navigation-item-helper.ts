@@ -2,7 +2,7 @@ import { EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 export class ItemSelectedEvent<T> extends Event {
-    public selectedItem!: T;
+  public selectedItem!: T;
 }
 
 export class NavigationItemHelper<T extends { url: string | null }> {
@@ -15,7 +15,7 @@ export class NavigationItemHelper<T extends { url: string | null }> {
     if (item.url == null) {
       ev.preventDefault();
       ev.stopPropagation();
-      const event = Object.assign({}, ev) as ItemSelectedEvent<T>;
+      const event = { ...ev } as ItemSelectedEvent<T>;
       event.selectedItem = item;
       this.itemClicked.emit(event);
     } else {

@@ -11,12 +11,12 @@ export class SolutionHeaderComponent {
   @Input()
   public header: string | null = null;
   
-  @Input("authority-name")
+  @Input('authority-name')
   public authorityName: string | null = null;
   
-  @Input("authority-phone")
+  @Input('authority-phone')
   public authorityPhoneNo: string | null = null;
   
-  @Input("authority-contact")
+  @Input('authority-contact')
   public authorityContactUrl: string | null = null;
 }
