@@ -1,8 +1,8 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import * as DKFDS from 'dkfds';
 
-export const FDS_TOAST_OPTIONS = new InjectionToken<IToastOptions>(
+export const FDS_TOAST_OPTIONS = new InjectionToken<IGlobalToastOptions>(
   'FDS_TOAST_OPTIONS'
 );
 
@@ -12,7 +12,9 @@ export const FDS_TOAST_OPTIONS = new InjectionToken<IToastOptions>(
 export class FdsToastService {
   toastContainer: HTMLDivElement | null = null;
 
-  constructor(@Inject(FDS_TOAST_OPTIONS) public options: IToastOptions | null) {
+  constructor(
+    @Inject(FDS_TOAST_OPTIONS) public options: IGlobalToastOptions | null
+  ) {
     const elem = document.querySelector<HTMLDivElement>('div.toast-container');
     if (elem != null) {
       this.toastContainer = elem;
@@ -30,9 +32,9 @@ export class FdsToastService {
     body.appendChild(this.toastContainer);
   }
 
-  public show(toast: IToast): Subject<undefined> {
+  public show(toast: IToastOptions): Toast {
     const obs = new Subject<undefined>();
-    if (this.toastContainer == null) return obs;
+    if (this.toastContainer == null) throw 'Failed to create toast - Missing Toast container';
 
     const elem = this.createToastElement(toast, obs);
 
@@ -52,10 +54,13 @@ export class FdsToastService {
       }, toast.timeout);
     }
 
-    return obs;
+    return new Toast(fdsToast, obs);
   }
 
-  private createToastElement(toast: IToast, obs: Subject<undefined>): HTMLDivElement {
+  private createToastElement(
+    toast: IToastOptions,
+    obs: Subject<undefined>
+  ): HTMLDivElement {
     const elem = document.createElement('div');
     elem.classList.add('toast');
     elem.classList.add(`toast-${toast.type}`);
@@ -88,18 +93,30 @@ export class FdsToastService {
     return elem;
   }
 }
-export interface IToastOptions {
+export interface IGlobalToastOptions {
   newToastPosition: 'top' | 'bottom';
 }
-export interface IToast {
+export interface IToastOptions {
   title: string;
   description: string | null;
   type: 'success' | 'warning' | 'error' | 'info';
   timeout: number | null;
 }
-export class Toast implements IToast {
+export class ToastOptions implements IToastOptions {
   public title = '';
   public description: string | null = null;
   public type: 'success' | 'warning' | 'error' | 'info' = 'info';
   public timeout: number | null = null;
+}
+export class Toast {
+  constructor(
+    private dkfdsToast: DKFDS.Toast,
+    private _afterClosed: Observable<undefined>
+  ) {}
+  public hide(): void {
+    this.dkfdsToast.hide();
+  }
+  public afterClosed(): Observable<undefined> {
+    return this._afterClosed;
+  }
 }

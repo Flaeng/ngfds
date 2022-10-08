@@ -21,16 +21,21 @@ jobs:
         run: npm run lint
         working-directory: ./src
 
-      - name: cypress
+      - name: unit test
+        run: npm run test
+        working-directory: ./src
+
+      - name: e2e test
         run: npm run cy:chrome
         working-directory: ./src
 
-      - name: Package screenshots
+      - name: package screenshots
         if: ${{ failure() }}
         uses: actions/upload-artifact@v3
         with:
           name: package
           path: src/cypress/screenshots
 
-      - run: npm run build-library
+      - name: Build
+        run: npm run build-library
         working-directory: ./src

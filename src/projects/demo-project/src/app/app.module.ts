@@ -61,7 +61,7 @@ import { IconsPageComponent } from './pages/icon-page/icon-page.component';
 import { FdsTagModule } from 'projects/ngfds/src/lib/tag/tag.module';
 import { TagPageComponent } from './pages/tag-page/tag-page.component';
 import { ToastPageComponent } from './pages/toast-page/toast-page.component';
-import { FDS_TOAST_OPTIONS, IToastOptions } from 'projects/ngfds/src/lib/toast/toast.service';
+import { FDS_TOAST_OPTIONS, IGlobalToastOptions } from 'projects/ngfds/src/lib/toast/toast.service';
 import { BackButtonPageComponent } from './pages/back-button-page/back-button-page.component';
 import { FdsBackButtonModule } from 'projects/ngfds/src/lib/back-button/back-button.module';
 import { FunctionLinkPageComponent } from './pages/function-link-page/function-link-page.component';
@@ -158,7 +158,7 @@ import { FdsDatePickerModule } from 'projects/ngfds/src/lib/date-picker/date-pic
       provide: FDS_TOAST_OPTIONS,
       useValue: {
         newToastPosition: 'bottom'
-      } as IToastOptions
+      } as IGlobalToastOptions
     }
   ],
   bootstrap: [AppComponent]
