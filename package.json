@@ -2,6 +2,7 @@
   "scripts": {
     "setup": "node scripts/install.js",
     "setup-demo-v11": "node scripts/setup-demo.js --version=11",
+    "build-library-next": "node scripts/build-library.js --version=next",
     "build-library-latest": "node scripts/build-library.js --version=latest",
     "build-library-v13": "node scripts/build-library.js --version=v13-lts",
     "build-library-v12": "node scripts/build-library.js --version=v12-lts",
