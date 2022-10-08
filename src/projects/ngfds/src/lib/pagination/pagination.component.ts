@@ -65,17 +65,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     const showDotDotDotBeforeCurrentPage = 5 <= this.currentPage;
     const showDotDotDotAfterCurrentPage = this.currentPage < this.pageCount - 3;
 
-    const start = !showDotDotDotAfterCurrentPage
-      ? this.pageCount - 4
-      : showDotDotDotBeforeCurrentPage
-        ? this.currentPage - 1
-        : 2;
-    const end = !showDotDotDotBeforeCurrentPage
-      ? 5
-      : showDotDotDotAfterCurrentPage
-        ? this.currentPage + 1
-        : this.pageCount - 1;
-
+    const { start, end } = this.getStartAndEndOfPageOptionsNumbers(showDotDotDotAfterCurrentPage, showDotDotDotBeforeCurrentPage);
     const middle = [];
     for (let num = start; num <= end; num++) {
       middle.push(pageNumber(num));
@@ -88,6 +78,30 @@ export class PaginationComponent implements OnInit, OnChanges {
       ...(showDotDotDotAfterCurrentPage ? [pageNumber(null)] : []),
       pageNumber(this.pageCount)
     ];
+  }
+
+  private getStartAndEndOfPageOptionsNumbers(
+    showDotDotDotAfterCurrentPage: boolean,
+    showDotDotDotBeforeCurrentPage: boolean
+  ): { start: number, end: number } {
+    let start, end;
+
+    if (showDotDotDotAfterCurrentPage == false) {
+      start = this.pageCount - 4;
+    } else if (showDotDotDotBeforeCurrentPage == true) {
+      start = this.currentPage - 1;
+    } else {
+      start = 2;
+    }
+
+    if (showDotDotDotBeforeCurrentPage == false) {
+      end = 5;
+    } else if (showDotDotDotAfterCurrentPage) {
+      end = this.currentPage + 1;
+    } else {
+      end = this.pageCount - 1;
+    }
+    return { start, end };
   }
 
   public onClick(ev: Event, option: IPaginationOption): void {
