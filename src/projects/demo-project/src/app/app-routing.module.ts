@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccordionPageComponent } from './pages/accordion-page/accordion-page.component';
 import { AlertPageComponent } from './pages/alert-page/alert-page.component';
 import { BackButtonPageComponent } from './pages/back-button-page/back-button-page.component';
+import { BackToTopButtonPageComponent } from './pages/back-to-top-button-page/back-to-top-button-page.component';
 import { BadgePageComponent } from './pages/badge-page/badge-page.component';
 import { BreadcrumbsPageComponent } from './pages/breadcrumbs-page/breadcrumbs-page.component';
 import { ButtonPageComponent } from './pages/button-page/button-page.component';
@@ -67,6 +68,7 @@ const routes: Routes = [
   { path: 'footers', component: FooterPageComponent },
   { path: 'paginering', component: PaginationPageComponent },
   { path: 'tilbage-link', component: BackButtonPageComponent },
+  { path: 'tilbage-til-toppen-link', component: BackToTopButtonPageComponent },
   { path: 'funktionslink', component: FunctionLinkPageComponent },
   { path: 'sprog-vaelger', component: LanguagePickerPageComponent },
   { path: 'step-indicator', component: StepIndicatorPageComponent },

@@ -73,6 +73,8 @@ import { FdsDateInputModule } from 'projects/ngfds/src/lib/date-input/date-input
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePickerPageComponent } from './pages/date-picker-page/date-picker-page.component';
 import { FdsDatePickerModule } from 'projects/ngfds/src/lib/date-picker/date-picker.module';
+import { BackToTopButtonPageComponent } from './pages/back-to-top-button-page/back-to-top-button-page.component';
+import { FdsBackToTopButtonModule } from 'projects/ngfds/src/lib/back-to-top-button/back-to-top-button.module';
 
 @NgModule({
   declarations: [
@@ -118,6 +120,7 @@ import { FdsDatePickerModule } from 'projects/ngfds/src/lib/date-picker/date-pic
     StructuredListPageComponent,
     DateInputPageComponent,
     DatePickerPageComponent,
+    BackToTopButtonPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -140,6 +143,7 @@ import { FdsDatePickerModule } from 'projects/ngfds/src/lib/date-picker/date-pic
     FdsOverflowMenuModule,
     FdsPaginationModule,
     FdsSideNavigationModule,
+    FdsBackToTopButtonModule,
     FdsSkipLinkModule,
     FdsSpinnerModule,
     FdsStepIndicatorModule,

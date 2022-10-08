@@ -14,7 +14,7 @@
 
 # Github
 
-![GitHub issues](https://img.shields.io/github/issues-raw/flaeng/ngfds?style=for-the-badge)
+![GitHub issue custom search in repo](https://img.shields.io/github/issues-search/Flaeng/ngfds?label=KNOWN%20BUGS&query=label%3Abug&style=for-the-badge)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/flaeng/ngfds?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/flaeng/ngfds?style=for-the-badge)
 

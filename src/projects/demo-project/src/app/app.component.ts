@@ -85,6 +85,7 @@ export class AppComponent {
     new AppSideNavigationItem({ url: 'strukturerede-lister', title: 'Strukturerede lister', state: 'done' }),
     new AppSideNavigationItem({ url: 'soegefelt', title: 'Søgefelt' }),
     new AppSideNavigationItem({ url: 'tilbage-link', title: 'Tilbage link', state: 'done' }),
+    new AppSideNavigationItem({ url: 'tilbage-til-toppen-link', title: 'Tilbage til toppen link', state: 'done' }),
     new AppSideNavigationItem({ url: 'tabeller', title: 'Tabeller' }),
     new AppSideNavigationItem({ url: 'tags', title: 'Tags', state: 'done' }),
     new AppSideNavigationItem({ url: 'textarea', title: 'Tekstområde' }),
@@ -96,7 +97,8 @@ export class AppComponent {
   ];
 
   dkfdsExtra: SideNavigationItem[] = [
-    new AppSideNavigationItem({ url: '', title: '' }),
+    new AppSideNavigationItem({ url: '', title: 'Animations' }),
+    new AppSideNavigationItem({ url: '', title: 'Promise button' }),
   ];
 
 }
