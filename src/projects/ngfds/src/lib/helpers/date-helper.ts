@@ -9,13 +9,12 @@ export class DateHelper {
   }
 
   public static parseDate(
-    dayOfMonth: number | null,
-    month: number | null,
-    year: number | null
+    dayOfMonth: number,
+    month: number,
+    year: number
   ): Date | null {
-    if (dayOfMonth == null || Number.isNaN(dayOfMonth)) return null;
-    if (month == null || Number.isNaN(month)) return null;
-    if (year == null || Number.isNaN(year)) return null;
+    if (Number.isNaN(dayOfMonth) || Number.isNaN(month) || Number.isNaN(year))
+      return null;
 
     const utcDate = Date.UTC(year, month - 1, dayOfMonth);
     const date = new Date(utcDate);
