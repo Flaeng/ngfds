@@ -24,16 +24,16 @@ export class OverflowMenuComponent implements AfterViewInit {
   public items: IOverflowNavigationItem[] = [];
 
   @Input()
-  public placeholder = '';
+  public placeholder: string = '';
 
   @Input('selected-item')
   public selectedItem: IOverflowNavigationItem | null = null;
 
   @Input('hide-icon')
-  public hideIcon = false;
+  public hideIcon: boolean = false;
 
   @Input()
-  public icon = 'more-vert';
+  public icon: string = 'more-vert';
 
   @Output('item-clicked')
   public itemClicked: EventEmitter<ItemSelectedEvent<IOverflowNavigationItem>> =
@@ -44,7 +44,7 @@ export class OverflowMenuComponent implements AfterViewInit {
 
   dropdownControl: DKFDS.Dropdown | null = null;
 
-  static idGenerator = 1;
+  static idGenerator: number = 1;
 
   id: string = (OverflowMenuComponent.idGenerator++).toString();
   helper: NavigationItemHelper<IOverflowNavigationItem>;
@@ -69,7 +69,7 @@ export interface IOverflowNavigationItem {
   url: string | null;
 }
 export class OverflowNavigationItem implements IOverflowNavigationItem {
-  public title = '';
+  public title: string = '';
   public url: string | null = null;
 
   constructor(values: Partial<OverflowNavigationItem>) {

@@ -19,10 +19,10 @@ export class AlertComponent implements AfterViewInit {
   public header: string | null = null;
 
   @Input('show-icon')
-  public showIcon = false;
+  public showIcon: boolean = false;
 
   @Input('can-close')
-  public canClose = false;
+  public canClose: boolean = false;
 
   @Input()
   public type: 'success' | 'info' | 'warning' | 'error' = 'info';

@@ -15,7 +15,7 @@ import {
 })
 export class SpinnerComponent implements OnInit, OnChanges, OnDestroy {
   @Input('is-spinning')
-  public isSpinning = true;
+  public isSpinning: boolean = true;
 
   @Input()
   public type: 'normal' | 'long-running' = 'normal';
@@ -42,8 +42,8 @@ export class SpinnerComponent implements OnInit, OnChanges, OnDestroy {
 
   intervalIdentifier: NodeJS.Timer | null = null;
 
-  spinnerDuration = 0;
-  statusText = '';
+  spinnerDuration: number = 0;
+  statusText: string = '';
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges): void {
@@ -88,9 +88,9 @@ export class SpinnerTextSetting {
   /**
    * the duration in ms after which the text-property should be shown in the spinner
    */
-  public duration = 0;
+  public duration: number = 0;
   /**
    * the text to show after the duration has elapsed
    */
-  public text = '';
+  public text: string = '';
 }

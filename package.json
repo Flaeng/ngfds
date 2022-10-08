@@ -11,6 +11,11 @@
   },
   "devDependencies": {
     "@angular/cli": "^14.2.4",
-    "glob": "^8.0.3"
+    "@supercharge/fs": "^3.4.0",
+    "chokidar": "^3.5.3",
+    "concurrently": "^7.4.0",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
+    "typescript-parser": "^2.6.1"
   }
 }

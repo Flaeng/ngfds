@@ -103,7 +103,7 @@ export interface IToastOptions {
   timeout: number | null;
 }
 export class ToastOptions implements IToastOptions {
-  public title = '';
+  public title: string = '';
   public description: string | null = null;
   public type: 'success' | 'warning' | 'error' | 'info' = 'info';
   public timeout: number | null = null;

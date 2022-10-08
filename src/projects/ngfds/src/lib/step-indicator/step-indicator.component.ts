@@ -83,7 +83,7 @@ export interface IStepIndicatorItem {
   icon: string | null;
 }
 export class StepIndicatorItem implements IStepIndicatorItem {
-  public title = '';
+  public title: string = '';
   /**
    * Don't set this if you want to handle the step indicator clicked event
    * It can be found on the StepIndicatorComponent

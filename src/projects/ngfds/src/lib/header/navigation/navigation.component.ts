@@ -16,7 +16,7 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
   public overflow: INavigationItem[] | null = null;
   
   @Input('overflow-text')
-  public overflowText = 'Mere';
+  public overflowText: string = 'Mere';
 
   @Input('selected-item')
   public selectedItem: INavigationItem | null = null;
@@ -55,9 +55,9 @@ export interface INavigationItem {
   children: INavigationItem[] | null;
 }
 export class NavigationItem {
-  public title = '';
+  public title: string = '';
   public url: string | null = null;
-  public isActive = false;
+  public isActive: boolean = false;
   public children: NavigationItem[] | null = null;
 
   constructor(values: Partial<NavigationItem>) {

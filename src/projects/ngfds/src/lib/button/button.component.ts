@@ -16,7 +16,7 @@ import {
 export class ButtonComponent implements OnInit, OnChanges {
   @Input() public visual: 'primary' | 'secondary' | 'tertiary' = 'primary';
 
-  @Input() public disabled = false;
+  @Input() public disabled: boolean = false;
 
   @Input() public type: 'button' | 'submit' | 'reset' = 'button';
 

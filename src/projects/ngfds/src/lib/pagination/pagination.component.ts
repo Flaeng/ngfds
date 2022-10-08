@@ -7,10 +7,10 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 export class PaginationComponent implements OnInit, OnChanges {
 
   @Input("current-page")
-  public currentPage = 1;
+  public currentPage: number = 1;
   
   @Input("page-count")
-  public pageCount = 1;
+  public pageCount: number = 1;
 
   @Output()
   public change: EventEmitter<PageChangeEvent> = new EventEmitter();
@@ -35,48 +35,50 @@ export class PaginationComponent implements OnInit, OnChanges {
   setOptions(): void {
     this.isFirstPage = this.currentPage == 1;
     this.isLastPage = this.currentPage == this.pageCount;
-
-    if (this.pageCount < 8) {
-      this.options = [...new Array(this.pageCount).fill(0)]
-        .map((x, i) => {
-          return { number: i + 1, isCurrent: this.currentPage == i + 1 };
-        });
-    } else {
-      this.options = this.handlePaginationForMoreThan6Pages();
-    }
+    this.options = this.getPageOptions();
   }
 
-  private handlePaginationForMoreThan6Pages(): IPaginationOption[] {
-    const res: IPaginationOption[] = [{ number: 1, isCurrent: this.currentPage == 1 }];
-    if (this.currentPage <= 3) {
-      res.push(...[
-        { number: 2, isCurrent: this.currentPage == 2 },
-        { number: 3, isCurrent: this.currentPage == 3 },
-        { number: 4, isCurrent: this.currentPage == 4 },
-        { number: 5, isCurrent: this.currentPage == 5 },
-        { number: null, isCurrent: false },
-        { number: this.pageCount, isCurrent: false },
-      ].slice(0, this.pageCount - 1));
-    } else if (this.currentPage >= this.pageCount - 3) {
-      res.push(...[
-        { number: null, isCurrent: false },
-        { number: this.pageCount - 4, isCurrent: this.currentPage == this.pageCount - 4 },
-        { number: this.pageCount - 3, isCurrent: this.currentPage == this.pageCount - 3 },
-        { number: this.pageCount - 2, isCurrent: this.currentPage == this.pageCount - 2 },
-        { number: this.pageCount - 1, isCurrent: this.currentPage == this.pageCount - 1 },
-        { number: this.pageCount, isCurrent: this.currentPage == this.pageCount },
-      ]);
+  private getPageOptions(): IPaginationOption[] {
+    const res: IPaginationOption[] = [];
+    const pushPageNumber = (num: number | null) =>
+      res.push({ number: num, isCurrent: this.currentPage == num }) 
+
+    if (this.pageCount <= 7) {
+      for (let index = 1; index < this.pageCount + 1; index++) {
+        pushPageNumber(index);     
+      }
     } else {
-      res.push(...[
-        { number: null, isCurrent: false },
-        { number: this.currentPage - 1, isCurrent: false },
-        { number: this.currentPage, isCurrent: true },
-        { number: this.currentPage + 1, isCurrent: false },
-        { number: null, isCurrent: false },
-        { number: this.pageCount, isCurrent: false },
-      ]);
+      this.getPagesOptionsWhenMoreThan7Pages(pushPageNumber);
     }
     return res;
+  }
+
+  private getPagesOptionsWhenMoreThan7Pages(pushPageNumber: (num: number | null) => number) {
+    const showDotDotDotBeforeCurrentPage = 5 <= this.currentPage;
+    const showDotDotDotAfterCurrentPage = this.currentPage < this.pageCount - 3;
+
+    const start = !showDotDotDotAfterCurrentPage
+      ? this.pageCount - 4
+      : showDotDotDotBeforeCurrentPage
+        ? this.currentPage - 1
+        : 2;
+    const end = !showDotDotDotBeforeCurrentPage
+      ? 5
+      : showDotDotDotAfterCurrentPage
+        ? this.currentPage + 1
+        : this.pageCount - 1;
+
+    pushPageNumber(1);
+    if (showDotDotDotBeforeCurrentPage)
+      pushPageNumber(null);
+
+    for (let num = start; num <= end; num++) {
+      pushPageNumber(num);
+    }
+
+    if (showDotDotDotAfterCurrentPage)
+      pushPageNumber(null);
+    pushPageNumber(this.pageCount);
   }
 
   public onClick(ev: Event, option: IPaginationOption): void {

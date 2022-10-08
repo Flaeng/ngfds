@@ -19,7 +19,7 @@ export class TabsComponent implements AfterViewInit {
   private tabnav!: ElementRef;
 
   @Input('selected-index')
-  public selectedIndex = 0;
+  public selectedIndex: number = 0;
 
   underlayingControl: DKFDS.Tabnav | null = null;
 

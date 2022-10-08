@@ -83,7 +83,7 @@ export class DateInputComponent
   onValidatorChange: (() => void) | null = null;
 
   @Input()
-  public disabled = false;
+  public disabled: boolean = false;
 
   // https://blog.angular-university.io/angular-custom-form-controls/
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

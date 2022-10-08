@@ -11,6 +11,6 @@ export class FunctionLinkComponent {
   public icon: string | null = null;
 
   @Input()
-  public text = '';
+  public text: string = '';
 
 }

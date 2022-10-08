@@ -28,7 +28,7 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
   public itemTemplate: TemplateRef<unknown> | null = null;
 
   @Input('always-show-children')
-  public alwaysShowChildren = false;
+  public alwaysShowChildren: boolean = false;
 
   @Output('item-clicked')
   public itemClicked: EventEmitter<ItemSelectedEvent<ISideNavigationItem>> =
@@ -93,10 +93,10 @@ export interface ISideNavigationItem {
   children: ISideNavigationItem[] | null;
 }
 export class SideNavigationItem implements ISideNavigationItem {
-  public title = '';
+  public title: string = '';
   public subtitle: string | null = null;
-  public url = '';
-  public isActive = false;
+  public url: string = '';
+  public isActive: boolean = false;
   public children: SideNavigationItem[] | null = null;
 
   constructor(values: Partial<SideNavigationItem>) {

@@ -40,7 +40,7 @@ export interface IBreadcrumbItem {
   isActive: boolean;
 }
 export class BreadcrumbItem implements IBreadcrumbItem {
-  public header = '';
+  public header: string = '';
   public url: string | null = null;
-  public isActive = false;
+  public isActive: boolean = false;
 }

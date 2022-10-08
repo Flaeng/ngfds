@@ -6,13 +6,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CookieMessageComponent {
   @Input()
-  public header = 'Fortæl os om du accepterer cookies';
+  public header: string = 'Fortæl os om du accepterer cookies';
 
   @Input('positive-text')
-  public positiveText = 'Accepter cookies';
+  public positiveText: string = 'Accepter cookies';
 
   @Input('negative-text')
-  public negativeText = 'Nej tak til cookies';
+  public negativeText: string = 'Nej tak til cookies';
 
   @Output('positive-click')
   public positiveClick: EventEmitter<Event> = new EventEmitter();
