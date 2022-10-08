@@ -13,7 +13,7 @@ export class DateHelper {
     month: number,
     year: number
   ): Date | null {
-    if (Number.isNaN(dayOfMonth) || Number.isNaN(month) || Number.isNaN(year))
+    if (DateHelper.isDateInvalid(dayOfMonth, month, year))
       return null;
 
     const utcDate = Date.UTC(year, month - 1, dayOfMonth);

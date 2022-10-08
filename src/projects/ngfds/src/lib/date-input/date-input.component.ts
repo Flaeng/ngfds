@@ -62,7 +62,7 @@ export class DateInputComponent
   set value(val: Date | null) {
     if (val != null) {
       this._dayOfMonth = val.getDate();
-      this._month = (val.getMonth() + 1);
+      this._month = val.getMonth() + 1;
       this._year = val.getFullYear();
     } else this._dayOfMonth = this._month = this._year = null;
     this.onChange?.call(this, val);
@@ -70,9 +70,11 @@ export class DateInputComponent
   }
 
   get value(): Date | null {
-    return DateHelper.parseDate(this._dayOfMonth, this._month, this._year);
+    return this._dayOfMonth == null || this._month == null || this._year == null
+      ? null
+      : DateHelper.parseDate(this._dayOfMonth, this._month, this._year);
   }
-  
+
   // eslint-disable-next-line @typescript-eslint/ban-types
   onChange: ((date: Date | null) => {}) | null = null;
   // eslint-disable-next-line @typescript-eslint/ban-types
