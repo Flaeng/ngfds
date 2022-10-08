@@ -2,14 +2,14 @@
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20source%20code?style=for-the-badge&label=Development%20source%20code%20builds%20and%20E2E%20testing)
 
-| Angular version | Install command          | Build status |
-| --------------- | ------------------------ | ------------ |
-| Latest          | npm install ngfds        | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v14?label=%20&style=for-the-badge) |
-| v13-lts         | npm install ngfds@13     | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v13?label=%20&style=for-the-badge) |
-| v12-lts         | npm install ngfds@12     | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v12?label=%20&style=for-the-badge) |
-| v11-lts         | npm install ngfds@11     | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v11?label=%20&style=for-the-badge) |
-| v10-lts         | npm install ngfds@10     | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v10?label=%20&style=for-the-badge) |
-| v9-lts          | N/A                      | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v9?label=%20&style=for-the-badge) |
+| Angular version | Install command          | Supported untill | Build status |
+| --------------- | ------------------------ | ---------------- | ------------ |
+| v14             | npm install ngfds@14     | Dec 2025         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v14?label=%20&style=for-the-badge) |
+| v13-lts         | npm install ngfds@13     | May 2025         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v13?label=%20&style=for-the-badge) |
+| v12-lts         | npm install ngfds@12     | Nov 2024         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v12?label=%20&style=for-the-badge) |
+| v11-lts         | npm install ngfds@11     | May 2024         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v11?label=%20&style=for-the-badge) |
+| v10-lts         | npm install ngfds@10     | Dec 2023         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v10?label=%20&style=for-the-badge) |
+| v9-lts          | N/A                      | Not support      | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v9?label=%20&style=for-the-badge) |
 
 # Github
 

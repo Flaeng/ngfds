@@ -14,22 +14,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: setup
+      - name: Setup
         run: npm run setup
 
-      - name: lint
+      - name: Lint
         run: npm run lint
         working-directory: ./src
 
-      - name: unit test
+      - name: Unit Tests
         run: npm run test:ci
         working-directory: ./src
 
-      - name: e2e test
+      - name: E2E Tests
         run: npm run cy:chrome
         working-directory: ./src
 
-      - name: package screenshots
+      - name: Package screenshots
         if: ${{ failure() }}
         uses: actions/upload-artifact@v3
         with:
