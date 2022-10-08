@@ -57,15 +57,27 @@ export class PaginationComponent implements OnInit, OnChanges {
       }
       return res;
     }
-    
+
     return this.generatePageOptionsWhenMoreThan7pages(pageNumber);
   }
 
-  private generatePageOptionsWhenMoreThan7pages(pageNumber: (num: number | null) => { number: number | null; isCurrent: boolean; }) {
-    const showDotDotDotBeforeCurrentPage = 5 <= this.currentPage;
-    const showDotDotDotAfterCurrentPage = this.currentPage < this.pageCount - 3;
+  private generatePageOptionsWhenMoreThan7pages(
+    pageNumber: (num: number | null) => {
+      number: number | null;
+      isCurrent: boolean;
+    }
+  ) {
+    const showDotsBeforeCurrentPage = 5 <= this.currentPage;
+    const showDotsAfterCurrentPage = this.currentPage < this.pageCount - 3;
 
-    const { start, end } = this.getStartAndEndOfPageOptionsNumbers(showDotDotDotAfterCurrentPage, showDotDotDotBeforeCurrentPage);
+    const start = this.getStartOfPageOptionNumbers(
+      showDotsAfterCurrentPage,
+      showDotsBeforeCurrentPage
+    );
+    const end = this.getEndOfPageOptionNumbers(
+      showDotsAfterCurrentPage,
+      showDotsBeforeCurrentPage
+    );
     const middle = [];
     for (let num = start; num <= end; num++) {
       middle.push(pageNumber(num));
@@ -73,35 +85,37 @@ export class PaginationComponent implements OnInit, OnChanges {
 
     return [
       pageNumber(1),
-      ...(showDotDotDotBeforeCurrentPage ? [pageNumber(null)] : []),
+      ...(showDotsBeforeCurrentPage ? [pageNumber(null)] : []),
       ...middle,
-      ...(showDotDotDotAfterCurrentPage ? [pageNumber(null)] : []),
-      pageNumber(this.pageCount)
+      ...(showDotsAfterCurrentPage ? [pageNumber(null)] : []),
+      pageNumber(this.pageCount),
     ];
   }
 
-  private getStartAndEndOfPageOptionsNumbers(
+  private getStartOfPageOptionNumbers(
     showDotDotDotAfterCurrentPage: boolean,
     showDotDotDotBeforeCurrentPage: boolean
-  ): { start: number, end: number } {
-    let start, end;
-
+  ): number {
     if (showDotDotDotAfterCurrentPage == false) {
-      start = this.pageCount - 4;
+      return this.pageCount - 4;
     } else if (showDotDotDotBeforeCurrentPage == true) {
-      start = this.currentPage - 1;
+      return this.currentPage - 1;
     } else {
-      start = 2;
+      return 2;
     }
+  }
 
+  private getEndOfPageOptionNumbers(
+    showDotDotDotAfterCurrentPage: boolean,
+    showDotDotDotBeforeCurrentPage: boolean
+  ): number {
     if (showDotDotDotBeforeCurrentPage == false) {
-      end = 5;
+      return 5;
     } else if (showDotDotDotAfterCurrentPage) {
-      end = this.currentPage + 1;
+      return this.currentPage + 1;
     } else {
-      end = this.pageCount - 1;
+      return this.pageCount - 1;
     }
-    return { start, end };
   }
 
   public onClick(ev: Event, option: IPaginationOption): void {
