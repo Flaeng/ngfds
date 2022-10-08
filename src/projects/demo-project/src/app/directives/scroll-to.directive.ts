@@ -14,6 +14,6 @@ export class ScrollToDirective {
     targetElement?.classList.add('flash');
     setTimeout(() => {
       targetElement?.classList.remove('flash');
-    }, 2000);
+    }, 1500);
   }
 }
