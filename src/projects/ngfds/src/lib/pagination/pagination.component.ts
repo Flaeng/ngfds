@@ -1,15 +1,22 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'fds-pagination',
-  templateUrl: './pagination.component.html'
+  templateUrl: './pagination.component.html',
 })
 export class PaginationComponent implements OnInit, OnChanges {
-
-  @Input("current-page")
+  @Input('current-page')
   public currentPage: number = 1;
-  
-  @Input("page-count")
+
+  @Input('page-count')
   public pageCount: number = 1;
 
   @Output()
@@ -39,21 +46,22 @@ export class PaginationComponent implements OnInit, OnChanges {
   }
 
   private getPageOptions(): IPaginationOption[] {
-    const res: IPaginationOption[] = [];
-    const pushPageNumber = (num: number | null) =>
-      res.push({ number: num, isCurrent: this.currentPage == num }) 
+    const pageNumber = (num: number | null) => {
+      return { number: num, isCurrent: this.currentPage == num };
+    };
 
     if (this.pageCount <= 7) {
+      const res: IPaginationOption[] = [];
       for (let index = 1; index < this.pageCount + 1; index++) {
-        pushPageNumber(index);     
+        res.push(pageNumber(index));
       }
-    } else {
-      this.getPagesOptionsWhenMoreThan7Pages(pushPageNumber);
+      return res;
     }
-    return res;
+    
+    return this.generatePageOptionsWhenMoreThan7pages(pageNumber);
   }
 
-  private getPagesOptionsWhenMoreThan7Pages(pushPageNumber: (num: number | null) => number) {
+  private generatePageOptionsWhenMoreThan7pages(pageNumber: (num: number | null) => { number: number | null; isCurrent: boolean; }) {
     const showDotDotDotBeforeCurrentPage = 5 <= this.currentPage;
     const showDotDotDotAfterCurrentPage = this.currentPage < this.pageCount - 3;
 
@@ -68,35 +76,34 @@ export class PaginationComponent implements OnInit, OnChanges {
         ? this.currentPage + 1
         : this.pageCount - 1;
 
-    pushPageNumber(1);
-    if (showDotDotDotBeforeCurrentPage)
-      pushPageNumber(null);
-
+    const middle = [];
     for (let num = start; num <= end; num++) {
-      pushPageNumber(num);
+      middle.push(pageNumber(num));
     }
 
-    if (showDotDotDotAfterCurrentPage)
-      pushPageNumber(null);
-    pushPageNumber(this.pageCount);
+    return [
+      pageNumber(1),
+      ...(showDotDotDotBeforeCurrentPage ? [pageNumber(null)] : []),
+      ...middle,
+      ...(showDotDotDotAfterCurrentPage ? [pageNumber(null)] : []),
+      pageNumber(this.pageCount)
+    ];
   }
 
   public onClick(ev: Event, option: IPaginationOption): void {
     ev.preventDefault();
     ev.stopPropagation();
-    if (option.number == null || option.isCurrent)
-      return;
-    
+    if (option.number == null || option.isCurrent) return;
+
     this.currentPage = option.number;
     this.setOptions();
-    
+
     const event = Object.assign({}, ev) as PageChangeEvent;
     event.pageNumber = option.number;
     this.change.emit(event);
   }
-
-  
 }
+
 interface IPaginationOption {
   number: number | null;
   isCurrent: boolean;
