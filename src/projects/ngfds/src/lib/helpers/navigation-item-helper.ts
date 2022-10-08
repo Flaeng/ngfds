@@ -11,15 +11,14 @@ export class NavigationItemHelper<T extends { url: string | null }> {
     private itemClicked: EventEmitter<ItemSelectedEvent<T>>
   ) {}
 
-  handleClick(ev: Event, item: T): void {
-    if (item.url == null) {
+  handleClick(ev: Event, selectedItem: T): void {
+    if (selectedItem.url == null) {
       ev.preventDefault();
       ev.stopPropagation();
-      const event = { ...ev } as ItemSelectedEvent<T>;
-      event.selectedItem = item;
+      const event: ItemSelectedEvent<T> = { ...ev, selectedItem };
       this.itemClicked.emit(event);
     } else {
-      this.router.navigateByUrl(item.url);
+      this.router.navigateByUrl(selectedItem.url);
     }
   }
 }

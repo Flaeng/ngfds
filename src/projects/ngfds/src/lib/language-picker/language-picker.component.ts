@@ -12,12 +12,11 @@ export class LanguagePickerComponent {
   @Output()
   public change: EventEmitter<LanuageChangeEvent> = new EventEmitter();
 
-  onClick(ev: Event, item: ILanguageOption): void {
+  onClick(ev: Event, selectedItem: ILanguageOption): void {
     ev.preventDefault();
     ev.stopPropagation();
 
-    const event = Object.assign({}, ev) as LanuageChangeEvent;
-    event.selectedItem = item;
+    const event: LanuageChangeEvent = { ...ev, selectedItem };
     this.change.emit(event);
   }
 }

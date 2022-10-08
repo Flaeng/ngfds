@@ -126,7 +126,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     this.currentPage = option.number;
     this.setOptions();
 
-    const event = { ...ev, pageNumber: option.number } as PageChangeEvent;
+    const event: PageChangeEvent = { ...ev, pageNumber: option.number };
     this.change.emit(event);
   }
 }
