@@ -17,10 +17,10 @@ export class DateHelper {
     if (month == null || Number.isNaN(month)) return null;
     if (year == null || Number.isNaN(year)) return null;
 
-    const date = new Date(Date.UTC(year, month - 1, dayOfMonth, 0, 0, 0, 0));
-    return date.getFullYear() === year && date.getMonth() + 1 == month
-      ? date
-      : null;
+    const utcDate = Date.UTC(year, month - 1, dayOfMonth);
+    const date = new Date(utcDate);
+    if (date.getFullYear() != year || date.getMonth() + 1 != month) return null;
+    return date;
   }
 
   public static parseDateString(
