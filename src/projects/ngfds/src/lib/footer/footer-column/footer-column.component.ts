@@ -1,4 +1,4 @@
-import { Component, OnInit, Optional } from '@angular/core';
+import { Component, Optional } from '@angular/core';
 import { FooterComponent } from '../footer.component';
 
 @Component({
