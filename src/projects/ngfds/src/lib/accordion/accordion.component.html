@@ -5,9 +5,9 @@
         class="accordion-button"
         aria-expanded="false"
         [attr.aria-controls]="id"
-      >
-        {{ header }}
-        <span class="accordion-icon" *ngIf="headerIcon || headerIconText">
+      >{{ 
+        header
+        }}<span class="accordion-icon" *ngIf="headerIcon || headerIconText">
           <span class="icon_text" *ngIf="headerIconText">
             {{ headerIconText }}
           </span>
