@@ -41,7 +41,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
-Cypress.Commands.overwrite("screenshot", (originalFn, url, options) => {
+Cypress.Commands.overwrite('screenshot', (originalFn, url, options) => {
     cy.wait(500);
     return originalFn(url, options);
 });

@@ -96,9 +96,9 @@ export class PaginationComponent implements OnInit, OnChanges {
     showDotDotDotAfterCurrentPage: boolean,
     showDotDotDotBeforeCurrentPage: boolean
   ): number {
-    if (showDotDotDotAfterCurrentPage == false) {
+    if (showDotDotDotAfterCurrentPage === false) {
       return this.pageCount - 4;
-    } else if (showDotDotDotBeforeCurrentPage == true) {
+    } else if (showDotDotDotBeforeCurrentPage === true) {
       return this.currentPage - 1;
     } else {
       return 2;
@@ -109,9 +109,9 @@ export class PaginationComponent implements OnInit, OnChanges {
     showDotDotDotAfterCurrentPage: boolean,
     showDotDotDotBeforeCurrentPage: boolean
   ): number {
-    if (showDotDotDotBeforeCurrentPage == false) {
+    if (showDotDotDotBeforeCurrentPage === false) {
       return 5;
-    } else if (showDotDotDotAfterCurrentPage) {
+    } else if (showDotDotDotAfterCurrentPage === true) {
       return this.currentPage + 1;
     } else {
       return this.pageCount - 1;
@@ -121,7 +121,7 @@ export class PaginationComponent implements OnInit, OnChanges {
   public onClick(ev: Event, option: IPaginationOption): void {
     ev.preventDefault();
     ev.stopPropagation();
-    if (option.number == null || option.isCurrent) return;
+    if (option.number === null || option.isCurrent) return;
 
     this.currentPage = option.number;
     this.setOptions();

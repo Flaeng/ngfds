@@ -21,10 +21,10 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
   @Input('selected-item')
   public selectedItem: INavigationItem | null = null;
   
-  @Input("solution-template")
+  @Input('solution-template')
   public solutionTemplate: TemplateRef<unknown> | null = null;
   
-  @Input("portal-template")
+  @Input('portal-template')
   public portalTemplate: TemplateRef<unknown> | null = null;
   
   public navigation: DKFDS.Navigation | null = null;

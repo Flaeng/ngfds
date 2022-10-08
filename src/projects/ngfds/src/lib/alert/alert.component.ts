@@ -39,7 +39,7 @@ export class AlertComponent implements AfterViewInit {
   }
 
   hasRoleAlert(): boolean {
-    return this.type == 'warning' || this.type == 'error';
+    return this.type === 'warning' || this.type === 'error';
   }
 
   onClose(ev: Event): void {

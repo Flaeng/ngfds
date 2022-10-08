@@ -16,13 +16,13 @@ export class FdsToastService {
     @Inject(FDS_TOAST_OPTIONS) public options: IGlobalToastOptions | null
   ) {
     const elem = document.querySelector<HTMLDivElement>('div.toast-container');
-    if (elem != null) {
+    if (elem !== null) {
       this.toastContainer = elem;
       return;
     }
 
     const body = document.querySelector('body');
-    if (body == null) {
+    if (body === null) {
       console.warn('Failed to find body element - cannot display toasts');
       return;
     }
@@ -34,11 +34,11 @@ export class FdsToastService {
 
   public show(toast: IToastOptions): Toast {
     const obs = new Subject<undefined>();
-    if (this.toastContainer == null) throw 'Failed to create toast - Missing Toast container';
+    if (this.toastContainer === null) throw 'Failed to create toast - Missing Toast container';
 
     const elem = this.createToastElement(toast, obs);
 
-    if (this.options?.newToastPosition == 'top') {
+    if (this.options?.newToastPosition === 'top') {
       this.toastContainer.prepend(elem);
     } else {
       this.toastContainer.append(elem);
@@ -47,8 +47,8 @@ export class FdsToastService {
     const fdsToast = new DKFDS.Toast(elem);
     fdsToast.show();
 
-    if (toast.timeout != null) {
-      setTimeout(function () {
+    if (toast.timeout !== null) {
+      setTimeout(() => {
         fdsToast.hide();
         obs.next(undefined);
       }, toast.timeout);

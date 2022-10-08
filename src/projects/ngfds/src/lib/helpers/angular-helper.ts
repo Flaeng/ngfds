@@ -31,7 +31,7 @@ export class AngularHelper {
     useExisting: T;
   } {
     return {
-      provide: provide,
+      provide,
       multi: true,
       useExisting: type,
     };

@@ -13,7 +13,7 @@ export class FooterPageComponent extends BasePageComponent {
   @Input("authority-email")
   public authorityEmail: string | null = null;
 
-  @Input("authority-phone")
+  @Input('authority-phone')
   public authorityPhone: string | null = null;
 
   @Input("availability-declaration")

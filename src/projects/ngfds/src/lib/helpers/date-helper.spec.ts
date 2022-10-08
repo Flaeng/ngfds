@@ -71,4 +71,17 @@ describe('DateHelper', () => {
         // Assert
         expect(date).toBeNull();
     });
+
+    it('can parse date string 16/4-2021', () => {
+        // Arrange
+        // To the user: Month 1 = Jan, 2 = Feb, 3 = Mar, 4 = Apr, 5 = May
+        const day = '16', month = '4', year = '2021';
+
+        // Act
+        const date = DateHelper.parseDateString(day, month, year);
+
+        // Assert
+        // In JavaScript: Month 0 = Jan, 1 = Feb, 2 = Mar, 3 = Apr, 4 = May
+        expect(date).toEqual(new Date(Date.UTC(2021, 3, 16)));
+    });
 });

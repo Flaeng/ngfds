@@ -1,5 +1,5 @@
 import { ElementRef } from "@angular/core";
-import { DKFDSElementDependentInitiable } from "dkfds";
+import { DKFDSElementDependentInitiable } from 'dkfds';
 
 export class DkfdsHelper {
     static createAndInit<T extends DKFDSElementDependentInitiable>(

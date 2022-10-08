@@ -18,7 +18,7 @@ export class DateHelper {
 
     const utcDate = Date.UTC(year, month - 1, dayOfMonth);
     const date = new Date(utcDate);
-    if (date.getFullYear() != year || date.getMonth() + 1 != month) return null;
+    if (date.getFullYear() !== year || date.getMonth() + 1 !== month) return null;
     return date;
   }
 
@@ -27,9 +27,9 @@ export class DateHelper {
     month: string,
     year: string
   ): Date | null {
-    const parsedDayOfMonth = parseInt(dayOfMonth);
-    const parsedMonth = parseInt(month);
-    const parsedYear = parseInt(year);
+    const parsedDayOfMonth = parseInt(dayOfMonth, 10);
+    const parsedMonth = parseInt(month, 10);
+    const parsedYear = parseInt(year, 10);
 
     if (DateHelper.isDateInvalid(parsedDayOfMonth, parsedMonth, parsedYear)) {
       return null;
@@ -43,10 +43,8 @@ export class DateHelper {
 
     // Validate that JS didnt overflow the year or month
     // This will happend if you put in the date 30/02-2001 (JS reads that as 02/03-2001)
-    return date.getFullYear() == parsedYear &&
-      date.getMonth() + 1 == parsedMonth
-      ? date
-      : null;
+    if (date.getFullYear() !== parsedYear || date.getMonth() + 1 !== parsedMonth) return null;
+    return date;
   }
 
   private static isDateInvalid(
