@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, Input, OnDestroy, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import * as DKFDS from 'dkfds';
-import { DkfdsHelper } from '../../helpers/dkfds-helper';
 
 @Component({
   selector: 'fds-navigation',
