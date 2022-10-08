@@ -11,19 +11,27 @@ export class AngularHelper {
     multi: boolean;
     useExisting: T;
   } {
-    return {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: type,
-    };
+    return this.provide(NG_VALUE_ACCESSOR, type);
   }
+
   static ngValidators<T>(type: T): {
     provide: InjectionToken<readonly ControlValueAccessor[]>;
     multi: boolean;
     useExisting: T;
   } {
+    return this.provide(NG_VALIDATORS, type);
+  }
+
+  static provide<T>(
+    provide: InjectionToken<readonly ControlValueAccessor[]>,
+    type: T
+  ): {
+    provide: InjectionToken<readonly ControlValueAccessor[]>;
+    multi: boolean;
+    useExisting: T;
+  } {
     return {
-      provide: NG_VALIDATORS,
+      provide: provide,
       multi: true,
       useExisting: type,
     };
