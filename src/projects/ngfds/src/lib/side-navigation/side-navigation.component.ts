@@ -65,9 +65,8 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
   setIsActive(items: ISideNavigationItem[], url: string): void {
     for (const item of items) {
       const preparedUrl = this.prepareUrl(item.url);
-      item.isActive =
-        (item.url.length === 0 && url.length === 0) ||
-        (item.url.length !== 0 && url.startsWith(preparedUrl));
+      if (url.length === 0) item.isActive = item.url.length === 0;
+      else item.url.length !== 0 && url.startsWith(preparedUrl);
       if (item.children) this.setIsActive(item.children, url);
     }
   }
