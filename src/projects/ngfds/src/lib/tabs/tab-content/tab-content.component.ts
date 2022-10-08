@@ -7,25 +7,23 @@ import { TabsComponent } from '../tabs.component';
 })
 export class TabContentComponent implements OnInit {
   @Input('fds-tab-content')
-  fdsTabContent = '';
-
-  elem: HTMLElement;
+  fdsTabContent: string = '';
 
   constructor(private el: ElementRef, @Optional() parent: TabsComponent) {
     parent.registerAsTabContent(this);
-    this.elem = this.el.nativeElement;
   }
 
   ngOnInit(): void {
-    this.elem.classList.add('tabnav-panel');
-    this.elem.setAttribute('aria-hidden', 'true');
-    this.elem.setAttribute('role', 'tabpanel');
-    this.elem.setAttribute('tabindex', '0');
-    this.elem.setAttribute('id', this.fdsTabContent);
-    this.elem.setAttribute('aria-labelledby', 'selector' + this.fdsTabContent);
+    const elem = this.el.nativeElement;
+    elem.classList.add('tabnav-panel');
+    elem.setAttribute('aria-hidden', 'true');
+    elem.setAttribute('role', 'tabpanel');
+    elem.setAttribute('tabindex', '0');
+    elem.setAttribute('id', this.fdsTabContent);
+    elem.setAttribute('aria-labelledby', 'selector' + this.fdsTabContent);
   }
-  
+
   setActive(): void {
-    this.elem.setAttribute('aria-hidden', 'falses');
+    this.el.nativeElement.setAttribute('aria-hidden', 'false');
   }
 }
