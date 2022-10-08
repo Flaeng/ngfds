@@ -22,13 +22,16 @@ export class CookieMessageComponent {
 
   hideCookieBox = false;
 
-  positiveButtonClicked(ev: Event): void {
+  closeMessageBox(ev: Event, emitter: EventEmitter<Event>): void {
     this.hideCookieBox = true;
-    this.positiveClick.emit(ev);
+    emitter.emit(ev);
+  }
+
+  positiveButtonClicked(ev: Event): void {
+    this.closeMessageBox(ev, this.positiveClick);
   }
 
   negativeButtonClicked(ev: Event): void {
-    this.hideCookieBox = true;
-    this.negativeClick.emit(ev);
+    this.closeMessageBox(ev, this.negativeClick);
   }
 }
