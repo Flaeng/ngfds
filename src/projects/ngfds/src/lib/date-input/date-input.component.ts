@@ -12,10 +12,7 @@ import { DateHelper } from '../helpers/date-helper';
 @Component({
   selector: 'fds-date-input',
   templateUrl: './date-input.component.html',
-  providers: [
-    AngularHelper.ngValue(DateInputComponent),
-    AngularHelper.ngValidators(DateInputComponent),
-  ],
+  providers: [...AngularHelper.formInput(DateInputComponent)],
 })
 export class DateInputComponent
   implements AfterViewInit, ControlValueAccessor, Validator

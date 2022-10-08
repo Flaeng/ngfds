@@ -18,18 +18,12 @@ import { DateHelper } from '../helpers/date-helper';
 @Component({
   selector: 'fds-date-picker',
   templateUrl: './date-picker.component.html',
-  providers: [
-    AngularHelper.ngValue(DatePickerComponent),
-    AngularHelper.ngValidators(DatePickerComponent),
-  ],
+  providers: [...AngularHelper.formInput(DatePickerComponent)],
 })
 export class DatePickerComponent
   implements AfterViewInit, ControlValueAccessor, Validator
 {
   stringValue = '';
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // context: any;
 
   @ViewChild('datePickerInput')
   datePickerInput: ElementRef | null = null;

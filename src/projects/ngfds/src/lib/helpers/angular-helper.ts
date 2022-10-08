@@ -5,31 +5,24 @@ import {
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
 
+type NgProvide<T> = {
+  provide: InjectionToken<readonly ControlValueAccessor[]>;
+  multi: boolean;
+  useExisting: T;
+};
+
 export class AngularHelper {
-  static ngValue<T>(type: T): {
-    provide: InjectionToken<readonly ControlValueAccessor[]>;
-    multi: boolean;
-    useExisting: T;
-  } {
-    return this.provide(NG_VALUE_ACCESSOR, type);
+  static formInput<T>(type: T): [NgProvide<T>, NgProvide<T>] {
+    return [
+      this.multiProvide(NG_VALUE_ACCESSOR, type),
+      this.multiProvide(NG_VALIDATORS, type),
+    ];
   }
 
-  static ngValidators<T>(type: T): {
-    provide: InjectionToken<readonly ControlValueAccessor[]>;
-    multi: boolean;
-    useExisting: T;
-  } {
-    return this.provide(NG_VALIDATORS, type);
-  }
-
-  static provide<T>(
+  static multiProvide<T>(
     provide: InjectionToken<readonly ControlValueAccessor[]>,
     type: T
-  ): {
-    provide: InjectionToken<readonly ControlValueAccessor[]>;
-    multi: boolean;
-    useExisting: T;
-  } {
+  ): NgProvide<T> {
     return {
       provide,
       multi: true,
