@@ -35,8 +35,7 @@ export class DateInputComponent
   }
   set dayOfMonth(value: number | null) {
     this._dayOfMonth = value;
-    this.onChange?.call(this, this.value);
-    this.onTouched?.call(this);
+    this.emitChange(this.value);
   }
 
   _month: number | null = null;
@@ -45,8 +44,7 @@ export class DateInputComponent
   }
   set month(value: number | null) {
     this._month = value;
-    this.onChange?.call(this, this.value);
-    this.onTouched?.call(this);
+    this.emitChange(this.value);
   }
 
   _year: number | null = null;
@@ -55,8 +53,7 @@ export class DateInputComponent
   }
   set year(value: number | null) {
     this._year = value;
-    this.onChange?.call(this, this.value);
-    this.onTouched?.call(this);
+    this.emitChange(this.value);
   }
 
   set value(val: Date | null) {
@@ -65,14 +62,18 @@ export class DateInputComponent
       this._month = val.getMonth() + 1;
       this._year = val.getFullYear();
     } else this._dayOfMonth = this._month = this._year = null;
-    this.onChange?.call(this, val);
-    this.onTouched?.call(this);
+    this.emitChange(val);
   }
 
   get value(): Date | null {
     return this._dayOfMonth == null || this._month == null || this._year == null
       ? null
       : DateHelper.parseDate(this._dayOfMonth, this._month, this._year);
+  }
+
+  emitChange(val: Date | null) {
+    this.onChange?.call(this, val);
+    this.onTouched?.call(this);
   }
 
   // eslint-disable-next-line @typescript-eslint/ban-types
