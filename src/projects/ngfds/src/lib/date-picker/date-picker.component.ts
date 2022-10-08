@@ -14,22 +14,15 @@ import {
   Validator,
 } from '@angular/forms';
 import * as DKFDS from 'dkfds';
+import { AngularHelper } from '../helpers/angular-helper';
 import { DateHelper } from '../helpers/date-helper';
 
 @Component({
   selector: 'fds-date-picker',
   templateUrl: './date-picker.component.html',
   providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: DatePickerComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: DatePickerComponent,
-    },
+    AngularHelper.ngValue(DatePickerComponent),
+    AngularHelper.ngValidators(DatePickerComponent),
   ],
 })
 export class DatePickerComponent

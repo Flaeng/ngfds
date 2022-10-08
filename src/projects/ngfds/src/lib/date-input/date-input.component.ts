@@ -8,22 +8,15 @@ import {
   Validator,
 } from '@angular/forms';
 import * as DKFDS from 'dkfds';
+import { AngularHelper } from '../helpers/angular-helper';
 import { DateHelper } from '../helpers/date-helper';
 
 @Component({
   selector: 'fds-date-input',
   templateUrl: './date-input.component.html',
   providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      multi: true,
-      useExisting: DateInputComponent,
-    },
-    {
-      provide: NG_VALIDATORS,
-      multi: true,
-      useExisting: DateInputComponent,
-    },
+    AngularHelper.ngValue(DateInputComponent),
+    AngularHelper.ngValidators(DateInputComponent),
   ],
 })
 export class DateInputComponent
