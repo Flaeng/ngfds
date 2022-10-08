@@ -1,5 +1,5 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import * as DKFDS from 'dkfds';
 
 export const FDS_TOAST_OPTIONS = new InjectionToken<IGlobalToastOptions>(
