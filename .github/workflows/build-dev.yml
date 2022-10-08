@@ -22,7 +22,7 @@ jobs:
         working-directory: ./src
 
       - name: unit test
-        run: npm run test
+        run: npm run test:ci
         working-directory: ./src
 
       - name: e2e test

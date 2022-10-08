@@ -8,6 +8,7 @@
     "build-library": "ng build --project=ngfds --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage=true",
     "lint": "eslint . --ext .ts",
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
