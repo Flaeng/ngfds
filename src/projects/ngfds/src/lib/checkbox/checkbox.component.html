@@ -1,0 +1,12 @@
+<input
+  [id]="id"
+  type="checkbox"
+  class="form-checkbox"
+  [ngClass]="{ 'checkbox-large': size === 'large' }"
+  [disabled]="disabled"
+  [(ngModel)]="value"
+  [attr.data-aria-controls]="group"
+/>
+<label [for]="id" class="">
+  <ng-content></ng-content>
+</label>

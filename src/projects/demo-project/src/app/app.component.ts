@@ -89,7 +89,7 @@ export class AppComponent {
     new AppSideNavigationItem({ url: 'tabeller', title: 'Tabeller' }),
     new AppSideNavigationItem({ url: 'tags', title: 'Tags', state: 'done' }),
     new AppSideNavigationItem({ url: 'textarea', title: 'Tekstområde' }),
-    new AppSideNavigationItem({ url: 'tjekboks', title: 'Tjekboks' }),
+    new AppSideNavigationItem({ url: 'checkbox', title: 'Tjekboks', state: 'done' }),
     new AppSideNavigationItem({ url: 'toggle-switch', title: 'Toggle switch' }),
     new AppSideNavigationItem({ url: 'tooltip', title: 'Tooltip', state: 'done' }),
     new AppSideNavigationItem({ url: 'step-indicator', title: 'Trinindikator', state: 'done' }),

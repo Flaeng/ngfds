@@ -1,0 +1,87 @@
+<app-header
+  header="Checkbox / Tjekboks"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/tjekboks/"
+></app-header>
+
+<app-demo-view>
+  <fds-checkbox [(ngModel)]="value1"> Check me </fds-checkbox>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-checkbox [(ngModel)]="value2" [disabled]="true"> Check me </fds-checkbox>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-checkbox [(ngModel)]="value3" size="large"> Check me </fds-checkbox>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-checkbox [(ngModel)]="value4" size="large" [disabled]="true">
+    Check me
+  </fds-checkbox>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-checkbox [(ngModel)]="value5" size="small"> Check me </fds-checkbox>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-checkbox [(ngModel)]="value6" size="small" [disabled]="true">
+    Check me
+  </fds-checkbox>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-checkbox group="showContent1">Show content 1</fds-checkbox>
+  <fds-checkbox-content group="showContent1">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum
+      libero tortor, a porta ex accumsan a. Phasellus dapibus sollicitudin urna,
+      vel elementum neque accumsan eu. Class aptent taciti sociosqu ad litora
+      torquent per conubia nostra, per inceptos himenaeos. Pellentesque vitae
+      odio efficitur, condimentum tellus a, sodales lorem. Aliquam aliquam
+      vehicula arcu nec ornare. Nam tempus non enim vel sodales. Maecenas risus
+      elit, convallis egestas justo sit amet, volutpat mollis nulla. Sed non
+      eros vehicula, maximus lectus eu, mattis magna.
+    </p> </fds-checkbox-content
+  ><br />
+  <fds-checkbox group="showContent2">Show content 2</fds-checkbox>
+  <fds-checkbox-content group="showContent2">
+    <p>
+      Etiam finibus mi et risus tempor tincidunt. Donec pharetra semper dui in
+      imperdiet. Vivamus pellentesque consectetur felis. Donec nibh lectus,
+      finibus sit amet orci nec, aliquam posuere mauris. Proin quis imperdiet
+      est, id convallis tellus. Donec tempus velit sed velit tempor, sed tempor
+      velit dapibus. Suspendisse at orci eu libero lobortis ultricies et at
+      urna. Sed dignissim nisl eget purus lacinia ultrices non vel libero. In
+      felis est, posuere fermentum venenatis eu, eleifend at nibh.
+    </p>
+  </fds-checkbox-content>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-checkbox group="showContent3" size="small">Show content</fds-checkbox>
+  <fds-checkbox-content group="showContent3" size="small">
+    <p>
+      Quisque volutpat ut lorem quis vestibulum. Nunc sed pulvinar turpis, eu
+      volutpat urna. Sed vehicula convallis est. Cras cursus justo ut lectus
+      maximus, vitae auctor ante hendrerit. Sed ut sollicitudin lectus, eget
+      ultrices nunc. Nulla dignissim nulla vel libero finibus tempus. Cras
+      pretium metus ac diam vehicula, vel dictum ipsum venenatis. Ut id
+      pellentesque urna. Phasellus dapibus mollis ipsum eget iaculis.
+    </p>
+  </fds-checkbox-content><br />
+  <fds-checkbox group="showContent4" size="small">Show content</fds-checkbox>
+  <fds-checkbox-content group="showContent4" size="small">
+    <p>
+      Proin quam felis, mattis a sagittis eget, vestibulum at arcu. Aliquam erat
+      volutpat. Integer efficitur hendrerit risus, nec facilisis nisi commodo
+      eget. Donec feugiat magna a erat aliquam, a feugiat nunc congue. Nam quis
+      risus eu libero volutpat placerat in sed turpis. Aenean lacinia ex ut orci
+      vulputate, vestibulum interdum turpis lacinia.
+    </p>
+  </fds-checkbox-content>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

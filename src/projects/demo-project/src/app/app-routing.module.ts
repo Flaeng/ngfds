@@ -39,6 +39,7 @@ import { ToastPageComponent } from './pages/toast-page/toast-page.component';
 import { TooltipPageComponent } from './pages/tooltip-page/tooltip-page.component';
 import { DropdownPageComponent } from './pages/dropdown-page/dropdown-page.component';
 import { NgfdsDropdownPageComponent } from './pages/ngfds/ngfds-dropdown-page/ngfds-dropdown-page.component';
+import { CheckboxPageComponent } from './pages/checkbox-page/checkbox-page.component';
 
 const routes: Routes = [
   { path: '', component: IntroductionPageComponent },
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'knapper', component: ButtonPageComponent },
   { path: 'tabs', component: TabsPageComponent },
   { path: 'cards', component: CardPageComponent },
+  { path: 'checkbox', component: CheckboxPageComponent },
   { path: 'notification-toast', component: ToastPageComponent },
   { path: 'detaljer', component: DetailsPageComponent },
   { path: 'icons', component: IconsPageComponent },
