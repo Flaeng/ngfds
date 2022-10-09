@@ -1,0 +1,32 @@
+<app-header
+  header="Textarea / Tekstområde"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/tekstomraade/"
+></app-header>
+
+<app-demo-view>
+  <fds-textarea [(ngModel)]="value1"></fds-textarea>
+  <div class="my-3">
+    {{ value1 }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-textarea [(ngModel)]="value1" [disabled]="true"></fds-textarea>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-checkbox [(ngModel)]="showCharacterLimit" size="small"
+    >Show character limit</fds-checkbox
+  >
+  <fds-textarea
+    [(ngModel)]="value2"
+    [maxlength]="60"
+    [show-character-limit]="showCharacterLimit"
+  ></fds-textarea>
+  <div class="my-3">
+    {{ value2 }}
+  </div>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

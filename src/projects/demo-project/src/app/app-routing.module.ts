@@ -41,6 +41,7 @@ import { DropdownPageComponent } from './pages/dropdown-page/dropdown-page.compo
 import { NgfdsDropdownPageComponent } from './pages/ngfds/ngfds-dropdown-page/ngfds-dropdown-page.component';
 import { CheckboxPageComponent } from './pages/checkbox-page/checkbox-page.component';
 import { ToggleSwitchPageComponent } from './pages/toggle-switch-page/toggle-switch-page.component';
+import { TextareaPageComponent } from './pages/textarea-page/textarea-page.component';
 
 const routes: Routes = [
   { path: '', component: IntroductionPageComponent },
@@ -69,7 +70,7 @@ const routes: Routes = [
   { path: 'side-navigation', component: SideNavigationPageComponent },
   { path: 'overflow-menu', component: OverflowMenuPageComponent },
   { path: 'dropdown-menu', component: DropdownPageComponent },
-  // { path: 'textarea', component: TextareaPageComponent },
+  { path: 'textarea', component: TextareaPageComponent },
   { path: 'spinner', component: SpinnerPageComponent },
   { path: 'footers', component: FooterPageComponent },
   { path: 'paginering', component: PaginationPageComponent },

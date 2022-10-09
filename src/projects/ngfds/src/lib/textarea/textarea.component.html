@@ -1,6 +1,21 @@
-<textarea
-  class="form-input"
-  [rows]="rows"
-  [id]="'textarea' + id"
-  name="input-area"
-></textarea>
+<div #formControlWrapper [attr.data-maxlength]="maxlength">
+  <!-- [ngClass]="{ 'auto-expand': autoExpand }" -->
+  <textarea
+    #formControl
+    class="form-input"
+    [rows]="rows"
+    [disabled]="disabled"
+    [(ngModel)]="value"
+    name="input-area"
+  ></textarea>
+
+  <span *ngIf="showCharacterLimit" id="input-area-character-limit-message" class="sr-only"
+    >Du kan indtaste op til {{ maxlength }} tegn</span
+  >
+  <span *ngIf="showCharacterLimit" class="form-hint character-limit" aria-hidden="true"
+    >Du har {{ maxlength }} tegn tilbage</span
+  >
+  <span *ngIf="showCharacterLimit" class="character-limit-sr-only sr-only" aria-live="polite"
+    >Du har {{ maxlength }} tegn tilbage</span
+  >
+</div>

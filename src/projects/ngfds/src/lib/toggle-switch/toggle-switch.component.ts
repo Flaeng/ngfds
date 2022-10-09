@@ -32,7 +32,7 @@ export class ToggleSwitchComponent implements ControlValueAccessor, Validator {
     'toggle-switch' + (ToggleSwitchComponent.idGenerator++).toString();
 
   // eslint-disable-next-line @typescript-eslint/ban-types
-  onChange: ((date: boolean) => {}) | null = null;
+  onChange: ((value: boolean) => {}) | null = null;
   // eslint-disable-next-line @typescript-eslint/ban-types
   onTouched: (() => {}) | null = null;
   onValidatorChange: (() => void) | null = null;

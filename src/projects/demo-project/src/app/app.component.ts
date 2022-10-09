@@ -88,7 +88,7 @@ export class AppComponent {
     new AppSideNavigationItem({ url: 'tilbage-til-toppen-link', title: 'Tilbage til toppen link', state: 'done' }),
     new AppSideNavigationItem({ url: 'tabeller', title: 'Tabeller' }),
     new AppSideNavigationItem({ url: 'tags', title: 'Tags', state: 'done' }),
-    new AppSideNavigationItem({ url: 'textarea', title: 'Tekstområde' }),
+    new AppSideNavigationItem({ url: 'textarea', title: 'Tekstområde', state: 'done' }),
     new AppSideNavigationItem({ url: 'checkbox', title: 'Tjekboks', state: 'done' }),
     new AppSideNavigationItem({ url: 'toggle-switch', title: 'Toggle switch', state: 'done' }),
     new AppSideNavigationItem({ url: 'tooltip', title: 'Tooltip', state: 'done' }),
@@ -98,6 +98,7 @@ export class AppComponent {
 
   dkfdsExtra: SideNavigationItem[] = [
     new AppSideNavigationItem({ url: 'ngfds/animations', title: 'Animations' }),
+    new AppSideNavigationItem({ url: 'ngfds/auto-expand', title: 'Textarea / tekstboks (auto expand)' }),
     new AppSideNavigationItem({ url: 'ngfds/promise-button', title: 'Promise button' }),
     new AppSideNavigationItem({ url: 'ngfds/dropdown', title: 'Dropdown (multiselect)' }),
     new AppSideNavigationItem({ url: 'ngfds/side-navigation', title: 'Sidenavigation (collapsable)' }),

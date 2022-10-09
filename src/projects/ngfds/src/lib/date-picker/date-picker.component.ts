@@ -42,7 +42,7 @@ export class DatePickerComponent
     return this._value;
   }
 
-  onChange: ((date: Date | null) => void) | null = null;
+  onChange: ((value: Date | null) => void) | null = null;
   onTouched: (() => void) | null = null;
   onValidatorChange: (() => void) | null = null;
 

@@ -38,7 +38,7 @@ export class CheckboxComponent implements ControlValueAccessor, Validator {
   id: string = 'checkbox' + (CheckboxComponent.idGenerator++).toString();
 
   // eslint-disable-next-line @typescript-eslint/ban-types
-  onChange: ((date: boolean) => {}) | null = null;
+  onChange: ((value: boolean) => {}) | null = null;
   // eslint-disable-next-line @typescript-eslint/ban-types
   onTouched: (() => {}) | null = null;
   onValidatorChange: (() => void) | null = null;

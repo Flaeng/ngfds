@@ -65,7 +65,7 @@ export class DateInputComponent
   }
 
   // eslint-disable-next-line @typescript-eslint/ban-types
-  onChange: ((date: Date | null) => {}) | null = null;
+  onChange: ((value: Date | null) => {}) | null = null;
   // eslint-disable-next-line @typescript-eslint/ban-types
   onTouched: (() => {}) | null = null;
   onValidatorChange: (() => void) | null = null;

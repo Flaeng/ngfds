@@ -47,7 +47,7 @@ export class DropdownComponent
 
   optionList: FdsDropdownItem[] = [];
 
-  onChange: ((date: unknown | null) => void) | null = null;
+  onChange: ((value: unknown | null) => void) | null = null;
   onTouched: (() => void) | null = null;
   onValidatorChange: (() => void) | null = null;
 

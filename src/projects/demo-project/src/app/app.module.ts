@@ -86,6 +86,7 @@ import { CheckboxPageComponent } from './pages/checkbox-page/checkbox-page.compo
 import { FdsCheckboxModule } from 'projects/ngfds/src/lib/checkbox/checkbox.module';
 import { ToggleSwitchPageComponent } from './pages/toggle-switch-page/toggle-switch-page.component';
 import { FdsToggleSwitchModule } from 'projects/ngfds/src/lib/toggle-switch/toggle-switch.module';
+import { TextareaPageComponent } from './pages/textarea-page/textarea-page.component';
 
 @NgModule({
   declarations: [
@@ -136,6 +137,7 @@ import { FdsToggleSwitchModule } from 'projects/ngfds/src/lib/toggle-switch/togg
     NgfdsDropdownPageComponent,
     CheckboxPageComponent,
     ToggleSwitchPageComponent,
+    TextareaPageComponent,
   ],
   imports: [
     BrowserModule,

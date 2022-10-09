@@ -1,4 +1,4 @@
-textarea {
+textarea.auto-expand {
   box-sizing: border-box;
   resize: none;
 }
