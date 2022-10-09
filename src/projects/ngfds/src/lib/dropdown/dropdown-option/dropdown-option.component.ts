@@ -25,8 +25,7 @@ export class DropdownOptionComponent implements OnInit, OnDestroy {
   }
 
   public get text(): string {
-    const elem: HTMLElement = this.el.nativeElement;
-    return elem.innerText.length !== 0 ? elem.innerText : (this.value as any)?.toString() ?? '';
+    return this.el.nativeElement.innerText;
   }
 
   constructor(
@@ -34,10 +33,10 @@ export class DropdownOptionComponent implements OnInit, OnDestroy {
     @Optional() protected parent: DropdownComponent) { }
 
   ngOnInit(): void {
-    this.parent.registerOption(this);
+    this.parent?.registerOption(this);
   }
 
   ngOnDestroy(): void {
-    this.parent.unregisterOption(this);
+    this.parent?.unregisterOption(this);
   }
 }

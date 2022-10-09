@@ -27,7 +27,7 @@ export class DropdownOptionComponent implements OnInit, OnDestroy {
   constructor(@Optional() protected parent: DropdownComponent) {}
 
   ngOnInit(): void {
-    this.parent.registerOption(this);
+    this.parent?.registerOption(this);
   }
 
   public setFocus(): void {
@@ -57,6 +57,6 @@ export class DropdownOptionComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.parent.unregisterOption(this);
+    this.parent?.unregisterOption(this);
   }
 }
