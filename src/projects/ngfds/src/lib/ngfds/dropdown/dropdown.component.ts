@@ -48,8 +48,7 @@ export class DropdownComponent implements ControlValueAccessor, Validator {
     return this.selectedItems.length === 0 ? null : this.selectedItems[0];
   }
   public set selectedItem(value: DropdownOptionComponent | null) {
-    if (value === null) this.selectedItems = [];
-    else this.selectedItems = [value];
+    this.selectedItems = value ? [value] : [];
   }
 
   private _selectedItems: DropdownOptionComponent[] = [];
@@ -201,11 +200,17 @@ export class DropdownComponent implements ControlValueAccessor, Validator {
   public toggleItemSelected(ev: Event, item: DropdownOptionComponent) {
     if (this.allowMultiple) {
       const index = this.selectedItems.indexOf(item);
-      if (index === -1) this.selectedItems.push(item);
-      else this.selectedItems.splice(index, 1);
+      if (index === -1) {
+        this.selectedItems.push(item);
+      } else {
+        this.selectedItems.splice(index, 1);
+      }
     } else {
-      if (this.selectedItem === item) this.unselectItem(ev, item);
-      else this.selectItem(ev, item);
+      if (this.selectedItem === item) {
+        this.unselectItem(ev, item);
+      } else {
+        this.selectItem(ev, item);
+      }
     }
     this.emitNgModelChanged();
   }
