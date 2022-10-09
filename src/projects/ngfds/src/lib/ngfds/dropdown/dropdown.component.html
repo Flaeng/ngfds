@@ -1,0 +1,45 @@
+<div
+  #formControl
+  tabindex="0"
+  class="form-select multi"
+  [ngClass]="{ open: isOpen }"
+  (click)="toggleDropdown($event)"
+  (keydown.enter)="openDropdown($event)"
+  (keydown.space)="openDropdown($event)"
+  (keydown.arrowup)="focusPreviousItem($event)"
+  (keydown.arrowdown)="focusNextItem($event)"
+>
+  <ng-container
+    *ngIf="
+      selectedItems.length === 0;
+      else allowMultiple ? showSelectedItems : showSelectedItem
+    "
+    >{{ placeholder }}</ng-container
+  >
+
+  <div class="dropdown-wrapper" (clickOutside)="closeDropdown($event)">
+    <div class="dropdown-list" [ngClass]="{ open: isOpen }">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
+
+<ng-template #showSelectedItem>
+  {{ selectedItem!.text }}
+</ng-template>
+
+<ng-template #showSelectedItems>
+  <ng-container *ngFor="let item of selectedItems">
+    <button
+      class="tag tag-icon"
+      (click)="unselectItem($event, item)"
+      (keydown.enter)="unselectItem($event, item)"
+    >
+      <span class="sr-only">Fravælg</span>
+      {{ item.text }}
+      <svg class="icon-svg" aria-hidden="true">
+        <use xlink:href="#close"></use>
+      </svg>
+    </button>
+  </ng-container>
+</ng-template>

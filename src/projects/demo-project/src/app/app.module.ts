@@ -61,7 +61,10 @@ import { IconsPageComponent } from './pages/icon-page/icon-page.component';
 import { FdsTagModule } from 'projects/ngfds/src/lib/tag/tag.module';
 import { TagPageComponent } from './pages/tag-page/tag-page.component';
 import { ToastPageComponent } from './pages/toast-page/toast-page.component';
-import { FDS_TOAST_OPTIONS, IGlobalToastOptions } from 'projects/ngfds/src/lib/toast/toast.service';
+import {
+  FDS_TOAST_OPTIONS,
+  IGlobalToastOptions,
+} from 'projects/ngfds/src/lib/toast/toast.service';
 import { BackButtonPageComponent } from './pages/back-button-page/back-button-page.component';
 import { FdsBackButtonModule } from 'projects/ngfds/src/lib/back-button/back-button.module';
 import { FunctionLinkPageComponent } from './pages/function-link-page/function-link-page.component';
@@ -75,6 +78,10 @@ import { DatePickerPageComponent } from './pages/date-picker-page/date-picker-pa
 import { FdsDatePickerModule } from 'projects/ngfds/src/lib/date-picker/date-picker.module';
 import { BackToTopButtonPageComponent } from './pages/back-to-top-button-page/back-to-top-button-page.component';
 import { FdsBackToTopButtonModule } from 'projects/ngfds/src/lib/back-to-top-button/back-to-top-button.module';
+import { NgfdsDropdownPageComponent } from './pages/ngfds/ngfds-dropdown-page/ngfds-dropdown-page.component';
+import { NgfdsDropdownModule } from 'projects/ngfds/src/lib/ngfds/dropdown/dropdown.module';
+import { FdsDropdownModule } from 'projects/ngfds/src/lib/dropdown/dropdown.module';
+import { DropdownPageComponent } from './pages/dropdown-page/dropdown-page.component';
 
 @NgModule({
   declarations: [
@@ -121,6 +128,8 @@ import { FdsBackToTopButtonModule } from 'projects/ngfds/src/lib/back-to-top-but
     DateInputPageComponent,
     DatePickerPageComponent,
     BackToTopButtonPageComponent,
+    DropdownPageComponent,
+    NgfdsDropdownPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -143,6 +152,8 @@ import { FdsBackToTopButtonModule } from 'projects/ngfds/src/lib/back-to-top-but
     FdsOverflowMenuModule,
     FdsPaginationModule,
     FdsSideNavigationModule,
+    FdsDropdownModule,
+    NgfdsDropdownModule,
     FdsBackToTopButtonModule,
     FdsSkipLinkModule,
     FdsSpinnerModule,
@@ -155,16 +166,16 @@ import { FdsBackToTopButtonModule } from 'projects/ngfds/src/lib/back-to-top-but
     FdsBackButtonModule,
     FdsFunctionLinkModule,
     FdsDateInputModule,
-    FdsDatePickerModule
+    FdsDatePickerModule,
   ],
   providers: [
     {
       provide: FDS_TOAST_OPTIONS,
       useValue: {
-        newToastPosition: 'bottom'
-      } as IGlobalToastOptions
-    }
+        newToastPosition: 'bottom',
+      } as IGlobalToastOptions,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

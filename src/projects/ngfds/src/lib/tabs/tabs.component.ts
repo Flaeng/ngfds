@@ -34,12 +34,12 @@ export class TabsComponent implements AfterViewInit {
   }
 
   selectors: TabSelectorComponent[] = [];
-  public registerAsTabSelector(item: TabSelectorComponent) {
+  registerAsTabSelector(item: TabSelectorComponent) {
     this.selectors.push(item);
   }
 
   content: TabContentComponent[] = [];
-  public registerAsTabContent(item: TabContentComponent) {
+  registerAsTabContent(item: TabContentComponent) {
     this.content.push(item);
   }
 }

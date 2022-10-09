@@ -1,0 +1,13 @@
+<select
+  #selectControl
+  class="form-select"
+  [disabled]="disabled"
+  [(ngModel)]="selectedItem"
+>
+  <option *ngIf="placeholder && selectedItem === null" [value]="null">
+    {{ placeholder }}
+  </option>
+  <option *ngFor="let opt of optionList" [value]="opt.value">
+    {{ opt.text }}
+  </option>
+</select>

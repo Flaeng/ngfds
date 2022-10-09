@@ -1,0 +1,63 @@
+<app-header
+  header="Dropdown"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/dropdown/"
+></app-header>
+
+<app-demo-view>
+  <ngfds-select [(ngModel)]="dropdown1">
+    <ngfds-option text="Option #1"></ngfds-option>
+    <ngfds-option text="Option #2"></ngfds-option>
+    <ngfds-option text="Option #3"></ngfds-option>
+    <ngfds-option text="Option #4"></ngfds-option>
+  </ngfds-select>
+  <div class="my-3">
+    {{ dropdown1 | json }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <ngfds-select [(ngModel)]="dropdown2" placeholder="Choose one">
+    <ngfds-option text="Option #1">
+      <fds-icon icon="face"></fds-icon>
+      Option #1
+    </ngfds-option>
+    <ngfds-option text="Option #2">
+      <fds-icon icon="support-agent"></fds-icon>
+      Option #2
+    </ngfds-option>
+    <ngfds-option text="Option #3">
+      <fds-icon icon="drive-eta"></fds-icon>
+      Option #3
+    </ngfds-option>
+    <ngfds-option text="Option #4">
+      <fds-icon icon="accessibility-new"></fds-icon>
+      Option #4
+    </ngfds-option>
+  </ngfds-select>
+  <div class="my-3">
+    {{ dropdown2 | json }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <ngfds-select [(ngModel)]="dropdown3" placeholder="Choose one or more" [allow-multiple]="true">
+    <ngfds-option text="Option #1">Option #1</ngfds-option>
+    <ngfds-option text="Option #2">Option #2</ngfds-option>
+    <ngfds-option text="Option #3">Option #3</ngfds-option>
+    <ngfds-option text="Option #4">Option #4</ngfds-option>
+    <ngfds-option text="Option #5">Option #5</ngfds-option>
+    <ngfds-option text="Option #6">Option #6</ngfds-option>
+    <ngfds-option text="Option #7">Option #7</ngfds-option>
+    <ngfds-option text="Option #8">Option #8</ngfds-option>
+    <ngfds-option text="Option #9">Option #9</ngfds-option>
+  </ngfds-select>
+  <div class="my-3">
+    {{ dropdown3 | json }}
+  </div>
+</app-demo-view>
+
+<!-- 
+  <app-doc-view>
+  </app-doc-view> 
+-->

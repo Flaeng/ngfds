@@ -244,10 +244,13 @@ async function formatFilecontentAsync(filename, content) {
         if (line.trim().indexOf('<app-doc-view>') != -1) {
             const docs = await getDocumentationAsync(filename);
             try {
-                result.push('<app-doc-view>');
-                result.push(...docs);
-                if (line.indexOf('</app-doc-view>') != -1)
+                if (docs)
+                {
+                    result.push('<app-doc-view>');
+                    result.push(...docs);
+                    if (line.indexOf('</app-doc-view>') != -1)
                     result.push('</app-doc-view>');
+                }
             } catch (error) {
                 throw 'dav';
             }

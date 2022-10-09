@@ -37,6 +37,8 @@ import { TabsPageComponent } from './pages/tabs-page/tabs-page.component';
 import { TagPageComponent } from './pages/tag-page/tag-page.component';
 import { ToastPageComponent } from './pages/toast-page/toast-page.component';
 import { TooltipPageComponent } from './pages/tooltip-page/tooltip-page.component';
+import { DropdownPageComponent } from './pages/dropdown-page/dropdown-page.component';
+import { NgfdsDropdownPageComponent } from './pages/ngfds/ngfds-dropdown-page/ngfds-dropdown-page.component';
 
 const routes: Routes = [
   { path: '', component: IntroductionPageComponent },
@@ -63,6 +65,7 @@ const routes: Routes = [
   { path: 'headers/function-links', component: FunctionLinksPageComponent },
   { path: 'side-navigation', component: SideNavigationPageComponent },
   { path: 'overflow-menu', component: OverflowMenuPageComponent },
+  { path: 'dropdown-menu', component: DropdownPageComponent },
   // { path: 'textarea', component: TextareaPageComponent },
   { path: 'spinner', component: SpinnerPageComponent },
   { path: 'footers', component: FooterPageComponent },
@@ -77,6 +80,12 @@ const routes: Routes = [
   { path: 'tags', component: TagPageComponent },
   { path: 'datoangivelse', component: DateInputPageComponent },
   { path: 'datepicker', component: DatePickerPageComponent },
+  {
+    path: 'ngfds',
+    children: [
+      { path: 'dropdown', component: NgfdsDropdownPageComponent }
+    ]
+  }
 ];
 
 @NgModule({

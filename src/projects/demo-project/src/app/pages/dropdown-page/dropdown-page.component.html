@@ -1,0 +1,53 @@
+<app-header
+  header="Dropdown"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/dropdown/"
+></app-header>
+
+<app-demo-view>
+  <fds-select [(ngModel)]="dropdown1">
+    <fds-option>Option #1</fds-option>
+    <fds-option>Option #2</fds-option>
+    <fds-option>Option #3</fds-option>
+    <fds-option>Option #4</fds-option>
+  </fds-select>
+  <div class="my-3">
+    {{ dropdown1 | json }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-select [(ngModel)]="dropdown1" [disabled]="true">
+    <fds-option>Option #1</fds-option>
+    <fds-option>Option #2</fds-option>
+    <fds-option>Option #3</fds-option>
+    <fds-option>Option #4</fds-option>
+  </fds-select>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-select [(ngModel)]="dropdown2" placeholder="Choose one">
+    <fds-option>Option #1</fds-option>
+    <fds-option>Option #2</fds-option>
+    <fds-option>Option #3</fds-option>
+    <fds-option>Option #4</fds-option>
+  </fds-select>
+  <div class="my-3">
+    {{ dropdown2 | json }}
+  </div>
+  <fds-button (click)="dropdown3 = null">Reset</fds-button>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-select [(ngModel)]="dropdown3">
+    <fds-option [value]="1">Option #1</fds-option>
+    <fds-option [value]="2">Option #2</fds-option>
+    <fds-option [value]="3">Option #3</fds-option>
+    <fds-option [value]="4">Option #4</fds-option>
+  </fds-select>
+  <div class="my-3">
+    {{ dropdown3 | json }}
+  </div>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

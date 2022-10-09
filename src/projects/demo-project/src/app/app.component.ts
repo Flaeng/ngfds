@@ -38,7 +38,7 @@ export class AppComponent {
   ];
 
   dkfdsComponents: SideNavigationItem[] = [
-    new AppSideNavigationItem({ url: 'accordions', title: 'Accordions', state: 'work in progress' }),
+    new AppSideNavigationItem({ url: 'accordions', title: 'Accordions', state: 'done' }),
     new AppSideNavigationItem({ url: 'badges', title: 'Badges', state: 'done' }),
     new AppSideNavigationItem({ url: 'beskeder-alerts', title: 'Beskeder (Alerts)', state: 'done' }),
     new AppSideNavigationItem({ url: 'broedkrumme', title: 'Brødkrumme', state: 'done' }),
@@ -48,7 +48,7 @@ export class AppComponent {
     new AppSideNavigationItem({ url: 'datepicker', title: 'Datovælger', state: 'done' }),
     new AppSideNavigationItem({ url: 'detaljer', title: 'Detaljer', state: 'done' }),
     new AppSideNavigationItem({ url: 'dropdown-menu', title: 'Dropdown-menu' }),
-    new AppSideNavigationItem({ url: 'tabs', title: 'Faneblade', state: 'work in progress' }),
+    new AppSideNavigationItem({ url: 'tabs', title: 'Faneblade', state: 'done' }),
     new AppSideNavigationItem({ url: 'fejlbeskeder', title: 'Fejlbeskeder' }),
     new AppSideNavigationItem({ url: 'fejlopsummering', title: 'Fejlopsummering' }),
     new AppSideNavigationItem({ url: 'felter', title: 'Felter' }),
@@ -72,14 +72,14 @@ export class AppComponent {
       ]
     }),
     new AppSideNavigationItem({ url: 'icons', title: 'Ikoner', state: 'done' }),
-    new AppSideNavigationItem({ url: 'knapper', title: 'Knapper', state: 'work in progress' }),
+    new AppSideNavigationItem({ url: 'knapper', title: 'Knapper', state: 'done' }),
     new AppSideNavigationItem({ url: 'modalvindue', title: 'Modalvindue' }),
     new AppSideNavigationItem({ url: 'notification-toast', title: 'Notification (Toast)', state: 'done' }),
     new AppSideNavigationItem({ url: 'overflow-menu', title: 'Overflow menu', state: 'done' }),
     new AppSideNavigationItem({ url: 'paginering', title: 'Paginering', state: 'done' }),
     new AppSideNavigationItem({ url: 'radioknap', title: 'Radioknap' }),
     new AppSideNavigationItem({ url: 'side-navigation', title: 'Sidenavigation', state: 'done' }),
-    new AppSideNavigationItem({ url: 'skip-link', title: 'Skip-link', state: 'work in progress' }),
+    new AppSideNavigationItem({ url: 'skip-link', title: 'Skip-link', state: 'done' }),
     new AppSideNavigationItem({ url: 'spinner', title: 'Spinner', state: 'done' }),
     new AppSideNavigationItem({ url: 'sprog-vaelger', title: 'Sprogvælger', state: 'done' }),
     new AppSideNavigationItem({ url: 'strukturerede-lister', title: 'Strukturerede lister', state: 'done' }),
@@ -97,8 +97,10 @@ export class AppComponent {
   ];
 
   dkfdsExtra: SideNavigationItem[] = [
-    new AppSideNavigationItem({ url: '', title: 'Animations' }),
-    new AppSideNavigationItem({ url: '', title: 'Promise button' }),
+    new AppSideNavigationItem({ url: 'ngfds/animations', title: 'Animations' }),
+    new AppSideNavigationItem({ url: 'ngfds/promise-button', title: 'Promise button' }),
+    new AppSideNavigationItem({ url: 'ngfds/dropdown', title: 'Dropdown (multiselect)' }),
+    new AppSideNavigationItem({ url: 'ngfds/side-navigation', title: 'Sidenavigation (collapsable)' }),
   ];
 
 }

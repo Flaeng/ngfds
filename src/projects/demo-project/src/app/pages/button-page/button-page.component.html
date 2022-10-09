@@ -14,16 +14,25 @@
     <fds-button visual="primary" (click)="alert('Thank you')">
         Click me
     </fds-button>
+    <fds-button [disabled]="true" visual="primary" (click)="alert('Thank you')">
+        Click me
+    </fds-button>
 </app-demo-view>
 
 <app-demo-view>
     <fds-button visual="secondary" (click)="alert('Thank you')">
         Click me
     </fds-button>
+    <fds-button [disabled]="true" visual="secondary" (click)="alert('Thank you')">
+        Click me
+    </fds-button>
 </app-demo-view>
 
 <app-demo-view>
     <fds-button visual="tertiary" (click)="alert('Thank you')">
+        Click me
+    </fds-button>
+    <fds-button [disabled]="true" visual="tertiary" (click)="alert('Thank you')">
         Click me
     </fds-button>
 </app-demo-view>
