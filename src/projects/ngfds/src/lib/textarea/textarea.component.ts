@@ -68,27 +68,16 @@ export class TextareaComponent
 
     if (!this.formControlWrapper) return;
     if (this.showCharacterLimit === true) {
-      this.underlayingControl = DkfdsHelper.createAndInit(
-        DKFDS.CharacterLimit,
-        this.formControlWrapper
-      );
+      this.setupUnderlayingControl();
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['showCharacterLimit']) {
-      if (this.showCharacterLimit === true) {
-        if (this.underlayingControl === null && this.formControlWrapper) {
-          this.underlayingControl = DkfdsHelper.createAndInit(
-            DKFDS.CharacterLimit,
-            this.formControlWrapper
-          );
-        }
-      } else {
-        if (this.underlayingControl !== null) {
-          this.underlayingControl = null;
-        }
-      }
+    if (this.showCharacterLimit === true) {
+      this.setupUnderlayingControl();
+    } else if (this.underlayingControl !== null) {
+      this.underlayingControl = null;
     }
   }
 
@@ -107,6 +96,15 @@ export class TextareaComponent
   onChange: ((value: string) => void) | null = null;
   onTouched: (() => void) | null = null;
   onValidatorChange: (() => void) | null = null;
+
+  private setupUnderlayingControl() {
+    if (this.underlayingControl !== null) return;
+    if (!this.formControlWrapper) return;
+    this.underlayingControl = DkfdsHelper.createAndInit(
+      DKFDS.CharacterLimit,
+      this.formControlWrapper
+    );
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(obj: any): void {

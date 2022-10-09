@@ -39,21 +39,23 @@ export class DropdownOptionComponent implements OnInit, OnDestroy {
   }
 
   public toggleSelected(ev: Event): void {
-    ev.preventDefault();
-    ev.stopPropagation();
+    this.preventDefault(ev);
     this.parent.toggleItemSelected(ev, this);
   }
 
   public select(ev: Event): void {
-    ev.preventDefault();
-    ev.stopPropagation();
+    this.preventDefault(ev);
     this.parent.selectItem(ev, this);
   }
 
   public unselect(ev: Event): void {
+    this.preventDefault(ev);
+    this.parent.unselectItem(ev, this);
+  }
+
+  private preventDefault(ev: Event) {
     ev.preventDefault();
     ev.stopPropagation();
-    this.parent.unselectItem(ev, this);
   }
 
   ngOnDestroy(): void {

@@ -125,7 +125,7 @@ export class DropdownComponent implements ControlValueAccessor, Validator {
   public openDropdown(ev: Event) {
     this.preventDefault(ev);
     this.isOpen = true;
-    if (this.selectedItem == null) {
+    if (this.selectedItem === null) {
       if (this.options.length !== 0) this.options[0].setFocus();
     } else {
       this.selectedItem.setFocus();
@@ -165,7 +165,7 @@ export class DropdownComponent implements ControlValueAccessor, Validator {
   @HostListener('document:keydown', ['$event'])
   globalKeydownHandler(ev: KeyboardEvent): void {
     setTimeout(() => {
-      if (this.isOpen == false || ev.key.toLowerCase() !== 'tab') return;
+      if (this.isOpen === false || ev.key.toLowerCase() !== 'tab') return;
       const target = document.activeElement;
       console.log('target', target);
       const clickedInside = this.formControl.nativeElement.contains(target);
