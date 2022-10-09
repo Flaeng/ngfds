@@ -7,14 +7,16 @@ import {
 } from '@angular/forms';
 import { AngularHelper } from '../helpers/angular-helper';
 
-export type CheckboxSize = 'large' | 'small';
 @Component({
-  selector: 'fds-checkbox',
-  templateUrl: './checkbox.component.html',
-  providers: [...AngularHelper.formInput(CheckboxComponent)],
+  selector: 'fds-toggle-switch',
+  templateUrl: './toggle-switch.component.html',
+  providers: [...AngularHelper.formInput(ToggleSwitchComponent)],
 })
-export class CheckboxComponent implements ControlValueAccessor, Validator {
-  _value: boolean = false;
+export class ToggleSwitchComponent implements ControlValueAccessor, Validator {
+  @Input()
+  public disabled: boolean = false;
+
+  private _value: boolean = false;
   public get value(): boolean {
     return this._value;
   }
@@ -24,18 +26,10 @@ export class CheckboxComponent implements ControlValueAccessor, Validator {
     this.onTouched?.call(this);
   }
 
-  @Input()
-  public disabled: boolean = false;
-
-  @Input()
-  public size: CheckboxSize = 'large';
-
-  @Input()
-  public group: string | null = null;
-
   static idGenerator = 1;
 
-  id: string = 'checkbox' + (CheckboxComponent.idGenerator++).toString();
+  id: string =
+    'toggle-switch' + (ToggleSwitchComponent.idGenerator++).toString();
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   onChange: ((date: boolean) => {}) | null = null;
@@ -46,7 +40,6 @@ export class CheckboxComponent implements ControlValueAccessor, Validator {
   writeValue(obj: any): void {
     this.value = obj;
   }
-
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnChange(fn: any): void {
     this.onChange = fn;

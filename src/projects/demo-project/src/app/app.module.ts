@@ -84,6 +84,8 @@ import { FdsDropdownModule } from 'projects/ngfds/src/lib/dropdown/dropdown.modu
 import { DropdownPageComponent } from './pages/dropdown-page/dropdown-page.component';
 import { CheckboxPageComponent } from './pages/checkbox-page/checkbox-page.component';
 import { FdsCheckboxModule } from 'projects/ngfds/src/lib/checkbox/checkbox.module';
+import { ToggleSwitchPageComponent } from './pages/toggle-switch-page/toggle-switch-page.component';
+import { FdsToggleSwitchModule } from 'projects/ngfds/src/lib/toggle-switch/toggle-switch.module';
 
 @NgModule({
   declarations: [
@@ -133,6 +135,7 @@ import { FdsCheckboxModule } from 'projects/ngfds/src/lib/checkbox/checkbox.modu
     DropdownPageComponent,
     NgfdsDropdownPageComponent,
     CheckboxPageComponent,
+    ToggleSwitchPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -146,6 +149,7 @@ import { FdsCheckboxModule } from 'projects/ngfds/src/lib/checkbox/checkbox.modu
     FdsBreadcrumbsModule,
     FdsTabsModule,
     FdsButtonModule,
+    FdsToggleSwitchModule,
     FdsCardModule,
     FdsCheckboxModule,
     FdsDetailsModule,

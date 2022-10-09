@@ -40,6 +40,7 @@ import { TooltipPageComponent } from './pages/tooltip-page/tooltip-page.componen
 import { DropdownPageComponent } from './pages/dropdown-page/dropdown-page.component';
 import { NgfdsDropdownPageComponent } from './pages/ngfds/ngfds-dropdown-page/ngfds-dropdown-page.component';
 import { CheckboxPageComponent } from './pages/checkbox-page/checkbox-page.component';
+import { ToggleSwitchPageComponent } from './pages/toggle-switch-page/toggle-switch-page.component';
 
 const routes: Routes = [
   { path: '', component: IntroductionPageComponent },
@@ -75,6 +76,7 @@ const routes: Routes = [
   { path: 'tilbage-link', component: BackButtonPageComponent },
   { path: 'tilbage-til-toppen-link', component: BackToTopButtonPageComponent },
   { path: 'funktionslink', component: FunctionLinkPageComponent },
+  { path: 'toggle-switch', component: ToggleSwitchPageComponent },
   { path: 'sprog-vaelger', component: LanguagePickerPageComponent },
   { path: 'step-indicator', component: StepIndicatorPageComponent },
   { path: 'skip-link', component: SkipLinkPageComponent },

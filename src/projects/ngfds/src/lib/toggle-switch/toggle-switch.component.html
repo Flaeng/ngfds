@@ -1,0 +1,9 @@
+<input
+  [attr.id]="id"
+  type="checkbox"
+  class="form-toggle"
+  [disabled]="disabled"
+/>
+<label [attr.for]="id" class="form-toggle-label">
+  <ng-content></ng-content>
+</label>
