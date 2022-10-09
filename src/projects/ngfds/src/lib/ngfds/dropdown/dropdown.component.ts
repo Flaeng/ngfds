@@ -70,6 +70,7 @@ export class DropdownComponent implements ControlValueAccessor, Validator {
   /* Methods */
   constructor(private el: ElementRef) {}
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(obj: any): void {
     if (Array.isArray(obj)) {
       this.selectedItems = obj ?? null;
@@ -78,10 +79,12 @@ export class DropdownComponent implements ControlValueAccessor, Validator {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }

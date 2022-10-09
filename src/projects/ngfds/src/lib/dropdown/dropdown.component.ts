@@ -1,26 +1,23 @@
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  ViewChild,
-} from '@angular/core';
-import { AbstractControl, ControlValueAccessor, ValidationErrors, Validator } from '@angular/forms';
+  AbstractControl,
+  ControlValueAccessor,
+  ValidationErrors,
+  Validator,
+} from '@angular/forms';
 import { AngularHelper } from '../helpers/angular-helper';
 import { DropdownOptionComponent } from './public-api';
 
 type FdsDropdownItem = {
-  value: unknown | null,
-  text: string
+  value: unknown | null;
+  text: string;
 };
 @Component({
   selector: 'fds-select',
   templateUrl: './dropdown.component.html',
   providers: [...AngularHelper.formInput(DropdownComponent)],
 })
-export class DropdownComponent
-  implements ControlValueAccessor, Validator
-{
+export class DropdownComponent implements ControlValueAccessor, Validator {
   /* Fields */
   @Input()
   public placeholder: string | null = null;
@@ -67,15 +64,18 @@ export class DropdownComponent
     const index = this.optionComponents.indexOf(comp);
     if (index !== -1) this.optionComponents.splice(index, 1);
   }
-  
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(obj: any): void {
     this.selectedItem = obj ?? null;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }

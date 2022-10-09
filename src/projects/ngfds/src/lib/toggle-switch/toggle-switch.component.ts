@@ -37,6 +37,7 @@ export class ToggleSwitchComponent implements ControlValueAccessor, Validator {
   onTouched: (() => {}) | null = null;
   onValidatorChange: (() => void) | null = null;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(obj: any): void {
     this.value = obj;
   }
