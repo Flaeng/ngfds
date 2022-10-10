@@ -21,4 +21,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: package
-          path: temp/library-v12/src/dist
+          path: temp/library-12.0.0/src/dist

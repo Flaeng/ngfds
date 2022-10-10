@@ -14,7 +14,7 @@ const typingsPath = "src/typings";
 
 const version = getArgument("version");
 const name = version;
-const versionNo = parseInt(version.replace(/[A-Za-z\-]+/g, ''));
+const versionNo = parseInt(version.replace(/[A-Za-z\-]+/g, "").split(".")[0]);
 const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
 
 (async function () {
@@ -28,10 +28,14 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
 
   // Create solution
   await executeAsync(
-    `ng new src --skip-git --defaults=true --create-application=false`,
+    `ng new src --skip-git --skip-install --defaults=true --create-application=false`,
     rootFolder
   );
   const solutionFolder = `${rootFolder}/src`;
+  if (versionNo <= 12) {
+    await executeAsync(`npm install jasmine-core@3.8.0`, solutionFolder);
+  }
+  await executeAsync(`npm install`, solutionFolder);
 
   // Create component library
   await executeAsync(`ng generate library ngfds`, solutionFolder);
@@ -74,7 +78,7 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
   copyFolder(typingsPath, `${solutionFolder}/typings`);
   await executeAsync(`node ../../../scripts/custom-types.js`, solutionFolder);
 
-    // Run preprocessor
+  // Run preprocessor
   await executeAsync(
     `node scripts/ts-preprocessor.js --path ${projectFolder}/src/lib --ng-version=${versionNumber}`,
     ``
