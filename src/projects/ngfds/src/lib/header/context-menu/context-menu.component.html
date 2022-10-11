@@ -5,10 +5,12 @@
     </div>
     <ul class="unstyled-list nav-actions" *ngIf="buttons">
       <li *ngFor="let btn of buttons; let i = index">
-        <ng-container 
-          *ngTemplateOutlet="listItemTemplate || defaultListItemTemplate;
-            context: { item: btn, index: i }"
-          ></ng-container>
+        <ng-container
+          *ngTemplateOutlet="
+            listItemTemplate || defaultListItemTemplate;
+            context: { item: btn, index: i }
+          "
+        ></ng-container>
       </li>
     </ul>
   </div>
@@ -16,10 +18,7 @@
 
 <ng-template #defaultListItemTemplate let-item="item">
   <!-- class="button button-tertiary" -->
-  <fds-button 
-    visual="tertiary"
-    (click)="onButtonClicked($event, item)"
-  >
+  <fds-button visual="tertiary" (click)="onButtonClicked($event, item)">
     {{ item.text }}
   </fds-button>
 </ng-template>

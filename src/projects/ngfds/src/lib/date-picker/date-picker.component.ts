@@ -44,7 +44,7 @@ export class DatePickerComponent
   get minValue(): string {
     return this.dateToString(this.min);
   }
-  
+
   _max: Date | null = null;
   @Input('max')
   public get max(): Date | null {
@@ -59,14 +59,15 @@ export class DatePickerComponent
 
   dateToString(value: Date | null): string {
     if (value === null) return '';
-    return `${value.getFullYear()}-${( value.getMonth() + 1 )}-${value.getDate()}`;
+    return `${value.getFullYear()}-${value.getMonth() + 1}-${value.getDate()}`;
   }
 
   _initialValue: Date | null = null;
   _value: Date | null = null;
   set value(value: Date | null) {
     this._initialValue = this._value = value;
-    if (this.underlayingControl === null || this.datePickerInput === null) return;
+    if (this.underlayingControl === null || this.datePickerInput === null)
+      return;
     this.underlayingControl.internalInputEl.value = this.formatDate(value);
     this.underlayingControl.externalInputEl.value = this.formatDate(value);
     this.onChange?.call(this, value);
@@ -84,8 +85,10 @@ export class DatePickerComponent
     if (value === null) return '';
     const padLeft = (num: number) => {
       return `00${num}`.slice(-2);
-    }
-    return `${padLeft(value.getDate())}/${padLeft(value.getMonth() + 1)}/${value.getFullYear()}`;
+    };
+    return `${padLeft(value.getDate())}/${padLeft(
+      value.getMonth() + 1
+    )}/${value.getFullYear()}`;
   }
 
   onChange: ((value: Date | null) => void) | null = null;

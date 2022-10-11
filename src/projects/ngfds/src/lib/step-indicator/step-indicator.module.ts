@@ -3,15 +3,8 @@ import { NgModule } from '@angular/core';
 import { StepIndicatorComponent } from './step-indicator.component';
 
 @NgModule({
-  declarations: [
-    StepIndicatorComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    StepIndicatorComponent
-  ]
+  declarations: [StepIndicatorComponent],
+  imports: [CommonModule],
+  exports: [StepIndicatorComponent],
 })
-export class FdsStepIndicatorModule { }
-
+export class FdsStepIndicatorModule {}

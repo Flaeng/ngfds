@@ -38,7 +38,7 @@ export class OverflowMenuComponent implements AfterViewInit {
   @Output('item-clicked')
   public itemClicked: EventEmitter<ItemSelectedEvent<IOverflowNavigationItem>> =
     new EventEmitter();
-  
+
   @ViewChild('dropdownTrigger')
   dropdownTrigger!: ElementRef<HTMLButtonElement>;
 
@@ -60,7 +60,10 @@ export class OverflowMenuComponent implements AfterViewInit {
     this.helper.handleClick(ev, item);
   }
   ngAfterViewInit(): void {
-    this.dropdownControl = DkfdsHelper.createAndInit(DKFDS.Dropdown, this.dropdownTrigger);
+    this.dropdownControl = DkfdsHelper.createAndInit(
+      DKFDS.Dropdown,
+      this.dropdownTrigger
+    );
   }
 }
 

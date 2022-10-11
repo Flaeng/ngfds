@@ -7,7 +7,5 @@ import { FooterColumnComponent } from './footer-column/footer-column.component';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
-
   columns: FooterColumnComponent[] = [];
-
 }

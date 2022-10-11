@@ -1,37 +1,36 @@
 <div class="portal-header portal-header-compact">
-    <div class="container portal-header-inner">
-        <a 
-            href="/" 
-            [attr.aria-label]="portalName" 
-            class="logo"
-            style="background-image:none"
-        >
-            <img *ngIf="logo" [src]="logo" [alt]="portalName" />
-            <span class="d-none d-print-block">
-                {{portalName}}
-            </span>
-        </a>
-        <button
-            class="function-link button-menu-open js-menu-open ml-auto d-print-none"
-            aria-haspopup="menu"
-            title="Åben mobil menu"
-            ><svg 
-                class="icon-svg" 
-                focusable="false" 
-                aria-hidden="true"
-                ><use xlink:href="#menu"
-        ></use></svg>Menu</button>
+  <div class="container portal-header-inner">
+    <a
+      href="/"
+      [attr.aria-label]="portalName"
+      class="logo"
+      style="background-image: none"
+    >
+      <img *ngIf="logo" [src]="logo" [alt]="portalName" />
+      <span class="d-none d-print-block">
+        {{ portalName }}
+      </span>
+    </a>
+    <button
+      class="function-link button-menu-open js-menu-open ml-auto d-print-none"
+      aria-haspopup="menu"
+      title="Åben mobil menu"
+    >
+      <svg class="icon-svg" focusable="false" aria-hidden="true">
+        <use xlink:href="#menu"></use></svg>Menu
+    </button>
 
-        <div class="portal-info">
-            <p class="user">
-                {{ username }}
-            </p>
-            <button
-                *ngIf="username != null"
-                (click)="triggerLogout($event)"
-                class="button button-secondary alert-leave d-print-none">
-                {{ buttonText }}
-            </button>
-        </div>
+    <div class="portal-info">
+      <p class="user">
+        {{ username }}
+      </p>
+      <button
+        *ngIf="username != null"
+        (click)="triggerLogout($event)"
+        class="button button-secondary alert-leave d-print-none"
+      >
+        {{ buttonText }}
+      </button>
     </div>
+  </div>
 </div>

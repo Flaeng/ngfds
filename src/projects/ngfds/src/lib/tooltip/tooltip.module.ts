@@ -3,15 +3,8 @@ import { NgModule } from '@angular/core';
 import { TooltipDirective } from './tooltip.directive';
 
 @NgModule({
-  declarations: [
-    TooltipDirective
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    TooltipDirective
-  ]
+  declarations: [TooltipDirective],
+  imports: [CommonModule],
+  exports: [TooltipDirective],
 })
-export class FdsTooltipModule { }
-
+export class FdsTooltipModule {}
