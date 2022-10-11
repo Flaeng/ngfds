@@ -42,4 +42,4 @@ jobs:
 
       - name: Build
         run: npm run build-showroom
-        working-directory: ./src
+        working-directory: ./
