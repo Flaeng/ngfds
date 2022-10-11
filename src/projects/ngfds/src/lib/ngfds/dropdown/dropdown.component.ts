@@ -20,7 +20,7 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
   public placeholder: string | null = null;
 
   @Input()
-  public override disabled: boolean = false;
+  public disabled: boolean = false;
 
   @Input()
   public isOpen: boolean = false;

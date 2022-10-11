@@ -43,14 +43,14 @@ export class DatePickerComponent
 
   _initialDisabled = false;
   @Input()
-  public override get disabled(): boolean {
+  public get disabled(): boolean {
     return (
       this.underlayingControl !== null &&
       this.underlayingControl.externalInputEl.hasAttribute('disabled') &&
       this.underlayingControl.toggleBtnEl.hasAttribute('disabled')
     );
   }
-  public override set disabled(value: boolean) {
+  public set disabled(value: boolean) {
     this._initialDisabled = value;
     if (this.datePickerInput === null) return;
     if (value) {
@@ -83,7 +83,7 @@ export class DatePickerComponent
     super();
   }
 
-  override setValue(obj: Date | null): void {
+  setValue(obj: Date | null): void {
     this.value = obj;
   }
 

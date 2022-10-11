@@ -59,7 +59,7 @@ export class DateInputComponent extends NgModelComponent<Date | null> implements
   }
 
   @Input()
-  public override disabled: boolean = false;
+  public disabled: boolean = false;
 
   setValue(obj: Date | null): void {
     this.value = obj;

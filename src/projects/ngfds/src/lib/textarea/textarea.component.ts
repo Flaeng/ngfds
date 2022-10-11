@@ -29,7 +29,7 @@ export class TextareaComponent
   public rows: number = 5;
 
   @Input()
-  public override disabled: boolean = false;
+  public disabled: boolean = false;
 
   @Input()
   public maxlength: number | null = null;

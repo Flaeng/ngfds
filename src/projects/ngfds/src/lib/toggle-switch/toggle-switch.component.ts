@@ -9,7 +9,7 @@ import { NgModelComponent } from '../ng-model-component';
 })
 export class ToggleSwitchComponent extends NgModelComponent<boolean> {
   @Input()
-  public override disabled: boolean = false;
+  public disabled: boolean = false;
 
   private _value: boolean = false;
   public get value(): boolean {

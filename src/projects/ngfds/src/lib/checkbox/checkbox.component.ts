@@ -20,7 +20,7 @@ export class CheckboxComponent extends NgModelComponent<boolean> {
   }
 
   @Input()
-  public override disabled: boolean = false;
+  public disabled: boolean = false;
 
   @Input()
   public size: CheckboxSize = 'large';

@@ -18,7 +18,7 @@ export class DropdownComponent extends NgModelComponent<unknown | null> {
   public placeholder: string | null = null;
 
   @Input()
-  public override disabled: boolean = false;
+  public disabled: boolean = false;
 
   /* Properties */
   private _selectedItems: unknown | null = null;
