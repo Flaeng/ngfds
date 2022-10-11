@@ -165,7 +165,7 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
     const isSelected = this.allowMultiple
       ? this.selectedItems.indexOf(item) !== -1
       : this.selectedItem === item;
-    
+
     if (isSelected) {
       this.unselectItem(ev, item);
     } else {
