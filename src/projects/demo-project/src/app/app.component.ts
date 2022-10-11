@@ -275,6 +275,7 @@ export class AppComponent implements OnInit {
     new AppSideNavigationItem({
       url: 'ngfds/dropdown',
       title: 'Dropdown (multiselect)',
+      state: 'work in progress'
     }),
     new AppSideNavigationItem({
       url: 'ngfds/side-navigation',

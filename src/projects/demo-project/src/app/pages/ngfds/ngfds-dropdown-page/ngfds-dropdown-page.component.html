@@ -1,8 +1,14 @@
-<app-header
-  header="Dropdown"
-  sub-header="Component"
-  doc-url="https://designsystem.dk/komponenter/dropdown/"
-></app-header>
+<app-header header="Dropdown" sub-header="Component"></app-header>
+
+<p>
+  This dropdown allows for custom option-visual (with icons and more) and for
+  more than 1 item to be selected. The visual of this dropdown is based on the
+  description FDS has provided for a multi-select-dropdown
+  <a href="https://designsystem.dk/komponenter/dropdown/" target="_blank"
+    >here
+    <fds-icon icon="open-in-new"></fds-icon>
+  </a>
+</p>
 
 <app-demo-view>
   <ngfds-select [(ngModel)]="dropdown1">
@@ -41,7 +47,11 @@
 </app-demo-view>
 
 <app-demo-view>
-  <ngfds-select [(ngModel)]="dropdown3" placeholder="Choose one or more" [allow-multiple]="true">
+  <ngfds-select
+    [(ngModel)]="dropdown3"
+    placeholder="Choose one or more"
+    [allow-multiple]="true"
+  >
     <ngfds-option text="Option #1">Option #1</ngfds-option>
     <ngfds-option text="Option #2">Option #2</ngfds-option>
     <ngfds-option text="Option #3">Option #3</ngfds-option>

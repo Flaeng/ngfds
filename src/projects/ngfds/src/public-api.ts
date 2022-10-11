@@ -22,7 +22,6 @@ export * from './lib/header/public-api';
 export * from './lib/helpers/public-api';
 export * from './lib/icon/public-api';
 export * from './lib/language-picker/public-api';
-export * from './lib/link/public-api';
 export * from './lib/modal/public-api';
 export * from './lib/overflow-menu/public-api';
 export * from './lib/pagination/public-api';

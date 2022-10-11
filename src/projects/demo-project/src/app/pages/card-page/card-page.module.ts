@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import {
   FdsButtonModule,
   FdsCardModule,
-  FdsLinkModule,
 } from 'projects/ngfds/src/public-api';
 import { AppComponentsModule } from '../../components/components.module';
 import { CardPageComponent } from './card-page.component';
@@ -24,7 +23,6 @@ export class CardRoutingModule {}
     AppComponentsModule,
     FdsCardModule,
     FdsButtonModule,
-    FdsLinkModule,
   ],
 })
 export class CardPageModule {}

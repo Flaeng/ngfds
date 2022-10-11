@@ -162,19 +162,14 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
   }
 
   public toggleItemSelected(ev: Event, item: DropdownOptionComponent) {
-    if (this.allowMultiple) {
-      const index = this.selectedItems.indexOf(item);
-      if (index === -1) {
-        this.selectedItems.push(item);
-      } else {
-        this.selectedItems.splice(index, 1);
-      }
+    const isSelected = this.allowMultiple
+      ? this.selectedItems.indexOf(item) !== -1
+      : this.selectedItem === item;
+    
+    if (isSelected) {
+      this.unselectItem(ev, item);
     } else {
-      if (this.selectedItem === item) {
-        this.unselectItem(ev, item);
-      } else {
-        this.selectItem(ev, item);
-      }
+      this.selectItem(ev, item);
     }
     this.emitNgModelChanged();
   }

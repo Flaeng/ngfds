@@ -44,7 +44,7 @@ export class DropdownOptionComponent implements OnInit, OnDestroy {
   ): void {
     ev.preventDefault();
     ev.stopPropagation();
-    emitter(ev, this);
+    emitter.bind(this.parent)(ev, this);
   }
 
   public toggleSelected(ev: Event): void {
