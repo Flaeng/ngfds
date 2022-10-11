@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input } from '@angular/core';
 import * as DKFDS from 'dkfds';
 import { AngularHelper } from '../helpers/angular-helper';
 import { DateHelper } from '../helpers/date-helper';
@@ -9,7 +9,9 @@ import { NgModelComponent } from '../ng-model-component';
   templateUrl: './date-input.component.html',
   providers: [...AngularHelper.formInput(DateInputComponent)],
 })
-export class DateInputComponent extends NgModelComponent<Date | null> implements AfterViewInit
+export class DateInputComponent
+  extends NgModelComponent<Date | null>
+  implements AfterViewInit
 {
   _dayOfMonth: string = '';
   get dayOfMonth(): string {
@@ -61,11 +63,15 @@ export class DateInputComponent extends NgModelComponent<Date | null> implements
   @Input()
   public disabled: boolean = false;
 
+  constructor(private el: ElementRef) {
+    super();
+  }
+
   setValue(obj: Date | null): void {
     this.value = obj;
   }
 
   ngAfterViewInit(): void {
-    DKFDS.init();
+    DKFDS.init({ scope: this.el.nativeElement });
   }
 }

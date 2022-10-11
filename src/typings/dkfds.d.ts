@@ -143,6 +143,9 @@ declare namespace DKFDS {
   export class Tooltip extends DKFDSElementDependentInitiable {}
 
   export function init(): void;
+  export function init(options: DkfdsOptions): void;
 }
+
+type DkfdsOptions = { scope: HTMLElement };
 
 export = DKFDS;
