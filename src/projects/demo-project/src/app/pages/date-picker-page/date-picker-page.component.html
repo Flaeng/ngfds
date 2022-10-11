@@ -14,12 +14,12 @@
 </app-demo-view>
 
 <app-demo-view>
-  <fds-date-picker [(ngModel)]="date2presetToToday"></fds-date-picker>
+  <fds-date-picker [(ngModel)]="date2presetToNextWeek"></fds-date-picker>
   <div class="mt-2">
     Date as string:
-    {{ date2presetToToday == null ? "(null)" : date2presetToToday.toString() }}<br />
+    {{ date2presetToNextWeek == null ? "(null)" : date2presetToNextWeek.toString() }}<br />
     Date with format:
-    {{ date2presetToToday == null ? "(null)" : (date2presetToToday | date: "longDate") }}
+    {{ date2presetToNextWeek == null ? "(null)" : (date2presetToNextWeek | date: "longDate") }}
   </div>
 </app-demo-view>
 

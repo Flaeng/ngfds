@@ -1,11 +1,6 @@
 import { Component, Input } from '@angular/core';
-import {
-  AbstractControl,
-  ControlValueAccessor,
-  ValidationErrors,
-  Validator,
-} from '@angular/forms';
 import { AngularHelper } from '../helpers/angular-helper';
+import { NgModelComponent } from '../ng-model-component';
 
 export type CheckboxSize = 'large' | 'small';
 @Component({
@@ -13,7 +8,7 @@ export type CheckboxSize = 'large' | 'small';
   templateUrl: './checkbox.component.html',
   providers: [...AngularHelper.formInput(CheckboxComponent)],
 })
-export class CheckboxComponent implements ControlValueAccessor, Validator {
+export class CheckboxComponent extends NgModelComponent<boolean> {
   _value: boolean = false;
   public get value(): boolean {
     return this._value;
@@ -25,7 +20,7 @@ export class CheckboxComponent implements ControlValueAccessor, Validator {
   }
 
   @Input()
-  public disabled: boolean = false;
+  public override disabled: boolean = false;
 
   @Input()
   public size: CheckboxSize = 'large';
@@ -37,38 +32,7 @@ export class CheckboxComponent implements ControlValueAccessor, Validator {
 
   id: string = 'checkbox' + (CheckboxComponent.idGenerator++).toString();
 
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onChange: ((value: boolean) => {}) | null = null;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onTouched: (() => {}) | null = null;
-  onValidatorChange: (() => void) | null = null;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  writeValue(obj: any): void {
+  setValue(obj: boolean): void {
     this.value = obj;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  registerOnTouched(fn: any): void {
-    this.onTouched = fn;
-  }
-  setDisabledState?(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-  }
-  // #IF angular >= 14
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
-  validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    // #ELSE
-    /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
-    // validate(control: AbstractControl): ValidationErrors | null {
-    // #ENDIF
-    return null;
-  }
-  registerOnValidatorChange?(fn: () => void): void {
-    this.onValidatorChange = fn;
   }
 }

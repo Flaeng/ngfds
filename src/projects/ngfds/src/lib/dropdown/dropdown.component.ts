@@ -1,11 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import {
-  AbstractControl,
-  ControlValueAccessor,
-  ValidationErrors,
-  Validator,
-} from '@angular/forms';
 import { AngularHelper } from '../helpers/angular-helper';
+import { NgModelComponent } from '../ng-model-component';
 import { DropdownOptionComponent } from './public-api';
 
 type FdsDropdownItem = {
@@ -17,13 +12,13 @@ type FdsDropdownItem = {
   templateUrl: './dropdown.component.html',
   providers: [...AngularHelper.formInput(DropdownComponent)],
 })
-export class DropdownComponent implements ControlValueAccessor, Validator {
+export class DropdownComponent extends NgModelComponent<unknown | null> {
   /* Fields */
   @Input()
   public placeholder: string | null = null;
 
   @Input()
-  public disabled: boolean = false;
+  public override disabled: boolean = false;
 
   /* Properties */
   private _selectedItems: unknown | null = null;
@@ -44,10 +39,6 @@ export class DropdownComponent implements ControlValueAccessor, Validator {
 
   optionList: FdsDropdownItem[] = [];
 
-  onChange: ((value: unknown | null) => void) | null = null;
-  onTouched: (() => void) | null = null;
-  onValidatorChange: (() => void) | null = null;
-
   /* Methods */
   registerOption(component: DropdownOptionComponent) {
     this.optionComponents.push(component);
@@ -65,36 +56,7 @@ export class DropdownComponent implements ControlValueAccessor, Validator {
     if (index !== -1) this.optionComponents.splice(index, 1);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  writeValue(obj: any): void {
+  setValue(obj: unknown | null): void {
     this.selectedItem = obj ?? null;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  registerOnTouched(fn: any): void {
-    this.onTouched = fn;
-  }
-
-  setDisabledState?(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-  }
-
-  // #IF angular >= 14
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
-  validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    // #ELSE
-    /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
-    // validate(control: AbstractControl): ValidationErrors | null {
-    // #ENDIF
-    return null;
-  }
-
-  registerOnValidatorChange?(fn: () => void): void {
-    this.onValidatorChange = fn;
   }
 }

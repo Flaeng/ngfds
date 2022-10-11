@@ -1,21 +1,15 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
-import {
-  AbstractControl,
-  ControlValueAccessor,
-  ValidationErrors,
-  Validator,
-} from '@angular/forms';
 import * as DKFDS from 'dkfds';
 import { AngularHelper } from '../helpers/angular-helper';
 import { DateHelper } from '../helpers/date-helper';
+import { NgModelComponent } from '../ng-model-component';
 
 @Component({
   selector: 'fds-date-input',
   templateUrl: './date-input.component.html',
   providers: [...AngularHelper.formInput(DateInputComponent)],
 })
-export class DateInputComponent
-  implements AfterViewInit, ControlValueAccessor, Validator
+export class DateInputComponent extends NgModelComponent<Date | null> implements AfterViewInit
 {
   _dayOfMonth: string = '';
   get dayOfMonth(): string {
@@ -23,7 +17,7 @@ export class DateInputComponent
   }
   set dayOfMonth(value: string) {
     this._dayOfMonth = value;
-    this.emitChange(this.value);
+    super.emitChanges(this.value);
   }
 
   _month: string = '';
@@ -32,7 +26,7 @@ export class DateInputComponent
   }
   set month(value: string) {
     this._month = value;
-    this.emitChange(this.value);
+    super.emitChanges(this.value);
   }
 
   _year: string = '';
@@ -41,7 +35,7 @@ export class DateInputComponent
   }
   set year(value: string) {
     this._year = value;
-    this.emitChange(this.value);
+    super.emitChanges(this.value);
   }
 
   set value(val: Date | null) {
@@ -50,9 +44,8 @@ export class DateInputComponent
       this._month = (val.getMonth() + 1).toString();
       this._year = val.getFullYear().toString();
     } else this._dayOfMonth = this._month = this._year = '';
-    this.emitChange(val);
+    super.emitChanges(val);
   }
-
   get value(): Date | null {
     return this._dayOfMonth.length === 0 ||
       this._month.length === 0 ||
@@ -65,48 +58,13 @@ export class DateInputComponent
         );
   }
 
-  emitChange(val: Date | null) {
-    this.onChange?.call(this, val);
-    this.onTouched?.call(this);
-  }
-
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onChange: ((value: Date | null) => {}) | null = null;
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  onTouched: (() => {}) | null = null;
-  onValidatorChange: (() => void) | null = null;
-
   @Input()
-  public disabled: boolean = false;
+  public override disabled: boolean = false;
 
-  // https://blog.angular-university.io/angular-custom-form-controls/
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  writeValue(obj: any): void {
+  setValue(obj: Date | null): void {
     this.value = obj;
   }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  registerOnTouched(fn: any): void {
-    this.onTouched = fn;
-  }
-  setDisabledState?(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-  }
-  // #IF angular >= 14
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
-  validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    // #ELSE
-    /* eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any */
-    // validate(control: AbstractControl): ValidationErrors | null {
-    // #ENDIF
-    return null;
-  }
-  registerOnValidatorChange?(fn: () => void): void {
-    this.onValidatorChange = fn;
-  }
+
   ngAfterViewInit(): void {
     DKFDS.init();
   }
