@@ -3,15 +3,8 @@ import { NgModule } from '@angular/core';
 import { SkipLinkComponent } from './skip-link.component';
 
 @NgModule({
-  declarations: [
-    SkipLinkComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    SkipLinkComponent
-  ]
+  declarations: [SkipLinkComponent],
+  imports: [CommonModule],
+  exports: [SkipLinkComponent],
 })
-export class FdsSkipLinkModule { }
-
+export class FdsSkipLinkModule {}

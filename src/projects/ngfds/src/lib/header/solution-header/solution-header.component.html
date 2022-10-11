@@ -1,28 +1,31 @@
-
 <div class="solution-header">
-    <div class="container solution-header-inner">
-        <div class="solution-heading">
-            <a href="#" class="alert-leave2">{{ header }}</a>
-        </div>
-
-        <div class="solution-info">
-            <p class="h5 authority-name">{{ authorityName }}</p>
-            <p>
-                <span *ngIf="authorityPhoneNo">
-                    Support: {{ authorityPhoneNo }}
-                </span> 
-                <span class="d-print-none" *ngIf="authorityPhoneNo && authorityContactUrl">· </span> 
-                <span class="d-print-none" *ngIf="authorityContactUrl">
-                    <a
-                        [href]="authorityContactUrl"
-                        target="_blank"
-                        class="icon-link function-link alert-leave"
-                    >
-                        Kontakt
-                        <svg class="icon-svg" aria-hidden="true" focusable="false"><use xlink:href="#open-in-new"></use></svg>
-                    </a>
-                </span>
-            </p>
-        </div>
+  <div class="container solution-header-inner">
+    <div class="solution-heading">
+      <a href="#" class="alert-leave2">{{ header }}</a>
     </div>
+
+    <div class="solution-info">
+      <p class="h5 authority-name">{{ authorityName }}</p>
+      <p>
+        <span *ngIf="authorityPhoneNo"> Support: {{ authorityPhoneNo }} </span>
+        <span
+          class="d-print-none"
+          *ngIf="authorityPhoneNo && authorityContactUrl"
+          >·
+        </span>
+        <span class="d-print-none" *ngIf="authorityContactUrl">
+          <a
+            [href]="authorityContactUrl"
+            target="_blank"
+            class="icon-link function-link alert-leave"
+          >
+            Kontakt
+            <svg class="icon-svg" aria-hidden="true" focusable="false">
+              <use xlink:href="#open-in-new"></use>
+            </svg>
+          </a>
+        </span>
+      </p>
+    </div>
+  </div>
 </div>

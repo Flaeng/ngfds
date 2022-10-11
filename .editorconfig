@@ -21,4 +21,4 @@ indent_style = unset
 indent_size = unset
 
 [*.yml]
-insert_final_newline = false
+insert_final_newline = unset

@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class IconComponent {
   @Input()
-  public icon: 
+  public icon:
     | 'accessibility-new'
     | 'account-circle'
     | 'add-a-photo'
