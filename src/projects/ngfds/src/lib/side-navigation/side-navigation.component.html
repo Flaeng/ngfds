@@ -7,29 +7,54 @@
   ></ng-container>
 </nav>
 
-<ng-template #sideNav let-cssClass="cssClass" let-array="array" let-level="level" let-parent="parent">
-  <ul [class]="cssClass" role="menu" *ngIf="(!parent || parent.isActive) || alwaysShowChildren">
+<ng-template
+  #sideNav
+  let-cssClass="cssClass"
+  let-array="array"
+  let-level="level"
+  let-parent="parent"
+>
+  <ul
+    [class]="cssClass"
+    role="menu"
+    *ngIf="!parent || parent.isActive || alwaysShowChildren"
+  >
     <ng-container *ngFor="let item of array; let i = index">
       <ng-container
-        *ngTemplateOutlet="sideNavItem; 
-          context: { item: item, index: i, level: level, parent: parent }"
+        *ngTemplateOutlet="
+          sideNavItem;
+          context: { item: item, index: i, level: level, parent: parent }
+        "
       ></ng-container>
     </ng-container>
   </ul>
 </ng-template>
 
-<ng-template #sideNavItem let-item="item" let-index="index" let-level="level" let-parent="parent">
+<ng-template
+  #sideNavItem
+  let-item="item"
+  let-index="index"
+  let-level="level"
+  let-parent="parent"
+>
   <!-- has-anchor-links -->
-  <li role="none" [ngClass]="{ 'current': item.isActive }">
-    <ng-container 
-      *ngTemplateOutlet="itemTemplate || defaultItemTemplate; 
-      context: { item: item, index: index, level: level, parent: parent }"
+  <li role="none" [ngClass]="{ current: item.isActive }">
+    <ng-container
+      *ngTemplateOutlet="
+        itemTemplate || defaultItemTemplate;
+        context: { item: item, index: index, level: level, parent: parent }
+      "
     ></ng-container>
     <ng-container *ngIf="item.children">
       <ng-container
         *ngTemplateOutlet="
           sideNav;
-          context: { cssClass: 'sidenav-sub_list', array: item.children, parent: item, level: level + 1 }
+          context: {
+            cssClass: 'sidenav-sub_list',
+            array: item.children,
+            parent: item,
+            level: level + 1
+          }
         "
       ></ng-container>
     </ng-container>
@@ -44,10 +69,11 @@
     [attr.aria-current]="getAriaCurrent(item)"
   >
     {{ item.title }}
-    <span class="sidenav-information" *ngIf="item.subtitle">{{ item.subtitle }}</span>
+    <span class="sidenav-information" *ngIf="item.subtitle">{{
+      item.subtitle
+    }}</span>
   </a>
 </ng-template>
-
 
 <!-- 
 <nav>

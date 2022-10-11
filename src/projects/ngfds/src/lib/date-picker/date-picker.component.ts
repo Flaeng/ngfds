@@ -42,10 +42,7 @@ export class DatePickerComponent
     this._min = value;
   }
   get minValue(): string {
-    if (this.min === null) return '';
-    return `${this.min.getFullYear()}-${(
-      this.min.getMonth() + 1
-    )}-${this.min.getDate()}`;
+    return this.dateToString(this.min);
   }
   
   _max: Date | null = null;
@@ -57,10 +54,12 @@ export class DatePickerComponent
     this._max = value;
   }
   get maxValue(): string {
-    if (this.max === null) return '';
-    return `${this.max.getFullYear()}-${(
-      this.max.getMonth() + 1
-    )}-${this.max.getDate()}`;
+    return this.dateToString(this.max);
+  }
+
+  dateToString(value: Date | null): string {
+    if (value === null) return '';
+    return `${value.getFullYear()}-${( value.getMonth() + 1 )}-${value.getDate()}`;
   }
 
   _initialValue: Date | null = null;

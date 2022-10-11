@@ -6,7 +6,12 @@
   (keydown.enter)="toggleSelected($event)"
 >
   <div style="display: inline-block" *ngIf="parent && parent.allowMultiple">
-    <input type="checkbox" tabindex="-1" class="form-checkbox" [checked]="isSelected" />
+    <input
+      type="checkbox"
+      tabindex="-1"
+      class="form-checkbox"
+      [checked]="isSelected"
+    />
     <label tabindex="-1"></label>
   </div>
   <div style="display: inline-block; margin-top: -1px" #content>

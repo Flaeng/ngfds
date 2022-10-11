@@ -1,9 +1,6 @@
-<button
-    type="button"
-    class="function-link"
->
-    <svg class="icon-svg" aria-hidden="true" *ngIf="icon">
-        <use [attr.xlink:href]="'#' + icon"></use>
-    </svg>
-    {{ text }}
+<button type="button" class="function-link">
+  <svg class="icon-svg" aria-hidden="true" *ngIf="icon">
+    <use [attr.xlink:href]="'#' + icon"></use>
+  </svg>
+  {{ text }}
 </button>

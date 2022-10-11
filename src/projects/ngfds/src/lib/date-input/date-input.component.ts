@@ -54,9 +54,15 @@ export class DateInputComponent
   }
 
   get value(): Date | null {
-    return this._dayOfMonth.length === 0 || this._month.length === 0 || this._year.length === 0
+    return this._dayOfMonth.length === 0 ||
+      this._month.length === 0 ||
+      this._year.length === 0
       ? null
-      : DateHelper.parseDate(parseInt(this._dayOfMonth), parseInt(this._month), parseInt(this._year));
+      : DateHelper.parseDate(
+          parseInt(this._dayOfMonth, 10),
+          parseInt(this._month, 10),
+          parseInt(this._year, 10)
+        );
   }
 
   emitChange(val: Date | null) {

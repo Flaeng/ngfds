@@ -1,4 +1,4 @@
-<button class="tag" [ngClass]="{'tag-icon': icon != null}">
+<button class="tag" [ngClass]="{ 'tag-icon': icon != null }">
   <ng-content></ng-content>
   <svg class="icon-svg" aria-hidden="true" *ngIf="icon != null">
     <use [attr.xlink:href]="'#' + icon"></use>
