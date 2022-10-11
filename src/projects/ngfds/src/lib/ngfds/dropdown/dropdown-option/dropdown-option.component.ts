@@ -38,24 +38,25 @@ export class DropdownOptionComponent implements OnInit, OnDestroy {
     return document.activeElement === this.dropdownOption.nativeElement;
   }
 
+  private preventDefaultAndForwardEvent(
+    ev: Event,
+    emitter: (ev: Event, comp: DropdownOptionComponent) => void
+  ): void {
+    ev.preventDefault();
+    ev.stopPropagation();
+    emitter(ev, this);
+  }
+
   public toggleSelected(ev: Event): void {
-    this.preventDefault(ev);
-    this.parent.toggleItemSelected(ev, this);
+    this.preventDefaultAndForwardEvent(ev, this.parent.toggleItemSelected);
   }
 
   public select(ev: Event): void {
-    this.preventDefault(ev);
-    this.parent.selectItem(ev, this);
+    this.preventDefaultAndForwardEvent(ev, this.parent.selectItem);
   }
 
   public unselect(ev: Event): void {
-    this.preventDefault(ev);
-    this.parent.unselectItem(ev, this);
-  }
-
-  private preventDefault(ev: Event) {
-    ev.preventDefault();
-    ev.stopPropagation();
+    this.preventDefaultAndForwardEvent(ev, this.parent.unselectItem);
   }
 
   ngOnDestroy(): void {

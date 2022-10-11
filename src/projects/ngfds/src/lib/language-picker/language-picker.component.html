@@ -15,7 +15,7 @@
 <ng-template #defaultSelectedItemTemplate let-item="item">
   <li>
     <a
-      [attr.href]="'?lang=' + item.iso639dash1code"
+      [attr.href]="item.url"
       [attr.lang]="item.iso639dash1code"
     >
       <svg class="icon-svg" focusable="false" aria-hidden="true">
@@ -28,7 +28,7 @@
 <ng-template #defaultItemTemplate let-item="item">
   <li>
     <a
-      [attr.href]="'?lang=' + item.iso639dash1code"
+      [attr.href]="item.url"
       [attr.lang]="item.iso639dash1code"
       [fds-tooltip]="item.currentLanguageName"
       (click)="onClick($event, item)"

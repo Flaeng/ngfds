@@ -17,8 +17,7 @@ export class ToggleSwitchComponent extends NgModelComponent<boolean> {
   }
   public set value(value: boolean) {
     this._value = value;
-    this.onChange?.call(this, value);
-    this.onTouched?.call(this);
+    super.emitChanges(value);
   }
 
   static idGenerator = 1;

@@ -43,8 +43,7 @@ export class TextareaComponent
   }
   public set value(value: string) {
     this._value = value;
-    this.onChange?.call(this, value);
-    this.onTouched?.call(this);
+    super.emitChanges(value);
   }
 
   static idGenerator = 1;

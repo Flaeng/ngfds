@@ -28,8 +28,7 @@ export class DropdownComponent extends NgModelComponent<unknown | null> {
   public set selectedItem(value: unknown | null) {
     console.log('value', value);
     this._selectedItems = value;
-    this.onChange?.call(this, value);
-    this.onTouched?.call(this);
+    super.emitChanges(value);
   }
 
   optionComponents: DropdownOptionComponent[] = [];
