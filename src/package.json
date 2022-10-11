@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node ../scripts/icon-packer.js && concurrently --kill-others \"ng serve\" \"node ../scripts/generate-docs.js\"",
+    "start": "node ../scripts/icon-packer.js && concurrently --kill-others \"ng serve\" \"node ../scripts/generate-docs.js --watch\"",
     "build": "ng build",
     "build-library": "ng build --project=ngfds --configuration=production",
     "watch": "ng build --watch --configuration development",

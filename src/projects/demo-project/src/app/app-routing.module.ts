@@ -1,100 +1,248 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccordionPageComponent } from './pages/accordion-page/accordion-page.component';
-import { AlertPageComponent } from './pages/alert-page/alert-page.component';
-import { BackButtonPageComponent } from './pages/back-button-page/back-button-page.component';
-import { BackToTopButtonPageComponent } from './pages/back-to-top-button-page/back-to-top-button-page.component';
-import { BadgePageComponent } from './pages/badge-page/badge-page.component';
-import { BreadcrumbsPageComponent } from './pages/breadcrumbs-page/breadcrumbs-page.component';
-import { ButtonPageComponent } from './pages/button-page/button-page.component';
-import { CardPageComponent } from './pages/card-page/card-page.component';
-import { CookieMessagePageComponent } from './pages/cookie-message-page/cookie-message-page.component';
-import { DateInputPageComponent } from './pages/date-input-page/date-input-page.component';
-import { DatePickerPageComponent } from './pages/date-picker-page/date-picker-page.component';
-import { DetailsPageComponent } from './pages/details-page/details-page.component';
-import { FooterPageComponent } from './pages/footer-page/footer-page.component';
-import { FunctionLinkPageComponent } from './pages/function-link-page/function-link-page.component';
-import { ContextMenuPageComponent } from './pages/header-page/context-menu-page/context-menu-page.component';
-import { FunctionLinksPageComponent } from './pages/header-page/function-links-page/function-links-page.component';
-import { HeaderPageComponent } from './pages/header-page/header-page.component';
-import { NavigationPageComponent } from './pages/header-page/navigation-page/navigation-page.component';
-import { PortalHeaderMobilePageComponent } from './pages/header-page/navigation-page/portal-header-mobile-page/portal-header-mobile-page.component';
-import { SolutionHeaderMobilePageComponent } from './pages/header-page/navigation-page/solution-header-mobile-page/solution-header-mobile-page.component';
-import { PortalHeaderPageComponent } from './pages/header-page/portal-header-page/portal-header-page.component';
-import { SolutionHeaderPageComponent } from './pages/header-page/solution-header-page/solution-header-page.component';
-import { IconsPageComponent } from './pages/icon-page/icon-page.component';
 import { IntroductionPageComponent } from './pages/introduction-page/introduction-page.component';
-import { LanguagePickerPageComponent } from './pages/language-picker-page/language-picker-page.component';
-import { ModalPageComponent } from './pages/modal-page/modal-page.component';
-import { OverflowMenuPageComponent } from './pages/overflow-menu-page/overflow-menu-page.component';
-import { PaginationPageComponent } from './pages/pagination-page/pagination-page.component';
-import { SideNavigationPageComponent } from './pages/side-navigation-page/side-navigation-page.component';
-import { SkipLinkPageComponent } from './pages/skip-link-page/skip-link-page.component';
-import { SpinnerPageComponent } from './pages/spinner-page/spinner-page.component';
-import { StepIndicatorPageComponent } from './pages/step-indicator-page/step-indicator-page.component';
-import { StructuredListPageComponent } from './pages/structured-list-page/structured-list-page.component';
-import { TabsPageComponent } from './pages/tabs-page/tabs-page.component';
-import { TagPageComponent } from './pages/tag-page/tag-page.component';
-import { ToastPageComponent } from './pages/toast-page/toast-page.component';
-import { TooltipPageComponent } from './pages/tooltip-page/tooltip-page.component';
-import { DropdownPageComponent } from './pages/dropdown-page/dropdown-page.component';
-import { NgfdsDropdownPageComponent } from './pages/ngfds/ngfds-dropdown-page/ngfds-dropdown-page.component';
-import { CheckboxPageComponent } from './pages/checkbox-page/checkbox-page.component';
-import { ToggleSwitchPageComponent } from './pages/toggle-switch-page/toggle-switch-page.component';
-import { TextareaPageComponent } from './pages/textarea-page/textarea-page.component';
 
 const routes: Routes = [
   { path: '', component: IntroductionPageComponent },
-  { path: 'accordions', component: AccordionPageComponent },
-  { path: 'beskeder-alerts', component: AlertPageComponent },
-  { path: 'badges', component: BadgePageComponent },
-  { path: 'broedkrumme', component: BreadcrumbsPageComponent },
-  { path: 'cookie-message', component: CookieMessagePageComponent },
-  { path: 'tooltip', component: TooltipPageComponent },
-  { path: 'knapper', component: ButtonPageComponent },
-  { path: 'tabs', component: TabsPageComponent },
-  { path: 'cards', component: CardPageComponent },
-  { path: 'checkbox', component: CheckboxPageComponent },
-  { path: 'notification-toast', component: ToastPageComponent },
-  { path: 'detaljer', component: DetailsPageComponent },
-  { path: 'icons', component: IconsPageComponent },
-  { path: 'modalvindue', component: ModalPageComponent },
-  { path: 'headers', component: HeaderPageComponent },
-  { path: 'headers/portal-header', component: PortalHeaderPageComponent },
-  { path: 'headers/solution-header', component: SolutionHeaderPageComponent },
-  { path: 'headers/navigation', component: NavigationPageComponent },
-  { path: 'headers/navigation/portal-header-mobile', component: PortalHeaderMobilePageComponent },
-  { path: 'headers/navigation/solution-header-mobile', component: SolutionHeaderMobilePageComponent },
-  { path: 'headers/context-menu', component: ContextMenuPageComponent },
-  { path: 'headers/function-links', component: FunctionLinksPageComponent },
-  { path: 'side-navigation', component: SideNavigationPageComponent },
-  { path: 'overflow-menu', component: OverflowMenuPageComponent },
-  { path: 'dropdown-menu', component: DropdownPageComponent },
-  { path: 'textarea', component: TextareaPageComponent },
-  { path: 'spinner', component: SpinnerPageComponent },
-  { path: 'footers', component: FooterPageComponent },
-  { path: 'paginering', component: PaginationPageComponent },
-  { path: 'tilbage-link', component: BackButtonPageComponent },
-  { path: 'tilbage-til-toppen-link', component: BackToTopButtonPageComponent },
-  { path: 'funktionslink', component: FunctionLinkPageComponent },
-  { path: 'toggle-switch', component: ToggleSwitchPageComponent },
-  { path: 'sprog-vaelger', component: LanguagePickerPageComponent },
-  { path: 'step-indicator', component: StepIndicatorPageComponent },
-  { path: 'skip-link', component: SkipLinkPageComponent },
-  { path: 'strukturerede-lister', component: StructuredListPageComponent },
-  { path: 'tags', component: TagPageComponent },
-  { path: 'datoangivelse', component: DateInputPageComponent },
-  { path: 'datepicker', component: DatePickerPageComponent },
+
+  {
+    path: 'accordions',
+    loadChildren: () =>
+      import('./pages/accordion-page/accordion-page.module').then(
+        (x) => x.AccordionPageModule
+      ),
+  },
+  {
+    path: 'beskeder-alerts',
+    loadChildren: () =>
+      import('./pages/alert-page/alert-page.module').then(
+        (x) => x.AlertPageModule
+      ),
+  },
+  {
+    path: 'badges',
+    loadChildren: () =>
+      import('./pages/badge-page/badge-page.module').then(
+        (x) => x.BadgePageModule
+      ),
+  },
+  {
+    path: 'broedkrumme',
+    loadChildren: () =>
+      import('./pages/breadcrumbs-page/breadcrumbs-page.module').then(
+        (x) => x.BreadcrumbsRoutingModule
+      ),
+  },
+  {
+    path: 'cookie-message',
+    loadChildren: () =>
+      import('./pages/cookie-message-page/cookie-message-page.module').then(
+        (x) => x.CookieMessagePageModule
+      ),
+  },
+  {
+    path: 'tooltip',
+    loadChildren: () =>
+      import('./pages/tooltip-page/tooltip-page.module').then(
+        (x) => x.TooltipPageModule
+      ),
+  },
+  {
+    path: 'knapper',
+    loadChildren: () =>
+      import('./pages/button-page/button-page.module').then(
+        (x) => x.ButtonPageModule
+      ),
+  },
+  {
+    path: 'tabs',
+    loadChildren: () =>
+      import('./pages/tabs-page/tabs-page.module').then(
+        (x) => x.TabsPageModule
+      ),
+  },
+  {
+    path: 'cards',
+    loadChildren: () =>
+      import('./pages/card-page/card-page.module').then(
+        (x) => x.CardPageModule
+      ),
+  },
+  {
+    path: 'checkbox',
+    loadChildren: () =>
+      import('./pages/checkbox-page/checkbox-page.module').then(
+        (x) => x.CheckboxPageModule
+      ),
+  },
+  {
+    path: 'notification-toast',
+    loadChildren: () =>
+      import('./pages/toast-page/toast-page.module').then(
+        (x) => x.ToastPageModule
+      ),
+  },
+  {
+    path: 'detaljer',
+    loadChildren: () =>
+      import('./pages/details-page/details-page.module').then(
+        (x) => x.DetailsPageModule
+      ),
+  },
+  {
+    path: 'icons',
+    loadChildren: () =>
+      import('./pages/icon-page/icon-page.module').then(
+        (x) => x.IconPageModule
+      ),
+  },
+  {
+    path: 'icmodalvindueons',
+    loadChildren: () =>
+      import('./pages/modal-page/modal-page.module').then(
+        (x) => x.ModalPageModule
+      ),
+  },
+  {
+    path: 'headers',
+    loadChildren: () =>
+      import('./pages/header-page/header-page.module').then(
+        (x) => x.HeaderPageModule
+      ),
+  },
+  {
+    path: 'side-navigation',
+    loadChildren: () =>
+      import('./pages/side-navigation-page/side-navigation-page.module').then(
+        (x) => x.SideNavigationPageModule
+      ),
+  },
+  {
+    path: 'overflow-menu',
+    loadChildren: () =>
+      import('./pages/overflow-menu-page/overflow-menu-page.module').then(
+        (x) => x.OverflowMenuPageModule
+      ),
+  },
+  {
+    path: 'dropdown-menu',
+    loadChildren: () =>
+      import('./pages/dropdown-page/dropdown-page.module').then(
+        (x) => x.DropdownPageModule
+      ),
+  },
+  {
+    path: 'textarea',
+    loadChildren: () =>
+      import('./pages/textarea-page/textarea-page.module').then(
+        (x) => x.TextareaPageModule
+      ),
+  },
+  {
+    path: 'spinner',
+    loadChildren: () =>
+      import('./pages/spinner-page/spinner-page.module').then(
+        (x) => x.SpinnerPageModule
+      ),
+  },
+  {
+    path: 'footers',
+    loadChildren: () =>
+      import('./pages/footer-page/footer-page.module').then(
+        (x) => x.FooterPageModule
+      ),
+  },
+  {
+    path: 'paginering',
+    loadChildren: () =>
+      import('./pages/pagination-page/pagination-page.module').then(
+        (x) => x.PaginationPageModule
+      ),
+  },
+  {
+    path: 'tilbage-link',
+    loadChildren: () =>
+      import('./pages/back-button-page/back-button-page.module').then(
+        (x) => x.BackButtonPageModule
+      ),
+  },
+  {
+    path: 'tilbage-til-toppen-link',
+    loadChildren: () =>
+      import(
+        './pages/back-to-top-button-page/back-to-top-button-page.module'
+      ).then((x) => x.BackToTopButtonPageModule),
+  },
+  {
+    path: 'funktionslink',
+    loadChildren: () =>
+      import('./pages/function-link-page/function-link-page.module').then(
+        (x) => x.FunctionLinkPageModule
+      ),
+  },
+  {
+    path: 'toggle-switch',
+    loadChildren: () =>
+      import('./pages/toggle-switch-page/toggle-switch-page.module').then(
+        (x) => x.ToggleSwitchPageModule
+      ),
+  },
+  {
+    path: 'sprog-vaelger',
+    loadChildren: () =>
+      import('./pages/language-picker-page/language-picker-page.module').then(
+        (x) => x.LanguagePickerPageModule
+      ),
+  },
+  {
+    path: 'step-indicator',
+    loadChildren: () =>
+      import('./pages/step-indicator-page/step-indicator-page.module').then(
+        (x) => x.StepIndicatorPageModule
+      ),
+  },
+  {
+    path: 'skip-link',
+    loadChildren: () =>
+      import('./pages/skip-link-page/skip-link-page.module').then(
+        (x) => x.SkipLinkPageModule
+      ),
+  },
+  {
+    path: 'strukturerede-lister',
+    loadChildren: () =>
+      import('./pages/structured-list-page/structured-list-page.module').then(
+        (x) => x.StructuredListPageModule
+      ),
+  },
+  {
+    path: 'tags',
+    loadChildren: () =>
+      import('./pages/tag-page/tag-page.module').then((x) => x.TagPageModule),
+  },
+  {
+    path: 'datoangivelse',
+    loadChildren: () =>
+      import('./pages/date-input-page/date-input-page.module').then(
+        (x) => x.DateInputPageModule
+      ),
+  },
+  {
+    path: 'datepicker',
+    loadChildren: () =>
+      import('./pages/date-picker-page/date-picker-page.module').then(
+        (x) => x.DatePickerPageModule
+      ),
+  },
   {
     path: 'ngfds',
-    children: [
-      { path: 'dropdown', component: NgfdsDropdownPageComponent }
-    ]
-  }
+    loadChildren: () =>
+      import('./pages/ngfds/ngfds.module').then((x) => x.NgfdsPageModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

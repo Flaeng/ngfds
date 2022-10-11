@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalService } from 'projects/ngfds/src/lib/modal/public-api';
+import { FdsModalService } from 'projects/ngfds/src/lib/modal/public-api';
 import { BasePageComponent } from '../BasePageComponent';
 
 @Component({
@@ -8,7 +8,7 @@ import { BasePageComponent } from '../BasePageComponent';
   styleUrls: ['./modal-page.component.scss'],
 })
 export class ModalPageComponent extends BasePageComponent {
-  constructor(public modalService: ModalService) {
+  constructor(public modalService: FdsModalService) {
     super();
   }
 }

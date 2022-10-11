@@ -20,13 +20,9 @@ import { SolutionHeaderComponent } from './solution-header/solution-header.compo
     PortalHeaderMobileComponent,
     SolutionHeaderMobileComponent,
     PortalHeaderComponent,
-    SolutionHeaderComponent
+    SolutionHeaderComponent,
   ],
-  imports: [
-    CommonModule,
-    FdsOverflowMenuModule,
-    FdsButtonModule
-  ],
+  imports: [CommonModule, FdsOverflowMenuModule, FdsButtonModule],
   exports: [
     HeaderComponent,
     ContextMenuComponent,
@@ -35,7 +31,7 @@ import { SolutionHeaderComponent } from './solution-header/solution-header.compo
     PortalHeaderMobileComponent,
     SolutionHeaderMobileComponent,
     PortalHeaderComponent,
-    SolutionHeaderComponent
-  ]
+    SolutionHeaderComponent,
+  ],
 })
-export class FdsHeaderModule { }
+export class FdsHeaderModule {}

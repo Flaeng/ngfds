@@ -7,40 +7,90 @@
 <app-demo-view>
   <fds-date-picker [(ngModel)]="date1"></fds-date-picker>
   <div class="mt-2">
-    Date as string: {{ date1 == null ? '(null)' : date1.toString() }}<br />
-    Date with format: {{ date1 == null ? '(null)' : (date1 | date:'longDate') }}
+    Date as string: {{ date1 == null ? "(null)" : date1.toString() }}<br />
+    Date with format:
+    {{ date1 == null ? "(null)" : (date1 | date: "longDate") }}
   </div>
 </app-demo-view>
 
 <app-demo-view>
   <fds-date-picker [(ngModel)]="date2presetToToday"></fds-date-picker>
   <div class="mt-2">
-    Date as string: {{ date2presetToToday == null ? '(null)' : date2presetToToday.toString() }}<br />
-    Date with format: {{ date2presetToToday == null ? '(null)' : (date2presetToToday | date:'longDate') }}
+    Date as string:
+    {{ date2presetToToday == null ? "(null)" : date2presetToToday.toString() }}<br />
+    Date with format:
+    {{ date2presetToToday == null ? "(null)" : (date2presetToToday | date: "longDate") }}
   </div>
 </app-demo-view>
 
 <app-demo-view>
   <input type="checkbox" [(ngModel)]="date3isDisabled" /> Toggle disabled
-  <fds-date-picker [disabled]="date3isDisabled" [(ngModel)]="date3"></fds-date-picker>
+  <fds-date-picker
+    [disabled]="date3isDisabled"
+    [(ngModel)]="date3"
+  ></fds-date-picker>
   <div class="mt-2">
-    Date is disabled: {{ date3isDisabled ? 'Yes' : 'No' }}<br />
-    Date as string: {{ date3 == null ? '(null)' : date3.toString() }}<br />
-    Date with format: {{ date3 == null ? '(null)' : (date3 | date:'longDate') }}
+    Date is disabled: {{ date3isDisabled ? "Yes" : "No" }}<br />
+    Date as string: {{ date3 == null ? "(null)" : date3.toString() }}<br />
+    Date with format:
+    {{ date3 == null ? "(null)" : (date3 | date: "longDate") }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-date-picker [(ngModel)]="date4" [min]="minDate"></fds-date-picker>
+  <div class="mt-2">
+    Min date as string: {{ minDate == null ? "(null)" : minDate.toString() }}<br />
+    Date as string: {{ date4 == null ? "(null)" : date4.toString() }}<br />
+    Date with format:
+    {{ date4 == null ? "(null)" : (date4 | date: "longDate") }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-date-picker [(ngModel)]="date4" [max]="maxDate"></fds-date-picker>
+  <div class="mt-2">
+    Max date as string: {{ maxDate == null ? "(null)" : maxDate.toString() }}<br />
+    Date as string: {{ date4 == null ? "(null)" : date4.toString() }}<br />
+    Date with format:
+    {{ date4 == null ? "(null)" : (date4 | date: "longDate") }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  Selected date:<fds-date-picker [(ngModel)]="date4" [min]="minDate" [max]="maxDate"></fds-date-picker>
+  Min date: <fds-date-picker [(ngModel)]="minDate" [max]="maxDate"></fds-date-picker>
+  Max date: <fds-date-picker [(ngModel)]="maxDate" [min]="minDate"></fds-date-picker>
+  <div class="mt-2">
+    Min date as string: {{ minDate == null ? "(null)" : minDate.toString() }}<br />
+    Max date as string: {{ maxDate == null ? "(null)" : maxDate.toString() }}<br />
+    Date as string: {{ date4 == null ? "(null)" : date4.toString() }}<br />
+    Date with format:
+    {{ date4 == null ? "(null)" : (date4 | date: "longDate") }}
   </div>
 </app-demo-view>
 
 <app-demo-view>
   <form (ngSubmit)="submitFormControl()">
     <fds-date-picker [formControl]="dateInputFormControl"></fds-date-picker>
-    <fds-button class="mt-4" type="submit" [disabled]="!dateInputFormControl.valid">Submit</fds-button>
+    <fds-button
+      class="mt-4"
+      type="submit"
+      [disabled]="!dateInputFormControl.valid"
+      >Submit</fds-button
+    >
   </form>
 </app-demo-view>
 
 <app-demo-view>
   <form [formGroup]="dateInputFormGroup" (ngSubmit)="submitFormGroup()">
     <fds-date-picker formControlName="birthday"></fds-date-picker>
-    <fds-button class="mt-4" type="submit" [disabled]="!dateInputFormGroup.valid">Submit</fds-button>
+    <fds-button
+      class="mt-4"
+      type="submit"
+      [disabled]="!dateInputFormGroup.valid"
+      >Submit</fds-button
+    >
   </form>
 </app-demo-view>
 

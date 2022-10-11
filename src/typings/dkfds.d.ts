@@ -45,6 +45,32 @@ declare namespace DKFDS {
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/date-picker.js
   export class datePicker {
     static init(elem: HTMLElement): void;
+    static on(documentBody: HTMLElement): void;
+    static getDatePickerContext(elem: HTMLElement): DatePickerContext;
+    static disable(elem: HTMLElement): void;
+    static enable(elem: HTMLElement): void;
+    static isDateInputInvalid(elem: HTMLElement): boolean;
+    static setCalendarValue(elem: HTMLElement, dateString: string): void;
+    static validateDateInput(elem: HTMLElement): void;
+    static renderCalendar(elem: HTMLElement, dateToDisplay: Date | null | undefined): void;
+    static updateCalendarIfVisible(elem: HTMLElement): void;
+  }
+
+  export class DatePickerContext {
+    get calendarDate(): Date;
+    get minDate(): Date;
+    get toggleBtnEl(): HTMLButtonElement;
+    get selectedDate(): Date;
+    get maxDate(): Date;
+    get firstYearChunkEl(): HTMLElement;
+    get datePickerEl(): HTMLElement;
+    get inputDate(): Date;
+    get internalInputEl(): HTMLInputElement;
+    get externalInputEl(): HTMLInputElement;
+    get calendarEl(): HTMLElement;
+    get rangeDate(): Date;
+    get defaultDate(): Date;
+    get statusEl(): HTMLElement;
   }
   
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/dropdown-sort.js

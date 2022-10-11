@@ -17,46 +17,46 @@ import { DateHelper } from '../helpers/date-helper';
 export class DateInputComponent
   implements AfterViewInit, ControlValueAccessor, Validator
 {
-  _dayOfMonth: number | null = null;
-  get dayOfMonth(): number | null {
+  _dayOfMonth: string = '';
+  get dayOfMonth(): string {
     return this._dayOfMonth;
   }
-  set dayOfMonth(value: number | null) {
+  set dayOfMonth(value: string) {
     this._dayOfMonth = value;
     this.emitChange(this.value);
   }
 
-  _month: number | null = null;
-  get month(): number | null {
+  _month: string = '';
+  get month(): string {
     return this._month;
   }
-  set month(value: number | null) {
+  set month(value: string) {
     this._month = value;
     this.emitChange(this.value);
   }
 
-  _year: number | null = null;
-  get year(): number | null {
+  _year: string = '';
+  get year(): string {
     return this._year;
   }
-  set year(value: number | null) {
+  set year(value: string) {
     this._year = value;
     this.emitChange(this.value);
   }
 
   set value(val: Date | null) {
     if (val != null) {
-      this._dayOfMonth = val.getDate();
-      this._month = val.getMonth() + 1;
-      this._year = val.getFullYear();
-    } else this._dayOfMonth = this._month = this._year = null;
+      this._dayOfMonth = val.getDate().toString();
+      this._month = (val.getMonth() + 1).toString();
+      this._year = val.getFullYear().toString();
+    } else this._dayOfMonth = this._month = this._year = '';
     this.emitChange(val);
   }
 
   get value(): Date | null {
-    return this._dayOfMonth == null || this._month == null || this._year == null
+    return this._dayOfMonth.length === 0 || this._month.length === 0 || this._year.length === 0
       ? null
-      : DateHelper.parseDate(this._dayOfMonth, this._month, this._year);
+      : DateHelper.parseDate(parseInt(this._dayOfMonth), parseInt(this._month), parseInt(this._year));
   }
 
   emitChange(val: Date | null) {

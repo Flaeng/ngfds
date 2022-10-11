@@ -39,3 +39,7 @@ jobs:
       - name: Build
         run: npm run build-library
         working-directory: ./src
+
+      - name: Build
+        run: npm run build-showroom
+        working-directory: ./src

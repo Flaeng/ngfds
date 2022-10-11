@@ -31,15 +31,62 @@ export class DatePickerComponent
   @ViewChild('datePickerWrapper')
   datePickerWrapper: ElementRef | null = null;
 
+  underlayingControl: DKFDS.DatePickerContext | null = null;
+
+  _min: Date | null = null;
+  @Input('min')
+  public get min(): Date | null {
+    return this._min;
+  }
+  public set min(value: Date | null) {
+    this._min = value;
+  }
+  get minValue(): string {
+    if (this.min === null) return '';
+    return `${this.min.getFullYear()}-${(
+      this.min.getMonth() + 1
+    )}-${this.min.getDate()}`;
+  }
+  
+  _max: Date | null = null;
+  @Input('max')
+  public get max(): Date | null {
+    return this._max;
+  }
+  public set max(value: Date | null) {
+    this._max = value;
+  }
+  get maxValue(): string {
+    if (this.max === null) return '';
+    return `${this.max.getFullYear()}-${(
+      this.max.getMonth() + 1
+    )}-${this.max.getDate()}`;
+  }
+
+  _initialValue: Date | null = null;
   _value: Date | null = null;
   set value(value: Date | null) {
-    this._value = value;
-    const ctrls = this.getDatePickerElements();
-    if (ctrls == null) return;
-    ctrls.input.value = DateHelper.toString(value);
+    this._initialValue = this._value = value;
+    if (this.underlayingControl === null || this.datePickerInput === null) return;
+    this.underlayingControl.internalInputEl.value = this.formatDate(value);
+    this.underlayingControl.externalInputEl.value = this.formatDate(value);
+    this.onChange?.call(this, value);
+    this.onTouched?.call(this);
   }
   get value(): Date | null {
-    return this._value;
+    if (this.underlayingControl === null)
+      throw new Error(
+        'Cannot access value before component has been initialized'
+      );
+    return this.underlayingControl.selectedDate;
+  }
+
+  formatDate(value: Date | null): string {
+    if (value === null) return '';
+    const padLeft = (num: number) => {
+      return `00${num}`.slice(-2);
+    }
+    return `${padLeft(value.getDate())}/${padLeft(value.getMonth() + 1)}/${value.getFullYear()}`;
   }
 
   onChange: ((value: Date | null) => void) | null = null;
@@ -57,48 +104,30 @@ export class DatePickerComponent
     }
 
     this.value = date;
-    this.onChange?.call(this, this.value);
+    this.onChange?.call(this, date);
     this.onTouched?.call(this);
-  }
-
-  getDatePickerElements(): {
-    input: HTMLInputElement;
-    button: HTMLButtonElement;
-  } | null {
-    if (this.datePickerWrapper == null) return null;
-    const wrapper: HTMLDivElement = this.datePickerWrapper.nativeElement;
-    const input = wrapper.querySelector<HTMLInputElement>(
-      '.date-picker__external-input'
-    );
-    const button = wrapper.querySelector<HTMLButtonElement>(
-      '.date-picker__button'
-    );
-    return input != null && button != null ? { input, button } : null;
   }
 
   _initialDisabled = false;
   @Input()
   public get disabled(): boolean {
-    const ctrls = this.getDatePickerElements();
     return (
-      ctrls != null &&
-      ctrls.input.hasAttribute('disabled') &&
-      ctrls.button.hasAttribute('disabled')
+      this.underlayingControl !== null &&
+      this.underlayingControl.externalInputEl.hasAttribute('disabled') &&
+      this.underlayingControl.toggleBtnEl.hasAttribute('disabled')
     );
   }
   public set disabled(value: boolean) {
     this._initialDisabled = value;
-    const ctrls = this.getDatePickerElements();
-    if (ctrls == null) return;
-
+    if (this.datePickerInput === null) return;
     if (value) {
-      ctrls.input.setAttribute('disabled', '');
-      ctrls.button.setAttribute('disabled', '');
+      DKFDS.datePicker.disable(this.datePickerInput.nativeElement);
     } else {
-      ctrls.input.removeAttribute('disabled');
-      ctrls.button.removeAttribute('disabled');
+      DKFDS.datePicker.enable(this.datePickerInput.nativeElement);
     }
   }
+
+  constructor(private el: ElementRef) {}
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(obj: any): void {
@@ -128,12 +157,13 @@ export class DatePickerComponent
     this.onValidatorChange = fn;
   }
   ngAfterViewInit(): void {
-    DKFDS.datePicker.init(this.datePickerWrapper?.nativeElement);
-    this.value = this._value;
+    if (this.el === null) return;
+    DKFDS.datePicker.on(this.el.nativeElement);
+    if (this.datePickerInput === null) return;
+    this.underlayingControl = DKFDS.datePicker.getDatePickerContext(
+      this.datePickerInput.nativeElement
+    );
     this.disabled = this._initialDisabled;
-    if (this.datePickerInput == null) return;
-    // this.context = DKFDS.datePicker.getDatePickerContext(
-    //   this.datePickerInput.nativeElement
-    // );
+    this.value = this._initialValue;
   }
 }

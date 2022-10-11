@@ -29,6 +29,7 @@ function getArgument(prefix) {
       return argument;
     }
   }
+  return returnNext;
 }
 
 function getIntArgument(prefix) {

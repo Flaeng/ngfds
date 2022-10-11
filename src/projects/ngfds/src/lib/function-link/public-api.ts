@@ -3,3 +3,4 @@
  */
 
 export * from './function-link.component';
+export * from './function-link.module';
