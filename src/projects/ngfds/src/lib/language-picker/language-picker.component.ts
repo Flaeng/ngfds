@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AngularHelper } from '../helpers/angular-helper';
 
 @Component({
   selector: 'fds-language-picker',
@@ -16,8 +17,7 @@ export class LanguagePickerComponent {
     ev.preventDefault();
     ev.stopPropagation();
 
-    const event: LanuageChangeEvent = { ...ev, selectedItem };
-    this.change.emit(event);
+    AngularHelper.emitEvent(this.change, ev, { selectedItem });
   }
 }
 

@@ -1,4 +1,4 @@
-import { InjectionToken } from '@angular/core';
+import { EventEmitter, InjectionToken } from '@angular/core';
 import {
   ControlValueAccessor,
   NG_VALIDATORS,
@@ -28,5 +28,11 @@ export class AngularHelper {
       multi: true,
       useExisting: type,
     };
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  static emitEvent<T>(emitter: EventEmitter<T>, ev: Event, ext: any): void {
+    const newEvent: T = { ...ev, ...ext };
+    emitter.emit(newEvent);
   }
 }

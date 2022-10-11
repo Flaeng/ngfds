@@ -7,6 +7,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
+import { AngularHelper } from '../helpers/angular-helper';
 
 @Component({
   selector: 'fds-pagination',
@@ -126,8 +127,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     this.currentPage = option.number;
     this.setOptions();
 
-    const event: PageChangeEvent = { ...ev, pageNumber: option.number };
-    this.change.emit(event);
+    AngularHelper.emitEvent(this.change, ev, { pageNumber: option.number });
   }
 }
 
