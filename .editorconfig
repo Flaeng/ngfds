@@ -20,5 +20,5 @@ trim_trailing_whitespace = false
 # indent_size = 4
 # insert_final_newline = false
 
-# [*.yml]
-# insert_final_newline = false
+[*.yml]
+insert_final_newline = false
