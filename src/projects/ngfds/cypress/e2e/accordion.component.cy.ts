@@ -26,7 +26,7 @@ describe('AccordionComponent', () => {
         );
         cy.screenshot();
         cy.get('.accordion-button').click();
-        cy.get('.accordion-button').should('have.text', 'AccHeader');
+        cy.get('.accordion-button').should('contain.text', 'AccHeader');
         cy.get('.accordion-content').should('contain.text', 'Indhold');
       });
     });
@@ -50,7 +50,7 @@ describe('AccordionComponent', () => {
     );
     cy.screenshot();
     cy.get('.accordion-button').click();
-    cy.get('.accordion-button').should('have.text', 'AccHeader');
+    cy.get('.accordion-button').should('contain.text', 'AccHeader');
     cy.get('.accordion-content').should('contain.text', 'Indhold');
   });
 
@@ -70,9 +70,9 @@ describe('AccordionComponent', () => {
         ],
       }
     );
-    cy.get('.accordion-button').should('have.text', 'AccHeader');
+    cy.get('.accordion-button').should('contain.text', 'AccHeader');
     cy.get('.accordion-button').click();
-    cy.get('.accordion-button').should('have.text', 'AccHeader');
+    cy.get('.accordion-button').should('contain.text', 'AccHeader');
     cy.get('.accordion-content').should('contain.text', 'Indhold');
     cy.get('.accordion-button').click();
     cy.get('.accordion-content').should('not.be.visible');
