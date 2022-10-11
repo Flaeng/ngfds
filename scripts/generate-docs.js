@@ -10,7 +10,7 @@ const {
   SetterDeclaration,
   DeclarationVisibility,
 } = require('typescript-parser');
-const Fs = require('@supercharge/Fs');
+const fsExtra = require('@supercharge/fs');
 const { getArgument } = require('./helpers');
 
 const sourceFileextension = '.component.html';
@@ -50,7 +50,7 @@ Array.prototype.groupBy = function (selector) {
 
 async function getDocumentationAsync(file) {
   const parser = new TypescriptParser();
-  const filename = Fs.filename(file);
+  const filename = fsExtra.filename(file);
   const tmp = filename.split('.')[0].split('-');
   tmp.splice(-1);
   const name = tmp.join('-');
@@ -79,7 +79,7 @@ async function getDocumentationAsync(file) {
   if (sourceCode == null) {
     return;
   }
-  const content = await Fs.content(sourceFilepath);
+  const content = await fsExtra.content(sourceFilepath);
 
   const result = [];
   for (const declartion of sourceCode.declarations) {
