@@ -3,12 +3,20 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  Inject,
   Input,
   Output,
   ViewChild,
 } from '@angular/core';
 import * as DKFDS from 'dkfds';
+import { map, Observable } from 'rxjs';
 import { DkfdsHelper } from '../helpers/dkfds-helper';
+import {
+  AlertDictionary,
+  FDS_LOCALIZATION,
+  Localization,
+  LocalizationService,
+} from '../localization';
 
 @Component({
   selector: 'fds-alert',
@@ -33,6 +41,12 @@ export class AlertComponent implements AfterViewInit {
   @ViewChild('alertContainer') el!: ElementRef;
 
   public alert: DKFDS.Alert | null = null;
+
+  dictionary: Observable<AlertDictionary>;
+
+  constructor(protected localization: LocalizationService) {
+    this.dictionary = this.localization.Dictionary.pipe(map((x) => x.alert!));
+  }
 
   ngAfterViewInit(): void {
     this.alert = DkfdsHelper.createAndInit(DKFDS.Alert, this.el);

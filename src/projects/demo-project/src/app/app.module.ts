@@ -16,6 +16,7 @@ import {
   FdsIconsModule,
   FdsSideNavigationModule,
 } from 'projects/ngfds/src/public-api';
+import { FDS_CURRENT_LANGUAGE, FDS_LOCALIZATION, Localization } from 'projects/ngfds/src/lib/localization';
 
 @NgModule({
   declarations: [AppComponent, ScrollToDirective],
@@ -36,6 +37,25 @@ import {
         newToastPosition: 'bottom',
       } as IGlobalToastOptions,
     },
+    // {
+    //   provide: FDS_CURRENT_LANGUAGE,
+    //   useValue: 'en'
+    // },
+    {
+      provide: FDS_LOCALIZATION,
+      useValue: {
+        'da': {
+          alert: {
+            close: null
+          }
+        },
+        'en': {
+          alert: {
+            close: 'Close'
+          }
+        },
+      } as Localization,
+    }
   ],
   bootstrap: [AppComponent],
 })

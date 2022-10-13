@@ -2,6 +2,8 @@
  * Public API Surface of ngfds
  */
 
+export * from './lib/localization'
+export * from './lib/ng-model-component';
 export * from './lib/accordion/public-api';
 export * from './lib/alert/public-api';
 export * from './lib/back-button/public-api';
