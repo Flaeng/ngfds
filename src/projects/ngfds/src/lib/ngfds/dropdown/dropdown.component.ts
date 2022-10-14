@@ -130,7 +130,6 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
     setTimeout(() => {
       if (this.isOpen === false || ev.key.toLowerCase() !== 'tab') return;
       const target = document.activeElement;
-      console.log('target', target);
       const clickedInside = this.formControl.nativeElement.contains(target);
       if (!clickedInside) {
         this.closeDropdown(ev);

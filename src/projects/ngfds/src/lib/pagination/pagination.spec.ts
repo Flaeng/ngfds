@@ -61,7 +61,6 @@ describe('Pagination', () => {
     component.currentPage = 5;
 
     // Act
-    // debugger;
     component.setOptions();
     fixture.detectChanges();
 
@@ -83,7 +82,6 @@ describe('Pagination', () => {
     component.currentPage = 12;
 
     // Act
-    // debugger;
     component.setOptions();
     fixture.detectChanges();
 

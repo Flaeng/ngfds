@@ -19,8 +19,6 @@ export class FormErrorSummaryComponent implements OnInit, OnDestroy {
   scrollTo(ev: Event, comp: FormErrorMessageComponent): void {
     ev.preventDefault();
     const elem = document.querySelector(`#label_${comp.id?.split('_')[0]}`);
-    console.log('id', `#label_${comp.id}`);
-    console.log('elem', elem);
     elem?.scrollIntoView();
   }
 
