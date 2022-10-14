@@ -2,8 +2,8 @@ import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import * as DKFDS from 'dkfds';
 
-export const FDS_TOAST_OPTIONS = new InjectionToken<IGlobalToastOptions>(
-  'FDS_TOAST_OPTIONS'
+export const FDS_TOAST_SETTINGS = new InjectionToken<IToastSettings>(
+  'FDS_TOAST_SETTINGS'
 );
 
 @Injectable({
@@ -13,7 +13,7 @@ export class FdsToastService {
   toastContainer: HTMLDivElement | null = null;
 
   constructor(
-    @Inject(FDS_TOAST_OPTIONS) public options: IGlobalToastOptions | null
+    @Inject(FDS_TOAST_SETTINGS) public options: IToastSettings | null
   ) {
     const elem = document.querySelector<HTMLDivElement>('div.toast-container');
     if (elem !== null) {
@@ -94,7 +94,7 @@ export class FdsToastService {
     return elem;
   }
 }
-export interface IGlobalToastOptions {
+export interface IToastSettings {
   newToastPosition: 'top' | 'bottom';
 }
 export interface IToastOptions {

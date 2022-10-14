@@ -1,0 +1,30 @@
+<app-header
+  header="Fejlopsummering"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/fejlopsummering/"
+>
+  Error summary is not implemented as a standalone as it would not make much
+  sense since is basically an <a routerLink="/beskeder-alerts">alert</a> with
+  some links. Instead ngfds provides a form which handles all error handling for
+  a form group. Examples are provided below.
+</app-header>
+
+<app-demo-view>
+  <fds-form>
+    <fds-form-error-summary>Der er problemer</fds-form-error-summary>
+    <h1>Oplysninger om dig</h1>
+
+    <fds-form-field label="Hvad er dit fulde navn?" hint="Fx. Jan Hansen">
+      <fds-form-error-message
+        *ngIf="
+          requiredFormControl.invalid &&
+          (requiredFormControl.touched || requiredFormControl.dirty)
+        "
+        >Du mangler at udfylde dit navn</fds-form-error-message
+      >
+      <input class="form-input" [formControl]="requiredFormControl" />
+    </fds-form-field>
+  </fds-form>
+</app-demo-view>
+
+<app-doc-view></app-doc-view>

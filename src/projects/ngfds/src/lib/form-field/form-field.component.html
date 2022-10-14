@@ -1,0 +1,17 @@
+<div
+  [id]="'label_' + fieldName"
+  class="form-group"
+  [ngClass]="{
+    'form-error':
+      hasError === true ||
+      (hasError === 'auto' && errorMessageList.length !== 0)
+  }"
+>
+  <label *ngIf="label" class="form-label" [attr.for]="fieldName">{{
+    label
+  }}</label>
+  <span *ngIf="hasHint" class="form-hint" [attr.id]="fieldName + '-hint'">{{
+    hint
+  }}</span>
+  <ng-content></ng-content>
+</div>

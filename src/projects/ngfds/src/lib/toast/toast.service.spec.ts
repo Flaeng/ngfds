@@ -2,8 +2,8 @@ import { TestBed } from '@angular/core/testing';
 
 import {
   FdsToastService,
-  FDS_TOAST_OPTIONS,
-  IGlobalToastOptions,
+  FDS_TOAST_SETTINGS,
+  IToastSettings,
 } from './toast.service';
 
 describe('ToastService', () => {
@@ -13,10 +13,10 @@ describe('ToastService', () => {
     TestBed.configureTestingModule({
       providers: [
         {
-          provide: FDS_TOAST_OPTIONS,
+          provide: FDS_TOAST_SETTINGS,
           useValue: {
             newToastPosition: 'bottom',
-          } as IGlobalToastOptions,
+          } as IToastSettings,
         },
       ],
     });

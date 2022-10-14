@@ -111,11 +111,11 @@ async function getDocumentationAsync(file) {
         .map((x) => {
           const res = {
             name: x[0].name,
-            type: x[0].type || x[1].type,
-            isStatic: x[0].isStatic || x[1].isStatic,
+            type: x[0].type || (x.length > 1 && x[1].type),
+            isStatic: x[0].isStatic || (x.length > 1 && x[1].isStatic),
           };
-          res['getter'] = x[0] instanceof GetterDeclaration ? x[0] : x[1];
-          res['setter'] = x[0] instanceof SetterDeclaration ? x[0] : x[1];
+          res['getter'] = x[0] instanceof GetterDeclaration ? x[0] : x.length > 1 ? x[1] : null;
+          res['setter'] = x[0] instanceof SetterDeclaration ? x[0] : x.length > 1 ? x[1] : null;
           return res;
         });
       const propList = propertyList

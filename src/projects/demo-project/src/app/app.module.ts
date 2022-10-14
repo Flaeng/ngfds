@@ -6,8 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScrollToDirective } from './directives/scroll-to.directive';
 import {
-  FDS_TOAST_OPTIONS,
-  IGlobalToastOptions,
+  FDS_TOAST_SETTINGS,
+  IToastSettings,
 } from 'projects/ngfds/src/lib/toast/toast.service';
 import {
   FdsBadgeModule,
@@ -31,10 +31,10 @@ import {
   ],
   providers: [
     {
-      provide: FDS_TOAST_OPTIONS,
+      provide: FDS_TOAST_SETTINGS,
       useValue: {
         newToastPosition: 'bottom',
-      } as IGlobalToastOptions,
+      } as IToastSettings,
     },
   ],
   bootstrap: [AppComponent],

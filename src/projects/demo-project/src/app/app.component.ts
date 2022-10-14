@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
     }),
     new AppSideNavigationItem({
       url: 'datoangivelse',
-      title: 'Datoangivelse',
+      title: 'Datofelter',
       state: 'done',
     }),
     new AppSideNavigationItem({
@@ -104,23 +104,27 @@ export class AppComponent implements OnInit {
     }),
     new AppSideNavigationItem({
       url: 'dropdown-menu',
-      title: 'Dropdown-menu',
+      title: 'Dropdown',
       state: 'done',
     }),
     new AppSideNavigationItem({
       url: 'tabs',
-      title: 'Faneblade',
+      title: 'Faneblade (Tabs)',
       state: 'done',
     }),
-    new AppSideNavigationItem({ url: 'fejlbeskeder', title: 'Fejlbeskeder' }),
+    new AppSideNavigationItem({
+      url: 'fejlbeskeder',
+      title: 'Fejlmeddelelser',
+      state: 'done',
+    }),
     new AppSideNavigationItem({
       url: 'fejlopsummering',
       title: 'Fejlopsummering',
+      state: 'done',
     }),
-    new AppSideNavigationItem({ url: 'felter', title: 'Felter' }),
     new AppSideNavigationItem({
       url: 'footers',
-      title: 'Footers',
+      title: 'Footer',
       state: 'work in progress',
     }),
     new AppSideNavigationItem({ url: 'formular', title: 'Formular' }),
@@ -130,8 +134,13 @@ export class AppComponent implements OnInit {
       state: 'done',
     }),
     new AppSideNavigationItem({
+      url: 'skip-link',
+      title: 'Gå til sidens indhold (skip-link)',
+      state: 'done',
+    }),
+    new AppSideNavigationItem({
       url: 'headers',
-      title: 'Headers',
+      title: 'Header',
       state: 'done',
       children: [
         new AppSideNavigationItem({
@@ -173,17 +182,24 @@ export class AppComponent implements OnInit {
         }),
       ],
     }),
+    new AppSideNavigationItem({
+      url: 'felter',
+      title: 'Inputfelter',
+    }),
     new AppSideNavigationItem({ url: 'icons', title: 'Ikoner', state: 'done' }),
     new AppSideNavigationItem({
       url: 'knapper',
-      title: 'Knapper',
+      title: 'Knapper (Buttons)',
       state: 'done',
     }),
-    new AppSideNavigationItem({ url: 'modalvindue', title: 'Modalvindue' }),
     new AppSideNavigationItem({
-      url: 'notification-toast',
-      title: 'Notification (Toast)',
+      url: 'spinner',
+      title: 'Loading spinner',
       state: 'done',
+    }),
+    new AppSideNavigationItem({
+      url: 'modalvindue',
+      title: 'Modal',
     }),
     new AppSideNavigationItem({
       url: 'overflow-menu',
@@ -195,21 +211,9 @@ export class AppComponent implements OnInit {
       title: 'Paginering',
       state: 'done',
     }),
-    new AppSideNavigationItem({ url: 'radioknap', title: 'Radioknap' }),
     new AppSideNavigationItem({
-      url: 'side-navigation',
-      title: 'Sidenavigation',
-      state: 'done',
-    }),
-    new AppSideNavigationItem({
-      url: 'skip-link',
-      title: 'Skip-link',
-      state: 'done',
-    }),
-    new AppSideNavigationItem({
-      url: 'spinner',
-      title: 'Spinner',
-      state: 'done',
+      url: 'radioknap',
+      title: 'Radioknap (Radio button)',
     }),
     new AppSideNavigationItem({
       url: 'sprog-vaelger',
@@ -222,26 +226,31 @@ export class AppComponent implements OnInit {
       state: 'done',
     }),
     new AppSideNavigationItem({ url: 'soegefelt', title: 'Søgefelt' }),
-    new AppSideNavigationItem({
-      url: 'tilbage-link',
-      title: 'Tilbage link',
-      state: 'done',
-    }),
-    new AppSideNavigationItem({
-      url: 'tilbage-til-toppen-link',
-      title: 'Tilbage til toppen link',
-      state: 'done',
-    }),
     new AppSideNavigationItem({ url: 'tabeller', title: 'Tabeller' }),
     new AppSideNavigationItem({ url: 'tags', title: 'Tags', state: 'done' }),
     new AppSideNavigationItem({
       url: 'textarea',
-      title: 'Tekstområde',
+      title: 'Tekstområde (Textarea)',
+      state: 'done',
+    }),
+    new AppSideNavigationItem({
+      url: 'tilbage-link',
+      title: 'Tilbage-link',
+      state: 'done',
+    }),
+    new AppSideNavigationItem({
+      url: 'tilbage-til-toppen-link',
+      title: 'Tilbage til toppen',
       state: 'done',
     }),
     new AppSideNavigationItem({
       url: 'checkbox',
-      title: 'Tjekboks',
+      title: 'Tjekboks (Checkbox)',
+      state: 'done',
+    }),
+    new AppSideNavigationItem({
+      url: 'notification-toast',
+      title: 'Toastbesked',
       state: 'done',
     }),
     new AppSideNavigationItem({
@@ -259,7 +268,12 @@ export class AppComponent implements OnInit {
       title: 'Trinindikator',
       state: 'done',
     }),
-    new AppSideNavigationItem({ url: '#', title: 'Vedhæft fil (Upload)' }),
+    new AppSideNavigationItem({ url: '#', title: 'Vedhæft fil' }),
+    new AppSideNavigationItem({
+      url: 'side-navigation',
+      title: 'Venstremenu',
+      state: 'done',
+    }),
   ];
 
   dkfdsExtra: SideNavigationItem[] = [
@@ -275,7 +289,7 @@ export class AppComponent implements OnInit {
     new AppSideNavigationItem({
       url: 'ngfds/dropdown',
       title: 'Dropdown (multiselect)',
-      state: 'work in progress'
+      state: 'work in progress',
     }),
     new AppSideNavigationItem({
       url: 'ngfds/side-navigation',

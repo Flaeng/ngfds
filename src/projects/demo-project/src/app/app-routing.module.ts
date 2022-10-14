@@ -48,6 +48,20 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'fejlbeskeder',
+    loadChildren: () =>
+      import('./pages/form-field-page/form-field-page.module').then(
+        (x) => x.ErrorMessagePageModule
+      ),
+  },
+  {
+    path: 'fejlopsummering',
+    loadChildren: () =>
+      import('./pages/form-page/form-page.module').then(
+        (x) => x.ErrorSummaryPageModule
+      ),
+  },
+  {
     path: 'knapper',
     loadChildren: () =>
       import('./pages/button-page/button-page.module').then(

@@ -1,0 +1,23 @@
+<div
+  class="alert alert-error mt-0 mb-8"
+  role="alert"
+  aria-atomic="true"
+  data-module="error-summary"
+  *ngIf="errorMessages.length !== 0"
+>
+  <div class="alert-body">
+    <p class="alert-heading">
+      <ng-content></ng-content>
+    </p>
+    <ul class="alert-text nobullet-list">
+      <li *ngFor="let msg of errorMessages">
+        <a
+          class="function-link"
+          href="javascript:void()"
+          (click)="scrollTo($event, msg)"
+          >{{ msg.text }}</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>

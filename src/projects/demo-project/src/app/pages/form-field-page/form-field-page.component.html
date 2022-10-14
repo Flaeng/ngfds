@@ -1,0 +1,99 @@
+<app-header
+  header="Fejlbeskeder"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/fejlmeddelelser/"
+>
+  The fields below are set to trigger validation on input (as you type).
+  Don't do that in your code - this is only done for demo purposes :)
+</app-header>
+
+<app-demo-view>
+  <div class="mb-5">
+    <fds-form-field
+      label="Hvad er dit fulde navn?"
+      hint="Fx. Jan Hansen"
+      [has-error]="false"
+    >
+      <input class="form-input" />
+    </fds-form-field>
+  </div>
+  <div>
+    <fds-form-field
+      label="Hvad er dit fulde navn?"
+      hint="Fx. Jan Hansen"
+      [has-error]="true"
+    >
+      <input class="form-input" />
+    </fds-form-field>
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-form-field label="Hvad er dit fulde navn?" hint="Fx. Jan Hansen">
+    <fds-form-error-message
+      *ngIf="
+        requiredFormControl.invalid &&
+        (requiredFormControl.touched || requiredFormControl.dirty)
+      "
+      >Du mangler at udfylde dit navn</fds-form-error-message
+    >
+    <input class="form-input" [formControl]="requiredFormControl" />
+  </fds-form-field>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-form-field
+    label="Kort beskrivelse?"
+    hint="Det skal være mellem 3 og 15 tegn"
+  >
+    <div
+      *ngIf="
+        multiValidatorFormControl.invalid &&
+        (multiValidatorFormControl.touched || multiValidatorFormControl.dirty)
+      "
+    >
+      <fds-form-error-message
+        *ngIf="multiValidatorFormControl.errors?.['required']"
+      >
+        Du mangler at udfylde en kort beskrivelse
+      </fds-form-error-message>
+      <fds-form-error-message
+        *ngIf="multiValidatorFormControl.errors?.['minlength']"
+      >
+        Ikke så kort
+      </fds-form-error-message>
+      <fds-form-error-message
+        *ngIf="multiValidatorFormControl.errors?.['maxlength']"
+      >
+        Beskrivelsen skal være kort
+      </fds-form-error-message>
+    </div>
+    <input class="form-input" [formControl]="multiValidatorFormControl" />
+  </fds-form-field>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-form-field
+    label="Indtast din email"
+    hint="Det skal være mellem 5 og 8 tegn"
+  >
+    <div
+      *ngIf="
+        emailFormControl.invalid &&
+        (emailFormControl.touched || emailFormControl.dirty)
+      "
+    >
+      <fds-form-error-message *ngIf="emailFormControl.errors?.['email']">
+        Mailadressen er ikke valid
+      </fds-form-error-message>
+      <fds-form-error-message *ngIf="emailFormControl.errors?.['minlength']">
+        Mailadressen er for kort
+      </fds-form-error-message>
+      <fds-form-error-message *ngIf="emailFormControl.errors?.['maxlength']">
+        Mailadressen er for lang
+      </fds-form-error-message>
+    </div>
+    <input class="form-input" [formControl]="emailFormControl" />
+  </fds-form-field>
+</app-demo-view>
+<app-doc-view></app-doc-view>
