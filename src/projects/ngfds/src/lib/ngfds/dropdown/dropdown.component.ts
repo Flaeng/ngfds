@@ -17,7 +17,7 @@ import { DropdownOptionComponent } from './public-api';
   templateUrl: './dropdown.component.html',
   providers: [...AngularHelper.formInput(DropdownComponent)],
 })
-export class DropdownComponent extends NgModelComponent<DropdownOptionComponent | null> {
+export class DropdownComponent extends NgModelComponent<DropdownOptionComponent[] | DropdownOptionComponent | null> {
   /* Fields */
   @Input()
   public placeholder: string | null = null;
@@ -68,11 +68,11 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
     super(formField);
   }
 
-  setValue(obj: DropdownOptionComponent | null): void {
+  setValue(obj: DropdownOptionComponent[] | DropdownOptionComponent | null): void {
     if (Array.isArray(obj)) {
-      this.selectedItems = obj ?? null;
+      this.selectedItems = obj;
     } else {
-      this.selectedItem = obj ?? null;
+      this.selectedItem = obj;
     }
   }
 
@@ -117,11 +117,11 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
   }
 
   @ViewChild('formControl')
-  formControl!: ElementRef<HTMLDivElement>;
+  formControl: ElementRef<HTMLDivElement> | null = null;
 
   @HostListener('document:click', ['$event', '$event.target'])
   globalClickHandler(ev: MouseEvent, target: HTMLElement): void {
-    if (!target) {
+    if (!target || !this.formControl) {
       return;
     }
     const clickedInside = this.formControl.nativeElement.contains(target);
@@ -133,7 +133,7 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
   @HostListener('document:keydown', ['$event'])
   globalKeydownHandler(ev: KeyboardEvent): void {
     setTimeout(() => {
-      if (this.isOpen === false || ev.key.toLowerCase() !== 'tab') return;
+      if (!this.formControl || this.isOpen === false || ev.key.toLowerCase() !== 'tab') return;
       const target = document.activeElement;
       const clickedInside = this.formControl.nativeElement.contains(target);
       if (!clickedInside) {
@@ -145,11 +145,8 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
   public focusPreviousItem(ev: Event) {
     this.preventDefault(ev);
     const focusIndex = this.getItemIndexWithFocus();
-    if (focusIndex === -1 || focusIndex === 0) {
-      this.options[this.options.length - 1].setFocus();
-    } else {
-      this.options[focusIndex - 1].setFocus();
-    }
+    const prevIndex = focusIndex > 0 ? focusIndex - 1 : this.options.length - 1;
+    this.options[prevIndex].setFocus();
   }
 
   private getItemIndexWithFocus() {

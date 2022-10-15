@@ -5,23 +5,19 @@ import { TabComponent } from './tab/tab.component';
 import { TabContentComponent } from './tab-content/tab-content.component';
 import { TabSelectorComponent } from './tab-selector/tab-selector.component';
 
-
-
 @NgModule({
   declarations: [
     TabsComponent,
     TabComponent,
     TabContentComponent,
-    TabSelectorComponent
+    TabSelectorComponent,
   ],
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   exports: [
     TabsComponent,
     TabComponent,
     TabContentComponent,
-    TabSelectorComponent
-  ]
+    TabSelectorComponent,
+  ],
 })
-export class FdsTabsModule { }
+export class FdsTabsModule {}
