@@ -1,4 +1,7 @@
 # ngfds
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4b397af8ebee4d8592ca96d10bf35c67)](https://app.codacy.com/gh/Flaeng/ngfds?utm_source=github.com&utm_medium=referral&utm_content=Flaeng/ngfds&utm_campaign=Badge_Grade_Settings)
+
 An Angular Component Library implemeting DKFDS - Fælles Design System
 
 ## Builds
