@@ -19,7 +19,10 @@ import { NgModelComponent } from '../ng-model-component';
   templateUrl: './input.component.html',
   providers: [...AngularHelper.formInput(InputComponent)],
 })
-export class InputComponent extends NgModelComponent<string> implements OnInit, AfterViewInit, OnChanges {
+export class InputComponent
+  extends NgModelComponent<string>
+  implements OnInit, AfterViewInit, OnChanges
+{
   @Input()
   public disabled: boolean = false;
 
@@ -90,15 +93,10 @@ export class InputComponent extends NgModelComponent<string> implements OnInit, 
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.showCharacterLimit === true) {
-      super.trySetupCharacterLimit(this);
-    } else if (this.underlayingControl !== null) {
-      this.underlayingControl = null;
-    }
+    super.handleChangesForCharacterLimit(this);
   }
 
   ngAfterViewInit(): void {
     super.trySetupCharacterLimit(this);
   }
-
 }

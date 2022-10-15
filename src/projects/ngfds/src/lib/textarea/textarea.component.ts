@@ -73,11 +73,7 @@ export class TextareaComponent
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.showCharacterLimit === true) {
-      super.trySetupCharacterLimit(this);
-    } else if (this.underlayingControl !== null) {
-      this.underlayingControl = null;
-    }
+    super.handleChangesForCharacterLimit(this);
   }
 
   // private autoExpandIfSet() {

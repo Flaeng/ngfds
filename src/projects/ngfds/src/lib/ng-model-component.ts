@@ -9,6 +9,12 @@ import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../public-api';
 import { DkfdsHelper } from './helpers/dkfds-helper';
 
+export type CharacterLimitComponent = {
+  showCharacterLimit: boolean;
+  formControlWrapper: ElementRef<HTMLDivElement> | undefined;
+  underlayingControl: DKFDS.CharacterLimit | null;
+};
+
 export abstract class NgModelComponent<T>
   implements ControlValueAccessor, Validator
 {
@@ -33,11 +39,15 @@ export abstract class NgModelComponent<T>
     this.onTouched?.call(this);
   }
 
-  trySetupCharacterLimit(comp: {
-    showCharacterLimit: boolean;
-    formControlWrapper: ElementRef<HTMLDivElement> | undefined;
-    underlayingControl: DKFDS.CharacterLimit | null;
-  }) {
+  handleChangesForCharacterLimit(comp: CharacterLimitComponent): void {
+    if (comp.showCharacterLimit === true) {
+      this.trySetupCharacterLimit(comp);
+    } else if (comp.underlayingControl !== null) {
+      comp.underlayingControl = null;
+    }
+  }
+
+  trySetupCharacterLimit(comp: CharacterLimitComponent): void {
     if (!comp.showCharacterLimit) return;
     if (!comp.formControlWrapper) return;
     if (comp.underlayingControl) return;
