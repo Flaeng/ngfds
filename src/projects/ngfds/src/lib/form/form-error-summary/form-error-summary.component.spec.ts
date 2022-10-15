@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { FormComponent } from '../public-api';
 
 import { FormErrorSummaryComponent } from './form-error-summary.component';
