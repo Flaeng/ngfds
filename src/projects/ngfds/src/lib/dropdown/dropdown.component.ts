@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  Optional,
+  ViewChild,
+} from '@angular/core';
+import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
 import { NgModelComponent } from '../ng-model-component';
 import { DropdownOptionComponent } from './public-api';
@@ -20,6 +27,9 @@ export class DropdownComponent extends NgModelComponent<unknown | null> {
   @Input()
   public disabled: boolean = false;
 
+  @Input()
+  public name: string = '';
+
   /* Properties */
   private _selectedItems: unknown | null = null;
   public get selectedItem(): unknown | null {
@@ -38,6 +48,11 @@ export class DropdownComponent extends NgModelComponent<unknown | null> {
   optionList: FdsDropdownItem[] = [];
 
   /* Methods */
+
+  constructor(@Optional() formField: FormFieldComponent) {
+    super(formField);
+  }
+
   registerOption(component: DropdownOptionComponent) {
     this.optionComponents.push(component);
     this.optionList.push({ value: component.value, text: component.text });

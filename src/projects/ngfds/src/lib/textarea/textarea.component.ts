@@ -4,10 +4,12 @@ import {
   ElementRef,
   Input,
   OnChanges,
+  Optional,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import * as DKFDS from 'dkfds';
+import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
 import { DkfdsHelper } from '../helpers/dkfds-helper';
 import { NgModelComponent } from '../ng-model-component';
@@ -27,6 +29,9 @@ export class TextareaComponent
 
   @Input()
   public rows: number = 5;
+
+  @Input()
+  public name: string = '';
 
   @Input()
   public disabled: boolean = false;
@@ -57,6 +62,10 @@ export class TextareaComponent
   formControl: ElementRef<HTMLTextAreaElement> | undefined;
 
   underlayingControl: DKFDS.CharacterLimit | null = null;
+
+  constructor(@Optional() formField: FormFieldComponent) {
+    super(formField);
+  }
 
   ngAfterViewInit(): void {
     // this.autoExpandIfSet();

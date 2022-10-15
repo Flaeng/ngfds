@@ -3,8 +3,8 @@
   sub-header="Component"
   doc-url="https://designsystem.dk/komponenter/fejlmeddelelser/"
 >
-  The fields below are set to trigger validation on input (as you type).
-  Don't do that in your code - this is only done for demo purposes :)
+  The fields below are set to trigger validation on input (as you type). Don't
+  do that in your code - this is only done for demo purposes :)
 </app-header>
 
 <app-demo-view>
@@ -14,7 +14,7 @@
       hint="Fx. Jan Hansen"
       [has-error]="false"
     >
-      <input class="form-input" />
+      <fds-input></fds-input>
     </fds-form-field>
   </div>
   <div>
@@ -23,7 +23,7 @@
       hint="Fx. Jan Hansen"
       [has-error]="true"
     >
-      <input class="form-input" />
+      <fds-input></fds-input>
     </fds-form-field>
   </div>
 </app-demo-view>
@@ -37,7 +37,7 @@
       "
       >Du mangler at udfylde dit navn</fds-form-error-message
     >
-    <input class="form-input" [formControl]="requiredFormControl" />
+    <fds-input [formControl]="requiredFormControl"></fds-input>
   </fds-form-field>
 </app-demo-view>
 
@@ -68,7 +68,7 @@
         Beskrivelsen skal være kort
       </fds-form-error-message>
     </div>
-    <input class="form-input" [formControl]="multiValidatorFormControl" />
+    <fds-input [formControl]="multiValidatorFormControl"></fds-input>
   </fds-form-field>
 </app-demo-view>
 
@@ -93,7 +93,7 @@
         Mailadressen er for lang
       </fds-form-error-message>
     </div>
-    <input class="form-input" [formControl]="emailFormControl" />
+    <fds-input [formControl]="emailFormControl"></fds-input>
   </fds-form-field>
 </app-demo-view>
 <app-doc-view></app-doc-view>

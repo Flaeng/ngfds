@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Optional } from '@angular/core';
+import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
 import { NgModelComponent } from '../ng-model-component';
 
@@ -27,9 +28,16 @@ export class CheckboxComponent extends NgModelComponent<boolean> {
   @Input()
   public content: string | null = null;
 
+  @Input()
+  public name: string = '';
+
   static idGenerator = 1;
 
   id: string = 'checkbox' + (CheckboxComponent.idGenerator++).toString();
+
+  constructor(@Optional() formField: FormFieldComponent) {
+    super(formField);
+  }
 
   setValue(obj: boolean): void {
     this.value = obj;

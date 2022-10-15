@@ -3,8 +3,10 @@ import {
   ElementRef,
   HostListener,
   Input,
+  Optional,
   ViewChild,
 } from '@angular/core';
+import { FormFieldComponent } from '../../form-field/public-api';
 import { AngularHelper } from '../../helpers/angular-helper';
 import { NgModelComponent } from '../../ng-model-component';
 import { DropdownOptionComponent } from './public-api';
@@ -18,6 +20,9 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
   /* Fields */
   @Input()
   public placeholder: string | null = null;
+
+  @Input()
+  public name: string = '';
 
   @Input()
   public disabled: boolean = false;
@@ -58,8 +63,8 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
   private options: DropdownOptionComponent[] = [];
 
   /* Methods */
-  constructor(private el: ElementRef) {
-    super();
+  constructor(@Optional() formField: FormFieldComponent) {
+    super(formField);
   }
 
   setValue(obj: DropdownOptionComponent | null): void {

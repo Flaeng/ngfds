@@ -1,9 +1,11 @@
+import { Input, OnInit, Optional } from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
   ValidationErrors,
   Validator,
 } from '@angular/forms';
+import { FormFieldComponent } from '../public-api';
 
 export abstract class NgModelComponent<T>
   implements ControlValueAccessor, Validator
@@ -14,12 +16,20 @@ export abstract class NgModelComponent<T>
 
   abstract disabled: boolean;
 
+  abstract setValue(obj: T): void;
+
+  abstract name: string;
+
+  constructor(protected formField: FormFieldComponent | null) {}
+
+  onInit() {
+    this.name = this.formField ? `input_${this.formField.fieldName}` : '';
+  }
+
   protected emitChanges(value: T): void {
     this.onChange?.call(this, value);
     this.onTouched?.call(this);
   }
-
-  abstract setValue(obj: T): void;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(obj: any): void {

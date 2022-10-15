@@ -9,6 +9,7 @@ import {
 } from 'projects/ngfds/src/public-api';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FdsFormsModule } from 'projects/ngfds/src/lib/form-field/form-field.module';
+import { FdsInputModule } from 'projects/ngfds/src/lib/input/input.module';
 
 const routes: Routes = [{ path: '', component: FormFieldPageComponent }];
 @NgModule({
@@ -28,6 +29,7 @@ export class ErrorMessageRoutingModule {}
     FdsCardModule,
     FdsDateInputModule,
     FdsFormsModule,
+    FdsInputModule,
   ],
 })
 export class ErrorMessagePageModule {}

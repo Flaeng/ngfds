@@ -7,7 +7,7 @@
       (hasError === 'auto' && errorMessageList.length !== 0)
   }"
 >
-  <label *ngIf="label" class="form-label" [attr.for]="fieldName">{{
+  <label *ngIf="label" class="form-label" [attr.for]="'input_' + fieldName">{{
     label
   }}</label>
   <span *ngIf="hasHint" class="form-hint" [attr.id]="fieldName + '-hint'">{{

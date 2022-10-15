@@ -1,0 +1,41 @@
+<div #formControlWrapper [attr.data-maxlength]="maxlength">
+  <div
+    class="form-input-wrapper"
+    [ngClass]="{ 'form-input-wrapper--suffix': suffix }"
+  >
+    <div class="form-input-prefix" *ngIf="prefix" aria-hidden="true">
+      {{ prefix }}
+    </div>
+    <input
+      class="form-input {{ size ? 'input-' + size : '' }}"
+      [disabled]="disabled"
+      [type]="type"
+      [attr.id]="name"
+      [(ngModel)]="value"
+      [readonly]="readonly"
+      [placeholder]="placeholder"
+    />
+    <div class="form-input-suffix" *ngIf="suffix" aria-hidden="true">
+      {{ suffix }}
+    </div>
+  </div>
+
+  <span
+    *ngIf="showCharacterLimit"
+    id="input-type-character-limit-message"
+    class="sr-only"
+    >Du kan indtaste op til {{ maxlength }} tegn</span
+  >
+  <span
+    *ngIf="showCharacterLimit"
+    class="form-hint character-limit"
+    aria-hidden="true"
+    >Du har {{ maxlength }} tegn tilbage</span
+  >
+  <span
+    *ngIf="showCharacterLimit"
+    class="character-limit-sr-only sr-only"
+    aria-live="polite"
+    >Du har {{ maxlength }} tegn tilbage</span
+  >
+</div>

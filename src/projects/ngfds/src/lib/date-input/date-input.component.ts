@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, Optional } from '@angular/core';
 import * as DKFDS from 'dkfds';
+import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
 import { DateHelper } from '../helpers/date-helper';
 import { NgModelComponent } from '../ng-model-component';
@@ -63,8 +64,11 @@ export class DateInputComponent
   @Input()
   public disabled: boolean = false;
 
-  constructor(private el: ElementRef) {
-    super();
+  @Input()
+  public name: string = '';
+
+  constructor(private el: ElementRef, @Optional() formField: FormFieldComponent) {
+    super(formField);
   }
 
   setValue(obj: Date | null): void {

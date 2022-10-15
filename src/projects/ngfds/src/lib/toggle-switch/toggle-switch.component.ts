@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Optional } from '@angular/core';
+import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
 import { NgModelComponent } from '../ng-model-component';
 
@@ -10,6 +11,9 @@ import { NgModelComponent } from '../ng-model-component';
 export class ToggleSwitchComponent extends NgModelComponent<boolean> {
   @Input()
   public disabled: boolean = false;
+
+  @Input()
+  public name: string = '';
 
   private _value: boolean = false;
   public get value(): boolean {
@@ -24,6 +28,10 @@ export class ToggleSwitchComponent extends NgModelComponent<boolean> {
 
   id: string =
     'toggle-switch' + (ToggleSwitchComponent.idGenerator++).toString();
+
+  constructor(@Optional() formField: FormFieldComponent) {
+    super(formField);
+  }
 
   setValue(obj: boolean): void {
     this.value = obj;

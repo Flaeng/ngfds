@@ -1,5 +1,6 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import { Component, ElementRef, Input, Optional } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { FormFieldComponent } from '../../form-field/public-api';
 import { AngularHelper } from '../../helpers/angular-helper';
 import { NgModelComponent } from '../../ng-model-component';
 
@@ -13,6 +14,9 @@ export type RadioButtonSize = 'large' | 'small';
 export class RadioGroupComponent extends NgModelComponent<unknown | null> {
   @Input()
   public disabled: boolean = false;
+
+  @Input()
+  public name: string = '';
 
   _value: unknown | null = null;
   public get value(): unknown | null {
@@ -40,8 +44,8 @@ export class RadioGroupComponent extends NgModelComponent<unknown | null> {
   groupName: string =
     'radiogroup' + (RadioGroupComponent.idGenerator++).toString();
 
-  constructor(public el: ElementRef) {
-    super();
+  constructor(public el: ElementRef, @Optional() formField: FormFieldComponent) {
+    super(formField);
   }
 
   setValue(obj: unknown | null): void {

@@ -1,0 +1,71 @@
+<app-header
+  header="Inputfelter"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/inputfelter/"
+>
+</app-header>
+
+<app-demo-view>
+  <fds-input [(ngModel)]="text1"></fds-input>
+  <div class="mt-3">
+    {{ text1 }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-input [(ngModel)]="text1" [disabled]="true"></fds-input>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-input [(ngModel)]="text1" [readonly]="true"></fds-input>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-input [(ngModel)]="number1" type="number" prefix="€"></fds-input>
+  <div class="mt-3">
+    {{ number1 }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-input [(ngModel)]="number2" type="number" suffix="kr"></fds-input>
+  <div class="mt-3">
+    {{ number2 }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-input [(ngModel)]="text2" [maxlength]="25" [show-character-limit]="true"></fds-input>
+  <div class="mt-3">
+    {{ text2 }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-input [(ngModel)]="number3" suffix=".000 kr" [maxlength]="4" [show-character-limit]="true"></fds-input>
+  <div class="mt-3">
+    {{ number3 }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-input [(ngModel)]="text3" placeholder="Enter text..."></fds-input>
+  <div class="mt-3">
+    {{ text3 }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-input value="xxs" size="width-xxs"></fds-input>
+  <fds-input value="width-xs" size="width-xs"></fds-input>
+  <fds-input value="width-s" size="width-s"></fds-input>
+  <fds-input value="width-m" size="width-m"></fds-input>
+  <fds-input value="width-l" size="width-l"></fds-input>
+  <fds-input value="width-xl" size="width-xl"></fds-input>
+  <fds-input value="1234" size="char-4"></fds-input>
+  <fds-input value="12345678" size="char-8"></fds-input>
+  <fds-input value="12345678901" size="char-11"></fds-input>
+  <fds-input value="123456789012345678901234567" size="char-27"></fds-input>
+</app-demo-view>
+
+<app-doc-view></app-doc-view>

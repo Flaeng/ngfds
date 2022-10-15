@@ -55,6 +55,20 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'file-upload',
+    loadChildren: () =>
+      import('./pages/file-upload-page/file-upload-page.module').then(
+        (x) => x.FileUploadPageModule
+      ),
+  },
+  {
+    path: 'input',
+    loadChildren: () =>
+      import('./pages/input-page/input-page.module').then(
+        (x) => x.InputPageModule
+      ),
+  },
+  {
     path: 'fejlopsummering',
     loadChildren: () =>
       import('./pages/form-page/form-page.module').then(

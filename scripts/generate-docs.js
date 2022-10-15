@@ -187,7 +187,8 @@ async function getDocumentationAsync(file) {
             if (declCandidates.length === 1) {
               typeText = `<a scroll-to='#${typeName}'>${param}</a>`;
             }
-            newTypeList.push(typeText);
+            if (typeText.length !== 0)
+              newTypeList.push(typeText);
           }
           result.push(`<td>${newTypeList.join(' | ')}</td>`);
 

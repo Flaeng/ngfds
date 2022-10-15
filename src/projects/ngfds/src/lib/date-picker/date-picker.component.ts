@@ -3,9 +3,11 @@ import {
   Component,
   ElementRef,
   Input,
+  Optional,
   ViewChild,
 } from '@angular/core';
 import * as DKFDS from 'dkfds';
+import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
 import { DateHelper } from '../helpers/date-helper';
 import { NgModelComponent } from '../ng-model-component';
@@ -28,6 +30,9 @@ export class DatePickerComponent
   stringValue = '';
 
   underlayingControl: DKFDS.DatePickerContext | null = null;
+
+  @Input()
+  public name: string = '';
 
   @Input('min')
   public min: Date | null = null;
@@ -79,8 +84,8 @@ export class DatePickerComponent
       : this.underlayingControl.selectedDate;
   }
 
-  constructor(private el: ElementRef) {
-    super();
+  constructor(private el: ElementRef, @Optional() formField: FormFieldComponent) {
+    super(formField);
   }
 
   setValue(obj: Date | null): void {

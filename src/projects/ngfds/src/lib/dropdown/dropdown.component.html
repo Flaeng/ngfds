@@ -3,6 +3,7 @@
   class="form-select"
   [disabled]="disabled"
   [(ngModel)]="selectedItem"
+  [attr.id]="name"
 >
   <option *ngIf="placeholder && selectedItem === null" [value]="null">
     {{ placeholder }}

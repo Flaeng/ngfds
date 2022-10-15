@@ -8,6 +8,7 @@
   (keydown.space)="openDropdown($event)"
   (keydown.arrowup)="focusPreviousItem($event)"
   (keydown.arrowdown)="focusNextItem($event)"
+  [attr.id]="name"
 >
   <ng-container
     *ngIf="

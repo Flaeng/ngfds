@@ -127,7 +127,6 @@ export class AppComponent implements OnInit {
       title: 'Footer',
       state: 'work in progress',
     }),
-    new AppSideNavigationItem({ url: 'formular', title: 'Formular' }),
     new AppSideNavigationItem({
       url: 'funktionslink',
       title: 'Funktionslink',
@@ -183,8 +182,9 @@ export class AppComponent implements OnInit {
       ],
     }),
     new AppSideNavigationItem({
-      url: 'felter',
+      url: 'input',
       title: 'Inputfelter',
+      state: 'done',
     }),
     new AppSideNavigationItem({ url: 'icons', title: 'Ikoner', state: 'done' }),
     new AppSideNavigationItem({
@@ -269,7 +269,11 @@ export class AppComponent implements OnInit {
       title: 'Trinindikator',
       state: 'done',
     }),
-    new AppSideNavigationItem({ url: '#', title: 'Vedhæft fil' }),
+    new AppSideNavigationItem({
+      url: 'file-upload',
+      title: 'Vedhæft fil',
+      state: 'done',
+    }),
     new AppSideNavigationItem({
       url: 'side-navigation',
       title: 'Venstremenu',

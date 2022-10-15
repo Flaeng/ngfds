@@ -10,6 +10,7 @@
       data-max="31"
       maxlength="2"
       [disabled]="disabled"
+      [attr.id]="name"
       [(ngModel)]="dayOfMonth"
       pattern="^[0-9]{0,2}$"
       data-input-regex="^[0-9]{0,2}$"
