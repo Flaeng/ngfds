@@ -104,7 +104,11 @@ describe('DropdownComponent', () => {
     it('will close dropdown when clicked outside of component', () => {
       // Arrange
       component.isOpen = true;
-      spyOn(component.formControl!.nativeElement, 'contains').and.returnValue(false);
+      if (!component.formControl) {
+        fail('formControl is not defined');
+        return;
+      }
+      spyOn(component.formControl.nativeElement, 'contains').and.returnValue(false);
 
       // Act
       component.globalClickHandler({ ...fakeEvent } as MouseEvent, {} as HTMLElement);
