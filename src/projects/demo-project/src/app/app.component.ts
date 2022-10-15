@@ -214,6 +214,7 @@ export class AppComponent implements OnInit {
     new AppSideNavigationItem({
       url: 'radiobutton',
       title: 'Radioknap (Radio button)',
+      state: 'done',
     }),
     new AppSideNavigationItem({
       url: 'sprog-vaelger',

@@ -15,7 +15,7 @@ export class RadioButtonComponent implements OnDestroy {
   private _size: RadioButtonSize | null = null;
   private _parentSize: RadioButtonSize;
   @Input()
-  public get size(): RadioButtonSize {
+  public get size(): RadioButtonSize | null {
     return this._size ?? this._parentSize;
   }
   public set size(value: RadioButtonSize | null) {
@@ -46,7 +46,7 @@ export class RadioButtonComponent implements OnDestroy {
   }
 
   didChange(ev: Event): void {
-    const target = ev.target as HTMLInputElement
+    const target = ev.target as HTMLInputElement;
     if (target && target.value) {
       this.radioGroup.value = this.value;
     }

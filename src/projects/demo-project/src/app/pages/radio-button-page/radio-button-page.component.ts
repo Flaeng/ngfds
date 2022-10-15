@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./radio-button-page.component.scss'],
 })
 export class RadioButtonPageComponent {
-  radiobuttongroup1: any;
-  radiobuttongroup2: any;
+  radiobuttongroup1: unknown;
+  radiobuttongroup2: unknown;
 }
