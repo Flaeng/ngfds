@@ -10,7 +10,7 @@ if (!path) {
 }
 
 const ngVersionResult = getIntArgument("ng-version");
-if (ngVersionResult.success == false) {
+if (ngVersionResult.success === false) {
   console.error("Missing or invalid --ng-version argument");
   return 1;
 }
@@ -55,18 +55,18 @@ async function applyCompilerConditions(file) {
       isConditionTrue = validateCondition(trimmedLine.substring(8)) && !hasBeenTrueWithinCompilerFlag;
       if (isConditionTrue)
         hasBeenTrueWithinCompilerFlag = true;
-    
+
     } else if (trimmedLine.toUpperCase().startsWith("// #ELSE")) {
-      isConditionTrue = hasBeenTrueWithinCompilerFlag == false;
-    
+      isConditionTrue = hasBeenTrueWithinCompilerFlag === false;
+
     } else if (trimmedLine.toUpperCase().startsWith("// #ENDIF")) {
       isInCompilerFlag = false;
       hasBeenTrueWithinCompilerFlag = false;
-    
+
     } else {
-      if (isInCompilerFlag == false) {
+      if (isInCompilerFlag === false) {
         writer.write(`${line}\n`);
-      } else if (isConditionTrue == true) {
+      } else if (isConditionTrue === true) {
         writer.write(`${line.replace('// ', '')}\n`);
       }
     }

@@ -156,7 +156,7 @@ async function getDocumentationAsync(file) {
           result.push(`<td>${prop.name}</td>`);
 
           const input = propSource?.match(/@(Input|Output)\((.+)\)/g);
-          if (input && input.length != 0) {
+          if (input && input.length !== 0) {
             const match = input[0];
             const indexOfPararentesStart = match.indexOf('(');
             const indexOfPararentesEnd = match.indexOf(')');
@@ -195,7 +195,7 @@ async function getDocumentationAsync(file) {
           if (propSource) {
             const propSplit = propSource.split('=');
             let defaultValue = '';
-            if (propSplit.length != 1) {
+            if (propSplit.length !== 1) {
               defaultValue = propSplit[1].trim();
               if (defaultValue.endsWith(';')) {
                 defaultValue = defaultValue.slice(0, -1).trim();

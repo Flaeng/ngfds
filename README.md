@@ -1,4 +1,7 @@
-# Builds
+# ngfds
+An Angular Component Library implemeting DKFDS - Fælles Design System
+
+## Builds
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20source%20code?style=for-the-badge&label=Development%20source%20code%20builds%20and%20E2E%20testing)
 
@@ -12,13 +15,13 @@
 | 10.1.0 - <11.0.0   | npm install ngfds@10     | Dec 2023         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v10?label=%20&style=for-the-badge) |
 | 9.1.0 - <10.0.0    | npm install ngfds@9      | May 2023         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v9?label=%20&style=for-the-badge) |
 
-# Github
+## Github
 
 ![GitHub issue custom search in repo](https://img.shields.io/github/issues-search/flaeng/ngfds?label=KNOWN%20BUGS&query=label%3Abug%20is%3Aopen&style=for-the-badge)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/flaeng/ngfds?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/flaeng/ngfds?style=for-the-badge)
 
-# Codeclimate
+## Codeclimate
 
 ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/Flaeng/ngfds?style=for-the-badge)
 ![Code Climate issues](https://img.shields.io/codeclimate/issues/Flaeng/ngfds?label=Maintainability%20Issues&style=for-the-badge)
@@ -26,11 +29,9 @@
 
 https://codeclimate.com/github/Flaeng/ngfds
 
-# Codefactor
+## Codefactor
 
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/flaeng/ngfds?style=for-the-badge)
 
 https://www.codefactor.io/repository/github/flaeng/ngfds
 
-# ngfds
-An Angular Component Library implemeting DKFDS - Fælles Design System

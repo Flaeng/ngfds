@@ -1,17 +1,17 @@
-const { spawn } = require("child_process");
-const process = require("process");
-const fs = require("fs");
+const { spawn } = require('child_process');
+const process = require('process');
+const fs = require('fs');
 
 function makeDir(path, deleteIfExists) {
-  const split = path.split("/");
-  let pathBuilder = "./";
+  const split = path.split('/');
+  let pathBuilder = './';
   for (let index = 0; index < split.length; index++) {
-    pathBuilder += split[index] + "/";
+    pathBuilder += split[index] + '/';
     if (deleteIfExists && index == split.length - 1) {
       if (fs.existsSync(pathBuilder))
         fs.rmdirSync(pathBuilder, { recursive: true, force: true });
     }
-    if (fs.existsSync(pathBuilder) == false) fs.mkdirSync(pathBuilder);
+    if (fs.existsSync(pathBuilder) === false) fs.mkdirSync(pathBuilder);
   }
 }
 
@@ -39,7 +39,7 @@ function getIntArgument(prefix) {
     console.error(`No version was provided (using --${prefix}=[number])`);
     return { success: false };
   }
-  const argInt = parseInt(argString);
+  const argInt = parseInt(argString, 10);
   if (Number.isNaN(argInt)) {
     console.error(`Provided version is not a number: ${argString}`);
     return { success: false };
@@ -48,12 +48,12 @@ function getIntArgument(prefix) {
 }
 
 async function executeAsync(cmd, path) {
-  const _options = Object.assign({}, { shell: true, stdio: "inherit" });
+  const _options = Object.assign({}, { shell: true, stdio: 'inherit' });
   _options.cwd = path;
   console.log(`${path}> ${cmd}`);
   const child = spawn(cmd, _options);
   return new Promise((res, rej) => {
-    child.on("exit", function (err) {
+    child.on('exit', function (err) {
       if (err) rej(err);
       else res();
     });
@@ -62,7 +62,7 @@ async function executeAsync(cmd, path) {
 
 function copyFolder(source, destination, isRecursiveCall) {
   const files = fs.readdirSync(source);
-  if (isRecursiveCall != true) console.log("Copying files...");
+  if (isRecursiveCall !== true) console.log('Copying files...');
   files.forEach((file) => {
     const sourcePath = `${source}/${file}`;
     makeDir(destination, false);

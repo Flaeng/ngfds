@@ -38,7 +38,6 @@
   border-radius: 4px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-
   max-height: 200px;
   overflow-y: auto;
 }
@@ -56,11 +55,6 @@
   &:hover,
   &.hover {
     background-color: #f5f5f5;
-  }
-
-  &:focus,
-  &.focus {
-    @include focus();
   }
 }
 

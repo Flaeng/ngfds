@@ -6,7 +6,7 @@ console.error('WIP');
 return 1;
 
 const versionString = getIntArgument("v");
-if (versionString.success == false) {
+if (versionString.success === false) {
     return 1;
 }
 
