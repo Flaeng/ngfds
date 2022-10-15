@@ -34,4 +34,3 @@ https://codeclimate.com/github/Flaeng/ngfds
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/flaeng/ngfds?style=for-the-badge)
 
 https://www.codefactor.io/repository/github/flaeng/ngfds
-
