@@ -5,7 +5,6 @@ import { BasePageComponent } from '../BasePageComponent';
 @Component({
   selector: 'app-date-input-page',
   templateUrl: './date-input-page.component.g.html',
-  styleUrls: ['./date-input-page.component.scss'],
 })
 export class DateInputPageComponent extends BasePageComponent {
   date1: Date | null = null;

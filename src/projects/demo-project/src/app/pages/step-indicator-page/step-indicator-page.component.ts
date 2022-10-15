@@ -5,7 +5,6 @@ import { BasePageComponent } from '../BasePageComponent';
 @Component({
   selector: 'app-step-indicator-page',
   templateUrl: './step-indicator-page.component.g.html',
-  styleUrls: ['./step-indicator-page.component.scss'],
 })
 export class StepIndicatorPageComponent extends BasePageComponent {
   Math = Math;

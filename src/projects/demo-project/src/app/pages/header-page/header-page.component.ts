@@ -5,7 +5,6 @@ import { BasePageComponent } from '../BasePageComponent';
 @Component({
   selector: 'app-header-page',
   templateUrl: './header-page.component.g.html',
-  styleUrls: ['./header-page.component.scss'],
 })
 export class HeaderPageComponent extends BasePageComponent {
   page1children: NavigationItem[] = [

@@ -4,7 +4,6 @@ import { BasePageComponent } from '../BasePageComponent';
 @Component({
   selector: 'app-footer-page',
   templateUrl: './footer-page.component.g.html',
-  styleUrls: ['./footer-page.component.scss']
 })
 export class FooterPageComponent extends BasePageComponent {
   @Input("authority-name")

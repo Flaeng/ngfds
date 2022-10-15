@@ -5,7 +5,6 @@ import { BasePageComponent } from '../BasePageComponent';
 @Component({
   selector: 'app-side-navigation-page',
   templateUrl: './side-navigation-page.component.g.html',
-  styleUrls: ['./side-navigation-page.component.scss'],
 })
 export class SideNavigationPageComponent extends BasePageComponent {
   page1children: SideNavigationItem[] = [

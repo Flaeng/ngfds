@@ -4,7 +4,6 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-form-field-page',
   templateUrl: './form-field-page.component.g.html',
-  styleUrls: ['./form-field-page.component.scss'],
 })
 export class FormFieldPageComponent {
   requiredFormControl: FormControl;

@@ -4,7 +4,6 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-form-page',
   templateUrl: './form-page.component.g.html',
-  styleUrls: ['./form-page.component.scss'],
 })
 export class FormPageComponent {
   requiredFormControl: FormControl;

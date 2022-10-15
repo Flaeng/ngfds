@@ -5,7 +5,6 @@ import { BasePageComponent } from '../BasePageComponent';
 @Component({
   selector: 'app-date-picker-page',
   templateUrl: './date-picker-page.component.g.html',
-  styleUrls: ['./date-picker-page.component.scss'],
 })
 export class DatePickerPageComponent extends BasePageComponent {
   date1: Date | null = null;
