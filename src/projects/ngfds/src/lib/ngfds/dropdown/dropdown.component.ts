@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { FormFieldComponent } from '../../form-field/public-api';
 import { AngularHelper } from '../../helpers/angular-helper';
+import { ArrayHelper } from '../../helpers/array-helper';
 import { NgModelComponent } from '../../ng-model-component';
 import { DropdownOptionComponent } from './public-api';
 
@@ -86,8 +87,7 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent 
   }
 
   unregisterOption(comp: DropdownOptionComponent) {
-    const index = this.options.indexOf(comp);
-    if (index !== -1) this.options.splice(index, 1);
+    ArrayHelper.remove(this.options, comp);
   }
 
   public openDropdown(ev: Event) {
