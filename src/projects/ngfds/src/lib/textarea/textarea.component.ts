@@ -11,7 +11,6 @@ import {
 import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
-import { DkfdsHelper } from '../helpers/dkfds-helper';
 import { NgModelComponent } from '../ng-model-component';
 
 @Component({
@@ -69,17 +68,13 @@ export class TextareaComponent
 
   ngAfterViewInit(): void {
     // this.autoExpandIfSet();
-
-    if (!this.formControlWrapper) return;
-    if (this.showCharacterLimit === true) {
-      this.setupUnderlayingControl();
-    }
+    super.trySetupCharacterLimit(this);
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ngOnChanges(changes: SimpleChanges): void {
     if (this.showCharacterLimit === true) {
-      this.setupUnderlayingControl();
+      super.trySetupCharacterLimit(this);
     } else if (this.underlayingControl !== null) {
       this.underlayingControl = null;
     }
@@ -96,15 +91,6 @@ export class TextareaComponent
   //     }
   //   });
   // }
-
-  private setupUnderlayingControl() {
-    if (this.underlayingControl !== null) return;
-    if (!this.formControlWrapper) return;
-    this.underlayingControl = DkfdsHelper.createAndInit(
-      DKFDS.CharacterLimit,
-      this.formControlWrapper
-    );
-  }
 
   setValue(obj: string): void {
     this.value = obj;

@@ -1,8 +1,17 @@
-import { Component, ElementRef, Input, OnInit, Optional, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  Optional,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
 import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
-import { DkfdsHelper } from '../helpers/dkfds-helper';
 import { NgModelComponent } from '../ng-model-component';
 
 @Component({
@@ -10,7 +19,7 @@ import { NgModelComponent } from '../ng-model-component';
   templateUrl: './input.component.html',
   providers: [...AngularHelper.formInput(InputComponent)],
 })
-export class InputComponent extends NgModelComponent<string> implements OnInit {
+export class InputComponent extends NgModelComponent<string> implements OnInit, AfterViewInit, OnChanges {
   @Input()
   public disabled: boolean = false;
 
@@ -71,7 +80,7 @@ export class InputComponent extends NgModelComponent<string> implements OnInit {
     super(formField);
   }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     super.onInit();
   }
 
@@ -79,21 +88,17 @@ export class InputComponent extends NgModelComponent<string> implements OnInit {
     this.value = obj;
   }
 
-  ngAfterViewInit(): void {
-    // this.autoExpandIfSet();
-
-    if (!this.formControlWrapper) return;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ngOnChanges(changes: SimpleChanges): void {
     if (this.showCharacterLimit === true) {
-      this.setupUnderlayingControl();
+      super.trySetupCharacterLimit(this);
+    } else if (this.underlayingControl !== null) {
+      this.underlayingControl = null;
     }
   }
 
-  private setupUnderlayingControl() {
-    if (this.underlayingControl !== null) return;
-    if (!this.formControlWrapper) return;
-    this.underlayingControl = DkfdsHelper.createAndInit(
-      DKFDS.CharacterLimit,
-      this.formControlWrapper
-    );
+  ngAfterViewInit(): void {
+    super.trySetupCharacterLimit(this);
   }
+
 }

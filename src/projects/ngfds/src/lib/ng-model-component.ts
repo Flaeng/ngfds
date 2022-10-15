@@ -1,11 +1,13 @@
-import { Input, OnInit, Optional } from '@angular/core';
+import { ElementRef } from '@angular/core';
 import {
   AbstractControl,
   ControlValueAccessor,
   ValidationErrors,
   Validator,
 } from '@angular/forms';
+import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../public-api';
+import { DkfdsHelper } from './helpers/dkfds-helper';
 
 export abstract class NgModelComponent<T>
   implements ControlValueAccessor, Validator
@@ -29,6 +31,20 @@ export abstract class NgModelComponent<T>
   protected emitChanges(value: T): void {
     this.onChange?.call(this, value);
     this.onTouched?.call(this);
+  }
+
+  trySetupCharacterLimit(comp: {
+    showCharacterLimit: boolean;
+    formControlWrapper: ElementRef<HTMLDivElement> | undefined;
+    underlayingControl: DKFDS.CharacterLimit | null;
+  }) {
+    if (!comp.showCharacterLimit) return;
+    if (!comp.formControlWrapper) return;
+    if (comp.underlayingControl) return;
+    comp.underlayingControl = DkfdsHelper.createAndInit(
+      DKFDS.CharacterLimit,
+      comp.formControlWrapper
+    );
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

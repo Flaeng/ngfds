@@ -18,7 +18,7 @@ export class FileUploadComponent extends NgModelComponent<File | null> {
   _value: File | null = null;
   @Input()
   public get value(): File | null {
-    return this._value
+    return this._value;
   }
   public set value(value: File | null) {
     this._value = value;
@@ -32,5 +32,4 @@ export class FileUploadComponent extends NgModelComponent<File | null> {
   setValue(obj: File | null): void {
     this.value = obj;
   }
-
 }
