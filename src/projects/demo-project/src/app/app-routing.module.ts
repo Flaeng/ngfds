@@ -69,6 +69,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'radiobutton',
+    loadChildren: () =>
+      import('./pages/radio-button-page/radio-button-page.module').then(
+        (x) => x.RadioButtonPageModule
+      ),
+  },
+  {
     path: 'tabs',
     loadChildren: () =>
       import('./pages/tabs-page/tabs-page.module').then(

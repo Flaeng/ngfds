@@ -25,7 +25,7 @@ export class CheckboxComponent extends NgModelComponent<boolean> {
   public size: CheckboxSize = 'large';
 
   @Input()
-  public group: string | null = null;
+  public content: string | null = null;
 
   static idGenerator = 1;
 

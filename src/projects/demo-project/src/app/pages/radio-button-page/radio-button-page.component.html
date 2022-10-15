@@ -1,0 +1,163 @@
+<app-header
+  header="Radio Button"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/radioknap/"
+></app-header>
+
+<app-demo-view>
+  <fds-radio-group [(ngModel)]="radiobuttongroup1">
+    <fds-radio-button value="option1">Valgmulighed #1</fds-radio-button>
+    <fds-radio-button value="option2">Valgmulighed #2</fds-radio-button>
+  </fds-radio-group>
+  <div class="mt-3">
+    {{ radiobuttongroup1 }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-radio-group [(ngModel)]="radiobuttongroup2" radio-button-size="small">
+    <fds-radio-button [value]="{ desc: 'Tal', value: '1,2,3' }"
+      >3 tal</fds-radio-button
+    >
+    <fds-radio-button [value]="{ desc: 'Bogstaver', value: 'A,B,C' }"
+      >3 bogstaver</fds-radio-button
+    >
+  </fds-radio-group>
+  <div class="mt-3">
+    {{ radiobuttongroup2 | json }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-radio-group radio-button-size="small">
+    <fds-radio-button value="option1">Valgmulighed #1</fds-radio-button>
+    <fds-radio-button value="option2" size="large"
+      >Valgmulighed #2</fds-radio-button
+    >
+    <fds-radio-button value="option3">Valgmulighed #3</fds-radio-button>
+  </fds-radio-group>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-radio-group>
+    <fds-radio-button
+      label="Valgmulighed #1"
+      hint="Dette er en hjælpetekst"
+      value="option1"
+    ></fds-radio-button>
+    <fds-radio-button
+      label="Valgmulighed #2"
+      hint="Dette er en hjælpetekst"
+      value="option2"
+    ></fds-radio-button>
+  </fds-radio-group>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-radio-group radio-button-size="small">
+    <fds-radio-button
+      label="Valgmulighed #1"
+      hint="Dette er en hjælpetekst"
+      value="option1"
+    ></fds-radio-button>
+    <fds-radio-button
+      label="Valgmulighed #2"
+      hint="Dette er en hjælpetekst"
+      value="option2"
+    ></fds-radio-button>
+  </fds-radio-group>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-radio-group>
+    <fds-radio-button
+      label="Valgmulighed #1"
+      value="option1"
+      content="showContentLarge1"
+    ></fds-radio-button>
+    <fds-radio-content name="showContentLarge1">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum
+        libero tortor, a porta ex accumsan a. Phasellus dapibus sollicitudin urna,
+        vel elementum neque accumsan eu. Class aptent taciti sociosqu ad litora
+        torquent per conubia nostra, per inceptos himenaeos. Pellentesque vitae
+        odio efficitur, condimentum tellus a, sodales lorem. Aliquam aliquam
+        vehicula arcu nec ornare. Nam tempus non enim vel sodales. Maecenas risus
+        elit, convallis egestas justo sit amet, volutpat mollis nulla. Sed non
+        eros vehicula, maximus lectus eu, mattis magna.
+      </p>
+    </fds-radio-content>
+    <fds-radio-button
+      label="Valgmulighed #2"
+      value="option2"
+      content="showContentLarge2"
+    ></fds-radio-button>
+    <fds-radio-content name="showContentLarge2">
+      <p>
+        Etiam finibus mi et risus tempor tincidunt. Donec pharetra semper dui in
+        imperdiet. Vivamus pellentesque consectetur felis. Donec nibh lectus,
+        finibus sit amet orci nec, aliquam posuere mauris. Proin quis imperdiet
+        est, id convallis tellus. Donec tempus velit sed velit tempor, sed tempor
+        velit dapibus. Suspendisse at orci eu libero lobortis ultricies et at
+        urna. Sed dignissim nisl eget purus lacinia ultrices non vel libero. In
+        felis est, posuere fermentum venenatis eu, eleifend at nibh.
+      </p>
+    </fds-radio-content>
+    <fds-radio-button
+      label="Valgmulighed #3"
+      value="option3"
+      content="showContentLarge3"
+    ></fds-radio-button>
+    <fds-radio-content name="showContentLarge3">
+      <p>
+        Etiam finibus mi et risus tempor tincidunt. Donec pharetra semper dui in
+        imperdiet. Vivamus pellentesque consectetur felis. Donec nibh lectus,
+        finibus sit amet orci nec, aliquam posuere mauris. Proin quis imperdiet
+        est, id convallis tellus. Donec tempus velit sed velit tempor, sed tempor
+        velit dapibus. Suspendisse at orci eu libero lobortis ultricies et at
+        urna. Sed dignissim nisl eget purus lacinia ultrices non vel libero. In
+        felis est, posuere fermentum venenatis eu, eleifend at nibh.
+      </p>
+    </fds-radio-content>
+  </fds-radio-group>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-radio-group radio-button-size="small">
+    <fds-radio-button
+      label="Valgmulighed #1"
+      value="option1"
+      content="showContent1"
+    ></fds-radio-button>
+    <fds-radio-content name="showContent1">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum
+        libero tortor, a porta ex accumsan a. Phasellus dapibus sollicitudin urna,
+        vel elementum neque accumsan eu. Class aptent taciti sociosqu ad litora
+        torquent per conubia nostra, per inceptos himenaeos. Pellentesque vitae
+        odio efficitur, condimentum tellus a, sodales lorem. Aliquam aliquam
+        vehicula arcu nec ornare. Nam tempus non enim vel sodales. Maecenas risus
+        elit, convallis egestas justo sit amet, volutpat mollis nulla. Sed non
+        eros vehicula, maximus lectus eu, mattis magna.
+      </p>
+    </fds-radio-content>
+    <fds-radio-button
+      label="Valgmulighed #2"
+      value="option2"
+      content="showContent2"
+    ></fds-radio-button>
+    <fds-radio-content name="showContent2">
+      <p>
+        Etiam finibus mi et risus tempor tincidunt. Donec pharetra semper dui in
+        imperdiet. Vivamus pellentesque consectetur felis. Donec nibh lectus,
+        finibus sit amet orci nec, aliquam posuere mauris. Proin quis imperdiet
+        est, id convallis tellus. Donec tempus velit sed velit tempor, sed tempor
+        velit dapibus. Suspendisse at orci eu libero lobortis ultricies et at
+        urna. Sed dignissim nisl eget purus lacinia ultrices non vel libero. In
+        felis est, posuere fermentum venenatis eu, eleifend at nibh.
+      </p>
+    </fds-radio-content>
+  </fds-radio-group>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

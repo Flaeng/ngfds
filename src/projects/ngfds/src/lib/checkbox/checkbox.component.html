@@ -5,7 +5,7 @@
   [ngClass]="{ 'checkbox-large': size === 'large' }"
   [disabled]="disabled"
   [(ngModel)]="value"
-  [attr.data-aria-controls]="group"
+  [attr.data-aria-controls]="content"
 />
 <label [for]="id" class="">
   <ng-content></ng-content>

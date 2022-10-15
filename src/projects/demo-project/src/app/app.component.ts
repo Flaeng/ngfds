@@ -212,7 +212,7 @@ export class AppComponent implements OnInit {
       state: 'done',
     }),
     new AppSideNavigationItem({
-      url: 'radioknap',
+      url: 'radiobutton',
       title: 'Radioknap (Radio button)',
     }),
     new AppSideNavigationItem({

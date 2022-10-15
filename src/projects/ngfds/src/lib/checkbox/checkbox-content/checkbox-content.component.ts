@@ -6,25 +6,26 @@ import { CheckboxSize } from '../checkbox.component';
 @Component({
   selector: 'fds-checkbox-content',
   templateUrl: './checkbox-content.component.html',
+  styles: [':host { display: block }'],
 })
 export class CheckboxContentComponent implements AfterViewInit {
   @Input()
   public size: CheckboxSize = 'large';
 
   @Input()
-  public group: string | null = null;
+  public name: string | null = null;
 
   underlayingControl: DKFDS.CheckboxToggleContent | null = null;
 
   ngAfterViewInit(): void {
-    if (this.group === null) {
+    if (this.name === null) {
       return;
     }
     const checkbox = document.querySelector<HTMLElement>(
-      `[data-aria-controls='${this.group}']`
+      `[data-aria-controls='${this.name}']`
     );
     if (checkbox === null) {
-      console.warn(`Failed to find checkbox with group name: ${this.group}`);
+      console.warn(`Failed to find checkbox with group name: ${this.name}`);
       return;
     }
     this.underlayingControl = DkfdsHelper.createAndInit(

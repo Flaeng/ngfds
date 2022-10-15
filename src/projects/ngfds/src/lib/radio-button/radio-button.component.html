@@ -1,0 +1,21 @@
+<li>
+  <div class="form-group-radio">
+    <input
+      [id]="id"
+      type="radio"
+      [name]="groupName"
+      [value]="value"
+      class="form-radio"
+      [ngClass]="{ 'radio-large': size === 'large' }"
+      (change)="didChange($event)"
+      [attr.aria-labelledby]="id + '_label' + ' ' + (hint ? id + '_hint' : '')"
+      [attr.data-controls]="content ? ('#' + content) : ''"
+    />
+    <label [for]="id" [id]="id + '_label'">
+      {{ label }}
+      <ng-content></ng-content>
+    </label>
+    <span class="form-hint" *ngIf="hint"
+        [id]="id + '_hint'">{{ hint }}</span>
+  </div>
+</li>
