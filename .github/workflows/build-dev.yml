@@ -30,7 +30,7 @@ jobs:
         working-directory: ./src
 
       - name: Package screenshots
-        if: ${{ failure() }}
+        # if: ${{ failure() }}
         uses: actions/upload-artifact@v3
         with:
           name: package
