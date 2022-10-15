@@ -33,7 +33,7 @@ jobs:
         # if: ${{ failure() }}
         uses: actions/upload-artifact@v3
         with:
-          name: package
+          name: screenshots
           path: src/cypress/screenshots
 
       - name: Build
