@@ -226,7 +226,11 @@ export class AppComponent implements OnInit {
       title: 'Strukturerede lister',
       state: 'done',
     }),
-    new AppSideNavigationItem({ url: 'soegefelt', title: 'Søgefelt' }),
+    new AppSideNavigationItem({
+      url: 'search-field',
+      title: 'Søgefelt',
+      state: 'done',
+    }),
     new AppSideNavigationItem({ url: 'tabeller', title: 'Tabeller' }),
     new AppSideNavigationItem({ url: 'tags', title: 'Tags', state: 'done' }),
     new AppSideNavigationItem({

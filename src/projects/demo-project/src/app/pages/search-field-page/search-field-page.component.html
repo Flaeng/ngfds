@@ -1,0 +1,34 @@
+<app-header
+  header="Søgefelt"
+  sub-header="Component"
+  doc-url="https://designsystem.dk/komponenter/search/"
+></app-header>
+
+<app-demo-view>
+  <fds-search-field
+    sr-hint="Søg efter indhold"
+    sr-button-hint="Søg"
+    (search)="alert('You searched for: ' + $event.query)"
+  ></fds-search-field>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-search-field
+    button-text="Søg"
+    (search)="alert('You searched for: ' + $event.query)"
+  ></fds-search-field>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-search-field
+    sr-hint="Kopiér en url til denne side"
+    sr-button-hint="Kopiér til clipboard"
+    button-icon="content-copy"
+    [(ngModel)]="copyUrl"
+    [disabled]="true"
+    size="width-l"
+    (search)="alert('You copied the text: ' + $event.query)"
+  ></fds-search-field>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

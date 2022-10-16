@@ -48,6 +48,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'search-field',
+    loadChildren: () =>
+      import('./pages/search-field-page/search-field-page.module').then(
+        (x) => x.SearchFieldPageModule
+      ),
+  },
+  {
     path: 'fejlbeskeder',
     loadChildren: () =>
       import('./pages/form-field-page/form-field-page.module').then(

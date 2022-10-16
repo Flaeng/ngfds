@@ -12,6 +12,7 @@ import {
 import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
+import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
 
 @Component({
@@ -36,18 +37,7 @@ export class InputComponent
   public type: string = 'text';
 
   @Input()
-  public size:
-    | 'width-xxs'
-    | 'width-xs'
-    | 'width-s'
-    | 'width-m'
-    | 'width-l'
-    | 'width-xl'
-    | 'char-4'
-    | 'char-8'
-    | 'char-11'
-    | 'char-27'
-    | null = null;
+  public size: InputSize | null = null;
 
   @Input()
   public prefix: string | null = null;

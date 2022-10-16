@@ -1,0 +1,34 @@
+<div class="form-group search">
+  <label
+    *ngIf="srHint"
+    [for]="name"
+    class="sr-only"
+  >{{ srHint }}</label>
+  <input
+    class="form-input {{ size ? 'input-' + size : '' }}"
+    [id]="name"
+    [(ngModel)]="value"
+    [disabled]="disabled"
+    (keydown.enter)="emitSearchEvent($event)"
+    type="search" />
+  <button
+    *ngIf="buttonText else buttonIconTemplate"
+    (click)="emitSearchEvent($event)"
+    class="button button-search"
+    >{{ buttonText }}</button>
+</div>
+
+<ng-template #buttonIconTemplate>
+  <button
+    (click)="emitSearchEvent($event)"
+    class="button button-search"
+  ><svg
+    class="icon-svg m-0"
+    aria-hidden="true"
+  ><use
+    [attr.xlink:href]="'#' + buttonIcon"
+  ></use></svg><span
+    *ngIf="srButtonHint"
+    class="sr-only"
+  >{{ srButtonHint }}</span></button>
+</ng-template>
