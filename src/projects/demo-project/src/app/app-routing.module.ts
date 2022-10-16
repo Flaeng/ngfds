@@ -139,7 +139,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'icmodalvindueons',
+    path: 'modalvindue',
     loadChildren: () =>
       import('./pages/modal-page/modal-page.module').then(
         (x) => x.ModalPageModule

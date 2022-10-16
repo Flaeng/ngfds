@@ -10,6 +10,7 @@ import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
 import { DateHelper } from '../helpers/date-helper';
+import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
 
 @Component({
@@ -33,6 +34,9 @@ export class DatePickerComponent
 
   @Input()
   public name: string = '';
+
+  @Input()
+  public size: InputSize | null = null;
 
   @Input('min')
   public min: Date | null = null;

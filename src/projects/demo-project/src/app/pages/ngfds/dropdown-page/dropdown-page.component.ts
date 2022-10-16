@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-ngfds-dropdown-page',
-  templateUrl: './ngfds-dropdown-page.component.g.html',
+  templateUrl: './dropdown-page.component.g.html',
 })
 export class NgfdsDropdownPageComponent {
   dropdown1: unknown;

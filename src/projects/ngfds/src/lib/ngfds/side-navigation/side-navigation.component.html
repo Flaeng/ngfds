@@ -1,0 +1,16 @@
+<header
+  [ngClass]="{ expanded: isExpanded }"
+  tabindex="0"
+  (click)="isExpanded = !isExpanded"
+>
+  <svg class="icon-svg m-0" [ngClass]="{ 'pull-right': iconPosition === 'right' }" aria-hidden="true">
+    <use xlink:href="#arrow-drop-down"></use>
+  </svg>
+  {{ header }}
+  &nbsp;
+</header>
+<fds-side-navigation
+  *ngIf="isExpanded"
+  [items]="items"
+  [item-template]="itemTemplate"
+></fds-side-navigation>

@@ -12,7 +12,7 @@ export class FormComponent {
     FormErrorMessageComponent[]
   >([]);
   get errorMessages(): Observable<FormErrorMessageComponent[]> {
-    return this._errorMessages;
+    return this._errorMessages.asObservable();
   }
 
   register(comp: FormErrorMessageComponent) {

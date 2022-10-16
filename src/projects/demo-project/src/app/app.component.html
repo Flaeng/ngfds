@@ -8,23 +8,29 @@
 <div class="container page-container">
   <div class="row">
     <aside class="col-12 col-lg-3 sidebar-col">
-      <header>Introduction</header>
-      <fds-side-navigation 
-        [items]="introductionMenu" 
+      <ngfds-side-navigation
+        header="Introduction"
+        icon-position="right"
+        [is-expanded]="true"
+        [items]="introductionMenu"
         [item-template]="navigationItemTemplate"
-      ></fds-side-navigation>
-      
-      <header>DKFDS components</header>
-      <fds-side-navigation 
-        [items]="dkfdsComponents" 
+      ></ngfds-side-navigation>
+
+      <ngfds-side-navigation
+        header="DKFDS components"
+        icon-position="right"
+        [is-expanded]="true"
+        [items]="dkfdsComponents"
         [item-template]="navigationItemTemplate"
-      ></fds-side-navigation>
-      
-      <header>DKFDS-Extra</header>
-      <fds-side-navigation 
-        [items]="dkfdsExtra" 
+      ></ngfds-side-navigation>
+
+      <ngfds-side-navigation
+        header="NGFDS components"
+        icon-position="right"
+        [is-expanded]="true"
+        [items]="dkfdsExtra"
         [item-template]="navigationItemTemplate"
-      ></fds-side-navigation>
+      ></ngfds-side-navigation>
     </aside>
     <main class="col-12 col-lg-9" id="main-content">
       <router-outlet></router-outlet>
@@ -32,7 +38,12 @@
   </div>
 </div>
 
-<ng-template #navigationItemTemplate let-item="item" let-parent="parent" let-level="level">
+<ng-template
+  #navigationItemTemplate
+  let-item="item"
+  let-parent="parent"
+  let-level="level"
+>
   <a
     [routerLink]="item.url"
     role="menuitem"
@@ -44,8 +55,18 @@
     </div>
     <div>
       <!-- <fds-badge [fds-tooltip]="item.state"> -->
-      <fds-badge [title]="item.state" type="error" *ngIf="item.state == 'not implemented'">NI</fds-badge>
-      <fds-badge [title]="item.state" type="warning" *ngIf="item.state == 'work in progress'">WIP</fds-badge>
+      <fds-badge
+        [title]="item.state"
+        type="error"
+        *ngIf="item.state == 'not implemented'"
+        >NI</fds-badge
+      >
+      <fds-badge
+        [title]="item.state"
+        type="warning"
+        *ngIf="item.state == 'work in progress'"
+        >WIP</fds-badge
+      >
       <fds-badge type="success" *ngIf="item.state == 'done'">DONE</fds-badge>
     </div>
   </a>

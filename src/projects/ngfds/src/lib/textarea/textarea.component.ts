@@ -11,6 +11,7 @@ import {
 import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
+import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
 
 @Component({
@@ -31,6 +32,9 @@ export class TextareaComponent
 
   @Input()
   public name: string = '';
+
+  @Input()
+  public size: InputSize | null = null;
 
   @Input()
   public disabled: boolean = false;

@@ -2,18 +2,18 @@ declare namespace DKFDS {
   class DKFDSElementDependent {
       constructor(elem: HTMLElement);
   }
-    
+
   class DKFDSElementDependentInitiable extends DKFDSElementDependent {
       init(): void;
   }
-  
+
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/accordion.js
   export class Accordion extends DKFDSElementDependentInitiable {
     bulkEvent(): void;
     eventOnClick(): void;
     toggleButton(button: HTMLButtonElement, expanded: boolean | null | undefined, bulk: boolean): boolean;
   }
-  
+
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/alert.js
   export class Alert extends DKFDSElementDependentInitiable {
     hide(): void;
@@ -22,7 +22,7 @@ declare namespace DKFDS {
 
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/back-to-top.js
   export class BackToTop extends DKFDSElementDependentInitiable { }
-  
+
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/character-limit.js
   export class CharacterLimit extends DKFDSElementDependentInitiable {
     charactersLeft(): number;
@@ -33,7 +33,7 @@ declare namespace DKFDS {
     handleKeyUp(ev: Event): void;
     handleFocus(ev: Event): void;
     handleBlur(ev: Event): void;
-  } 
+  }
 
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/checkbox-toggle-content.js
   export class CheckboxToggleContent extends DKFDSElementDependentInitiable {
@@ -41,7 +41,7 @@ declare namespace DKFDS {
     expand(checkboxElement: HTMLInputElement, contentElement: HTMLElement): void;
     collapse(triggerEl: HTMLInputElement, targetEl: HTMLElement): void;
   }
-  
+
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/date-picker.js
   export class datePicker {
     static init(elem: HTMLElement): void;
@@ -72,7 +72,7 @@ declare namespace DKFDS {
     get defaultDate(): Date;
     get statusEl(): HTMLElement;
   }
-  
+
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/dropdown-sort.js
   export class DropdownSort extends DKFDSElementDependentInitiable {
     updateSelectedValue(): void;
@@ -95,7 +95,7 @@ declare namespace DKFDS {
 
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/modal.js
   export class Modal extends DKFDSElementDependentInitiable {
-    show(ev: Event): void;
+    show(ev: Event | null): void;
     hide(): void;
   }
 
@@ -138,7 +138,7 @@ declare namespace DKFDS {
     show(): void;
     hide(): void;
   }
-  
+
   // https://github.com/detfaellesdesignsystem/dkfds-components/blob/master/src/js/components/tooltip.js
   export class Tooltip extends DKFDSElementDependentInitiable {}
 

@@ -8,6 +8,7 @@ import {
 import { FormFieldComponent } from '../form-field/public-api';
 import { AngularHelper } from '../helpers/angular-helper';
 import { ArrayHelper } from '../helpers/array-helper';
+import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
 import { DropdownOptionComponent } from './public-api';
 
@@ -27,6 +28,9 @@ export class DropdownComponent extends NgModelComponent<unknown | null> {
 
   @Input()
   public disabled: boolean = false;
+
+  @Input()
+  public size: InputSize | null = null;
 
   @Input()
   public name: string = '';

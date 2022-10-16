@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   Input,
@@ -13,20 +14,32 @@ import { DropdownComponent } from '../dropdown.component';
   selector: 'ngfds-option',
   templateUrl: './dropdown-option.component.html',
 })
-export class DropdownOptionComponent implements OnInit, OnDestroy {
+export class DropdownOptionComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('dropdownOption')
   private dropdownOption!: ElementRef<HTMLDivElement>;
 
-  @Input()
-  public text: string = '';
+  @ViewChild('content')
+  private content!: ElementRef<HTMLDivElement>;
+
+  text: string = '';
+  html: string = '';
 
   parentAllowsMultiple: boolean = false;
   isSelected: boolean = false;
 
-  constructor(@Optional() protected parent: DropdownComponent) {}
+  constructor(
+    @Optional() protected parent: DropdownComponent,
+    protected el: ElementRef
+  ) {}
 
   ngOnInit(): void {
     this.parent?.registerOption(this);
+  }
+
+  ngAfterViewInit(): void {
+    const elem = this.content.nativeElement;
+    this.html = elem.innerHTML;
+    this.text = elem.innerText;
   }
 
   public setFocus(): void {

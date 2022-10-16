@@ -1,6 +1,7 @@
 import { Component, Input, Optional } from '@angular/core';
 import { FormFieldComponent } from '../form-field/form-field.component';
 import { AngularHelper } from '../helpers/angular-helper';
+import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
 
 @Component({
@@ -14,6 +15,9 @@ export class FileUploadComponent extends NgModelComponent<File | null> {
 
   @Input()
   public name: string = '';
+
+  @Input()
+  public size: InputSize | null = null;
 
   _value: File | null = null;
   @Input()

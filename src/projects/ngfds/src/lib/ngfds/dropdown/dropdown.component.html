@@ -6,8 +6,8 @@
   (click)="toggleDropdown($event)"
   (keydown.enter)="openDropdown($event)"
   (keydown.space)="openDropdown($event)"
-  (keydown.arrowup)="focusPreviousItem($event)"
-  (keydown.arrowdown)="focusNextItem($event)"
+  (keydown.arrowup)="handleArrowUp($event)"
+  (keydown.arrowdown)="handleArrowDown($event)"
   [attr.id]="name"
 >
   <ng-container
@@ -26,7 +26,7 @@
 </div>
 
 <ng-template #showSelectedItem>
-  {{ selectedItem!.text }}
+  <div [innerHtml]="showContent(selectedItem)"></div>
 </ng-template>
 
 <ng-template #showSelectedItems>
@@ -37,6 +37,7 @@
       (keydown.enter)="unselectItem($event, item)"
     >
       <span class="sr-only">Fravælg</span>
+      <!-- <div [innerHtml]="showContent(selectedItem)"></div> -->
       {{ item.text }}
       <svg class="icon-svg" aria-hidden="true">
         <use xlink:href="#close"></use>

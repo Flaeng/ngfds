@@ -1,0 +1,104 @@
+<app-header header="Sidenavigation" sub-header="Component"></app-header>
+
+<app-demo-view>
+  <ngfds-side-navigation
+    header="Introduction"
+    [items]="[
+      {
+        url: '#',
+        title: 'Page 1',
+        subtitle: null,
+        isActive: false,
+        children: null
+      },
+      {
+        url: '#',
+        title: 'Page 2',
+        subtitle: null,
+        isActive: false,
+        children: null
+      },
+      {
+        url: '#',
+        title: 'Page 3',
+        subtitle: null,
+        isActive: true,
+        children: null
+      },
+      {
+        url: '#',
+        title: 'Page 4',
+        subtitle: null,
+        isActive: false,
+        children: null
+      }
+    ]"
+  ></ngfds-side-navigation>
+</app-demo-view>
+
+<app-demo-view>
+  <ngfds-side-navigation
+    header="Introduction"
+    icon-position="right"
+    [is-expanded]="true"
+    [items]="[
+      {
+        url: '#',
+        title: 'Page 1',
+        subtitle: 'Welcome',
+        isActive: false,
+        children: null
+      },
+      {
+        url: '#',
+        title: 'Page 2',
+        subtitle: 'To',
+        isActive: true,
+        children: null
+      },
+      {
+        url: '#',
+        title: 'Page 3',
+        subtitle: 'Design',
+        isActive: false,
+        children: null
+      },
+      {
+        url: '#',
+        title: 'Page 4',
+        subtitle: 'System',
+        isActive: false,
+        children: null
+      }
+    ]"
+  ></ngfds-side-navigation>
+</app-demo-view>
+
+<app-demo-view>
+  <ngfds-side-navigation
+    header="Introduction"
+    [is-expanded]="true"
+    [items]="sideNavigationItems"
+    ></ngfds-side-navigation>
+  </app-demo-view>
+
+  <app-demo-view>
+    <ngfds-side-navigation
+    header="Introduction"
+    [is-expanded]="true"
+    [items]="sideNavigationItems"
+    [item-template]="templateItem"
+  ></ngfds-side-navigation>
+  <ng-template
+    #templateItem
+    let-item="item"
+    let-level="level"
+    let-index="index"
+  >
+    <a [routerLink]="item.url" class="p-1 fs-1">
+      {{ level }} - {{ item.title }} - {{ index % 2 == 1 ? "even" : "odd" }}
+    </a>
+  </ng-template>
+</app-demo-view>
+
+<app-doc-view> </app-doc-view>

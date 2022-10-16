@@ -6,7 +6,7 @@
 >
   <input
     #datePickerInput
-    class="form-input"
+    class="form-input {{ size ? 'input-' + size : '' }}"
     [value]="stringValue"
     (change)="onInputChange($event)"
     [attr.id]="name"

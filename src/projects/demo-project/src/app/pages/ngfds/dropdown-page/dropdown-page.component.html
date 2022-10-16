@@ -12,10 +12,10 @@
 
 <app-demo-view>
   <ngfds-select [(ngModel)]="dropdown1">
-    <ngfds-option text="Option #1"></ngfds-option>
-    <ngfds-option text="Option #2"></ngfds-option>
-    <ngfds-option text="Option #3"></ngfds-option>
-    <ngfds-option text="Option #4"></ngfds-option>
+    <ngfds-option>Option #1</ngfds-option>
+    <ngfds-option>Option #2</ngfds-option>
+    <ngfds-option>Option #3</ngfds-option>
+    <ngfds-option>Option #4</ngfds-option>
   </ngfds-select>
   <div class="my-3">
     {{ dropdown1 | json }}
@@ -24,19 +24,19 @@
 
 <app-demo-view>
   <ngfds-select [(ngModel)]="dropdown2" placeholder="Choose one">
-    <ngfds-option text="Option #1">
+    <ngfds-option>
       <fds-icon icon="face"></fds-icon>
       Option #1
     </ngfds-option>
-    <ngfds-option text="Option #2">
+    <ngfds-option>
       <fds-icon icon="support-agent"></fds-icon>
       Option #2
     </ngfds-option>
-    <ngfds-option text="Option #3">
+    <ngfds-option>
       <fds-icon icon="drive-eta"></fds-icon>
       Option #3
     </ngfds-option>
-    <ngfds-option text="Option #4">
+    <ngfds-option>
       <fds-icon icon="accessibility-new"></fds-icon>
       Option #4
     </ngfds-option>
@@ -49,25 +49,46 @@
 <app-demo-view>
   <ngfds-select
     [(ngModel)]="dropdown3"
+    size="width-l"
     placeholder="Choose one or more"
     [allow-multiple]="true"
   >
-    <ngfds-option text="Option #1">Option #1</ngfds-option>
-    <ngfds-option text="Option #2">Option #2</ngfds-option>
-    <ngfds-option text="Option #3">Option #3</ngfds-option>
-    <ngfds-option text="Option #4">Option #4</ngfds-option>
-    <ngfds-option text="Option #5">Option #5</ngfds-option>
-    <ngfds-option text="Option #6">Option #6</ngfds-option>
-    <ngfds-option text="Option #7">Option #7</ngfds-option>
-    <ngfds-option text="Option #8">Option #8</ngfds-option>
-    <ngfds-option text="Option #9">Option #9</ngfds-option>
+    <ngfds-option>
+      <fds-icon icon="face"></fds-icon>
+      Option #1
+    </ngfds-option>
+    <ngfds-option>
+      <fds-icon icon="support-agent"></fds-icon>
+      Option #2
+    </ngfds-option>
+    <ngfds-option>
+      <fds-icon icon="drive-eta"></fds-icon>
+      Option #3
+    </ngfds-option>
+    <ngfds-option>
+      <fds-icon icon="accessibility-new"></fds-icon>
+      Option #4
+    </ngfds-option>
+    <ngfds-option>
+      <fds-icon icon="face"></fds-icon>
+      Option #5
+    </ngfds-option>
+    <ngfds-option>
+      <fds-icon icon="support-agent"></fds-icon>
+      Option #6
+    </ngfds-option>
+    <ngfds-option>
+      <fds-icon icon="drive-eta"></fds-icon>
+      Option #7
+    </ngfds-option>
+    <ngfds-option>
+      <fds-icon icon="accessibility-new"></fds-icon>
+      Option #8
+    </ngfds-option>
   </ngfds-select>
   <div class="my-3">
     {{ dropdown3 | json }}
   </div>
 </app-demo-view>
 
-<!-- 
-  <app-doc-view>
-  </app-doc-view> 
--->
+<app-doc-view> </app-doc-view>

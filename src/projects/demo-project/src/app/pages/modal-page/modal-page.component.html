@@ -5,10 +5,10 @@
 ></app-header>
 
 <app-demo-view>
-  <!-- <fds-button (click)="modalService.openTemplate(modalTemplate)"> Åben modal #1 </fds-button> -->
-  <ng-template #modalTemplate>
-    <h4>Hej</h4>
-  </ng-template>
+  <fds-button (click)="openModalExample1($event)">Åben modal #1</fds-button>
+  <div class="mt-3">
+    Result: {{ modalExample1result ? modalExample1result : '' }}
+  </div>
 </app-demo-view>
 
 <app-doc-view> </app-doc-view>

@@ -2,7 +2,7 @@
   <!-- [ngClass]="{ 'auto-expand': autoExpand }" -->
   <textarea
     #formControl
-    class="form-input"
+    class="form-input {{ size ? 'input-' + size : '' }}"
     [rows]="rows"
     [disabled]="disabled"
     [(ngModel)]="value"

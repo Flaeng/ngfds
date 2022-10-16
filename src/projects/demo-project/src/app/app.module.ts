@@ -14,8 +14,8 @@ import {
   FdsFooterModule,
   FdsHeaderModule,
   FdsIconsModule,
-  FdsSideNavigationModule,
 } from 'projects/ngfds/src/public-api';
+import { NgfdsSideNavigationModule } from 'projects/ngfds/src/lib/ngfds/side-navigation/side-navigation.module';
 
 @NgModule({
   declarations: [AppComponent, ScrollToDirective],
@@ -24,7 +24,7 @@ import {
     AppRoutingModule,
     FdsCardModule,
     FdsHeaderModule,
-    FdsSideNavigationModule,
+    NgfdsSideNavigationModule,
     FdsBadgeModule,
     FdsFooterModule,
     FdsIconsModule,

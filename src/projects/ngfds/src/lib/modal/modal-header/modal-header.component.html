@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h2 class="modal-title">
+      <ng-content></ng-content>
+  </h2>
+  <button
+    *ngIf="hideClose === false"
+    class="modal-close function-link"
+    (click)="closeModal()"
+    ><svg
+      class="icon-svg"
+      focusable="false"
+      aria-hidden="true"
+      ><use xlink:href="#close"></use></svg>Luk</button>
+</div>

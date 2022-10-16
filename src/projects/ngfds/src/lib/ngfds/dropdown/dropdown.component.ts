@@ -6,6 +6,7 @@ import {
   Optional,
   ViewChild,
 } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { FormFieldComponent } from '../../form-field/public-api';
 import { AngularHelper } from '../../helpers/angular-helper';
 import { ArrayHelper } from '../../helpers/array-helper';
@@ -17,7 +18,9 @@ import { DropdownOptionComponent } from './public-api';
   templateUrl: './dropdown.component.html',
   providers: [...AngularHelper.formInput(DropdownComponent)],
 })
-export class DropdownComponent extends NgModelComponent<DropdownOptionComponent[] | DropdownOptionComponent | null> {
+export class DropdownComponent extends NgModelComponent<
+  DropdownOptionComponent[] | DropdownOptionComponent | null
+> {
   /* Fields */
   @Input()
   public placeholder: string | null = null;
@@ -64,11 +67,17 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent[
   private options: DropdownOptionComponent[] = [];
 
   /* Methods */
-  constructor(@Optional() formField: FormFieldComponent) {
+  constructor(@Optional() formField: FormFieldComponent, protected sanitizer: DomSanitizer) {
     super(formField);
   }
 
-  setValue(obj: DropdownOptionComponent[] | DropdownOptionComponent | null): void {
+  showContent(opt: DropdownOptionComponent | null) {
+    return opt ? this.sanitizer.bypassSecurityTrustHtml(opt.html) : '';
+  }
+
+  setValue(
+    obj: DropdownOptionComponent[] | DropdownOptionComponent | null
+  ): void {
     if (Array.isArray(obj)) {
       this.selectedItems = obj;
     } else {
@@ -90,8 +99,8 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent[
     ArrayHelper.remove(this.options, comp);
   }
 
-  public openDropdown(ev: Event) {
-    this.preventDefault(ev);
+  public openDropdown(ev: Event | null) {
+    if (ev) this.preventDefault(ev);
     this.isOpen = true;
     if (this.selectedItem === null) {
       if (this.options.length !== 0) this.options[0].setFocus();
@@ -100,14 +109,14 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent[
     }
   }
 
-  public toggleDropdown(ev: Event) {
-    if (ev.defaultPrevented) return;
+  public toggleDropdown(ev: Event | null) {
+    if (ev && ev.defaultPrevented) return;
     if (this.isOpen) this.closeDropdown(ev);
     else this.openDropdown(ev);
   }
 
-  public closeDropdown(ev: Event) {
-    this.preventDefault(ev);
+  public closeDropdown(ev: Event | null) {
+    if (ev) this.preventDefault(ev);
     this.isOpen = false;
   }
 
@@ -133,7 +142,12 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent[
   @HostListener('document:keydown', ['$event'])
   globalKeydownHandler(ev: KeyboardEvent): void {
     setTimeout(() => {
-      if (!this.formControl || this.isOpen === false || ev.key.toLowerCase() !== 'tab') return;
+      if (
+        !this.formControl ||
+        this.isOpen === false ||
+        ev.key.toLowerCase() !== 'tab'
+      )
+        return;
       const target = document.activeElement;
       const clickedInside = this.formControl.nativeElement.contains(target);
       if (!clickedInside) {
@@ -142,8 +156,46 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent[
     });
   }
 
-  public focusPreviousItem(ev: Event) {
-    this.preventDefault(ev);
+  public handleArrowUp(ev: Event | null) {
+    if (this.isOpen) {
+      this.focusPreviousItem(ev);
+    } else if (this.allowMultiple === false) {
+      this.selectPreviousItem(ev);
+    }
+  }
+
+  public selectPreviousItem(ev: Event | null): void {
+    ev?.preventDefault();
+    const selectedIndex = this.selectedItem
+      ? this.options.indexOf(this.selectedItem)
+      : -1;
+    if (selectedIndex === -1) return;
+    const newSelectedIndex = Math.max(selectedIndex - 1, 0);
+    this.selectedItem = this.options[newSelectedIndex];
+  }
+
+  public handleArrowDown(ev: Event | null) {
+    if (this.isOpen) {
+      this.focusNextItem(ev);
+    } else if (this.allowMultiple === false) {
+      this.selectNextItem(ev);
+    }
+  }
+
+  public selectNextItem(ev: Event | null) {
+    ev?.preventDefault();
+    const selectedIndex = this.selectedItem
+      ? this.options.indexOf(this.selectedItem)
+      : -1;
+    const newSelectedIndex = Math.min(
+      selectedIndex + 1,
+      this.options.length - 1
+    );
+    this.selectedItem = this.options[newSelectedIndex];
+  }
+
+  public focusPreviousItem(ev: Event | null) {
+    if (ev) this.preventDefault(ev);
     const focusIndex = this.getItemIndexWithFocus();
     const prevIndex = focusIndex > 0 ? focusIndex - 1 : this.options.length - 1;
     this.options[prevIndex].setFocus();
@@ -155,14 +207,14 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent[
     return focusIndex;
   }
 
-  public focusNextItem(ev: Event) {
-    this.preventDefault(ev);
+  public focusNextItem(ev: Event | null) {
+    if (ev) this.preventDefault(ev);
     let focusIndex = this.getItemIndexWithFocus();
     focusIndex = focusIndex === this.options.length - 1 ? -1 : focusIndex;
     this.options[focusIndex + 1].setFocus();
   }
 
-  public toggleItemSelected(ev: Event, item: DropdownOptionComponent) {
+  public toggleItemSelected(ev: Event | null, item: DropdownOptionComponent) {
     const isSelected = this.allowMultiple
       ? this.selectedItems.indexOf(item) !== -1
       : this.selectedItem === item;
@@ -175,7 +227,7 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent[
     this.emitNgModelChanged();
   }
 
-  public selectItem(ev: Event, item: DropdownOptionComponent) {
+  public selectItem(ev: Event | null, item: DropdownOptionComponent) {
     if (this.allowMultiple) {
       const index = this.selectedItems.indexOf(item);
       if (index === -1) this.selectedItems.push(item);
@@ -186,8 +238,8 @@ export class DropdownComponent extends NgModelComponent<DropdownOptionComponent[
     this.emitNgModelChanged();
   }
 
-  public unselectItem(ev: Event, item: DropdownOptionComponent) {
-    ev.stopPropagation();
+  public unselectItem(ev: Event | null, item: DropdownOptionComponent) {
+    ev?.stopPropagation();
     if (this.allowMultiple) {
       const index = this.selectedItems.indexOf(item);
       if (index !== -1) this.selectedItems.splice(index, 1);

@@ -200,6 +200,7 @@ export class AppComponent implements OnInit {
     new AppSideNavigationItem({
       url: 'modalvindue',
       title: 'Modal',
+      state: 'work in progress'
     }),
     new AppSideNavigationItem({
       url: 'overflow-menu',
@@ -296,6 +297,14 @@ export class AppComponent implements OnInit {
       title: 'Promise button',
     }),
     new AppSideNavigationItem({
+      url: 'ngfds/progressbar',
+      title: 'Progressbar',
+    }),
+    new AppSideNavigationItem({
+      url: 'ngfds/typeahead',
+      title: 'Typeahead',
+    }),
+    new AppSideNavigationItem({
       url: 'ngfds/dropdown',
       title: 'Dropdown (multiselect)',
       state: 'work in progress',
@@ -303,6 +312,7 @@ export class AppComponent implements OnInit {
     new AppSideNavigationItem({
       url: 'ngfds/side-navigation',
       title: 'Sidenavigation (collapsable)',
+      state: 'work in progress',
     }),
   ];
 }

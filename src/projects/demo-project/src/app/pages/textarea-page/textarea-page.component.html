@@ -16,6 +16,14 @@
 </app-demo-view>
 
 <app-demo-view>
+  <fds-textarea
+    [(ngModel)]="value1"
+    size="width-xl"
+    [disabled]="true"
+  ></fds-textarea>
+</app-demo-view>
+
+<app-demo-view>
   <fds-checkbox [(ngModel)]="showCharacterLimit" size="small"
     >Show character limit</fds-checkbox
   >

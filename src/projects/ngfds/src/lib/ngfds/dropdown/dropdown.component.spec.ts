@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { readyException } from 'cypress/types/jquery';
 
 import { DropdownComponent } from './dropdown.component';
 import { DropdownOptionComponent } from './public-api';
@@ -220,6 +221,59 @@ describe('DropdownComponent', () => {
 
       // Assert
       expect(component.selectedItem).toBe(fakeOptions[2]);
+    });
+    it('selects first option on the list when clicking arrow down while dropdown is closed and no item is selected', () => {
+      // Arrange
+
+      // Act
+      component.handleArrowDown(fakeEvent);
+
+      // Assert
+      expect(component.isOpen).toBeFalse();
+      expect(component.selectedItem).toEqual(fakeOptions[0]);
+    });
+    it('selects next option on the list when clicking arrow down while dropdown is closed', () => {
+      // Arrange
+      component.selectedItem = fakeOptions[1];
+
+      // Act
+      component.handleArrowDown(fakeEvent);
+
+      // Assert
+      expect(component.isOpen).toBeFalse();
+      expect(component.selectedItem).toEqual(fakeOptions[2]);
+    });
+    it('stays on last option on the list when clicking arrow down while dropdown is closed and last item is selected', () => {
+      // Arrange
+      component.selectedItem = fakeOptions[3];
+
+      // Act
+      component.handleArrowDown(fakeEvent);
+
+      // Assert
+      expect(component.isOpen).toBeFalse();
+      expect(component.selectedItem).toEqual(fakeOptions[3]);
+    });
+    it('does nothing when clicking arrow up while dropdown is closed and no item is selected', () => {
+      // Arrange
+
+      // Act
+      component.handleArrowUp(fakeEvent);
+
+      // Assert
+      expect(component.isOpen).toBeFalse();
+      expect(component.selectedItem).toBeNull();
+    });
+    it('stays on first option on the list when clicking arrow up while dropdown is closed and first item is selected', () => {
+      // Arrange
+      component.selectedItem = fakeOptions[0];
+
+      // Act
+      component.handleArrowUp(fakeEvent);
+
+      // Assert
+      expect(component.isOpen).toBeFalse();
+      expect(component.selectedItem).toEqual(fakeOptions[0]);
     });
     it('can select another item when one has already been selected', () => {
       // Arrange

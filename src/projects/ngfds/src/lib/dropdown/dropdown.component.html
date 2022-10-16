@@ -1,6 +1,6 @@
 <select
   #selectControl
-  class="form-select"
+  class="form-select {{ size ? 'input-' + size : '' }}"
   [disabled]="disabled"
   [(ngModel)]="selectedItem"
   [attr.id]="name"

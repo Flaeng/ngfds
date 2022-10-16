@@ -60,7 +60,7 @@ export class FdsToastService {
       }, toast.timeout);
     }
 
-    return new Toast(fdsToast, obs);
+    return new Toast(fdsToast, obs.asObservable());
   }
 
   private createToastElement(

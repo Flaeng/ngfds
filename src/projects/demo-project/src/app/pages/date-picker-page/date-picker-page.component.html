@@ -38,6 +38,10 @@
 </app-demo-view>
 
 <app-demo-view>
+  <fds-date-picker [(ngModel)]="date3" size="char-11"></fds-date-picker>
+</app-demo-view>
+
+<app-demo-view>
   <fds-date-picker [(ngModel)]="date4" [min]="minDate"></fds-date-picker>
   <div class="mt-2">
     Min date as string: {{ minDate == null ? "(null)" : minDate.toString() }}<br />

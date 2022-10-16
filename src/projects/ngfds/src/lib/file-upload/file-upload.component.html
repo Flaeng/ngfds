@@ -1,1 +1,5 @@
-<input type="file" [(ngModel)]="value" />
+<input
+  class="{{ size ? 'input-' + size : '' }}"
+  type="file"
+  [(ngModel)]="value"
+/>
