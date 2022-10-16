@@ -67,7 +67,10 @@ export class DropdownComponent extends NgModelComponent<
   private options: DropdownOptionComponent[] = [];
 
   /* Methods */
-  constructor(@Optional() formField: FormFieldComponent, protected sanitizer: DomSanitizer) {
+  constructor(
+    @Optional() formField: FormFieldComponent,
+    protected sanitizer: DomSanitizer
+  ) {
     super(formField);
   }
 
@@ -158,9 +161,20 @@ export class DropdownComponent extends NgModelComponent<
 
   private handleArrowKey(ev: Event | null, key: 'up' | 'down'): void {
     if (this.isOpen) {
-      key === 'up' ? this.focusPreviousItem(ev) : this.focusNextItem(ev);
-    } else if (this.allowMultiple === false) {
-      key === 'up' ? this.selectPreviousItem(ev) : this.selectNextItem(ev);
+      if (key === 'up') {
+        this.focusPreviousItem(ev);
+      } else {
+        this.focusNextItem(ev);
+      }
+      return;
+    }
+
+    if (this.allowMultiple === true) return;
+
+    if (key === 'up') {
+      this.selectPreviousItem(ev);
+    } else {
+      this.selectNextItem(ev);
     }
   }
 
