@@ -1,5 +1,8 @@
 import {
   Component,
+  // #IF angular < 13
+  // ComponentFactoryResolver,
+  // #ENDIF
   ComponentRef,
   ElementRef,
   Type,
@@ -37,6 +40,10 @@ export class ModalComponent {
   // createModalFromTemplate<T>(template: TemplateRef<T>, allowClose: boolean): ComponentRef<T> {
   // }
 
+  // #IF angular < 13
+  // constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  // #ENDIF
+
   createModalFromComponent<T>(component: Type<T>, allowClose: boolean): ComponentRef<T> {
     if (!this.modalContainer) {
       throw new Error('Cannot find modal container');
@@ -48,7 +55,12 @@ export class ModalComponent {
     this.handleAllowClose(modalElem, allowClose);
 
     this.modalContainer.clear();
+    // #IF angular >= 13
     const result = this.modalContainer.createComponent(component);
+    // #ELSE
+    // const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+    // const result = this.modalContainer.createComponent(componentFactory);
+    // #ENDIF
 
     this.underlayingControl = DkfdsHelper.createAndInit(
       DKFDS.Modal,
