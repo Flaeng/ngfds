@@ -11,6 +11,7 @@ import { ModalExample1Component } from './modal-example1/modal-example1.componen
 export class ModalPageComponent extends BasePageComponent implements OnDestroy {
   _subscriptions: Subscription[] = [];
   modalExample1result: string | null = null;
+  modalExample2result: string | null = null;
 
   constructor(public modalService: FdsModalService) {
     super();
@@ -18,21 +19,29 @@ export class ModalPageComponent extends BasePageComponent implements OnDestroy {
 
   openModalExample1(ev: Event): void {
     ev.preventDefault();
-    const modalRef = this.modalService.open(ModalExample1Component);
+    const modalRef = this.modalService.open(ModalExample1Component, false);
     const sub = modalRef.onResult().subscribe(
       (x) => (this.modalExample1result = x as string),
-      (err) => {
-        console.log('err', err);
-        (this.modalExample1result = 'lukket');
-      },
-      () => {
-        console.log('completed');
-      }
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      (err) => (this.modalExample1result = 'lukket')
+      // () => {}
+    );
+    this._subscriptions.push(sub);
+  }
+
+  openModalExample2(ev: Event): void {
+    ev.preventDefault();
+    const modalRef = this.modalService.open(ModalExample1Component, true);
+    const sub = modalRef.onResult().subscribe(
+      (x) => (this.modalExample2result = x as string),
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      (err) => (this.modalExample2result = 'lukket')
+      // () => {}
     );
     this._subscriptions.push(sub);
   }
 
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    this._subscriptions.forEach((x) => x.unsubscribe());
   }
 }

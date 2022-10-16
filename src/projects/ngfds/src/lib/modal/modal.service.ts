@@ -31,12 +31,12 @@ export class FdsModalService {
     document.querySelector('body')?.appendChild(this.modalContainer);
   }
 
-  open(component: Type<unknown>): FdsModalRef {
+  open(component: Type<unknown>, forceAction: boolean): FdsModalRef {
     const modalComponentRef = this.appRef.bootstrap(
       ModalComponent,
       this.modalContainer
     );
-    const modalRef = modalComponentRef.instance.createModal(component);
+    const modalRef = modalComponentRef.instance.createModalFromComponent(component, !forceAction);
     const result = new FdsModalRef(modalComponentRef, modalRef);
     return result;
   }
@@ -91,7 +91,7 @@ export class FdsModalRef {
   }
 
   private destroy$(): void {
-    this.modalContainer.instance.hide();
+    this.modalContainer.instance.destroy();
     this.modal.destroy();
     this.modalContainer.destroy();
     this.result$.complete();

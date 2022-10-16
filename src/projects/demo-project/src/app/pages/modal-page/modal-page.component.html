@@ -11,4 +11,11 @@
   </div>
 </app-demo-view>
 
+<app-demo-view>
+  <fds-button (click)="openModalExample2($event)">Åben modal med tvungen handling</fds-button>
+  <div class="mt-3">
+    Result: {{ modalExample2result ? modalExample2result : '' }}
+  </div>
+</app-demo-view>
+
 <app-doc-view> </app-doc-view>
