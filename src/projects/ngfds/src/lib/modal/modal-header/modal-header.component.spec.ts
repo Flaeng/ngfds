@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ModalComponent } from '../modal.component';
 
 import { ModalHeaderComponent } from './modal-header.component';
 
@@ -8,7 +9,18 @@ describe('ModalHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModalHeaderComponent ]
+      declarations: [ModalHeaderComponent],
+      providers: [
+        {
+          provide: ModalComponent,
+          useValue: {
+            isDismissed: false,
+            dismiss(value: any): void {
+              this.isDismissed = true;
+            }
+          }
+        }
+      ]
     })
     .compileComponents();
 
