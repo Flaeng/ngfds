@@ -156,12 +156,20 @@ export class DropdownComponent extends NgModelComponent<
     });
   }
 
-  public handleArrowUp(ev: Event | null) {
+  private handleArrowKey(ev: Event | null, key: 'up' | 'down'): void {
     if (this.isOpen) {
-      this.focusPreviousItem(ev);
+      key === 'up' ? this.focusPreviousItem(ev) : this.focusNextItem(ev);
     } else if (this.allowMultiple === false) {
-      this.selectPreviousItem(ev);
+      key === 'up' ? this.selectPreviousItem(ev) : this.selectNextItem(ev);
     }
+  }
+
+  public handleArrowUp(ev: Event | null): void {
+    this.handleArrowKey(ev, 'up');
+  }
+
+  public handleArrowDown(ev: Event | null): void {
+    this.handleArrowKey(ev, 'down');
   }
 
   public selectPreviousItem(ev: Event | null): void {
@@ -172,14 +180,6 @@ export class DropdownComponent extends NgModelComponent<
     if (selectedIndex === -1) return;
     const newSelectedIndex = Math.max(selectedIndex - 1, 0);
     this.selectedItem = this.options[newSelectedIndex];
-  }
-
-  public handleArrowDown(ev: Event | null) {
-    if (this.isOpen) {
-      this.focusNextItem(ev);
-    } else if (this.allowMultiple === false) {
-      this.selectNextItem(ev);
-    }
   }
 
   public selectNextItem(ev: Event | null) {
