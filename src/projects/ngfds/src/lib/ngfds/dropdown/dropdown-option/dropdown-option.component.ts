@@ -2,7 +2,6 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  Input,
   OnDestroy,
   OnInit,
   Optional,
@@ -14,7 +13,9 @@ import { DropdownComponent } from '../dropdown.component';
   selector: 'ngfds-option',
   templateUrl: './dropdown-option.component.html',
 })
-export class DropdownOptionComponent implements OnInit, AfterViewInit, OnDestroy {
+export class DropdownOptionComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   @ViewChild('dropdownOption')
   private dropdownOption!: ElementRef<HTMLDivElement>;
 

@@ -15,7 +15,9 @@ describe('ModalHeaderComponent', () => {
           provide: ModalComponent,
           useValue: {
             isDismissed: false,
-            dismiss(value: any): void {
+            dismissResult: <unknown>null,
+            dismiss(value: unknown): void {
+              this.dismissResult = value;
               this.isDismissed = true;
             }
           }

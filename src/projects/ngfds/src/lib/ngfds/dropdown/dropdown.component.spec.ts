@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { readyException } from 'cypress/types/jquery';
 
 import { DropdownComponent } from './dropdown.component';
 import { DropdownOptionComponent } from './public-api';
