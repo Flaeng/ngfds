@@ -3,7 +3,6 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'fds-solution-header',
   templateUrl: './solution-header.component.html',
-  styleUrls: ['./solution-header.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class SolutionHeaderComponent {

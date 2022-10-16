@@ -4,7 +4,6 @@ import { ClickHelper } from '../../../helpers/click-helper';
 @Component({
   selector: 'fds-portal-header-mobile',
   templateUrl: './portal-header-mobile.component.html',
-  styleUrls: ['./portal-header-mobile.component.css'],
 })
 export class PortalHeaderMobileComponent {
   @Input()

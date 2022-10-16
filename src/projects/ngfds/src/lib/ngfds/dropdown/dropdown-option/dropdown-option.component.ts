@@ -12,7 +12,6 @@ import { DropdownComponent } from '../dropdown.component';
 @Component({
   selector: 'ngfds-option',
   templateUrl: './dropdown-option.component.html',
-  styleUrls: ['./dropdown-option.component.css'],
 })
 export class DropdownOptionComponent implements OnInit, OnDestroy {
   @ViewChild('dropdownOption')

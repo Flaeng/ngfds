@@ -16,9 +16,7 @@ export class RadioContentComponent implements AfterViewInit {
 
   underlayingControl: DKFDS.RadioToggleGroup | null = null;
 
-  constructor(private radioGroup: RadioGroupComponent) {
-
-  }
+  constructor(private radioGroup: RadioGroupComponent) {}
 
   ngAfterViewInit(): void {
     if (this.name === null) {

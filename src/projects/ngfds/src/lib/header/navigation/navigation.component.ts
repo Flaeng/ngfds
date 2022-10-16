@@ -12,7 +12,13 @@ import * as DKFDS from 'dkfds';
 @Component({
   selector: 'fds-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.css'],
+  styles: [
+    `
+      .nav-primary li .overflow-menu button.button-overflow-menu {
+        padding-left: 16px;
+      }
+    `,
+  ],
   encapsulation: ViewEncapsulation.None,
 })
 export class NavigationComponent implements AfterViewInit, OnDestroy {

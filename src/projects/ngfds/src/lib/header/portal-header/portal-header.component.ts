@@ -9,7 +9,6 @@ import {
 @Component({
   selector: 'fds-portal-header',
   templateUrl: './portal-header.component.html',
-  styleUrls: ['./portal-header.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class PortalHeaderComponent {

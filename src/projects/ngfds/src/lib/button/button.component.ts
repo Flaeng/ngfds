@@ -10,7 +10,6 @@ import {
 @Component({
   selector: 'fds-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent implements OnInit, OnChanges {

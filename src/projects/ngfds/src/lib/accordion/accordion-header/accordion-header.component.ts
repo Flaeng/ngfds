@@ -4,7 +4,21 @@ import { AccordionComponent } from '../accordion.component';
 @Component({
   selector: 'fds-accordion-header',
   templateUrl: './accordion-header.component.html',
-  styleUrls: ['./accordion-header.component.css'],
+  styles: [
+    `
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+        letter-spacing: normal;
+        max-width: none;
+      }
+    `,
+  ],
   encapsulation: ViewEncapsulation.None,
 })
 export class AccordionHeaderComponent {

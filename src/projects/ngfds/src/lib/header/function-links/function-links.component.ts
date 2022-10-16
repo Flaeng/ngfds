@@ -5,7 +5,6 @@ import { ItemSelectedEvent, NavigationItemHelper } from '../../helpers/navigatio
 @Component({
   selector: 'fds-function-links',
   templateUrl: './function-links.component.html',
-  styleUrls: ['./function-links.component.css']
 })
 export class FunctionLinksComponent {
   @Input()

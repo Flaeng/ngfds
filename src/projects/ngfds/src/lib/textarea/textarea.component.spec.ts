@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ToggleSwitchComponent } from './toggle-switch.component';
+import { TextareaComponent } from './textarea.component';
 
-describe('ToggleSwitchComponent', () => {
-  let component: ToggleSwitchComponent;
-  let fixture: ComponentFixture<ToggleSwitchComponent>;
+describe('TextareaComponent', () => {
+  let component: TextareaComponent;
+  let fixture: ComponentFixture<TextareaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToggleSwitchComponent ]
+      declarations: [ TextareaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ToggleSwitchComponent);
+    fixture = TestBed.createComponent(TextareaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -26,20 +26,20 @@ describe('ToggleSwitchComponent', () => {
       // Arrange
 
       // Act
-      component.writeValue(true);
+      component.writeValue('true');
 
       // Assert
-      expect(component.value).toBeTrue();
+      expect(component.value).toBe('true');
     });
 
     it('can have its value set by the user', () => {
       // Arrange
 
       // Act
-      component.value = true;
+      component.value = 'true';
 
       // Assert
-      expect(component.value).toBeTrue();
+      expect(component.value).toBe('true');
     });
 
     it('will emit changes', () => {
@@ -48,7 +48,7 @@ describe('ToggleSwitchComponent', () => {
       component.registerOnChange(() => onChangeWasCalled = true);
 
       // Act
-      component.value = true;
+      component.value = 'true';
 
       // Assert
       expect(onChangeWasCalled).toBeTrue();
@@ -60,7 +60,7 @@ describe('ToggleSwitchComponent', () => {
       component.registerOnTouched(() => onTouchedWasCalled = true);
 
       // Act
-      component.value = true;
+      component.value = 'true';
 
       // Assert
       expect(onTouchedWasCalled).toBeTrue();

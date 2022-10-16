@@ -5,7 +5,6 @@ import { ItemSelectedEvent, NavigationItemHelper } from '../../helpers/navigatio
 @Component({
   selector: 'fds-context-menu',
   templateUrl: './context-menu.component.html',
-  styleUrls: ['./context-menu.component.css'],
 })
 export class ContextMenuComponent {
   @Input()

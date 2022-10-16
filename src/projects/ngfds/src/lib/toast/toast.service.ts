@@ -1,4 +1,4 @@
-import { Inject, Injectable, InjectionToken } from '@angular/core';
+import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import * as DKFDS from 'dkfds';
 
@@ -11,10 +11,15 @@ export const FDS_TOAST_SETTINGS = new InjectionToken<IToastSettings>(
 })
 export class FdsToastService {
   toastContainer: HTMLDivElement | null = null;
+  public settings: IToastSettings;
 
   constructor(
-    @Inject(FDS_TOAST_SETTINGS) public options: IToastSettings | null
+    @Optional()
+    @Inject(FDS_TOAST_SETTINGS)
+    options: IToastSettings | null
   ) {
+    this.settings = options ?? { newToastPosition: 'top' };
+
     const elem = document.querySelector<HTMLDivElement>('div.toast-container');
     if (elem !== null) {
       this.toastContainer = elem;
@@ -39,7 +44,7 @@ export class FdsToastService {
 
     const elem = this.createToastElement(toast, obs);
 
-    if (this.options?.newToastPosition === 'top') {
+    if (this.settings.newToastPosition === 'top') {
       this.toastContainer.prepend(elem);
     } else {
       this.toastContainer.append(elem);
