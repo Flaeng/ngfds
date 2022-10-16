@@ -161,11 +161,7 @@ export class DropdownComponent extends NgModelComponent<
 
   private handleArrowKey(ev: Event | null, key: 'up' | 'down'): void {
     if (this.isOpen) {
-      if (key === 'up') {
-        this.focusPreviousItem(ev);
-      } else {
-        this.focusNextItem(ev);
-      }
+      this.handleArrowKeyWhenOpen(ev, key);
       return;
     }
 
@@ -175,6 +171,14 @@ export class DropdownComponent extends NgModelComponent<
       this.selectPreviousItem(ev);
     } else {
       this.selectNextItem(ev);
+    }
+  }
+
+  private handleArrowKeyWhenOpen(ev: Event | null, key: 'up' | 'down') {
+    if (key === 'up') {
+      this.focusPreviousItem(ev);
+    } else {
+      this.focusNextItem(ev);
     }
   }
 
