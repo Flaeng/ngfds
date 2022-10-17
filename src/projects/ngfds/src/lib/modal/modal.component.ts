@@ -24,7 +24,7 @@ export class ModalComponent {
   @ViewChild('modal')
   private modal: ElementRef<HTMLDivElement> | null = null;
 
-  private ref: FdsModalRef | null = null;
+  private modalRef: FdsModalRef | null = null;
 
   private underlayingControl: DKFDS.Modal | null = null;
 
@@ -37,14 +37,20 @@ export class ModalComponent {
 
   id: string = 'modal' + (ModalComponent.idGenerator++).toString();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private keyupEventHandler: ((doc: Document, ev: KeyboardEvent) => any) | null = null;
+
   // createModalFromTemplate<T>(template: TemplateRef<T>, allowClose: boolean): ComponentRef<T> {
   // }
 
   // #IF angular < 13
-  // constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  // constructor(private el: ElementRef<HTMLElement>, private componentFactoryResolver: ComponentFactoryResolver) {}
   // #ENDIF
 
-  createModalFromComponent<T>(component: Type<T>, allowClose: boolean): ComponentRef<T> {
+  createModalFromComponent<T>(
+    component: Type<T>,
+    allowClose: boolean
+  ): ComponentRef<T> {
     if (!this.modalContainer) {
       throw new Error('Cannot find modal container');
     }
@@ -67,8 +73,30 @@ export class ModalComponent {
       this.modal.nativeElement
     );
 
-    this.show(null);
+    this.keyupEventHandler = this.handleEscape(this);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    document.addEventListener('keyup', this.keyupEventHandler as any);
+
+    this.underlayingControl.show(null);
     return result;
+  }
+
+  handleEscape(
+    that: ModalComponent
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ): (doc: Document, ev: KeyboardEvent) => any {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    return () => {
+      setTimeout(() => {
+        const visibleModal = document.querySelector(
+          '.fds-modal[aria-hidden=false]'
+        );
+        if (visibleModal === null) {
+          that.underlayingControl = null;
+          that.dismiss(null);
+        }
+      });
+    };
   }
 
   private handleAllowClose(modalElem: HTMLDivElement, allowClose: boolean) {
@@ -81,37 +109,34 @@ export class ModalComponent {
   }
 
   setModalRef(ref: FdsModalRef): void {
-    this.ref = ref;
+    this.modalRef = ref;
   }
 
   public close(result: unknown): void {
-    this.ref?.close(result);
+    this.modalRef?.close(result);
   }
 
   public dismiss(reason: unknown): void {
-    this.ref?.dismiss(reason);
-  }
-
-  private show(ev: Event | null): boolean {
-    if (!this.underlayingControl) return false;
-    this.underlayingControl.show(ev);
-    return true;
+    this.modalRef?.dismiss(reason);
   }
 
   public hide(): boolean {
     if (!this.underlayingControl) return false;
     this.destroy();
-    this.ref?.dismiss(null);
+    this.modalRef?.dismiss(null);
     return true;
   }
 
   public destroy(): void {
-    try {
-      console.log('hiding...');
-      this.underlayingControl?.hide();
-      console.log('done hiding.');
-    } catch (err) {
-      console.warn(err);
+    if (!this.underlayingControl) return;
+    this.underlayingControl?.hide();
+    this.underlayingControl = null;
+  }
+
+  ngOnDestroy(): void {
+    if (this.keyupEventHandler) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      document.removeEventListener('keyup', this.keyupEventHandler as any);
     }
   }
 }

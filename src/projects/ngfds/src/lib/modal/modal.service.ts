@@ -16,22 +16,24 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class FdsModalService {
-  private modalContainer: HTMLDivElement;
-
   constructor(
     private appRef: ApplicationRef,
-    @Inject(DOCUMENT) document: Document
-  ) {
-    this.modalContainer = document.createElement('div');
-    document.querySelector('body')?.appendChild(this.modalContainer);
-  }
+    @Inject(DOCUMENT) private document: Document
+  ) {}
 
   open(component: Type<unknown>, forceAction: boolean): FdsModalRef {
+    const modalContainer = this.document.createElement('div');
+    modalContainer.classList.add('modal-container');
+    this.document.querySelector('body')?.appendChild(modalContainer);
+
     const modalComponentRef = this.appRef.bootstrap(
       ModalComponent,
-      this.modalContainer
+      modalContainer
     );
-    const modalRef = modalComponentRef.instance.createModalFromComponent(component, !forceAction);
+    const modalRef = modalComponentRef.instance.createModalFromComponent(
+      component,
+      !forceAction
+    );
     const result = new FdsModalRef(modalComponentRef, modalRef);
     return result;
   }
@@ -44,10 +46,10 @@ export class FdsModalService {
   //   return new FdsModalRef();
   // }
 
-  private setupModalContainerDiv(): void {
-    this.modalContainer = document.createElement('div');
-    document.getElementsByTagName('body')[0].appendChild(this.modalContainer);
-  }
+  // private setupModalContainerDiv(): void {
+  //   this.modalContainer = document.createElement('div');
+  //   document.getElementsByTagName('body')[0].appendChild(this.modalContainer);
+  // }
 }
 
 export interface ModalRefAware {
@@ -55,6 +57,7 @@ export interface ModalRefAware {
 }
 export class FdsModalRef {
   private result$ = new Subject<unknown>();
+  private isResolved = false;
 
   constructor(
     private modalContainer: ComponentRef<ModalComponent>,
@@ -72,11 +75,14 @@ export class FdsModalRef {
   }
 
   public close(result: unknown): void {
+    if (this.isResolved) return;
+    this.isResolved = true;
     this.result$.next(result);
     this.destroy$();
   }
 
   public dismiss(reason: unknown): void {
+    if (this.isResolved) return;
     this.result$.error(reason);
     this.destroy$();
   }
