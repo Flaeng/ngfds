@@ -4,18 +4,13 @@ import {
   ComponentRef,
   Inject,
   Injectable,
-  Injector,
   Type,
 } from '@angular/core';
 import { ModalComponent } from './modal.component';
 import { Observable, Subject } from 'rxjs';
 
-export type FdsModalOptions = {
-  container: HTMLElement;
-  injector: Injector;
-  scrollable: boolean;
-  backdrop: boolean;
-};
+//
+// https://stackblitz.com/edit/angular-modal-service?file=app%2Fmodal-service%2Fmodal-service.service.ts
 
 @Injectable({
   providedIn: 'root',
