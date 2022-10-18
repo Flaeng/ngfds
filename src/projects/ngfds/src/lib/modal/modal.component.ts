@@ -49,7 +49,8 @@ export class ModalComponent {
 
   createModalFromComponent<T>(
     component: Type<T>,
-    allowClose: boolean
+    allowClose: boolean,
+    source: HTMLElement | null
   ): ComponentRef<T> {
     if (!this.modalContainer) {
       throw new Error('Cannot find modal container');
@@ -77,7 +78,9 @@ export class ModalComponent {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     document.addEventListener('keyup', this.keyupEventHandler as any);
 
-    this.underlayingControl.show(null);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const fakeEvent: Event | null = source ? { target: source } as any : null;
+    this.underlayingControl.show(fakeEvent);
     return result;
   }
 

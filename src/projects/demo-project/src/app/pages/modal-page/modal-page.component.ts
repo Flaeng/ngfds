@@ -19,19 +19,18 @@ export class ModalPageComponent extends BasePageComponent implements OnDestroy {
 
   openModalExample1(ev: Event): void {
     ev.preventDefault();
-    const modalRef = this.modalService.open(ModalExample1Component, false);
+    const modalRef = this.modalService.open(ModalExample1Component, false, ev);
     const sub = modalRef.onResult().subscribe(
       (x) => (this.modalExample1result = x as string),
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       (err) => (this.modalExample1result = 'lukket')
-      // () => {}
     );
     this._subscriptions.push(sub);
   }
 
   openModalExample2(ev: Event): void {
     ev.preventDefault();
-    const modalRef = this.modalService.open(ModalExample1Component, true);
+    const modalRef = this.modalService.open(ModalExample1Component, true, ev);
     const sub = modalRef.onResult().subscribe(
       (x) => (this.modalExample2result = x as string),
       // eslint-disable-next-line @typescript-eslint/no-unused-vars

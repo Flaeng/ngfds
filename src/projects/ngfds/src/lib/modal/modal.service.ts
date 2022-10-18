@@ -21,7 +21,7 @@ export class FdsModalService {
     @Inject(DOCUMENT) private document: Document
   ) {}
 
-  open(component: Type<unknown>, forceAction: boolean): FdsModalRef {
+  open(component: Type<unknown>, forceAction: boolean, ev?: Event): FdsModalRef {
     const modalContainer = this.document.createElement('div');
     modalContainer.classList.add('modal-container');
     this.document.querySelector('body')?.appendChild(modalContainer);
@@ -30,9 +30,15 @@ export class FdsModalService {
       ModalComponent,
       modalContainer
     );
+
+    const target: HTMLElement | null = ev?.target as HTMLElement;
+    target?.setAttribute('data-module', 'modal');
+    target?.setAttribute('data-target', modalComponentRef.instance.id);
+
     const modalRef = modalComponentRef.instance.createModalFromComponent(
       component,
-      !forceAction
+      !forceAction,
+      target
     );
     const result = new FdsModalRef(modalComponentRef, modalRef);
     return result;
