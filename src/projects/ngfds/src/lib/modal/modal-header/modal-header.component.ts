@@ -1,6 +1,5 @@
 import { Component, Input, Optional } from '@angular/core';
 import { FdsModalRef } from 'projects/ngfds/src/public-api';
-import { ModalComponent } from '../modal.component';
 
 @Component({
   selector: 'fds-modal-header',
