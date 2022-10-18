@@ -1,7 +1,7 @@
 <div class="modal-header">
-  <h2 class="modal-title">
-      <ng-content></ng-content>
+  <h2 class="modal-title" *ngIf="header"> {{ header }}
   </h2>
+  <ng-content></ng-content>
   <button
     *ngIf="hideClose === false"
     class="modal-close function-link"

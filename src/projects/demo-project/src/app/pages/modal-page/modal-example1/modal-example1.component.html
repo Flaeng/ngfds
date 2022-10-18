@@ -1,10 +1,12 @@
-<fds-modal-header>Overskrift</fds-modal-header>
+<fds-modal-header>
+  Hey {{ user?.username }}
+</fds-modal-header>
 <fds-modal-content>
   <p>modal-example1 works!</p>
 </fds-modal-content>
 <fds-modal-footer>
-  <fds-button (click)="modalInstance?.close('primær')">Primær svar</fds-button>
-  <fds-button (click)="modalInstance?.close('sekundær')" visual="secondary">
+  <fds-button (click)="modalInstance.close('primær')">Primær svar</fds-button>
+  <fds-button (click)="modalInstance.close('sekundær')" visual="secondary">
     Sekundær svar
   </fds-button>
 </fds-modal-footer>

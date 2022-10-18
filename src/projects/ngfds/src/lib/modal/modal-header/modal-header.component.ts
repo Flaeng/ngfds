@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Optional } from '@angular/core';
+import { FdsModalRef } from 'projects/ngfds/src/public-api';
 import { ModalComponent } from '../modal.component';
 
 @Component({
@@ -9,9 +10,14 @@ export class ModalHeaderComponent {
   @Input('hide-close')
   public hideClose: boolean = false;
 
-  constructor(private modalRef: ModalComponent) {}
+  @Input()
+  public header: string | null = null;
+
+  constructor(@Optional() private modalRef: FdsModalRef | null) {
+    this.hideClose = this.modalRef === null || this.modalRef.forceAction === true;
+  }
 
   public closeModal(): void {
-    this.modalRef.dismiss(null);
+    this.modalRef?.dismiss(null);
   }
 }

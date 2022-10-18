@@ -7,14 +7,56 @@
 <app-demo-view>
   <fds-button (click)="openModalExample1($event)">Åben modal #1</fds-button>
   <div class="mt-3">
-    Result: {{ modalExample1result ? modalExample1result : '' }}
+    Result: {{ modalExample1result ? modalExample1result : "" }}
   </div>
 </app-demo-view>
 
 <app-demo-view>
-  <fds-button (click)="openModalExample2($event)">Åben modal med tvungen handling</fds-button>
+  <fds-button (click)="openModalExample2($event)"
+    >Åben modal med tvungen handling</fds-button
+  >
   <div class="mt-3">
-    Result: {{ modalExample2result ? modalExample2result : '' }}
+    Result: {{ modalExample2result ? modalExample2result : "" }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-button (click)="openModalFromComponent($event, { data: { username: 'Jane Doe' } })"
+    >Open modal from component</fds-button
+  >
+  <div class="mt-3">
+    Result: {{ modalExample3result ? modalExample3result : "" }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-button
+    (click)="
+      openModalFromTemplate($event, modalExample, { username: 'John Doe' })
+    "
+    >Open modal from template</fds-button
+  >
+  <ng-template #modalExample let-username="username">
+    <fds-modal-header [header]="'Hey ' + username"></fds-modal-header>
+    <fds-modal-content><p>Welcome</p></fds-modal-content>
+    <fds-modal-footer>
+      <fds-button (click)="closeModal()">Tak</fds-button>
+    </fds-modal-footer>
+  </ng-template>
+  <div class="mt-3">
+    Result: {{ modalExample4result ? modalExample4result : "" }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <fds-button
+    (click)="
+      openModalFromHTML($event, '<h3 class=\'m-4\'>Dette er en modal</h3>')
+    "
+    >Open modal from html</fds-button
+  >
+  <div class="mt-3">
+    Result: {{ modalExample5result ? modalExample5result : "" }}
   </div>
 </app-demo-view>
 
