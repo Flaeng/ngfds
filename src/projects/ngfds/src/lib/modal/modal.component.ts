@@ -181,7 +181,7 @@ export class ModalComponent {
     // #IF angular >= 13
     const result = container.createComponent(content, { injector });
     // #ELSE
-    // const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
+    // const componentFactory = this.componentFactoryResolver.resolveComponentFactory(content);
     // const result = modalContainer.createComponent(componentFactory);
     // #ENDIF
     return result;

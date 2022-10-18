@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ModalComponent } from '../modal.component';
+import { Observable, of } from 'rxjs';
+import { FdsModalRef } from '../modal.service';
 
 import { ModalHeaderComponent } from './modal-header.component';
 
@@ -12,13 +13,23 @@ describe('ModalHeaderComponent', () => {
       declarations: [ModalHeaderComponent],
       providers: [
         {
-          provide: ModalComponent,
+          provide: FdsModalRef,
           useValue: {
-            isDismissed: false,
-            dismissResult: <unknown>null,
-            dismiss(value: unknown): void {
-              this.dismissResult = value;
-              this.isDismissed = true;
+            forceAction: false,
+            closed: false,
+            closeResult: null as unknown | null,
+            dismissed: false,
+            dismissReason: null as unknown | null,
+            close(result: unknown): void {
+              this.closed = true;
+              this.closeResult = result;
+            },
+            dismiss(reason: unknown): void {
+              this.dismissed = true;
+              this.dismissReason = reason;
+            },
+            onResult(): Observable<unknown> {
+              return of(null);
             }
           }
         }
