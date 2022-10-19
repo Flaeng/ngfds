@@ -71,6 +71,11 @@ export class FdsModalService {
     );
 
     const result = new FdsModalRef(modalComponentRef, opts as ModalOptions);
+    this.createModalContent<T>(content, modalComponentRef, result, opts);
+    return result;
+  }
+
+  private createModalContent<T>(content: unknown, modalComponentRef: ComponentRef<ModalComponent>, result: FdsModalRef, opts: ModalOptions) {
     if (content instanceof TemplateRef) {
       modalComponentRef.instance.createModalContent<T>(
         result,
@@ -90,7 +95,6 @@ export class FdsModalService {
         opts as ComponentModalOptions
       );
     }
-    return result;
   }
 }
 
