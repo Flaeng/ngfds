@@ -5,7 +5,7 @@ on:
     inputs:
       ngVersion:
         required: true
-        type: number
+        type: string
 
 jobs:
   build:
