@@ -13,32 +13,32 @@ jobs:
   build-v9:
     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
     with:
-      ngVersion: 9
+      ngVersion: v9
 
   build-v10:
     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
     with:
-      ngVersion: 10
+      ngVersion: v10
 
   build-v11:
     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
     with:
-      ngVersion: 11
+      ngVersion: v11
 
   build-v12:
     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
     with:
-      ngVersion: 12
+      ngVersion: v12
 
   build-v13:
     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
     with:
-      ngVersion: 13
+      ngVersion: v13
 
   build-v14:
     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
     with:
-      ngVersion: 14
+      ngVersion: v14
 
   build-v15:
     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
