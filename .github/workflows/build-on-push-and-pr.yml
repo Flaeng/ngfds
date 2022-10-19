@@ -9,32 +9,32 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-v9:
     uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
     with:
       ngVersion: 9
 
-  build:
+  build-v10:
     uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
     with:
       ngVersion: 10
 
-  build:
+  build-v11:
     uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
     with:
       ngVersion: 11
 
-  build:
+  build-v12:
     uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
     with:
       ngVersion: 12
 
-  build:
+  build-v13:
     uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
     with:
       ngVersion: 13
 
-  build:
+  build-v14:
     uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
     with:
       ngVersion: 14
