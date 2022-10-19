@@ -182,7 +182,7 @@ export class ModalComponent {
     const result = container.createComponent(content, { injector });
     // #ELSE
     // const componentFactory = this.componentFactoryResolver.resolveComponentFactory(content);
-    // const result = modalContainer.createComponent(componentFactory);
+    // const result = container.createComponent(componentFactory);
     // #ENDIF
     return result;
   }
