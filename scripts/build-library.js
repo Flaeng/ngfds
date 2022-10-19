@@ -13,7 +13,7 @@ const projectPath = "src/projects/ngfds";
 const typingsPath = "src/typings";
 
 const version = getArgument("version");
-const name = version;
+const name = getArgument("name");
 const versionNo = parseInt(version.replace(/[A-Za-z\-]+/g, "").split(".")[0], 10);
 const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
 

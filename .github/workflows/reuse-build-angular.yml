@@ -1,0 +1,23 @@
+name: Build for angular version
+
+on:
+  workflow_call:
+    inputs:
+      ngVersion:
+        required: true
+        type: number
+
+jobs:
+  build:
+    name: Build targeting Angular ${{ format('v{0}', inputs.ngVersion) }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm run setup
+      - run: npm run ${{ format('build-library-v{0}', inputs.ngVersion) }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: package
+          path: ${{ format('temp/library-v{0}/src/dist', inputs.ngVersion) }}

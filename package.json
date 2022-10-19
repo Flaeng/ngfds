@@ -3,13 +3,13 @@
     "setup": "node scripts/install.js",
     "build-showroom": "node scripts/build-showroom.js",
     "setup-demo-v11": "node scripts/setup-demo.js --version=11",
-    "build-library-next": "node scripts/build-library.js --version=next",
-    "build-library-v14": "node scripts/build-library.js --version=14.0.0",
-    "build-library-v13": "node scripts/build-library.js --version=13.0.0",
-    "build-library-v12": "node scripts/build-library.js --version=12.0.0",
-    "build-library-v11": "node scripts/build-library.js --version=11.0.0",
-    "build-library-v10": "node scripts/build-library.js --version=10.1.0",
-    "build-library-v9": "node scripts/build-library.js --version=9.1.0"
+    "build-library-next": "node scripts/build-library.js --version=next --name=next",
+    "build-library-v14": "node scripts/build-library.js --version=14.0.0 --name=v14",
+    "build-library-v13": "node scripts/build-library.js --version=13.0.0 --name=v13",
+    "build-library-v12": "node scripts/build-library.js --version=12.0.0 --name=v12",
+    "build-library-v11": "node scripts/build-library.js --version=11.0.0 --name=v11",
+    "build-library-v10": "node scripts/build-library.js --version=10.1.0 --name=v10",
+    "build-library-v9": "node scripts/build-library.js --version=9.1.0 --name=v9"
   },
   "devDependencies": {
     "@angular/cli": "^14.2.4",
