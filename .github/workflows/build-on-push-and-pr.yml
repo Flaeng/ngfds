@@ -1,0 +1,40 @@
+name: Build targeting different Angular versions
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
+    with:
+      ngVersion: 9
+
+  build:
+    uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
+    with:
+      ngVersion: 10
+
+  build:
+    uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
+    with:
+      ngVersion: 11
+
+  build:
+    uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
+    with:
+      ngVersion: 12
+
+  build:
+    uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
+    with:
+      ngVersion: 13
+
+  build:
+    uses: flaeng/ngfds/.github/workflows/build-angular.yml@main
+    with:
+      ngVersion: 14
