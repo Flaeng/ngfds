@@ -12,8 +12,12 @@ export class ModalHeaderComponent {
   @Input()
   public header: string | null = null;
 
-  constructor(@Optional() private modalRef: FdsModalRef | null) {
-    this.hideClose = this.modalRef === null || this.modalRef.forceAction === true;
+  constructor(
+    @Optional()
+    private modalRef: FdsModalRef | null
+  ) {
+    this.hideClose =
+      this.modalRef === null || this.modalRef.forceAction === true;
   }
 
   public closeModal(): void {
