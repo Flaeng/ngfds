@@ -33,7 +33,7 @@ jobs:
         run: npm run ${{ format('build-library-v{0}', matrix.ng-version) }}
 
       - name: Set NPM package version
-        run: npm version ${{ format('{0}.{1}.{2}', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version) }}
+        run: npm version ${{ format('"{0}.{1}.{2}"', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version) }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
