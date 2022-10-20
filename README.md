@@ -5,15 +5,15 @@ An Angular Component Library implemeting DKFDS - Fælles Design System
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20source%20code?style=for-the-badge&label=Development%20source%20code%20builds%20and%20E2E%20testing)
 
-| Angular version    | Install command          | Supported untill | Build status |
-| ------------------ | ------------------------ | ---------------- | ------------ |
-| 15.0.0 - <16.0.0   | npm install ngfds@next   | Unknown          | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v15?label=%20&style=for-the-badge) |
-| 14.0.0 - <15.0.0   | npm install ngfds@14     | Dec 2025         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v14?label=%20&style=for-the-badge) |
-| 13.0.0 - <14.0.0   | npm install ngfds@13     | May 2025         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v13?label=%20&style=for-the-badge) |
-| 12.0.0 - <13.0.0   | npm install ngfds@12     | Nov 2024         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v12?label=%20&style=for-the-badge) |
-| 11.0.0 - <12.0.0   | npm install ngfds@11     | May 2024         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v11?label=%20&style=for-the-badge) |
-| 10.1.0 - <11.0.0   | npm install ngfds@10     | Dec 2023         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v10?label=%20&style=for-the-badge) |
-| 9.1.0 - <10.0.0    | npm install ngfds@9      | May 2023         | ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20targeting%20Angular%20v9?label=%20&style=for-the-badge) |
+| Angular version    | Compatible versions | Recommended install command | Supported untill | Status |
+| ------------------ | ------------------- | --------------------------- | ---------------- | ------------ |
+| 15.0.0 - <16.0.0   | 15.X.X.X            | npm install ngfds^next      | Unknown          | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 14.0.0 - <15.0.0   | 14.X.X.X            | npm install ngfds^14        | Dec 2025         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 13.0.0 - <14.0.0   | 13.X.X.X            | npm install ngfds^13        | May 2025         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 12.0.0 - <13.0.0   | 12.X.X.X            | npm install ngfds^12        | Nov 2024         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 11.0.0 - <12.0.0   | 11.X.X.X            | npm install ngfds^11        | May 2024         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 10.1.0 - <11.0.0   | 10.X.X.X            | npm install ngfds^10        | Dec 2023         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 9.1.0 - <10.0.0    | 9.X.X.X             | npm install ngfds^9         | May 2023         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
 
 ## Github
 
@@ -34,3 +34,16 @@ https://codeclimate.com/github/Flaeng/ngfds
 ![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/flaeng/ngfds?style=for-the-badge)
 
 https://www.codefactor.io/repository/github/flaeng/ngfds
+
+## Version schema
+
+Major version is always the Angular version that the package is compatible with
+Minor is the version of FDS that it is using
+Patch & Build are ngfds versions
+
+### What does that mean?
+
+It means if you're running a Angular 13 project you have to install a package with the major version 13 untill you upgrade your @angular/core package.
+
+If you have other dependencies using FDS you can use the install command `npm install ngfds~X.Y` where X is your Angular version and the major version of FDS that you want to stay within. This way when both ngfds and your other dependencies that depends on FDS both support i.e. version 9 of FDS you can upgrade ngfds to version ngfds~X.Z where Z is the new version of FDS that you want to install.
+
