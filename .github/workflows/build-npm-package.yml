@@ -1,9 +1,5 @@
-name: Build npm package
+name: Build npm packages
 
-# on:
-#   push:
-#     tags:
-#       - v*
 on:
   workflow_dispatch:
     inputs:
