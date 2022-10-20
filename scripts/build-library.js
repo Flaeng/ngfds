@@ -84,7 +84,7 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
     ``
   );
 
-  // TODO: Create demo-project and copy source code
+  // TODO: Create demo-project (in newest minor of this mayor Angular version) and copy source code
   // TODO: Add cypress to demo-project
   // TODO: Run cypress
 

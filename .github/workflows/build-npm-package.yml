@@ -29,12 +29,8 @@ jobs:
       - name: Setup
         run: npm run setup
 
-      - name: Create Angular project
+      - name: Create and build Angular project
         run: npm run ${{ format('build-library-v{0}', matrix.ng-version) }}
-
-      - name: Build Angular project
-        run: ng build ngfds
-        working-directory: ${{ format('./temp/library-v{0}/src', matrix.ng-version)}}
 
       - name: Set NPM package version
         run: npm version ${{ format('{0}.{1}.{2}', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version) }}
