@@ -1,53 +1,53 @@
-name: Build targeting different Angular versions
+# name: Build targeting different Angular versions
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  schedule:
-    - cron: '0 12 * * 5'
-  workflow_dispatch:
+# on:
+#   push:
+#     branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
+#   schedule:
+#     - cron: '0 12 * * 5'
+#   workflow_dispatch:
 
-jobs:
-  build-v9:
-    name: For Angular v9
-    uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-    with:
-      ngVersion: v9
+# jobs:
+#   build-v9:
+#     name: For Angular v9
+#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
+#     with:
+#       ngVersion: v9
 
-  build-v10:
-    name: For Angular v10
-    uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-    with:
-      ngVersion: v10
+#   build-v10:
+#     name: For Angular v10
+#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
+#     with:
+#       ngVersion: v10
 
-  build-v11:
-    name: For Angular v11
-    uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-    with:
-      ngVersion: v11
+#   build-v11:
+#     name: For Angular v11
+#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
+#     with:
+#       ngVersion: v11
 
-  build-v12:
-    name: For Angular v12
-    uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-    with:
-      ngVersion: v12
+#   build-v12:
+#     name: For Angular v12
+#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
+#     with:
+#       ngVersion: v12
 
-  build-v13:
-    name: For Angular v13
-    uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-    with:
-      ngVersion: v13
+#   build-v13:
+#     name: For Angular v13
+#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
+#     with:
+#       ngVersion: v13
 
-  build-v14:
-    name: For Angular v14
-    uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-    with:
-      ngVersion: v14
+#   build-v14:
+#     name: For Angular v14
+#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
+#     with:
+#       ngVersion: v14
 
-  build-v15:
-    name: For Angular v15
-    uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-    with:
-      ngVersion: next
+#   build-v15:
+#     name: For Angular v15
+#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
+#     with:
+#       ngVersion: next

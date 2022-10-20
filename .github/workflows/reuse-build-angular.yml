@@ -1,23 +1,30 @@
 name: Build for angular version
 
 on:
-  workflow_call:
-    inputs:
-      ngVersion:
-        required: true
-        type: string
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 12 * * 5'
+  workflow_dispatch:
 
 jobs:
   build:
-    name: Build targeting Angular ${{ inputs.ngVersion }}
+    name: Build targeting Angular 9-15
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ng-version: ['9', '10', '11', '12', '13', '14', 'next']
+
     steps:
       - uses: actions/checkout@v3
       - run: npm run setup
-      - run: npm run ${{ format('build-library-{0}', inputs.ngVersion) }}
+      - run: npm run ${{ format('build-library-{0}', matrix.ng-version) }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: package
-          path: ${{ format('temp/library-{0}/src/dist', inputs.ngVersion) }}
+          path: ${{ format('temp/library-{0}/src/dist', matrix.ng-version) }}
