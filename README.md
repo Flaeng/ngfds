@@ -3,7 +3,8 @@ An Angular Component Library implemeting DKFDS - Fælles Design System
 
 ## Builds
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Flaeng/ngfds/Build%20source%20code?style=for-the-badge&label=Development%20source%20code%20builds%20and%20E2E%20testing)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/flaeng/ngfds/Build%20source%20code?label=source%20code%20compiles%20%26%20passes%20tests&style=for-the-badge)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/flaeng/ngfds/Build%20for%20Angular?label=can%20build%20for%20supported%20angular%20versions&style=for-the-badge)
 
 | Angular version    | Compatible versions | Recommended install command | Supported untill | Status |
 | ------------------ | ------------------- | --------------------------- | ---------------- | ------------ |
