@@ -1,6 +1,20 @@
 {
   "name": "ngfds",
   "version": "0.0.1",
+  "author": {
+    "name": "Flaeng"
+  },
+  "homepage": "https://flaeng.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flaeng/ngfds"
+  },
+  "description": "An implemnetation of DKFDS components in Angular",
+  "bugs": {
+    "url": "https://github.com/Flaeng/ngfds/issues"
+  },
+  "keywords": ["fds", "dkfds", "fælles design system", "angular"],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^14.2.0",
     "@angular/core": "^14.2.0",
