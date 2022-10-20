@@ -32,6 +32,9 @@ jobs:
       - name: Create and build Angular project
         run: npm run ${{ format('build-library-v{0}', matrix.ng-version) }}
 
+      - name: Set user info
+        run:  git config --global user.email "flaeng@users.noreply.github.com" && git config --global user.name "@Flaeng"
+
       - name: Set NPM package version
         run: npm version ${{ format('"{0}.{1}.{2}"', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version) }}
 
