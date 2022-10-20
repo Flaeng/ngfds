@@ -1,5 +1,9 @@
 name: Build npm packages
 
+# on:
+#   push:
+#     tags:
+#       - v*
 on:
   workflow_dispatch:
     inputs:
@@ -62,6 +66,6 @@ jobs:
       #     asset_path: ${{ format('./v{0}.zip', matrix.ng-version) }}
       #     asset_name: ${{ format('./v{0}.zip', matrix.ng-version) }}
       #     asset_content_type: application/zip
-s
+
       # - name: Make NPM package
       #   run:
