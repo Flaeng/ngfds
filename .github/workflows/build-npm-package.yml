@@ -1,0 +1,71 @@
+name: Build npm package
+
+# on:
+#   push:
+#     tags:
+#       - v*
+on:
+  workflow_dispatch:
+    inputs:
+      fds-major-version:
+        required: true
+        type: number
+      ngfds-version:
+        required: true
+        type: string
+
+jobs:
+  build:
+    name: Build for NPM packages
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        ng-version: [9, 10, 11, 12, 13, 14]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup
+        run: npm run setup
+
+      - name: Create Angular project
+        run: npm run ${{ format('build-library-v{0}', matrix.ng-version) }}
+
+      - name: Build Angular project
+        run: ng build ngfds
+        working-directory: ${{ format('./temp/library-v{0}/src', matrix.ng-version)}}
+
+      - name: Set NPM package version
+        run: npm version ${{ format('{0}.{1}.{2}', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ format('ngfds-{0}.{1}.{2}', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version }}
+          path: ${{ format('temp/library-v{0}/src/dist', matrix.ng-version) }}
+
+      # - name: Create Release
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: ${{ matrix.ng-version }}
+      #     release_name: Release ${{ matrix.ng-version }}
+      #     draft: true
+      #     prerelease: true
+
+      # - name: Upload Release Asset
+      #   id: upload-release-asset
+      #   uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+      #     asset_path: ${{ format('./v{0}.zip', matrix.ng-version) }}
+      #     asset_name: ${{ format('./v{0}.zip', matrix.ng-version) }}
+      #     asset_content_type: application/zip
+s
+      # - name: Make NPM package
+      #   run:

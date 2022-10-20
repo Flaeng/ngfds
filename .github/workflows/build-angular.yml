@@ -1,53 +1,29 @@
-# name: Build targeting different Angular versions
+name: Build for Angular
 
-# on:
-#   push:
-#     branches: [ "main" ]
-#   pull_request:
-#     branches: [ "main" ]
-#   schedule:
-#     - cron: '0 12 * * 5'
-#   workflow_dispatch:
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: "0 12 * * 5"
 
-# jobs:
-#   build-v9:
-#     name: For Angular v9
-#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-#     with:
-#       ngVersion: v9
+jobs:
+  build:
+    name: Build for Angular
+    runs-on: ubuntu-latest
 
-#   build-v10:
-#     name: For Angular v10
-#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-#     with:
-#       ngVersion: v10
+    strategy:
+      matrix:
+        ng-version: ["v9", "v10", "v11", "v12", "v13", "v14", "next"]
 
-#   build-v11:
-#     name: For Angular v11
-#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-#     with:
-#       ngVersion: v11
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm run setup
+      - run: npm run ${{ format('build-library-{0}', matrix.ng-version) }}
 
-#   build-v12:
-#     name: For Angular v12
-#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-#     with:
-#       ngVersion: v12
-
-#   build-v13:
-#     name: For Angular v13
-#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-#     with:
-#       ngVersion: v13
-
-#   build-v14:
-#     name: For Angular v14
-#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-#     with:
-#       ngVersion: v14
-
-#   build-v15:
-#     name: For Angular v15
-#     uses: flaeng/ngfds/.github/workflows/reuse-build-angular.yml@main
-#     with:
-#       ngVersion: next
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: package
+          path: ${{ format('temp/library-{0}/src/dist', matrix.ng-version) }}
