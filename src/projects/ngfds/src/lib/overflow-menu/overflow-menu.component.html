@@ -1,39 +1,29 @@
-<div class="overflow-menu">
-  <button
-    class="button-overflow-menu js-dropdown js-dropdown--responsive-collapse"
-    [attr.data-js-target]="'navigationoverflow' + id"
-    aria-haspopup="true"
-    aria-expanded="false"
-    #dropdownTrigger
-  >
-    <span>{{ selectedItem != null ? selectedItem.title : placeholder }}</span>
-    <svg
-      *ngIf="hideIcon == false"
-      class="icon-svg"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <use [attr.xlink:href]="'#' + icon"></use>
+<fds-overflow-wrapper [direction]="direction">
+  <fds-overflow-button>
+    {{ selectedItem ? selectedItem.title : placeholder }}
+    <svg class="icon-svg" aria-hidden="true" focusable="false">
+      <use xlink:href="#more-vert"></use>
     </svg>
-  </button>
-  <div
-    class="overflow-menu-inner"
-    [id]="'navigationoverflow' + id"
-    aria-hidden="true"
-  >
-    <ul class="overflow-list">
-      <li
-        *ngFor="let item of items"
-        [ngClass]="{ active: item == selectedItem }"
-      >
-        <a
-          [href]="item.url"
-          (click)="onItemClicked($event, item)"
-          class="nav-link"
-        >
-          <span>{{ item.title }}</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+  </fds-overflow-button>
+  <fds-overflow-dialog>
+    <fds-overflow-list>
+      <ng-container *ngFor="let item of _items">
+        <ng-container
+          *ngTemplateOutlet="item.template; context: { item: item }"
+        ></ng-container>
+      </ng-container>
+    </fds-overflow-list>
+  </fds-overflow-dialog>
+</fds-overflow-wrapper>
+
+<ng-template #itemWithLink let-item="item">
+  <a [routerLink]="item.url">
+    {{ item.title }}
+  </a>
+</ng-template>
+
+<ng-template #itemWithoutLink let-item="item">
+  <fds-overflow-list-item (click)="onItemClicked($event, item)">
+    {{ item.title }}
+  </fds-overflow-list-item>
+</ng-template>

@@ -9,10 +9,10 @@
           <li>
             <fds-overflow-menu
               [items]="[
-                { title: 'Jens Hansen', url: null },
-                { title: 'Hans Jensen', url: null },
-                { title: 'Julie Hansen', url: null },
-                { title: 'Hilda Jensen', url: null }
+                { title: 'Jens Hansen', url: '#' },
+                { title: 'Hans Jensen', url: '#' },
+                { title: 'Julie Hansen', url: '#' },
+                { title: 'Hilda Jensen', url: '#' }
               ]"
               placeholder="Jens Hansen"
               (item-clicked)="
@@ -31,9 +31,9 @@
     <fds-navigation>
       <fds-context-menu
         [buttons]="[
-          { text: 'Knap 1', url: null },
-          { text: 'Knap 2', url: null },
-          { text: 'Knap 3', url: null }
+          { text: 'Knap 1', url: '#' },
+          { text: 'Knap 2', url: '#' },
+          { text: 'Knap 3', url: '#' }
         ]"
         (button-click)="alert('You pressed: ' + $event.selectedItem.text)"
       ></fds-context-menu>
@@ -46,9 +46,9 @@
     <fds-navigation>
       <fds-context-menu
         [buttons]="[
-          { text: 'Knap 1', url: null },
-          { text: 'Knap 2', url: null },
-          { text: 'Knap 3', url: null }
+          { text: 'Knap 1', url: '#' },
+          { text: 'Knap 2', url: '#' },
+          { text: 'Knap 3', url: '#' }
         ]"
         (button-click)="alert('You pressed: ' + $event.selectedItem.text)"
       >
@@ -57,10 +57,10 @@
           <li>
             <fds-overflow-menu
               [items]="[
-                { title: 'Jens Hansen', url: null },
-                { title: 'Hans Jensen', url: null },
-                { title: 'Julie Hansen', url: null },
-                { title: 'Hilda Jensen', url: null }
+                { title: 'Jens Hansen', url: '#' },
+                { title: 'Hans Jensen', url: '#' },
+                { title: 'Julie Hansen', url: '#' },
+                { title: 'Hilda Jensen', url: '#' }
               ]"
               placeholder="Jens Hansen"
               (item-clicked)="

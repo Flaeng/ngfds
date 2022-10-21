@@ -3,14 +3,8 @@ import { NgModule } from '@angular/core';
 import { BreadcrumbsComponent } from './breadcrumbs.component';
 
 @NgModule({
-  declarations: [
-    BreadcrumbsComponent,
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    BreadcrumbsComponent,
-  ]
+  declarations: [BreadcrumbsComponent],
+  imports: [CommonModule],
+  exports: [BreadcrumbsComponent],
 })
-export class FdsBreadcrumbsModule { }
+export class FdsBreadcrumbsModule {}

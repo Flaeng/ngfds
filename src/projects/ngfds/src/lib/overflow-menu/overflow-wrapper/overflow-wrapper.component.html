@@ -1,0 +1,9 @@
+<div
+  class="overflow-menu overflow-menu--open-right"
+  [ngClass]="{
+    'overflow-menu--open-left': direction === 'left',
+    'overflow-menu--open-right': direction === 'right'
+  }"
+>
+  <ng-content></ng-content>
+</div>

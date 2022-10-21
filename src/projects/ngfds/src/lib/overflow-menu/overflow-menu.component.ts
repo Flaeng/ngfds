@@ -1,19 +1,20 @@
 import {
   AfterViewInit,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
   Output,
+  TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { Router } from '@angular/router';
-import {
-  ItemSelectedEvent,
-  NavigationItemHelper,
-} from '../helpers/navigation-item-helper';
-import * as DKFDS from 'dkfds';
-import { DkfdsHelper } from '../helpers/dkfds-helper';
+import { AngularHelper } from '../helpers/angular-helper';
+import { ItemSelectedEvent } from '../helpers/navigation-item-helper';
+
+type OverflowItem = TitledItem | TitledLinkItem;
+type TitledItem = { title: string };
+type TitledLinkItem = { title: string; url: string };
+
+type OverflowTemplatedItem = OverflowItem & { template: TemplateRef<OverflowItem> };
 
 @Component({
   selector: 'fds-overflow-menu',
@@ -21,49 +22,53 @@ import { DkfdsHelper } from '../helpers/dkfds-helper';
 })
 export class OverflowMenuComponent implements AfterViewInit {
   @Input()
-  public items: IOverflowNavigationItem[] = [];
+  public direction: 'left' | 'right' = 'right';
 
   @Input()
   public placeholder: string = '';
 
+  _items: OverflowTemplatedItem[] = [];
+  @Input()
+  public get items(): OverflowItem[] {
+    return this._items;
+  }
+  public set items(value: OverflowItem[]) {
+    this._items = value.map<OverflowTemplatedItem>((x) => {
+      return this.setTemplate(x);
+    });
+  }
+
   @Input('selected-item')
-  public selectedItem: IOverflowNavigationItem | null = null;
+  public selectedItem: OverflowItem | null = null;
 
   @Input('hide-icon')
   public hideIcon: boolean = false;
 
-  @Input()
-  public icon: string = 'more-vert';
+  @ViewChild('itemWithLink')
+  itemWithLink: TemplateRef<OverflowItem> | null = null;
+
+  @ViewChild('itemWithoutLink')
+  itemWithoutLink: TemplateRef<OverflowItem> | null = null;
 
   @Output('item-clicked')
-  public itemClicked: EventEmitter<ItemSelectedEvent<IOverflowNavigationItem>> =
+  public itemClicked: EventEmitter<ItemSelectedEvent<OverflowItem>> =
     new EventEmitter();
 
-  @ViewChild('dropdownTrigger')
-  dropdownTrigger!: ElementRef<HTMLButtonElement>;
+  private setTemplate(x: OverflowItem) {
+    const ext = (<TitledLinkItem>x).url
+      ? { template: this.itemWithLink }
+      : { template: this.itemWithoutLink };
+    return Object.assign(x, ext) as OverflowTemplatedItem;
+  }
 
-  dropdownControl: DKFDS.Dropdown | null = null;
-
-  static idGenerator: number = 1;
-
-  id: string = (OverflowMenuComponent.idGenerator++).toString();
-  helper: NavigationItemHelper<IOverflowNavigationItem>;
-
-  constructor(router: Router, private element: ElementRef) {
-    this.helper = new NavigationItemHelper<IOverflowNavigationItem>(
-      router,
-      this.itemClicked
-    );
+  ngAfterViewInit(): void {
+    this.items = this._items; // make sure to set template again after view init
   }
 
   onItemClicked(ev: Event, item: IOverflowNavigationItem): void {
-    this.helper.handleClick(ev, item);
-  }
-  ngAfterViewInit(): void {
-    this.dropdownControl = DkfdsHelper.createAndInit(
-      DKFDS.Dropdown,
-      this.dropdownTrigger
-    );
+    AngularHelper.emitEvent(this.itemClicked, ev, {
+      selectedItem: item,
+    });
   }
 }
 

@@ -1,15 +1,15 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'fds-card-content',
-  templateUrl: './card-content.component.html',
+  selector: 'fds-card-header',
+  templateUrl: './card-header.component.html',
   styles: [
     `
-      .card-text {
+      .card-header {
         background: transparent;
       }
     `,
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class CardContentComponent {}
+export class CardHeaderComponent {}
