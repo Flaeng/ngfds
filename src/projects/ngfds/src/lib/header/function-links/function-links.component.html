@@ -1,17 +1,24 @@
 <div class="navbar">
   <div class="navbar-inner navbar-context-actions container">
     <div class="nav-actions">
-      <a
-        *ngFor="let item of items"
-        href=""
-        class="function-link"
-        (click)="onItemClick($event, item)"
-      >
-        <svg *ngIf="item.icon" class="icon-svg" aria-hidden="true">
-          <use [attr.xlink:href]="'#' + item.icon"></use>
-        </svg>
-        {{ item.text }}
-      </a>
+      <ng-container *ngFor="let item of _items">
+        <ng-container *ngTemplateOutlet="item.template; context: { item }"></ng-container>
+      </ng-container>
     </div>
   </div>
 </div>
+
+<ng-template #itemWithText let-item="item">
+  <a href="" class="function-link" (click)="onItemClick($event, item)">
+    {{ item.text }}
+  </a>
+</ng-template>
+
+<ng-template #itemWithIconAndText let-item="item">
+  <a href="" class="function-link" (click)="onItemClick($event, item)">
+    <svg class="icon-svg" aria-hidden="true">
+      <use [attr.xlink:href]="'#' + item.icon"></use>
+    </svg>
+    {{ item.text }}
+  </a>
+</ng-template>

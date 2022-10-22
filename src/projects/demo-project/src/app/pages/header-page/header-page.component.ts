@@ -8,32 +8,24 @@ import { BasePageComponent } from '../BasePageComponent';
 })
 export class HeaderPageComponent extends BasePageComponent {
   page1children: NavigationItem[] = [
-    new NavigationItem({ url: 'headers', title: 'Page 1.0' }),
-    new NavigationItem({ url: 'headers', title: 'Page 1.1' }),
-    new NavigationItem({ url: 'headers', title: 'Page 1.2' }),
-    new NavigationItem({ url: 'headers', title: 'Page 1.3' }),
+    { url: 'headers', title: 'Page 1.0', isActive: false },
+    { url: 'headers', title: 'Page 1.1', isActive: false },
+    { url: 'headers', title: 'Page 1.2', isActive: false },
+    { url: 'headers', title: 'Page 1.3', isActive: false },
   ];
 
   page2children: NavigationItem[] = [
-    new NavigationItem({ url: 'headers', title: 'Page 2.0' }),
-    new NavigationItem({ url: 'headers', title: 'Page 2.1' }),
-    new NavigationItem({ url: 'headers', title: 'Page 2.2' }),
-    new NavigationItem({ url: 'headers', title: 'Page 2.3' }),
-    new NavigationItem({ url: 'headers', title: 'Page 2.2' }),
-    new NavigationItem({ url: 'headers', title: 'Page 2.3' }),
+    { url: 'headers', title: 'Page 2.0', isActive: false },
+    { url: 'headers', title: 'Page 2.1', isActive: false },
+    { url: 'headers', title: 'Page 2.2', isActive: false },
+    { url: 'headers', title: 'Page 2.3', isActive: false },
+    { url: 'headers', title: 'Page 2.2', isActive: false },
+    { url: 'headers', title: 'Page 2.3', isActive: false },
   ];
 
   navigationItems: NavigationItem[] = [
-    new NavigationItem({
-      url: 'headers',
-      title: 'Page 1',
-      children: this.page1children,
-    }),
-    new NavigationItem({
-      url: 'headers',
-      title: 'Page 2',
-      children: this.page2children,
-    }),
-    new NavigationItem({ url: 'headers', title: 'Page 3' }),
+    { title: 'Page 1', children: this.page1children, isActive: false },
+    { isActive: false, title: 'Page 2', children: this.page2children },
+    { isActive: false, url: 'headers', title: 'Page 3' },
   ];
 }

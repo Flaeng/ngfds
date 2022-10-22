@@ -88,6 +88,7 @@ export class SideNavigationComponent implements OnInit, OnDestroy {
     }
   }
 }
+
 export interface ISideNavigationItem {
   title: string;
   subtitle: string | null;
