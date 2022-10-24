@@ -7,9 +7,6 @@ name: Build npm packages
 on:
   workflow_dispatch:
     inputs:
-      fds-major-version:
-        required: true
-        type: number
       ngfds-version:
         required: true
         type: string
@@ -36,12 +33,12 @@ jobs:
         run:  git config --global user.email "flaeng@users.noreply.github.com" && git config --global user.name "@Flaeng"
 
       - name: Set NPM package version
-        run: npm version ${{ format('"{0}.{1}.{2}"', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version) }}
+        run: npm version ${{ format('"{0}.{1}.{2}"', matrix.ng-version, inputs.ngfds-version) }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ format('ngfds-v{0}.{1}.{2}', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version) }}
+          name: ${{ format('ngfds-v{0}.{1}.{2}', matrix.ng-version, inputs.ngfds-version) }}
           path: ${{ format('temp/library-v{0}/src/dist', matrix.ng-version) }}
 
       - name: Publish to NPM
@@ -55,8 +52,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
-          tag_name: ${{ format('{0}.{1}.{2}', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version) }}
-          release_name: Release ${{ format('{0}.{1}.{2}', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version) }}
+          tag_name: ${{ format('{0}.{1}.{2}', matrix.ng-version, inputs.ngfds-version) }}
+          release_name: Release ${{ format('{0}.{1}.{2}', matrix.ng-version, inputs.ngfds-version) }}
           draft: true
           prerelease: true
 
@@ -67,6 +64,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ${{ format('./v{0}-{1}-{2}.zip', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version) }}
-          asset_name: ${{ format('./v{0}-{1}-{2}.zip', matrix.ng-version, inputs.fds-major-version, inputs.ngfds-version) }}
+          asset_path: ${{ format('./v{0}-{1}-{2}.zip', matrix.ng-version, inputs.ngfds-version) }}
+          asset_name: ${{ format('./v{0}-{1}-{2}.zip', matrix.ng-version, inputs.ngfds-version) }}
           asset_content_type: application/zip
