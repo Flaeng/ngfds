@@ -1,12 +1,11 @@
 import {
-  AfterViewInit,
   Component,
   EventEmitter,
   Input,
   Output,
 } from '@angular/core';
-import { IOverflowNavigationItem } from 'ngfds';
 import { ItemSelectedEvent } from '../../helpers/public-api';
+import { IOverflowNavigationItem } from '../public-api';
 
 @Component({
   selector: 'fds-overflow-sort',

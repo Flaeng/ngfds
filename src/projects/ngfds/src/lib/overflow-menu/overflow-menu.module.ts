@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FdsIconsModule } from 'ngfds';
 import { OverflowButtonComponent } from './overflow-button/overflow-button.component';
 import { OverflowDialogComponent } from './overflow-dialog/overflow-dialog.component';
 import { OverflowListItemComponent } from './overflow-list-item/overflow-list-item.component';
