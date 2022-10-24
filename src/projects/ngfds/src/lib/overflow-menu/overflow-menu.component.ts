@@ -14,29 +14,19 @@ type OverflowItem = TitledItem | TitledLinkItem;
 type TitledItem = { title: string };
 type TitledLinkItem = { title: string; url: string };
 
-type OverflowTemplatedItem = OverflowItem & { template: TemplateRef<OverflowItem> };
-
 @Component({
   selector: 'fds-overflow-menu',
   templateUrl: './overflow-menu.component.html',
 })
-export class OverflowMenuComponent implements AfterViewInit {
+export class OverflowMenuComponent {
   @Input()
   public direction: 'left' | 'right' = 'right';
 
   @Input()
   public placeholder: string = '';
 
-  _items: OverflowTemplatedItem[] = [];
   @Input()
-  public get items(): OverflowItem[] {
-    return this._items;
-  }
-  public set items(value: OverflowItem[]) {
-    this._items = value.map<OverflowTemplatedItem>((x) => {
-      return this.setTemplate(x);
-    });
-  }
+  public items: OverflowItem[] = [];
 
   @Input('selected-item')
   public selectedItem: OverflowItem | null = null;
@@ -44,25 +34,12 @@ export class OverflowMenuComponent implements AfterViewInit {
   @Input('hide-icon')
   public hideIcon: boolean = false;
 
-  @ViewChild('itemWithLink')
-  itemWithLink: TemplateRef<OverflowItem> | null = null;
-
-  @ViewChild('itemWithoutLink')
-  itemWithoutLink: TemplateRef<OverflowItem> | null = null;
-
   @Output('item-clicked')
   public itemClicked: EventEmitter<ItemSelectedEvent<OverflowItem>> =
     new EventEmitter();
 
-  private setTemplate(x: OverflowItem) {
-    const ext = (<TitledLinkItem>x).url
-      ? { template: this.itemWithLink }
-      : { template: this.itemWithoutLink };
-    return Object.assign(x, ext) as OverflowTemplatedItem;
-  }
-
-  ngAfterViewInit(): void {
-    this.items = this._items; // make sure to set template again after view init
+  hasUrl(item: OverflowItem): boolean {
+    return !!(<TitledLinkItem>item).url;
   }
 
   onItemClicked(ev: Event, item: IOverflowNavigationItem): void {

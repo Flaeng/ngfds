@@ -7,9 +7,9 @@
   </fds-overflow-button>
   <fds-overflow-dialog>
     <fds-overflow-list>
-      <ng-container *ngFor="let item of _items">
+      <ng-container *ngFor="let item of items">
         <ng-container
-          *ngTemplateOutlet="item.template; context: { item: item }"
+          *ngTemplateOutlet="hasUrl(item) ? itemWithLink : itemWithoutLink; context: { item: item }"
         ></ng-container>
       </ng-container>
     </fds-overflow-list>
