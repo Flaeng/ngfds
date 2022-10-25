@@ -44,7 +44,7 @@ jobs:
 
       - name: Publish to NPM
         run: npm publish
-        working-directory: ../src/dist/ngfds
+        working-directory: ${{ format('temp/library-v{0}/src/dist/ngfds', matrix.ng-version) }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
