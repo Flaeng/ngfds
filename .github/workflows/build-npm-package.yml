@@ -44,7 +44,7 @@ jobs:
 
       - name: Publish to NPM
         run: npm publish
-        working-directory: ./src/dist/ngfds
+        working-directory: ../src/dist/ngfds
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
