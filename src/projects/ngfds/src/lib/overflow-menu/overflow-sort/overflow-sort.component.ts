@@ -4,8 +4,8 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { ItemSelectedEvent } from '../../helpers/public-api';
-import { IOverflowNavigationItem } from '../public-api';
+import { ItemSelectedEvent } from '../../helpers/navigation-item-helper';
+import { IOverflowNavigationItem } from '../overflow-menu.component';
 
 @Component({
   selector: 'fds-overflow-sort',

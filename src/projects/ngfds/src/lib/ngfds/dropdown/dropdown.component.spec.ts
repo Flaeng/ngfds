@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { DropdownComponent } from './dropdown.component';
-import { DropdownOptionComponent } from './public-api';
+import { DropdownOptionComponent } from './dropdown-option/dropdown-option.component';
 
 describe('DropdownComponent', () => {
   let component: DropdownComponent;

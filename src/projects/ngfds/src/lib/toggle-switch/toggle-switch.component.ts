@@ -1,5 +1,5 @@
 import { Component, Input, Optional } from '@angular/core';
-import { FormFieldComponent } from '../form-field/public-api';
+import { FormFieldComponent } from '../form-field/form-field.component';
 import { AngularHelper } from '../helpers/angular-helper';
 import { NgModelComponent } from '../ng-model-component';
 

@@ -5,12 +5,12 @@ import {
   Optional,
   ViewChild,
 } from '@angular/core';
-import { FormFieldComponent } from '../form-field/public-api';
+import { FormFieldComponent } from '../form-field/form-field.component';
 import { AngularHelper } from '../helpers/angular-helper';
 import { ArrayHelper } from '../helpers/array-helper';
 import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
-import { DropdownOptionComponent } from './public-api';
+import { DropdownOptionComponent } from './dropdown-option/dropdown-option.component';
 
 type FdsDropdownItem = {
   value: unknown | null;

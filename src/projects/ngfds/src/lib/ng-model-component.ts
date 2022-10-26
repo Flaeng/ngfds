@@ -6,7 +6,7 @@ import {
   Validator,
 } from '@angular/forms';
 import * as DKFDS from 'dkfds';
-import { FormFieldComponent } from '../public-api';
+import { FormFieldComponent } from './form-field/form-field.component';
 import { DkfdsHelper } from './helpers/dkfds-helper';
 
 export type CharacterLimitComponent = {

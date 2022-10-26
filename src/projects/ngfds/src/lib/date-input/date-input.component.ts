@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, Optional } from '@angular/core';
 import * as DKFDS from 'dkfds';
-import { FormFieldComponent } from '../form-field/public-api';
+import { FormFieldComponent } from '../form-field/form-field.component';
 import { AngularHelper } from '../helpers/angular-helper';
 import { DateHelper } from '../helpers/date-helper';
 import { NgModelComponent } from '../ng-model-component';

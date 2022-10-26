@@ -10,7 +10,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import * as DKFDS from 'dkfds';
-import { FormFieldComponent } from '../form-field/public-api';
+import { FormFieldComponent } from '../form-field/form-field.component';
 import { AngularHelper } from '../helpers/angular-helper';
 import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';

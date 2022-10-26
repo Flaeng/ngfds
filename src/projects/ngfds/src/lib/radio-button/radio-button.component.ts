@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { RadioButtonSize, RadioGroupComponent } from './public-api';
+import { RadioButtonSize, RadioGroupComponent } from './radio-group/radio-group.component';
 
 @Component({
   selector: 'fds-radio-button',

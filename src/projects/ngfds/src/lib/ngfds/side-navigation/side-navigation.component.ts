@@ -1,5 +1,5 @@
 import { Component, Input, TemplateRef } from '@angular/core';
-import { ISideNavigationItem } from '../../side-navigation/public-api';
+import { ISideNavigationItem } from '../../side-navigation/side-navigation.component';
 
 @Component({
   selector: 'ngfds-side-navigation',

@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import * as DKFDS from 'dkfds';
 import { DkfdsHelper } from '../../helpers/dkfds-helper';
-import { RadioButtonSize, RadioGroupComponent } from '../public-api';
+import { RadioButtonSize, RadioGroupComponent } from '../radio-group/radio-group.component';
 
 @Component({
   selector: 'fds-radio-content',

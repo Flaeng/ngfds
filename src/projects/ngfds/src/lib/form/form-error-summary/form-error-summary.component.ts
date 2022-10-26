@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { FormErrorMessageComponent } from '../../form-field/public-api';
+import { FormErrorMessageComponent } from '../../form-field/form-error-message/form-error-message.component';
 import { FormComponent } from '../form.component';
 
 @Component({

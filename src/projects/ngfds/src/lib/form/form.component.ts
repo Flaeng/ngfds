@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { FormErrorMessageComponent } from '../form-field/public-api';
+import { FormErrorMessageComponent } from '../form-field/form-error-message/form-error-message.component';
 
 @Component({
   selector: 'fds-form',
