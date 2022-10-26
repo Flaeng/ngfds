@@ -67,10 +67,10 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
     `${projectPath}/tsconfig.lib.json`,
     `${projectFolder}/tsconfig.lib.json`
   );
-  fs.copyFileSync(
-    `${projectPath}/tsconfig.lib.prod.json`,
-    `${projectFolder}/tsconfig.lib.prod.json`
-  );
+  // fs.copyFileSync(
+  //   `${projectPath}/tsconfig.lib.prod.json`,
+  //   `${projectFolder}/tsconfig.lib.prod.json`
+  // );
 
   copyFolder(`${projectPath}/cypress`, `${projectFolder}/cypress`);
 
