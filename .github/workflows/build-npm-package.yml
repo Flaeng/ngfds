@@ -38,6 +38,7 @@ jobs:
 
       - name: Set NPM package version
         run: npm version ${{ format('"{0}.{1}"', matrix.ng-version, inputs.ngfds-version) }}
+        working-directory: ${{ format('temp/library-v{0}/src/dist/ngfds', matrix.ng-version) }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -46,7 +47,7 @@ jobs:
           path: ${{ format('temp/library-v{0}/src/dist', matrix.ng-version) }}
 
       - name: Publish to NPM
-        run: npm publish
+        run: npm publish --dry-run
         working-directory: ${{ format('temp/library-v{0}/src/dist/ngfds', matrix.ng-version) }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
