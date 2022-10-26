@@ -53,8 +53,8 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Zip project
-        run: zip -R ${{ format('ngfds-v{0}.{1}.zip', matrix.ng-version, inputs.ngfds-version) }}
-        working-directory: ${{ format('temp/library-v{0}/src/dist/ngfds', matrix.ng-version) }}
+        run: zip -r ${{ format('ngfds-v{0}.{1}.zip', matrix.ng-version, inputs.ngfds-version) }} ngfds
+        working-directory: ${{ format('temp/library-v{0}/src/dist', matrix.ng-version) }}
 
       - name: Create Release
         id: create_release
@@ -74,6 +74,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ format('temp/library-v{0}/src/dist/ngfds/ngfds-v{0}.{1}.zip', matrix.ng-version, inputs.ngfds-version) }}
+          asset_path: ${{ format('temp/library-v{0}/src/dist/ngfds-v{0}.{1}.zip', matrix.ng-version, inputs.ngfds-version) }}
           asset_name: ${{ format('ngfds-v{0}.{1}.zip', matrix.ng-version, inputs.ngfds-version) }}
           asset_content_type: application/zip
