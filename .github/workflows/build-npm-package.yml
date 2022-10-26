@@ -43,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ format('ngfds-v{0}.{1}', matrix.ng-version, inputs.ngfds-version) }}
+          name: ${{ format('ngfds-v{0}.{1}.zip', matrix.ng-version, inputs.ngfds-version) }}
           path: ${{ format('temp/library-v{0}/src/dist', matrix.ng-version) }}
 
       - name: Publish to NPM
