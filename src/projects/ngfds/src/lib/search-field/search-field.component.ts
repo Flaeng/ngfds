@@ -1,10 +1,12 @@
 import {
   Component,
   EventEmitter,
+  forwardRef,
   Input,
   Optional,
   Output,
 } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FormFieldComponent } from '../form-field/form-field.component';
 import { AngularHelper } from '../helpers/angular-helper';
 import { InputSize } from '../models/input-sizes';
@@ -13,7 +15,9 @@ import { NgModelComponent } from '../ng-model-component';
 @Component({
   selector: 'fds-search-field',
   templateUrl: './search-field.component.html',
-  providers: [...AngularHelper.formInput(SearchFieldComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => SearchFieldComponent) },
+  ]
 })
 export class SearchFieldComponent extends NgModelComponent<string> {
   @Input()

@@ -1,14 +1,15 @@
 import {
   Component,
   ElementRef,
+  forwardRef,
   HostListener,
   Input,
   Optional,
   ViewChild,
 } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FormFieldComponent } from '../../form-field/form-field.component';
-import { AngularHelper } from '../../helpers/angular-helper';
 import { ArrayHelper } from '../../helpers/array-helper';
 import { NgModelComponent } from '../../ng-model-component';
 import { DropdownOptionComponent } from './dropdown-option/dropdown-option.component';
@@ -16,7 +17,9 @@ import { DropdownOptionComponent } from './dropdown-option/dropdown-option.compo
 @Component({
   selector: 'ngfds-select',
   templateUrl: './dropdown.component.html',
-  providers: [...AngularHelper.formInput(DropdownComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => DropdownComponent) },
+  ]
 })
 export class DropdownComponent extends NgModelComponent<
   DropdownOptionComponent[] | DropdownOptionComponent | null
