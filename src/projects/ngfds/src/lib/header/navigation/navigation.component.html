@@ -20,14 +20,14 @@
         >
           <ng-container
             *ngTemplateOutlet="
-              item.children == null ? itemTemplate : itemWithChildrenTemplate;
+              hasChildren(item) ? itemWithChildrenTemplate : itemTemplate;
               context: { item: item }
             "
           ></ng-container>
 
           <ng-template #itemTemplate let-item="item">
             <a
-              [href]="item.url"
+              [routerLink]="item.url"
               (click)="navigateTo($event, item.url)"
               class="nav-link"
             >
@@ -36,11 +36,23 @@
           </ng-template>
 
           <ng-template #itemWithChildrenTemplate let-item="item">
-            <fds-overflow-menu
-              [items]="item.children"
-              [placeholder]="item.title"
-              [hide-icon]="true"
-            ></fds-overflow-menu>
+            <fds-overflow-wrapper>
+              <fds-overflow-button>
+                <span>
+                  {{ item.title }}
+                </span>
+              </fds-overflow-button>
+              <fds-overflow-dialog>
+                <fds-overflow-list>
+                  <fds-overflow-list-item
+                    *ngFor="let child of item.children"
+                    [isActive]="child.isActive"
+                  >
+                    {{ child.title }}
+                  </fds-overflow-list-item>
+                </fds-overflow-list>
+              </fds-overflow-dialog>
+            </fds-overflow-wrapper>
           </ng-template>
         </li>
       </ul>

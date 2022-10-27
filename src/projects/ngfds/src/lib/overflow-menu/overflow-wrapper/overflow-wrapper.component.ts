@@ -10,6 +10,9 @@ export class OverflowWrapperComponent {
   @Input()
   public direction: 'left' | 'right' = 'right';
 
+  // @Input() Suggestion
+  // public closeBehavior: 'close-on-select' | 'manually-close' = 'manually-close';
+
   static idGenerator: number = 1;
   public readonly id: string =
     'OverflowWrapperComponent' +

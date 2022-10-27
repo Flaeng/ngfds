@@ -52,10 +52,12 @@ export class OverflowMenuComponent {
 export interface IOverflowNavigationItem {
   title: string;
   url: string | null;
+  isActive: boolean;
 }
 export class OverflowNavigationItem implements IOverflowNavigationItem {
   public title: string = '';
   public url: string | null = null;
+  public isActive: boolean = false;
 
   constructor(values: Partial<OverflowNavigationItem>) {
     Object.assign(this, values);

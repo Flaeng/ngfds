@@ -17,8 +17,6 @@
       (click)="
         toastService.show({
           title: 'Test',
-          description: null,
-          timeout: null,
           type: 'success'
         })
       "
@@ -34,8 +32,6 @@
       (click)="
         toastService.show({
           title: 'Test',
-          description: null,
-          timeout: null,
           type: 'warning'
         })
       "
@@ -51,8 +47,6 @@
       (click)="
         toastService.show({
           title: 'Test',
-          description: null,
-          timeout: null,
           type: 'error'
         })
       "
@@ -68,8 +62,6 @@
       (click)="
         toastService.show({
           title: 'Test',
-          description: null,
-          timeout: null,
           type: 'info'
         })
       "
@@ -86,7 +78,6 @@
         toastService.show({
           title: 'Test',
           description: 'Lorem ipsum',
-          timeout: null,
           type: 'info'
         })
       "
@@ -102,7 +93,23 @@
       (click)="
         toastService.show({
           title: 'Test timeout',
-          description: null,
+          timeout: 2000,
+          type: 'info'
+        })
+      "
+      >Show and hide after 2 sec
+    </fds-button>
+  </app-demo-view>
+</section>
+
+<section>
+  <h2>With all options</h2>
+  <app-demo-view>
+    <fds-button
+      (click)="
+        toastService.show({
+          title: 'Test timeout',
+          description: 'Lorem ipsum',
           timeout: 2000,
           type: 'info'
         })

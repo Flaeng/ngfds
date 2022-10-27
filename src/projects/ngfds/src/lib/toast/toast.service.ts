@@ -37,7 +37,7 @@ export class FdsToastService {
     body.appendChild(this.toastContainer);
   }
 
-  public show(toast: IToastOptions): Toast {
+  public show(toast: ToastOptions): Toast {
     const obs = new Subject<undefined>();
     if (this.toastContainer === null)
       throw new Error('Failed to create toast - Missing Toast container');
@@ -53,18 +53,18 @@ export class FdsToastService {
     const fdsToast = new DKFDS.Toast(elem);
     fdsToast.show();
 
-    if (toast.timeout !== null) {
+    if ((<TimedToast>toast).timeout) {
       setTimeout(() => {
         fdsToast.hide();
         obs.next(undefined);
-      }, toast.timeout);
+      }, (<TimedToast>toast).timeout);
     }
 
     return new Toast(fdsToast, obs.asObservable());
   }
 
   private createToastElement(
-    toast: IToastOptions,
+    toast: ToastOptions,
     obs: Subject<undefined>
   ): HTMLDivElement {
     const elem = document.createElement('div');
@@ -91,9 +91,9 @@ export class FdsToastService {
     message.appendChild(btn);
     btn.addEventListener('click', () => obs.next(undefined));
 
-    if (toast.description) {
+    if ((<TitledToastWithDescription>toast).description) {
       const desc = document.createElement('p');
-      desc.textContent = toast.description;
+      desc.textContent = (<TitledToastWithDescription>toast).description;
       message.appendChild(desc);
     }
     return elem;
@@ -102,18 +102,25 @@ export class FdsToastService {
 export interface IToastSettings {
   newToastPosition: 'top' | 'bottom';
 }
-export interface IToastOptions {
-  title: string;
-  description: string | null;
-  type: 'success' | 'warning' | 'error' | 'info';
-  timeout: number | null;
-}
-export class ToastOptions implements IToastOptions {
-  public title: string = '';
-  public description: string | null = null;
-  public type: 'success' | 'warning' | 'error' | 'info' = 'info';
-  public timeout: number | null = null;
-}
+type ToastOptions = TitledToast | TitledToastWithDescription | TimedTitledToastWithDescription;
+type TitledToastWithDescription = TitledToast & { description: string };
+type TimedTitledToastWithDescription = TimedTitledToast & { description: string };
+type TimedTitledToast = TitledToast &  TimedToast;
+type TitledToast = TypedToast & { title: string };
+type TypedToast = { type: 'success' | 'warning' | 'error' | 'info' };
+type TimedToast = { timeout: number };
+// export interface IToastOptions {
+//   title: string;
+//   description: string | null;
+//   type: 'success' | 'warning' | 'error' | 'info';
+//   timeout: number | null;
+// }
+// export class ToastOptions implements IToastOptions {
+//   public title: string = '';
+//   public description: string | null = null;
+//   public type: 'success' | 'warning' | 'error' | 'info' = 'info';
+//   public timeout: number | null = null;
+// }
 export class Toast {
   constructor(
     private dkfdsToast: DKFDS.Toast,

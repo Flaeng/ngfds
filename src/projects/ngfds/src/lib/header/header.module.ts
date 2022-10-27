@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { FdsButtonModule } from '../button/button.module';
 import { FdsOverflowMenuModule } from '../overflow-menu/overflow-menu.module';
 import { ContextMenuComponent } from './context-menu/context-menu.component';
@@ -22,7 +23,7 @@ import { SolutionHeaderComponent } from './solution-header/solution-header.compo
     PortalHeaderComponent,
     SolutionHeaderComponent,
   ],
-  imports: [CommonModule, FdsOverflowMenuModule, FdsButtonModule],
+  imports: [CommonModule, RouterModule, FdsOverflowMenuModule, FdsButtonModule],
   exports: [
     HeaderComponent,
     ContextMenuComponent,

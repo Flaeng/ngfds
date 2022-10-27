@@ -23,16 +23,16 @@ import * as DKFDS from 'dkfds';
 })
 export class NavigationComponent implements AfterViewInit, OnDestroy {
   @Input()
-  public items: INavigationItem[] | null = null;
+  public items: NavigationItem[] | null = null;
 
   @Input()
-  public overflow: INavigationItem[] | null = null;
+  public overflow: NavigationItem[] | null = null;
 
   @Input('overflow-text')
   public overflowText: string = 'Mere';
 
   @Input('selected-item')
-  public selectedItem: INavigationItem | null = null;
+  public selectedItem: NavigationItem | null = null;
 
   @Input('solution-template')
   public solutionTemplate: TemplateRef<unknown> | null = null;
@@ -53,25 +53,19 @@ export class NavigationComponent implements AfterViewInit, OnDestroy {
     this.navigation?.teardown();
   }
 
+  hasChildren(item: NavigationItem): boolean {
+    return !!(<NavigationItemWithChildren>item).children;
+  }
+
   navigateTo(ev: Event, url: string): void {
     ev.preventDefault();
     ev.stopPropagation();
     this.router.navigateByUrl(url);
   }
 }
-export interface INavigationItem {
-  title: string;
-  url: string | null;
-  isActive: boolean;
-  children: INavigationItem[] | null;
-}
-export class NavigationItem {
-  public title: string = '';
-  public url: string | null = null;
-  public isActive: boolean = false;
-  public children: NavigationItem[] | null = null;
-
-  constructor(values: Partial<NavigationItem>) {
-    Object.assign(this, values);
-  }
-}
+export type NavigationItem =
+  | (BaseNavigationItem & NavigationItemWithChildren)
+  | (BaseNavigationItem & NavigationItemWithUrl);
+type NavigationItemWithUrl = { url: string };
+type NavigationItemWithChildren = { children: NavigationItem[] };
+type BaseNavigationItem = { title: string; isActive: boolean };
