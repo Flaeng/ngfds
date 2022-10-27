@@ -1,14 +1,17 @@
-import { DOCUMENT } from '@angular/common';
 import {
   ApplicationRef,
   ComponentRef,
-  Inject,
   Injectable,
   TemplateRef,
   Type,
 } from '@angular/core';
 import { FdsModalRef, ModalComponent } from './modal.component';
-import { ComponentModalOptions, HtmlModalOptions, ModalOptions, TemplateModalOptions } from './modal.models';
+import {
+  ComponentModalOptions,
+  HtmlModalOptions,
+  ModalOptions,
+  TemplateModalOptions,
+} from './modal.models';
 
 // INSPIRATION:
 // https://stackblitz.com/edit/angular-modal-service?file=app%2Fmodal-service%2Fmodal-service.service.ts
@@ -17,10 +20,7 @@ import { ComponentModalOptions, HtmlModalOptions, ModalOptions, TemplateModalOpt
   providedIn: 'root',
 })
 export class FdsModalService {
-  constructor(
-    private appRef: ApplicationRef,
-    @Inject(DOCUMENT) private document: Document
-  ) {}
+  constructor(private appRef: ApplicationRef) {}
 
   public openFromComponent<T>(
     content: Type<T>,
@@ -50,9 +50,9 @@ export class FdsModalService {
   private open<T>(content: string, opts: HtmlModalOptions): FdsModalRef;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   private open<T>(content: unknown, opts: ModalOptions): FdsModalRef {
-    const modalContainer = this.document.createElement('div');
+    const modalContainer = window.document.createElement('div');
     modalContainer.classList.add('modal-container');
-    const body = this.document.querySelector('body');
+    const body = window.document.querySelector('body');
     if (!body) throw new Error('Failed to find body-tag in DOM');
     body.appendChild(modalContainer);
 
@@ -66,7 +66,12 @@ export class FdsModalService {
     return result;
   }
 
-  private createModalContent<T>(content: unknown, modalComponentRef: ComponentRef<ModalComponent>, result: FdsModalRef, opts: ModalOptions) {
+  private createModalContent<T>(
+    content: unknown,
+    modalComponentRef: ComponentRef<ModalComponent>,
+    result: FdsModalRef,
+    opts: ModalOptions
+  ) {
     if (content instanceof TemplateRef) {
       modalComponentRef.instance.createModalContent<T>(
         result,
