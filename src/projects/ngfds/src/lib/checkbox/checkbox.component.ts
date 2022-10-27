@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input, Optional } from '@angular/core';
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FormFieldComponent } from '../form-field/form-field.component';
 import { NgModelComponent } from '../ng-model-component';
 

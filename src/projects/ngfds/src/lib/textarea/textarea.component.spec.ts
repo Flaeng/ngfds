@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { TextareaComponent } from './textarea.component';
 
@@ -8,9 +9,9 @@ describe('TextareaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TextareaComponent ]
-    })
-    .compileComponents();
+      declarations: [TextareaComponent],
+      imports: [FormsModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TextareaComponent);
     component = fixture.componentInstance;
@@ -45,7 +46,7 @@ describe('TextareaComponent', () => {
     it('will emit changes', () => {
       // Arrange
       let onChangeWasCalled = false;
-      component.registerOnChange(() => onChangeWasCalled = true);
+      component.registerOnChange(() => (onChangeWasCalled = true));
 
       // Act
       component.value = 'true';
@@ -57,7 +58,7 @@ describe('TextareaComponent', () => {
     it('will emit touched', () => {
       // Arrange
       let onTouchedWasCalled = false;
-      component.registerOnTouched(() => onTouchedWasCalled = true);
+      component.registerOnTouched(() => (onTouchedWasCalled = true));
 
       // Act
       component.value = 'true';
@@ -66,5 +67,4 @@ describe('TextareaComponent', () => {
       expect(onTouchedWasCalled).toBeTrue();
     });
   });
-
 });

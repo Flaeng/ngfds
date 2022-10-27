@@ -1,11 +1,8 @@
 import {
-  AfterViewInit,
   Component,
   EventEmitter,
   Input,
   Output,
-  TemplateRef,
-  ViewChild,
 } from '@angular/core';
 import { AngularHelper } from '../helpers/angular-helper';
 import { ItemSelectedEvent } from '../helpers/navigation-item-helper';

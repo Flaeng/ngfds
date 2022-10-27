@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { FileUploadComponent } from './file-upload.component';
 
@@ -8,9 +9,9 @@ describe('FileUploadComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FileUploadComponent ]
-    })
-    .compileComponents();
+      declarations: [FileUploadComponent],
+      imports: [FormsModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FileUploadComponent);
     component = fixture.componentInstance;

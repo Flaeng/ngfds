@@ -40,7 +40,8 @@ export class SpinnerComponent implements OnInit, OnChanges, OnDestroy {
     { duration: 6 * 60000, text: 'Vi er stadig i gang, undskyld ventetiden' },
   ];
 
-  intervalIdentifier: NodeJS.Timer | null = null;
+  // intervalIdentifier: NodeJS.Timer | null = null;
+  intervalIdentifier: number | null = null;
 
   spinnerDuration: number = 0;
   statusText: string = '';
@@ -76,11 +77,14 @@ export class SpinnerComponent implements OnInit, OnChanges, OnDestroy {
           .pop()?.text ?? '';
     };
     tick();
-    this.intervalIdentifier = setInterval(tick, 1000);
+    this.intervalIdentifier = setInterval(tick as TimerHandler, 1000);
+    // this.intervalIdentifier = setInterval(tick, 1000);
   }
 
   public stopSpinner() {
-    if (this.intervalIdentifier) clearInterval(this.intervalIdentifier);
+    if (this.intervalIdentifier) {
+      clearInterval(this.intervalIdentifier);
+    }
   }
 }
 

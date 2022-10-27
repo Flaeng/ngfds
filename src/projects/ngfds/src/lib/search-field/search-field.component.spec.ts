@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 
 import { SearchFieldComponent } from './search-field.component';
@@ -9,9 +10,9 @@ describe('SearchFieldComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SearchFieldComponent ]
-    })
-    .compileComponents();
+      declarations: [SearchFieldComponent],
+      imports: [FormsModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SearchFieldComponent);
     component = fixture.componentInstance;
@@ -55,7 +56,7 @@ describe('SearchFieldComponent', () => {
 
   it('will only show text button when text is set', () => {
     // Arrange
-    component.buttonText = 'Søg'
+    component.buttonText = 'Søg';
 
     // Act
     fixture.detectChanges();
@@ -71,7 +72,7 @@ describe('SearchFieldComponent', () => {
     // Arrange
     let searchQuery: string = '';
     component.value = 'test';
-    component.search.subscribe(x => searchQuery = x.query);
+    component.search.subscribe((x) => (searchQuery = x.query));
 
     // Act
     component.emitSearchEvent(fakeEvent);
