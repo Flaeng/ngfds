@@ -2,15 +2,16 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  forwardRef,
   Input,
   OnChanges,
   Optional,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../form-field/form-field.component';
-import { AngularHelper } from '../helpers/angular-helper';
 import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
 
@@ -18,7 +19,9 @@ import { NgModelComponent } from '../ng-model-component';
   selector: 'fds-textarea',
   templateUrl: './textarea.component.html',
   styleUrls: ['./textarea.component.css'],
-  providers: [...AngularHelper.formInput(TextareaComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => TextareaComponent) },
+  ]
 })
 export class TextareaComponent
   extends NgModelComponent<string>

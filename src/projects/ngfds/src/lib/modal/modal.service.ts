@@ -7,20 +7,11 @@ import {
   TemplateRef,
   Type,
 } from '@angular/core';
-import { ModalComponent } from './modal.component';
-import { Observable, Subject } from 'rxjs';
+import { FdsModalRef, ModalComponent } from './modal.component';
+import { ComponentModalOptions, HtmlModalOptions, ModalOptions, TemplateModalOptions } from './modal.models';
 
 // INSPIRATION:
 // https://stackblitz.com/edit/angular-modal-service?file=app%2Fmodal-service%2Fmodal-service.service.ts
-
-export type TemplateModalOptions<T> = ModalOptions & { context: T | null };
-export type ComponentModalOptions = ModalOptions & { data: unknown };
-export type HtmlModalOptions = ModalOptions;
-
-export type ModalOptions = {
-  forceAction: boolean;
-  event: Event | null;
-};
 
 @Injectable({
   providedIn: 'root',
@@ -95,42 +86,5 @@ export class FdsModalService {
         opts as ComponentModalOptions
       );
     }
-  }
-}
-
-export class FdsModalRef {
-  private result$ = new Subject<unknown>();
-  private isResolved = false;
-
-  public get forceAction(): boolean {
-    return this.options.forceAction;
-  }
-
-  constructor(
-    private modalContainer: ComponentRef<ModalComponent>,
-    private options: ModalOptions
-  ) {}
-
-  public close(result: unknown): void {
-    if (this.isResolved) return;
-    this.isResolved = true;
-    this.result$.next(result);
-    this.destroy$();
-  }
-
-  public dismiss(reason: unknown): void {
-    if (this.isResolved) return;
-    this.result$.error(reason);
-    this.destroy$();
-  }
-
-  public onResult(): Observable<unknown> {
-    return this.result$.asObservable();
-  }
-
-  private destroy$(): void {
-    this.modalContainer.instance.destroy();
-    this.modalContainer.destroy();
-    this.result$.complete();
   }
 }

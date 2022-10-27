@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  forwardRef,
   Input,
   OnChanges,
   OnInit,
@@ -9,16 +10,18 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../form-field/form-field.component';
-import { AngularHelper } from '../helpers/angular-helper';
 import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
 
 @Component({
   selector: 'fds-input',
   templateUrl: './input.component.html',
-  providers: [...AngularHelper.formInput(InputComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => InputComponent) },
+  ]
 })
 export class InputComponent
   extends NgModelComponent<string>

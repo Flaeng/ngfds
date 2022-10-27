@@ -1,13 +1,15 @@
-import { Component, Input, Optional } from '@angular/core';
+import { Component, forwardRef, Input, Optional } from '@angular/core';
+import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FormFieldComponent } from '../form-field/form-field.component';
-import { AngularHelper } from '../helpers/angular-helper';
 import { NgModelComponent } from '../ng-model-component';
 
 export type CheckboxSize = 'large' | 'small';
 @Component({
   selector: 'fds-checkbox',
   templateUrl: './checkbox.component.html',
-  providers: [...AngularHelper.formInput(CheckboxComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() =>CheckboxComponent) },
+  ]
 })
 export class CheckboxComponent extends NgModelComponent<boolean> {
   _value: boolean = false;

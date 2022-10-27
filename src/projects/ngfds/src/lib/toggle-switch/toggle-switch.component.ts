@@ -1,12 +1,14 @@
-import { Component, Input, Optional } from '@angular/core';
+import { Component, forwardRef, Input, Optional } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FormFieldComponent } from '../form-field/form-field.component';
-import { AngularHelper } from '../helpers/angular-helper';
 import { NgModelComponent } from '../ng-model-component';
 
 @Component({
   selector: 'fds-toggle-switch',
   templateUrl: './toggle-switch.component.html',
-  providers: [...AngularHelper.formInput(ToggleSwitchComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => ToggleSwitchComponent) },
+  ]
 })
 export class ToggleSwitchComponent extends NgModelComponent<boolean> {
   @Input()

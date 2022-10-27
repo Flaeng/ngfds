@@ -1,7 +1,7 @@
-import { Component, ElementRef, Input, Optional } from '@angular/core';
+import { Component, ElementRef, forwardRef, Input, Optional } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject } from 'rxjs';
 import { FormFieldComponent } from '../../form-field/form-field.component';
-import { AngularHelper } from '../../helpers/angular-helper';
 import { NgModelComponent } from '../../ng-model-component';
 
 export type RadioButtonSize = 'large' | 'small';
@@ -9,7 +9,9 @@ export type RadioButtonSize = 'large' | 'small';
 @Component({
   selector: 'fds-radio-group',
   templateUrl: './radio-group.component.html',
-  providers: [...AngularHelper.formInput(RadioGroupComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => RadioGroupComponent) },
+  ]
 })
 export class RadioGroupComponent extends NgModelComponent<unknown | null> {
   @Input()

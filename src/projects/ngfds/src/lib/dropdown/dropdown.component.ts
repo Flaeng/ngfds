@@ -1,12 +1,13 @@
 import {
   Component,
   ElementRef,
+  forwardRef,
   Input,
   Optional,
   ViewChild,
 } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FormFieldComponent } from '../form-field/form-field.component';
-import { AngularHelper } from '../helpers/angular-helper';
 import { ArrayHelper } from '../helpers/array-helper';
 import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
@@ -19,7 +20,9 @@ type FdsDropdownItem = {
 @Component({
   selector: 'fds-select',
   templateUrl: './dropdown.component.html',
-  providers: [...AngularHelper.formInput(DropdownComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => DropdownComponent) },
+  ]
 })
 export class DropdownComponent extends NgModelComponent<unknown | null> {
   /* Fields */

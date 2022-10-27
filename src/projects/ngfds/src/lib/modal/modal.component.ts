@@ -14,14 +14,14 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import * as DKFDS from 'dkfds';
+import { Observable, Subject } from 'rxjs';
 import { DkfdsHelper } from '../helpers/dkfds-helper';
 import {
   ComponentModalOptions,
-  FdsModalRef,
   HtmlModalOptions,
   ModalOptions,
   TemplateModalOptions,
-} from './modal.service';
+} from './modal.models';
 
 export const FDS_MODAL_DATA = new InjectionToken<unknown>('FDS_MODAL_DATA');
 
@@ -116,7 +116,7 @@ export class ModalComponent {
     this._modalRef = modalRef;
 
     this.modalContainer.clear();
-    this.newMethod<T>(content, opts);
+    this.makeContent<T>(content, opts);
 
     this._underlayingControl = DkfdsHelper.createAndInit(
       DKFDS.Modal,
@@ -135,7 +135,7 @@ export class ModalComponent {
     this._underlayingControl.show(ev);
   }
 
-  private newMethod<T>(
+  private makeContent<T>(
     content: unknown,
     opts: ModalOptions
   ): ComponentRef<T> | EmbeddedViewRef<T> | HTMLElement {
@@ -248,5 +248,42 @@ export class ModalComponent {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       document.removeEventListener('keyup', this.keyupEventHandler as any);
     }
+  }
+}
+
+export class FdsModalRef {
+  private result$ = new Subject<unknown>();
+  private isResolved = false;
+
+  public get forceAction(): boolean {
+    return this.options.forceAction;
+  }
+
+  constructor(
+    private modalContainer: ComponentRef<ModalComponent>,
+    private options: ModalOptions
+  ) {}
+
+  public close(result: unknown): void {
+    if (this.isResolved) return;
+    this.isResolved = true;
+    this.result$.next(result);
+    this.destroy$();
+  }
+
+  public dismiss(reason: unknown): void {
+    if (this.isResolved) return;
+    this.result$.error(reason);
+    this.destroy$();
+  }
+
+  public onResult(): Observable<unknown> {
+    return this.result$.asObservable();
+  }
+
+  private destroy$(): void {
+    this.modalContainer.instance.destroy();
+    this.modalContainer.destroy();
+    this.result$.complete();
   }
 }

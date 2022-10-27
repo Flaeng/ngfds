@@ -2,13 +2,14 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  forwardRef,
   Input,
   Optional,
   ViewChild,
 } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../form-field/form-field.component';
-import { AngularHelper } from '../helpers/angular-helper';
 import { DateHelper } from '../helpers/date-helper';
 import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
@@ -16,7 +17,9 @@ import { NgModelComponent } from '../ng-model-component';
 @Component({
   selector: 'fds-date-picker',
   templateUrl: './date-picker.component.html',
-  providers: [...AngularHelper.formInput(DatePickerComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => DatePickerComponent) },
+  ]
 })
 export class DatePickerComponent
   extends NgModelComponent<Date | null>

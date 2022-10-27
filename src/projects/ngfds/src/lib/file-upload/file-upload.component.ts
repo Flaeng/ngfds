@@ -1,13 +1,15 @@
-import { Component, Input, Optional } from '@angular/core';
+import { Component, forwardRef, Input, Optional } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { FormFieldComponent } from '../form-field/form-field.component';
-import { AngularHelper } from '../helpers/angular-helper';
 import { InputSize } from '../models/input-sizes';
 import { NgModelComponent } from '../ng-model-component';
 
 @Component({
   selector: 'fds-file-upload',
   templateUrl: './file-upload.component.html',
-  providers: [...AngularHelper.formInput(FileUploadComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => FileUploadComponent) },
+  ]
 })
 export class FileUploadComponent extends NgModelComponent<File | null> {
   @Input()

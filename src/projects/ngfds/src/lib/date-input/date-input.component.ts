@@ -1,14 +1,16 @@
-import { AfterViewInit, Component, ElementRef, Input, Optional } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, forwardRef, Input, Optional } from '@angular/core';
+import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as DKFDS from 'dkfds';
 import { FormFieldComponent } from '../form-field/form-field.component';
-import { AngularHelper } from '../helpers/angular-helper';
 import { DateHelper } from '../helpers/date-helper';
 import { NgModelComponent } from '../ng-model-component';
 
 @Component({
   selector: 'fds-date-input',
   templateUrl: './date-input.component.html',
-  providers: [...AngularHelper.formInput(DateInputComponent)],
+  providers: [
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() =>DateInputComponent) },
+  ]
 })
 export class DateInputComponent
   extends NgModelComponent<Date | null>
