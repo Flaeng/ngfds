@@ -7,7 +7,10 @@ const {
 } = require("./helpers");
 const fs = require("fs");
 
-const dependencies = ["dkfds", "cypress --save-dev"];
+const dependencies = [
+  "dkfds",
+  // "cypress --save-dev"
+];
 const solutionPath = "src";
 const projectPath = "src/projects/ngfds";
 const typingsPath = "src/typings";
@@ -45,20 +48,20 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
     const dep = dependencies[index];
     await executeAsync(`npm install ${dep}`, solutionFolder);
   }
-  makeDir(`${solutionFolder}/cypress`, false);
-  copyFolder(
-    `${solutionPath}/cypress/support`,
-    `${solutionFolder}/cypress/support`
-  );
+  // makeDir(`${solutionFolder}/cypress`, false);
+  // copyFolder(
+  //   `${solutionPath}/cypress/support`,
+  //   `${solutionFolder}/cypress/support`
+  // );
 
   // Copy source code & setup project
   const projectFolder = `${solutionFolder}/projects/ngfds`;
   copyFolder(`${projectPath}/src`, `${projectFolder}/src`);
 
-  fs.copyFileSync(
-    `${projectPath}/cypress.config.ts`,
-    `${projectFolder}/cypress.config.ts`
-  );
+  // fs.copyFileSync(
+  //   `${projectPath}/cypress.config.ts`,
+  //   `${projectFolder}/cypress.config.ts`
+  // );
   fs.copyFileSync(
     `${projectPath}/package.json`,
     `${projectFolder}/package.json`
@@ -72,7 +75,7 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
   //   `${projectFolder}/tsconfig.lib.prod.json`
   // );
 
-  copyFolder(`${projectPath}/cypress`, `${projectFolder}/cypress`);
+  // copyFolder(`${projectPath}/cypress`, `${projectFolder}/cypress`);
 
   // Copy typings files
   copyFolder(typingsPath, `${solutionFolder}/typings`);
