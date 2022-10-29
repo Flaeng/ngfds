@@ -36,7 +36,7 @@ export class OverflowMenuComponent {
     new EventEmitter();
 
   hasUrl(item: OverflowItem): boolean {
-    return !!(<TitledLinkItem>item).url;
+    return !!(item as TitledLinkItem).url;
   }
 
   onItemClicked(ev: Event, item: IOverflowNavigationItem): void {
