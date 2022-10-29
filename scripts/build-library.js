@@ -66,6 +66,10 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
     `${projectFolder}/package.json`
   );
   fs.copyFileSync(
+    `${projectPath}/ng-package.json`,
+    `${projectFolder}/ng-package.json`
+  );
+  fs.copyFileSync(
     `${solutionPath}/README.md`,
     `${solutionFolder}/README.md`
   );
