@@ -3,7 +3,7 @@ const glob = require('glob');
 const fs = require('fs');
 const readline = require('readline');
 
-const dependencies = ['../../library-{0}/src/dist/ngfds', 'cypress --save-dev'];
+const dependencies = ['../../library-{0}/src/dist/ngfds', 'dkfds', 'cypress --save-dev'];
 
 const solutionPath = 'src';
 const projectPath = 'src/projects/demo-project';
