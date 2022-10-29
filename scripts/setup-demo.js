@@ -52,7 +52,7 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
   const projectFolder = `${solutionFolder}/projects/demo-project`;
   copyFolder(`${projectPath}/src`, `${projectFolder}/src`);
 
-  const tasks = glob.sync(`${projectFolder}/src/**/*.ts`).map(async (file) => {
+  const tsTasks = glob.sync(`${projectFolder}/src/**/*.ts`).map(async (file) => {
     const hasChanges = await changePathOfNgfds(file);
     if (hasChanges) {
       fs.rmSync(file);
@@ -61,7 +61,16 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
       fs.rmSync(`${file}.tmp`);
     }
   });
-  await Promise.all(tasks);
+  const scssTasks = glob.sync(`${projectFolder}/src/**/*.scss`).map(async (file) => {
+    const hasChanges = await changePathOfNgfdsStyles(file);
+    if (hasChanges) {
+      fs.rmSync(file);
+      fs.renameSync(`${file}.tmp`, file);
+    } else {
+      fs.rmSync(`${file}.tmp`);
+    }
+  });
+  await Promise.all([...tsTasks, ...scssTasks]);
 
   await executeAsync(
     `ng build --project=demo-project --configuration=production`,
@@ -87,6 +96,36 @@ async function changePathOfNgfds(file) {
       hasChanges = true;
       let newLine = line;
       newLine = newLine.replace('projects/ngfds/src/public-api', 'ngfds');
+      writer.write(newLine);
+    } else {
+      writer.write(line);
+    }
+    writer.write('\n');
+  }
+  writer.end();
+  rl.close();
+  readStream.close();
+  return hasChanges;
+}
+
+async function changePathOfNgfdsStyles(file) {
+  const readStream = fs.createReadStream(file);
+
+  const rl = readline.createInterface({
+    input: readStream,
+    crlfDelay: Infinity,
+  });
+
+  const writer = fs.createWriteStream(`${file}.tmp`);
+  // Note: we use the crlfDelay option to recognize all instances of CR LF
+  // ('\r\n') in input.txt as a single line break.
+
+  let hasChanges = false;
+  for await (const line of rl) {
+    if (line.indexOf('../../ngfds/src') !== -1) {
+      hasChanges = true;
+      let newLine = line;
+      newLine = newLine.replace('../../ngfds/src', '~ngfds');
       writer.write(newLine);
     } else {
       writer.write(line);
