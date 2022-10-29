@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~dkfds/dist/css/dkfds.css";
+// @import "../../../node_modules/dkfds/dist/css/dkfds.min.css";
 
 // Theme
 $theme-colors: (
@@ -32,8 +32,9 @@ $image-path: "~dkfds/src/img";
 $site-image-path: "~dkfds/src/img";
 $icons-folder-path: "~dkfds/src/img/svg-icons";
 
-@import "~dkfds/src/stylesheets/dkfds";
-@import "../../ngfds/src/styles.scss";
+@import "../../../node_modules/dkfds/src/stylesheets/dkfds";
+@import "../../ngfds/src/styles";
+// @import "../../../node_modules/ngfds/src/styles";
 
 * {
   word-break: break-word;
