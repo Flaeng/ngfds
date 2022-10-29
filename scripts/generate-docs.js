@@ -1,7 +1,6 @@
 const fs = require('fs');
 const glob = require('glob');
 const chokidar = require('chokidar');
-const { on } = require('events');
 const {
   TypescriptParser,
   InterfaceDeclaration,

@@ -23,7 +23,10 @@ jobs:
 
       - run: npm run ${{ format('build-library-{0}', matrix.ng-version) }}
 
-      - run: node scripts/build-showroom.js
+      - run: node ../scripts/icon-packer.js
+        working-directory: ./src
+      - run: node ../scripts/generate-docs.js
+        working-directory: ./src
 
       - run: npm run ${{ format('setup-demo-{0}', matrix.ng-version) }}
 
