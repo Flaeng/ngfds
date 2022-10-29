@@ -1,5 +1,4 @@
 const {
-  getIntArgument,
   executeAsync,
   makeDir,
   copyFolder,

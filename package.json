@@ -2,8 +2,8 @@
   "scripts": {
     "setup": "node scripts/install.js",
     "build-showroom": "node scripts/build-showroom.js",
-    "setup-demo-v11": "node scripts/setup-demo.js --version=11",
-    "build-library-next": "node scripts/build-library.js --version=next --name=next",
+    "setup-demo-v11": "node scripts/setup-demo.js --version=11 --name=v11",
+    "build-library-v15": "node scripts/build-library.js --version=next --name=v15",
     "build-library-v14": "node scripts/build-library.js --version=14.0.0 --name=v14",
     "build-library-v13": "node scripts/build-library.js --version=13.0.0 --name=v13",
     "build-library-v12": "node scripts/build-library.js --version=12.0.0 --name=v12",
