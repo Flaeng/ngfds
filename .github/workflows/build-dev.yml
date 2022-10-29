@@ -10,7 +10,6 @@ on:
 
 jobs:
   setup:
-    name: Setup enviroment
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,18 +17,21 @@ jobs:
         run: npm run setup
 
   lint:
+    runs-on: ubuntu-latest
     needs: setup
       - name: Lint
         run: npm run lint
         working-directory: ./src
 
   unit-tests:
+    runs-on: ubuntu-latest
     needs: setup
       - name: Run unit tests
         run: npm run test:ci
         working-directory: ./src
 
   e2e-tests:
+    runs-on: ubuntu-latest
     needs: setup
       - name: Run E2E tests
         run: npm run cy:chrome
@@ -43,12 +45,14 @@ jobs:
           path: src/cypress/screenshots
 
   build-library:
+    runs-on: ubuntu-latest
     needs: [setup,lint,unit-tests,e2e-tests]
       - name: Build component library for production
         run: npm run build-library
         working-directory: ./src
 
   build-app:
+    runs-on: ubuntu-latest
     needs: [setup,lint,unit-tests,e2e-tests]
       - name: Build demo-project for production
         run: npm run build-showroom
