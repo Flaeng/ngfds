@@ -125,7 +125,7 @@ async function changePathOfNgfdsStyles(file) {
     if (line.indexOf('../../ngfds/src') !== -1) {
       hasChanges = true;
       let newLine = line;
-      newLine = newLine.replace('../../ngfds/src', '~ngfds');
+      newLine = newLine.replace('../../ngfds/src', '~ngfds/src');
       writer.write(newLine);
     } else {
       writer.write(line);
