@@ -2,7 +2,7 @@
   "scripts": {
     "setup": "node scripts/install.js",
     "build-showroom": "node scripts/build-showroom.js",
-    "setup-demo-v15": "node scripts/setup-demo.js --version=15 --name=v15",
+    "setup-demo-v15": "node scripts/setup-demo.js --version=next --name=v15",
     "setup-demo-v14": "node scripts/setup-demo.js --version=14 --name=v14",
     "setup-demo-v13": "node scripts/setup-demo.js --version=13 --name=v13",
     "setup-demo-v12": "node scripts/setup-demo.js --version=12 --name=v12",
