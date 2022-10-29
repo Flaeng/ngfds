@@ -9,22 +9,28 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build source code
+  setup:
+    name: Setup enviroment
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Setup
         run: npm run setup
 
+  lint:
+    needs: setup
       - name: Lint
         run: npm run lint
         working-directory: ./src
 
+  unit-tests:
+    needs: setup
       - name: Run unit tests
         run: npm run test:ci
         working-directory: ./src
 
+  e2e-tests:
+    needs: setup
       - name: Run E2E tests
         run: npm run cy:chrome
         working-directory: ./src
@@ -36,10 +42,14 @@ jobs:
           name: screenshots
           path: src/cypress/screenshots
 
+  build-library:
+    needs: [setup,lint,unit-tests,e2e-tests]
       - name: Build component library for production
         run: npm run build-library
         working-directory: ./src
 
+  build-app:
+    needs: [setup,lint,unit-tests,e2e-tests]
       - name: Build demo-project for production
         run: npm run build-showroom
         working-directory: ./
