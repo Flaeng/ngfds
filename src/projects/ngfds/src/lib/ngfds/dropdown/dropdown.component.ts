@@ -12,17 +12,17 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { FormFieldComponent } from '../../form-field/form-field.component';
 import { ArrayHelper } from '../../helpers/array-helper';
 import { NgModelComponent } from '../../ng-model-component';
-import { DropdownOptionComponent } from './dropdown-option/dropdown-option.component';
+import { NgfdsDropdownOptionComponent } from './dropdown-option/dropdown-option.component';
 
 @Component({
   selector: 'ngfds-select',
   templateUrl: './dropdown.component.html',
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => DropdownComponent) },
+    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() => NgfdsDropdownComponent) },
   ]
 })
-export class DropdownComponent extends NgModelComponent<
-  DropdownOptionComponent[] | DropdownOptionComponent | null
+export class NgfdsDropdownComponent extends NgModelComponent<
+NgfdsDropdownOptionComponent[] | NgfdsDropdownOptionComponent | null
 > {
   /* Fields */
   @Input()
@@ -47,27 +47,27 @@ export class DropdownComponent extends NgModelComponent<
   public allowMultiple: boolean = false;
 
   /* Properties */
-  public get selectedItem(): DropdownOptionComponent | null {
+  public get selectedItem(): NgfdsDropdownOptionComponent | null {
     if (this.allowMultiple)
       console.warn(
         'Select allows for multiple items to be selected. This property only returns the first selected item. Use: selectedItems for an array of selected items.'
       );
     return this.selectedItems.length === 0 ? null : this.selectedItems[0];
   }
-  public set selectedItem(value: DropdownOptionComponent | null) {
+  public set selectedItem(value: NgfdsDropdownOptionComponent | null) {
     this.selectedItems = value ? [value] : [];
   }
 
-  private _selectedItems: DropdownOptionComponent[] = [];
-  public get selectedItems(): DropdownOptionComponent[] {
+  private _selectedItems: NgfdsDropdownOptionComponent[] = [];
+  public get selectedItems(): NgfdsDropdownOptionComponent[] {
     return this._selectedItems;
   }
-  public set selectedItems(value: DropdownOptionComponent[]) {
+  public set selectedItems(value: NgfdsDropdownOptionComponent[]) {
     this._selectedItems = value;
     this.emitNgModelChanged();
   }
 
-  private options: DropdownOptionComponent[] = [];
+  private options: NgfdsDropdownOptionComponent[] = [];
 
   /* Methods */
   constructor(
@@ -77,12 +77,12 @@ export class DropdownComponent extends NgModelComponent<
     super(formField);
   }
 
-  showContent(opt: DropdownOptionComponent | null) {
+  showContent(opt: NgfdsDropdownOptionComponent | null) {
     return opt ? this.sanitizer.bypassSecurityTrustHtml(opt.html) : '';
   }
 
   setValue(
-    obj: DropdownOptionComponent[] | DropdownOptionComponent | null
+    obj: NgfdsDropdownOptionComponent[] | NgfdsDropdownOptionComponent | null
   ): void {
     if (Array.isArray(obj)) {
       this.selectedItems = obj;
@@ -97,11 +97,11 @@ export class DropdownComponent extends NgModelComponent<
     }
   }
 
-  registerOption(comp: DropdownOptionComponent) {
+  registerOption(comp: NgfdsDropdownOptionComponent) {
     this.options.push(comp);
   }
 
-  unregisterOption(comp: DropdownOptionComponent) {
+  unregisterOption(comp: NgfdsDropdownOptionComponent) {
     ArrayHelper.remove(this.options, comp);
   }
 
@@ -235,7 +235,7 @@ export class DropdownComponent extends NgModelComponent<
     this.options[focusIndex + 1].setFocus();
   }
 
-  public toggleItemSelected(ev: Event | null, item: DropdownOptionComponent) {
+  public toggleItemSelected(ev: Event | null, item: NgfdsDropdownOptionComponent) {
     const isSelected = this.allowMultiple
       ? this.selectedItems.indexOf(item) !== -1
       : this.selectedItem === item;
@@ -248,7 +248,7 @@ export class DropdownComponent extends NgModelComponent<
     this.emitNgModelChanged();
   }
 
-  public selectItem(ev: Event | null, item: DropdownOptionComponent) {
+  public selectItem(ev: Event | null, item: NgfdsDropdownOptionComponent) {
     if (this.allowMultiple) {
       const index = this.selectedItems.indexOf(item);
       if (index === -1) this.selectedItems.push(item);
@@ -259,7 +259,7 @@ export class DropdownComponent extends NgModelComponent<
     this.emitNgModelChanged();
   }
 
-  public unselectItem(ev: Event | null, item: DropdownOptionComponent) {
+  public unselectItem(ev: Event | null, item: NgfdsDropdownOptionComponent) {
     ev?.stopPropagation();
     if (this.allowMultiple) {
       const index = this.selectedItems.indexOf(item);

@@ -4,7 +4,6 @@ import {
   FdsModalRef,
   FdsModalService,
 } from 'projects/ngfds/src/public-api';
-import { Subscription } from 'rxjs';
 import { BasePageComponent } from '../BasePageComponent';
 import { ModalExample1Component } from './modal-example1/modal-example1.component';
 
@@ -13,7 +12,7 @@ import { ModalExample1Component } from './modal-example1/modal-example1.componen
   templateUrl: './modal-page.component.g.html',
 })
 export class ModalPageComponent extends BasePageComponent implements OnDestroy {
-  _subscriptions: Subscription[] = [];
+  _subscriptions: unknown[] = [];
   modalExample1result: string | null = null;
   modalExample2result: string | null = null;
   modalExample3result: string | null = null;
@@ -118,6 +117,12 @@ export class ModalPageComponent extends BasePageComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this._subscriptions.forEach((x) => x.unsubscribe());
+    this._subscriptions.forEach((x) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      if ((x as any).unsubscribe) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (x as any).unsubscribe();
+      }
+    });
   }
 }

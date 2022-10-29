@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SideNavigationComponent } from './side-navigation.component';
+import { NgfdsSideNavigationComponent } from './side-navigation.component';
 import { FdsSideNavigationModule } from '../../side-navigation/side-navigation.module';
+import { SideNavigationComponent } from '../../side-navigation/public-api';
 
 @NgModule({
-  declarations: [SideNavigationComponent],
+  declarations: [NgfdsSideNavigationComponent],
   imports: [CommonModule, FdsSideNavigationModule],
-  exports: [SideNavigationComponent],
+  exports: [NgfdsSideNavigationComponent, SideNavigationComponent],
 })
 export class NgfdsSideNavigationModule {}

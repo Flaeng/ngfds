@@ -42,3 +42,5 @@ export * from './lib/toggle-switch/public-api';
 export * from './lib/tooltip/public-api';
 export * from './lib/file-upload/public-api';
 export * from './lib/search-field/public-api';
+
+export * from './lib/ngfds/public-api';

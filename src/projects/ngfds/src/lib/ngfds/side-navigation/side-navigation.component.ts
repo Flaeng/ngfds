@@ -27,7 +27,7 @@ import { ISideNavigationItem } from '../../side-navigation/side-navigation.compo
     `,
   ],
 })
-export class SideNavigationComponent {
+export class NgfdsSideNavigationComponent {
   @Input()
   public items: ISideNavigationItem[] = [];
 

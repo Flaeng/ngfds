@@ -7,13 +7,13 @@ import {
   Optional,
   ViewChild,
 } from '@angular/core';
-import { DropdownComponent } from '../dropdown.component';
+import { NgfdsDropdownComponent } from '../dropdown.component';
 
 @Component({
   selector: 'ngfds-option',
   templateUrl: './dropdown-option.component.html',
 })
-export class DropdownOptionComponent
+export class NgfdsDropdownOptionComponent
   implements OnInit, AfterViewInit, OnDestroy
 {
   @ViewChild('dropdownOption')
@@ -29,8 +29,8 @@ export class DropdownOptionComponent
   isSelected: boolean = false;
 
   constructor(
-    @Optional() protected parent: DropdownComponent,
-    protected el: ElementRef
+    @Optional() public parent: NgfdsDropdownComponent,
+    public el: ElementRef
   ) {}
 
   ngOnInit(): void {
@@ -53,7 +53,7 @@ export class DropdownOptionComponent
 
   private preventDefaultAndForwardEvent(
     ev: Event,
-    emitter: (ev: Event, comp: DropdownOptionComponent) => void
+    emitter: (ev: Event, comp: NgfdsDropdownOptionComponent) => void
   ): void {
     ev.preventDefault();
     ev.stopPropagation();

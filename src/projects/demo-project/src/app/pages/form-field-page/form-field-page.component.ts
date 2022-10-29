@@ -11,15 +11,15 @@ export class FormFieldPageComponent {
   emailFormControl: FormControl;
 
   constructor(protected fb: FormBuilder) {
-    this.requiredFormControl = this.fb.control<string>('', [
+    this.requiredFormControl = this.fb.control('', [
       Validators.required,
     ]);
-    this.multiValidatorFormControl = this.fb.control<string>('', [
+    this.multiValidatorFormControl = this.fb.control('', [
       Validators.required,
       Validators.minLength(5),
       Validators.maxLength(15),
     ]);
-    this.emailFormControl = this.fb.control<string>('', [
+    this.emailFormControl = this.fb.control('', [
       Validators.minLength(5),
       Validators.maxLength(8),
       Validators.email,

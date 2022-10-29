@@ -7,7 +7,7 @@ import { FdsModalRef, FDS_MODAL_DATA } from 'projects/ngfds/src/public-api';
 })
 export class ModalExample1Component {
   constructor(
-    protected modalInstance: FdsModalRef,
-    @Inject(FDS_MODAL_DATA) protected user: { username: string } | null
+    public modalInstance: FdsModalRef,
+    @Inject(FDS_MODAL_DATA) public user: { username: string } | null
   ) {}
 }

@@ -21,17 +21,17 @@ export class DatePickerPageComponent extends BasePageComponent {
     this.date2presetToNextWeek.setDate(new Date().getDate() + 7);
   }
 
-  dateInputFormControl: FormControl = new FormControl<Date | null>(null, Validators.required);
+  dateInputFormControl: FormControl = new FormControl(null, Validators.required);
   submitFormControl(): void {
-    const rawValue = this.dateInputFormControl.getRawValue();
-    alert('form data: ' + JSON.stringify(rawValue));
+    const rawValue = this.dateInputFormControl.value;
+    alert('value: ' + JSON.stringify(rawValue));
   }
 
   dateInputFormGroup: FormGroup = new FormGroup({
-    birthday: new FormControl<Date | null>(null, Validators.required)
+    birthday: new FormControl(null, Validators.required)
   });
   submitFormGroup(): void {
-    const rawValue = this.dateInputFormGroup.getRawValue();
-    alert('form data: ' + JSON.stringify(rawValue));
+    const rawValue = this.dateInputFormGroup.value;
+    alert('value: ' + JSON.stringify(rawValue));
   }
 }
