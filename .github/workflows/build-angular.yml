@@ -25,5 +25,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: package
+          name: ${{ format('library-{0}', matrix.ng-version) }}
           path: ${{ format('temp/library-{0}/src/dist', matrix.ng-version) }}
