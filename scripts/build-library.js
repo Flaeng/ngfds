@@ -67,7 +67,7 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
     `${projectFolder}/package.json`
   );
   fs.copyFileSync(
-    `${solutionFolder}/readme.md`,
+    `${solutionPath}/readme.md`,
     `${solutionFolder}/readme.md`
   );
   fs.copyFileSync(
