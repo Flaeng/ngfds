@@ -23,6 +23,8 @@ jobs:
 
       - run: npm run ${{ format('build-library-{0}', matrix.ng-version) }}
 
+      - run: node scripts/build-showroom.js
+
       - run: npm run ${{ format('setup-demo-{0}', matrix.ng-version) }}
 
       - run: npx cypress run --component -b chrome -C ${{ format('temp/demo-project-{0}/src/projects/demo-project/cypress.config.ts', matrix.ng-version) }} -s ${{ format('temp/demo-project-{0}/src/projects/ngfds/cypress/e2e/**/*.cy.ts', matrix.ng-version) }}
