@@ -8,8 +8,12 @@ export type CheckboxSize = 'large' | 'small';
   selector: 'fds-checkbox',
   templateUrl: './checkbox.component.html',
   providers: [
-    { provide: NG_VALUE_ACCESSOR, multi: true, useExisting: forwardRef(() =>CheckboxComponent) },
-  ]
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() => CheckboxComponent),
+    },
+  ],
 })
 export class CheckboxComponent extends NgModelComponent<boolean> {
   _value: boolean = false;
