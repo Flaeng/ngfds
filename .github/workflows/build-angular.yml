@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        ng-version: ["v9", "v10", "v11", "v12", "v13", "v14", "next"]
+        ng-version: ["v9", "v10", "v11", "v12", "v13", "v14", "v15"]
 
     steps:
       - uses: actions/checkout@v3
