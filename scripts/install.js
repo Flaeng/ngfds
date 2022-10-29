@@ -1,8 +1,8 @@
 const helpers = require("./helpers");
 
 const commandList = [
-  { cmd: "npm ci", path: "./" },
-  { cmd: "npm ci", path: "./src" },
+  { cmd: "npm install", path: "./" },
+  { cmd: "npm install", path: "./src" },
   { cmd: "node ../scripts/custom-types.js", path: "./src" },
 ];
 
