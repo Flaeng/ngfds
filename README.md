@@ -9,13 +9,13 @@ An Angular Component Library implemeting DKFDS - Fælles Design System
 
 | Angular version  | Compatible versions | Recommended install command | Supported untill | Status                                                                            |
 | ---------------- | ------------------- | --------------------------- | ---------------- | --------------------------------------------------------------------------------- |
-| 15.0.0 - <16.0.0 | 15.X.X.X            | npm install ngfds^next      | Unknown          | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
-| 14.0.0 - <15.0.0 | 14.X.X.X            | npm install ngfds^14        | Dec 2025         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
-| 13.0.0 - <14.0.0 | 13.X.X.X            | npm install ngfds^13        | May 2025         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
-| 12.0.0 - <13.0.0 | 12.X.X.X            | npm install ngfds^12        | Nov 2024         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
-| 11.0.0 - <12.0.0 | 11.X.X.X            | npm install ngfds^11        | May 2024         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
-| 10.1.0 - <11.0.0 | 10.X.X.X            | npm install ngfds^10        | Dec 2023         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
-| 9.1.0 - <10.0.0  | 9.X.X.X             | npm install ngfds^9         | May 2023         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 15.0.0 - <16.0.0 | 15.X.X.X            |                             | Unknown          | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 14.0.0 - <15.0.0 | 14.X.X.X            | npm install ngfds@14        | Dec 2025         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 13.0.0 - <14.0.0 | 13.X.X.X            | npm install ngfds@13        | May 2025         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 12.0.0 - <13.0.0 | 12.X.X.X            | npm install ngfds@12        | Nov 2024         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 11.0.0 - <12.0.0 | 11.X.X.X            | npm install ngfds@11        | May 2024         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 10.1.0 - <11.0.0 | 10.X.X.X            | npm install ngfds@10        | Dec 2023         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
+| 9.1.0 - <10.0.0  | 9.X.X.X             | npm install ngfds@9         | May 2023         | ![Supported](https://img.shields.io/badge/-Supported-success?style=for-the-badge) |
 
 ## Github
 
