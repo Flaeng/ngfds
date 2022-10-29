@@ -67,12 +67,12 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
     `${projectFolder}/package.json`
   );
   fs.copyFileSync(
-    `${solutionPath}/readme.md`,
-    `${solutionFolder}/readme.md`
+    `${solutionPath}/README.md`,
+    `${solutionFolder}/README.md`
   );
   fs.copyFileSync(
-    `${projectPath}/readme.md`,
-    `${projectFolder}/readme.md`
+    `${projectPath}/README.md`,
+    `${projectFolder}/README.md`
   );
   // fs.copyFileSync(
   //   `${projectPath}/tsconfig.lib.json`,
