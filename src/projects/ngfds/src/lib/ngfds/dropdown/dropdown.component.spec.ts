@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { NgfdsDropdownOptionComponent } from './dropdown-option/dropdown-option.component';
 
-import { DropdownComponent } from './dropdown.component';
-import { DropdownOptionComponent } from './dropdown-option/dropdown-option.component';
+import { NgfdsDropdownComponent } from './dropdown.component';
 
-describe('DropdownComponent', () => {
-  let component: DropdownComponent;
-  let fixture: ComponentFixture<DropdownComponent>;
+describe('NgfdsDropdownComponent', () => {
+  let component: NgfdsDropdownComponent;
+  let fixture: ComponentFixture<NgfdsDropdownComponent>;
 
   class FakeDropdownOptionComponent {
     _hasFocus: boolean = false;
@@ -30,10 +30,10 @@ describe('DropdownComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DropdownComponent],
+      declarations: [NgfdsDropdownComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DropdownComponent);
+    fixture = TestBed.createComponent(NgfdsDropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -122,7 +122,7 @@ describe('DropdownComponent', () => {
   });
 
   describe('can focus dropdown items', () => {
-    let fakeOptions: DropdownOptionComponent[];
+    let fakeOptions: NgfdsDropdownOptionComponent[];
 
     beforeEach(async () => {
       fakeOptions = [
@@ -130,7 +130,7 @@ describe('DropdownComponent', () => {
         new FakeDropdownOptionComponent(),
         new FakeDropdownOptionComponent(),
         new FakeDropdownOptionComponent(),
-      ] as unknown[] as DropdownOptionComponent[];
+      ] as unknown[] as NgfdsDropdownOptionComponent[];
 
       fakeOptions.forEach((x) => component.registerOption(x));
       fixture.detectChanges();
@@ -199,7 +199,7 @@ describe('DropdownComponent', () => {
   });
 
   describe('when in single-select-mode', () => {
-    let fakeOptions: DropdownOptionComponent[];
+    let fakeOptions: NgfdsDropdownOptionComponent[];
 
     beforeEach(async () => {
       fakeOptions = [
@@ -207,7 +207,7 @@ describe('DropdownComponent', () => {
         new FakeDropdownOptionComponent(),
         new FakeDropdownOptionComponent(),
         new FakeDropdownOptionComponent(),
-      ] as unknown[] as DropdownOptionComponent[];
+      ] as unknown[] as NgfdsDropdownOptionComponent[];
 
       fakeOptions.forEach((x) => component.registerOption(x));
       fixture.detectChanges();
@@ -287,7 +287,7 @@ describe('DropdownComponent', () => {
   });
 
   describe('when in multi-select-mode', () => {
-    let fakeOptions: DropdownOptionComponent[];
+    let fakeOptions: NgfdsDropdownOptionComponent[];
 
     beforeEach(async () => {
       fakeOptions = [
@@ -295,7 +295,7 @@ describe('DropdownComponent', () => {
         new FakeDropdownOptionComponent(),
         new FakeDropdownOptionComponent(),
         new FakeDropdownOptionComponent(),
-      ] as unknown[] as DropdownOptionComponent[];
+      ] as unknown[] as NgfdsDropdownOptionComponent[];
 
       fakeOptions.forEach((x) => component.registerOption(x));
       component.allowMultiple = true;

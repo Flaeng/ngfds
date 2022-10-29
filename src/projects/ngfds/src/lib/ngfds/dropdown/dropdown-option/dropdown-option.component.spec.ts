@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DropdownOptionComponent } from './dropdown-option.component';
+import { NgfdsDropdownOptionComponent } from './dropdown-option.component';
 
 describe('DropdownOptionComponent', () => {
-  let component: DropdownOptionComponent;
-  let fixture: ComponentFixture<DropdownOptionComponent>;
+  let component: NgfdsDropdownOptionComponent;
+  let fixture: ComponentFixture<NgfdsDropdownOptionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DropdownOptionComponent ]
+      declarations: [ NgfdsDropdownOptionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DropdownOptionComponent);
+    fixture = TestBed.createComponent(NgfdsDropdownOptionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
