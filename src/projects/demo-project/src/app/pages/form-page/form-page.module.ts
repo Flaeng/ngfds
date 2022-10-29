@@ -6,8 +6,8 @@ import { AppComponentsModule } from '../../components/components.module';
 import {
   FdsCardModule,
   FdsDateInputModule,
+  FdsFormsModule
 } from 'projects/ngfds/src/public-api';
-import { FdsFormsModule } from 'projects/ngfds/src/lib/form-field/form-field.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [{ path: '', component: FormPageComponent }];

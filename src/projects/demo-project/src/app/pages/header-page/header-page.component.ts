@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationItem } from 'projects/ngfds/src/lib/header/navigation/navigation.component';
+import { NavigationItem } from 'projects/ngfds/src/public-api';
 import { BasePageComponent } from '../BasePageComponent';
 
 @Component({

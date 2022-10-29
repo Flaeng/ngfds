@@ -2,7 +2,13 @@
   "scripts": {
     "setup": "node scripts/install.js",
     "build-showroom": "node scripts/build-showroom.js",
+    "setup-demo-v15": "node scripts/setup-demo.js --version=15 --name=v15",
+    "setup-demo-v14": "node scripts/setup-demo.js --version=14 --name=v14",
+    "setup-demo-v13": "node scripts/setup-demo.js --version=13 --name=v13",
+    "setup-demo-v12": "node scripts/setup-demo.js --version=12 --name=v12",
     "setup-demo-v11": "node scripts/setup-demo.js --version=11 --name=v11",
+    "setup-demo-v10": "node scripts/setup-demo.js --version=10 --name=v10",
+    "setup-demo-v9": "node scripts/setup-demo.js --version=9 --name=v9",
     "build-library-v15": "node scripts/build-library.js --version=next --name=v15",
     "build-library-v14": "node scripts/build-library.js --version=14.0.0 --name=v14",
     "build-library-v13": "node scripts/build-library.js --version=13.0.0 --name=v13",

@@ -1,13 +1,9 @@
 const { executeAsync, makeDir, copyFolder, getArgument } = require('./helpers');
+const glob = require('glob');
 const fs = require('fs');
+const readline = require('readline');
 
-console.error('WIP');
-return 1;
-
-const dependencies = [
-  "../../library-{0}/src/dist/ngfds",
-  "cypress --save-dev"
-];
+const dependencies = ['../../library-{0}/src/dist/ngfds', 'cypress --save-dev'];
 
 const solutionPath = 'src';
 const projectPath = 'src/projects/demo-project';
@@ -48,8 +44,7 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
 
   // Install dependencies
   for (let index = 0; index < dependencies.length; index++) {
-    const dep = dependencies[index]
-      .replace('{0}', name);
+    const dep = dependencies[index].replace('{0}', name);
     await executeAsync(`npm install ${dep}`, solutionFolder);
   }
 
@@ -57,8 +52,49 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
   const projectFolder = `${solutionFolder}/projects/demo-project`;
   copyFolder(`${projectPath}/src`, `${projectFolder}/src`);
 
+  const tasks = glob.sync(`${projectFolder}/src/**/*.ts`).map(async (file) => {
+    const hasChanges = await changePathOfNgfds(file);
+    if (hasChanges) {
+      fs.rmSync(file);
+      fs.renameSync(`${file}.tmp`, file);
+    } else {
+      fs.rmSync(`${file}.tmp`);
+    }
+  });
+  await Promise.all(tasks);
+
   await executeAsync(
     `ng build --project=demo-project --configuration=production`,
     solutionFolder
   );
 })();
+
+async function changePathOfNgfds(file) {
+  const readStream = fs.createReadStream(file);
+
+  const rl = readline.createInterface({
+    input: readStream,
+    crlfDelay: Infinity,
+  });
+
+  const writer = fs.createWriteStream(`${file}.tmp`);
+  // Note: we use the crlfDelay option to recognize all instances of CR LF
+  // ('\r\n') in input.txt as a single line break.
+
+  let hasChanges = false;
+  for await (const line of rl) {
+    if (line.indexOf('projects/ngfds/src/public-api') !== -1) {
+      hasChanges = true;
+      let newLine = line;
+      newLine = newLine.replace('projects/ngfds/src/public-api', 'ngfds');
+      writer.write(newLine);
+    } else {
+      writer.write(line);
+    }
+    writer.write('\n');
+  }
+  writer.end();
+  rl.close();
+  readStream.close();
+  return hasChanges;
+}

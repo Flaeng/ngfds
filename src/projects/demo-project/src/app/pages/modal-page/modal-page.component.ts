@@ -3,7 +3,7 @@ import {
   ComponentModalOptions,
   FdsModalRef,
   FdsModalService,
-} from 'projects/ngfds/src/lib/modal/public-api';
+} from 'projects/ngfds/src/public-api';
 import { Subscription } from 'rxjs';
 import { BasePageComponent } from '../BasePageComponent';
 import { ModalExample1Component } from './modal-example1/modal-example1.component';

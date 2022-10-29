@@ -27,7 +27,7 @@
     [(ngModel)]="copyUrl"
     [disabled]="true"
     size="width-l"
-    (search)="alert('You copied the text: ' + $event.query)"
+    (search)="navigator.clipboard.writeText(copyUrl); alert('Copied to clipboard: ' + copyUrl)"
   ></fds-search-field>
 </app-demo-view>
 

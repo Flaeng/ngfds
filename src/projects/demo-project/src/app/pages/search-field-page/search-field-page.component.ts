@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
 })
 export class SearchFieldPageComponent {
   copyUrl: string = window.location.href;
-  alert(message: string): void {
-    window.alert(message);
-  }
+  // alert(message: string): void {
+  //   window.alert(message);
+  // }
+  alert = window.alert;
+  navigator = window.navigator;
+  // async addToClipboard(text: string): Promise<void> {
+  //   await navigator.clipboard.writeText(text);
+  // }
 }

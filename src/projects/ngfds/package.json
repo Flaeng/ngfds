@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/Flaeng/ngfds/issues"
   },
-  "keywords": ["fds", "dkfds", "fælles design system", "angular"],
+  "keywords": ["fds", "dkfds", "fælles design system", "angular", "ngfds"],
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^14.2.0",
@@ -22,8 +22,5 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  },
-  "devDependencies": {
-    "dkfds": "^8.1.0"
   }
 }

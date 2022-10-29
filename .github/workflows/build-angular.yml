@@ -20,7 +20,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm run setup
+
       - run: npm run ${{ format('build-library-{0}', matrix.ng-version) }}
+
+      - run: npm run ${{ format('setup-demo-{0}', matrix.ng-version) }}
+
+      - run: npx cypress run --component -b chrome -C ${{ format('temp/demo-project-{0}/src/projects/demo-project/cypress.config.ts', matrix.ng-version) }} -s ${{ format('temp/demo-project-{0}/src/projects/ngfds/cypress/e2e/**/*.cy.ts', matrix.ng-version) }}
+        working-directory: ${{ format('temp/demo-project-{0}', matrix.ng-version) }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3

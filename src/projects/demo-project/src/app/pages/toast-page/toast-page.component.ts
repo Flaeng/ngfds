@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FdsToastService } from 'projects/ngfds/src/lib/toast/toast.service';
+import { FdsToastService } from 'projects/ngfds/src/public-api';
 import { BasePageComponent } from '../BasePageComponent';
 
 @Component({

@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { FdsFileUploadModule } from 'projects/ngfds/src/lib/file-upload/public-api';
-import { FdsCardModule } from 'projects/ngfds/src/public-api';
+import { FdsFileUploadModule, FdsCardModule } from 'projects/ngfds/src/public-api';
 import { AppComponentsModule } from '../../components/components.module';
 import { FileUploadPageComponent } from './file-upload-page.component';
 

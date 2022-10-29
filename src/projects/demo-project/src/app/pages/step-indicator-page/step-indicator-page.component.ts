@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StepIndicatorItem } from 'projects/ngfds/src/lib/step-indicator/public-api';
+import { StepIndicatorItem } from 'projects/ngfds/src/public-api';
 import { BasePageComponent } from '../BasePageComponent';
 
 @Component({

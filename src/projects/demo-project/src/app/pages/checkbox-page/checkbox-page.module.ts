@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { FdsCheckboxModule } from 'projects/ngfds/src/lib/checkbox/checkbox.module';
-import { FdsCardModule } from 'projects/ngfds/src/public-api';
+import { FdsCheckboxModule, FdsCardModule } from 'projects/ngfds/src/public-api';
 import { AppComponentsModule } from '../../components/components.module';
 import { CheckboxPageComponent } from './checkbox-page.component';
 

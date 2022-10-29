@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
-import { SideNavigationItem } from 'projects/ngfds/src/lib/side-navigation/public-api';
+import { SideNavigationItem } from 'projects/ngfds/src/public-api';
 
 @Component({
   selector: 'app-root',

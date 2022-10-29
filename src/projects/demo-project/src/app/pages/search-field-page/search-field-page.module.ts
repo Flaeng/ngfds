@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SearchFieldPageComponent } from './search-field-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponentsModule } from '../../components/components.module';
-import { FdsCardModule } from 'projects/ngfds/src/public-api';
-import { FdsSearchFieldModule } from 'projects/ngfds/src/lib/search-field/public-api';
+import { FdsCardModule, FdsSearchFieldModule } from 'projects/ngfds/src/public-api';
 import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [{ path: '', component: SearchFieldPageComponent }];

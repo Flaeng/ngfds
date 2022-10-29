@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FdsCardModule } from 'projects/ngfds/src/lib/card/card.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ScrollToDirective } from './directives/scroll-to.directive';
 import {
+  FdsCardModule,
   FDS_TOAST_SETTINGS,
   IToastSettings,
-} from 'projects/ngfds/src/lib/toast/toast.service';
-import {
   FdsBadgeModule,
   FdsFooterModule,
   FdsHeaderModule,
