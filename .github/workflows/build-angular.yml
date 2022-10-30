@@ -9,26 +9,24 @@ on:
     - cron: "0 12 * * 5"
 
 jobs:
-#   build:
-#     name: Build for Angular
-#     runs-on: ubuntu-latest
-#     strategy:
-#       matrix:
-#         ng-version: ["v9", "v10", "v11", "v12", "v13", "v14", "v15"]
-#     steps:
-#       - uses: actions/checkout@v3
-#       - run: npm run setup
+  build:
+    name: Build for Angular
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ng-version: ["v9", "v10", "v11"]
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm run setup
 
-#       - run: npm run ${{ format('build-library-{0}', matrix.ng-version) }}
+      - run: npm run ${{ format('build-library-{0}', matrix.ng-version) }}
 
   build-and-setup:
-    name: Build for Angular
+    name: Build and integrate with Angular
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        # ng-version: ["v9", "v10", "v11", "v12", "v13", "v14", "v15"]
-        # ng-version: ["v11", "v12", "v13", "v14", "v15"]
         ng-version: ["v12", "v13", "v14", "v15"]
 
     steps:
