@@ -1,40 +1,40 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "../../../node_modules/dkfds/dist/css/dkfds.min.css";
+// @import "../../../node_modules/dkfds/dist/css/dkfds.min.css";
 
 // Theme
-// $theme-colors: (
-//   "primary": (
-//     100: #44831e,
-//     200: #3c5c22,
-//     300: #233614,
-//   ),
-//   "success": (
-//     100: #44831e,
-//     200: #3c5c22,
-//     300: #233614,
-//   ),
-//   "background": (
-//     100: #f1f1f1,
-//   ),
-// );
+$theme-colors: (
+  "primary": (
+    100: #44831e,
+    200: #3c5c22,
+    300: #233614,
+  ),
+  "success": (
+    100: #44831e,
+    200: #3c5c22,
+    300: #233614,
+  ),
+  "background": (
+    100: #f1f1f1,
+  ),
+);
 
-// $theme-color-primary: "primary-100";
-// $theme-color-primary-dark: "primary-200";
-// $theme-color-primary-darker: "primary-300";
-// $theme-color-success: "success-100";
-// $header-portal-background-color: "background-100";
-// $header-portal-logo-height: 4.8rem;
-// $header-portal-compact-logo-width: 10rem;
+$theme-color-primary: "primary-100";
+$theme-color-primary-dark: "primary-200";
+$theme-color-primary-darker: "primary-300";
+$theme-color-success: "success-100";
+$header-portal-background-color: "background-100";
+$header-portal-logo-height: 4.8rem;
+$header-portal-compact-logo-width: 10rem;
 
-// $font-path: "~dkfds/src/fonts/IBMPlexSans/";
-// $image-path: "~dkfds/src/img";
-// $site-image-path: "~dkfds/src/img";
-// $icons-folder-path: "~dkfds/src/img/svg-icons";
+$font-path: "~dkfds/src/fonts/IBMPlexSans/";
+$image-path: "~dkfds/src/img";
+$site-image-path: "~dkfds/src/img";
+$icons-folder-path: "~dkfds/src/img/svg-icons";
 
-// @import "../../../node_modules/dkfds/src/stylesheets/dkfds";
-// @import "../../ngfds/src/styles.scss";
-@import "../../ngfds/src/styles.css";
+@import "../../../node_modules/dkfds/src/stylesheets/dkfds";
+@import "../../ngfds/src/styles.scss";
+// @import "../../ngfds/src/styles.css";
 
 * {
   word-break: break-word;
