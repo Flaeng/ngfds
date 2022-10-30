@@ -8,7 +8,7 @@ on:
   schedule:
     - cron: "0 12 * * 5"
 
-# jobs:
+jobs:
 #   build:
 #     name: Build for Angular
 #     runs-on: ubuntu-latest
