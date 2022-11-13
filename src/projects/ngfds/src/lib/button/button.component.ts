@@ -13,7 +13,7 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent implements OnInit, OnChanges {
-  @Input() public visual: 'primary' | 'secondary' | 'tertiary' = 'primary';
+  @Input() public visual: 'primary' | 'secondary' | 'tertiary' | 'quaternary' = 'primary';
 
   @Input() public disabled: boolean = false;
 
