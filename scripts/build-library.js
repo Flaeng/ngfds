@@ -20,6 +20,9 @@ const versionNo = parseInt(version.replace(/[A-Za-z\-]+/g, "").split(".")[0], 10
 const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
 
 (async function () {
+  fs.copyFileSync(`README.md`, `src/projects/ngfds/README.md`);
+  fs.copyFileSync(`LICENSE`, `src/projects/ngfds/LICENSE`);
+
   // Make workspace
   const rootFolder = `temp/library-${name}`;
   makeDir(rootFolder, true);
