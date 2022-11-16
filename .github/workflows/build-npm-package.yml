@@ -53,7 +53,7 @@ jobs:
           path: ${{ format('temp/library-v{0}/src/dist', matrix.ng-version) }}
 
       - name: Publish to NPM
-        run: npm publish --dry-run
+        run: npm publish
         working-directory: ${{ format('temp/library-v{0}/src/dist/ngfds', matrix.ng-version) }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
