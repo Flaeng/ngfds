@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {
   FdsBadgeModule,
   FdsCardModule,
+  FdsTooltipModule,
 } from 'projects/ngfds/src/public-api';
 import { AppComponentsModule } from '../../components/components.module';
 import { BadgePageComponent } from './badge-page.component';
@@ -22,6 +23,7 @@ export class BadgeRoutingModule {}
     CommonModule,
     AppComponentsModule,
     FdsBadgeModule,
+    FdsTooltipModule,
     FdsCardModule,
   ],
 })

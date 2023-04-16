@@ -2,14 +2,15 @@
   "scripts": {
     "setup": "node scripts/install.js",
     "build-showroom": "node scripts/build-showroom.js",
-    "setup-demo-v15": "node scripts/setup-demo.js --version=next --name=v15",
+    "setup-demo-latest": "node scripts/setup-demo.js --version=latest --name=v15",
+    "setup-demo-v15": "node scripts/setup-demo.js --version=15 --name=v15",
     "setup-demo-v14": "node scripts/setup-demo.js --version=14 --name=v14",
     "setup-demo-v13": "node scripts/setup-demo.js --version=13 --name=v13",
     "setup-demo-v12": "node scripts/setup-demo.js --version=12 --name=v12",
     "setup-demo-v11": "node scripts/setup-demo.js --version=11 --name=v11",
     "setup-demo-v10": "node scripts/setup-demo.js --version=10 --name=v10",
     "setup-demo-v9": "node scripts/setup-demo.js --version=9 --name=v9",
-    "build-library-v15": "node scripts/build-library.js --version=next --name=v15",
+    "build-library-v15": "node scripts/build-library.js --version=15.0.0 --name=v15",
     "build-library-v14": "node scripts/build-library.js --version=14.0.0 --name=v14",
     "build-library-v13": "node scripts/build-library.js --version=13.0.0 --name=v13",
     "build-library-v12": "node scripts/build-library.js --version=12.0.0 --name=v12",
@@ -18,7 +19,7 @@
     "build-library-v9": "node scripts/build-library.js --version=9.1.0 --name=v9"
   },
   "devDependencies": {
-    "@angular/cli": "^14.2.4",
+    "@angular/cli": "^15.2.6",
     "@supercharge/fs": "^3.4.0",
     "chokidar": "^3.5.3",
     "concurrently": "^7.4.0",
