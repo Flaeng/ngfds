@@ -71,4 +71,3 @@ jobs:
 
       - name: Build demo-project for production
         run: npm run build-showroom
-        working-directory:
