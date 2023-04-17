@@ -38,7 +38,8 @@ const versionNumber = Number.isNaN(versionNo) ? 99 : versionNo;
   );
   const solutionFolder = `${rootFolder}/src`;
   if (versionNo <= 12) {
-    await executeAsync(`npm install jasmine-core@3.8.0`, solutionFolder);
+    // await executeAsync(`npm install jasmine-core@3.8.0`, solutionFolder);
+    await executeAsync(`npm install jasmine-core@4`, solutionFolder);
   }
   await executeAsync(`npm install`, solutionFolder);
 
