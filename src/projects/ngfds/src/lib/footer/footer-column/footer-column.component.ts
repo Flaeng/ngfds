@@ -1,4 +1,4 @@
-import { Component, Optional } from '@angular/core';
+import { Component, Input, Optional } from '@angular/core';
 import { FooterComponent } from '../footer.component';
 
 @Component({
@@ -6,6 +6,7 @@ import { FooterComponent } from '../footer.component';
   templateUrl: './footer-column.component.html',
 })
 export class FooterColumnComponent {
+  @Input() public header: string | null = null;
   constructor(@Optional() parent: FooterComponent) {
     parent.columns.push(this);
   }

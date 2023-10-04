@@ -4,4 +4,6 @@ import { Component } from '@angular/core';
   selector: 'fds-footer-inline',
   templateUrl: './footer-inline.component.html',
 })
-export class FooterInlineComponent {}
+export class FooterInlineComponent {
+
+}

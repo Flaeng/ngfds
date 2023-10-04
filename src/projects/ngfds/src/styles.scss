@@ -61,3 +61,29 @@
 .dropdown-list.open {
   display: block;
 }
+
+fds-footer-column {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+fds-footer-column[width="4"] {
+  display: inline-block;
+  max-width: 33%;
+  flex: 0 0 33%;
+}
+fds-footer-column[width="3"] {
+  display: inline-block;
+  max-width: 25%;
+  flex: 0 0 25%;
+}
+fds-footer-column[width="6"] {
+  display: inline-block;
+  max-width: 50%;
+  flex: 0 0 50%;
+}
+fds-footer-column[width="12"] {
+  display: block;
+}
