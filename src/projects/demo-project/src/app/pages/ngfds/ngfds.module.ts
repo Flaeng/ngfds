@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { NgfdsSideNavigationModule, NgfdsDropdownModule, FdsCardModule, FdsIconsModule } from 'projects/ngfds/src/public-api';
 import { AppComponentsModule } from '../../components/components.module';
@@ -23,6 +23,7 @@ export class NgfdsRoutingModule {}
     NgfdsRoutingModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AppComponentsModule,
     NgfdsDropdownModule,
     NgfdsSideNavigationModule,

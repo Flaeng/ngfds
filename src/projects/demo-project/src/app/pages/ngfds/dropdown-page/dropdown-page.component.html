@@ -12,10 +12,10 @@
 
 <app-demo-view>
   <ngfds-select [(ngModel)]="dropdown1">
-    <ngfds-option>Option #1</ngfds-option>
-    <ngfds-option>Option #2</ngfds-option>
-    <ngfds-option>Option #3</ngfds-option>
-    <ngfds-option>Option #4</ngfds-option>
+    <ngfds-option value="1">Option #1</ngfds-option>
+    <ngfds-option value="2">Option #2</ngfds-option>
+    <ngfds-option value="3">Option #3</ngfds-option>
+    <ngfds-option value="4">Option #4</ngfds-option>
   </ngfds-select>
   <div class="my-3">
     {{ dropdown1 | json }}
@@ -24,19 +24,19 @@
 
 <app-demo-view>
   <ngfds-select [(ngModel)]="dropdown2" placeholder="Choose one">
-    <ngfds-option>
+    <ngfds-option [value]="1">
       <fds-icon icon="face"></fds-icon>
       Option #1
     </ngfds-option>
-    <ngfds-option>
+    <ngfds-option [value]="2">
       <fds-icon icon="support-agent"></fds-icon>
       Option #2
     </ngfds-option>
-    <ngfds-option>
+    <ngfds-option [value]="3">
       <fds-icon icon="drive-eta"></fds-icon>
       Option #3
     </ngfds-option>
-    <ngfds-option>
+    <ngfds-option [value]="4">
       <fds-icon icon="accessibility-new"></fds-icon>
       Option #4
     </ngfds-option>
@@ -53,41 +53,64 @@
     placeholder="Choose one or more"
     [allow-multiple]="true"
   >
-    <ngfds-option>
+    <ngfds-option [value]="{ index: 0, value: 1 }">
       <fds-icon icon="face"></fds-icon>
       Option #1
     </ngfds-option>
-    <ngfds-option>
+    <ngfds-option [value]="{ index: 1, value: 2 }">
       <fds-icon icon="support-agent"></fds-icon>
       Option #2
     </ngfds-option>
-    <ngfds-option>
+    <ngfds-option [value]="{ index: 2, value: 3 }">
       <fds-icon icon="drive-eta"></fds-icon>
       Option #3
     </ngfds-option>
-    <ngfds-option>
+    <ngfds-option [value]="{ index: 3, value: 4 }">
       <fds-icon icon="accessibility-new"></fds-icon>
       Option #4
     </ngfds-option>
-    <ngfds-option>
+    <ngfds-option [value]="{ index: 4, value: 5 }">
       <fds-icon icon="face"></fds-icon>
       Option #5
     </ngfds-option>
-    <ngfds-option>
+    <ngfds-option [value]="{ index: 5, value: 6 }">
       <fds-icon icon="support-agent"></fds-icon>
       Option #6
     </ngfds-option>
-    <ngfds-option>
+    <ngfds-option [value]="{ index: 6, value: 7 }">
       <fds-icon icon="drive-eta"></fds-icon>
       Option #7
     </ngfds-option>
-    <ngfds-option>
+    <ngfds-option [value]="{ index: 7, value: 8 }">
       <fds-icon icon="accessibility-new"></fds-icon>
       Option #8
     </ngfds-option>
   </ngfds-select>
   <div class="my-3">
     {{ dropdown3 | json }}
+  </div>
+</app-demo-view>
+
+<app-demo-view>
+  <form [formGroup]="demoFormGroup">
+    <h1>Form group</h1>
+    <p>Optional</p>
+    <sds-custom-select formControlName="optionalSelector" [allow-multiple]="true">
+      <sds-custom-option [value]="1">Option #1</sds-custom-option>
+      <sds-custom-option [value]="2">Option #2</sds-custom-option>
+      <sds-custom-option [value]="3">Option #3</sds-custom-option>
+      <sds-custom-option [value]="4">Option #4</sds-custom-option>
+    </sds-custom-select>
+    <p>Required</p>
+    <sds-custom-select formControlName="requiredSelector" [allow-multiple]="true">
+      <sds-custom-option [value]="5">Option #5</sds-custom-option>
+      <sds-custom-option [value]="6">Option #6</sds-custom-option>
+      <sds-custom-option [value]="7">Option #7</sds-custom-option>
+      <sds-custom-option [value]="8">Option #8</sds-custom-option>
+    </sds-custom-select>
+  </form>
+  <div class="my-3">
+    {{ demoFormGroup.value | json }}
   </div>
 </app-demo-view>
 

@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  Input,
   OnDestroy,
   OnInit,
   Optional,
@@ -24,6 +25,8 @@ export class NgfdsDropdownOptionComponent
 
   text: string = '';
   html: string = '';
+
+  @Input({ required: true }) value?: any;
 
   parentAllowsMultiple: boolean = false;
   isSelected: boolean = false;

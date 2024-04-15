@@ -95,6 +95,7 @@ NgfdsDropdownOptionComponent[] | NgfdsDropdownOptionComponent | null
     for (const opt of this.options) {
       opt.isSelected = this.selectedItems.indexOf(opt) !== -1;
     }
+    super.emitChanges(this._selectedItems.map(x => x.value));
   }
 
   registerOption(comp: NgfdsDropdownOptionComponent) {
@@ -245,7 +246,6 @@ NgfdsDropdownOptionComponent[] | NgfdsDropdownOptionComponent | null
     } else {
       this.selectItem(ev, item);
     }
-    this.emitNgModelChanged();
   }
 
   public selectItem(ev: Event | null, item: NgfdsDropdownOptionComponent) {
